@@ -5,7 +5,7 @@ A gem that overwrites the Array class and is able to implement different type me
 
 ###Algorithm Methods
 
-
+Quick Sort <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Sorting_quicksort_anim.gif>
 ##Algorithms
 
 I am also storing algorithms I have stumbled upon and have given me difficulty.
