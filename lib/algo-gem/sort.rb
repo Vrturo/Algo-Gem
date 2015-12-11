@@ -13,55 +13,37 @@ class Array
   end
 
 
-# # Sample implementation of quicksort and mergesort in ruby
-# # Both algorithm sort in O(n * lg(n)) time
-# # Quicksort works inplace, where mergesort works in a new array
-#   def quicksort(array, from=0, to=nil)
-#       if to == nil
-#           # Sort the whole array, by default
-#           to = array.count - 1
-#       end
+  def quicksort #takes an array of integers as an argument
+  # You need a base case, otherwise your recursive calls never terminate
 
-#       if from >= to
-#           # Done sorting
-#           return
-#       end
+  if self.length <= 1
+    return self
+  # Now pick a pivot:
+  else
+    pivot = self.sample
+    self.delete_at(self.index(pivot)) # remove the pivot
+    # puts "Picked pivot of: #{pivot}"
+    less = []
+    greater = []
 
-#       # Take a pivot value, at the far left
-#       pivot = array[from]
+  # Loop through the array, comparing items to pivot and collecting them into less and greater arrays.
 
-#       # Min and Max pointers
-#       min = from
-#       max = to
+    self.each do |x|
+      if x <= pivot
+        less << x
+      else
+        greater << x
+      end
+    end
+  # Now, recursively call self.quicksort on your less and greater arrays.
 
-#       # Current free slot
-#       free = min
+    sorted_array = []
+    sorted_array << less.quicksort
+    sorted_array << pivot
+    sorted_array << greater.quicksort
+  # Return the sorted_array and you're done.
 
-#       while min < max
-#           if free == min # Evaluate array[max]
-#               if array[max] <= pivot # Smaller than pivot, must move
-#                   array[free] = array[max]
-#                   min += 1
-#                   free = max
-#               else
-#                   max -= 1
-#               end
-#           elsif free == max # Evaluate array[min]
-#               if array[min] >= pivot # Bigger than pivot, must move
-#                   array[free] = array[min]
-#                   max -= 1
-#                   free = min
-#               else
-#                   min += 1
-#               end
-#           else
-#               raise "Inconsistent state"
-#           end
-#       end
-
-#       array[free] = pivot
-
-#       quicksort array, from, free - 1
-#       quicksort array, free + 1, to
-#   end
+    # using Array.flatten to remove subarrays
+    sorted_array.flatten!
+  end
 end
