@@ -1,1 +1,1 @@
-require 'algo-gem/methods'
+require 'algo-gem/hola.rb'
