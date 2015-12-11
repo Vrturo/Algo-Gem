@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
   s.files       = [
     "bin/algo-gem",
     "lib/algo-gem.rb",
-    "lib/algo-gem/hola.rb"]
+    "lib/algo-gem/quicksort.rb"]
   s.homepage    = 'http://www.github.com/vrturo/algo-gem'
   s.license       = 'MIT'
 end
