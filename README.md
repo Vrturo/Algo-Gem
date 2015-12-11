@@ -5,7 +5,7 @@ A gem that overwrites the Array class and is able to implement different type me
 
 ##Algorithm Methods
 
-##Simple Sorts
+##Simple Sorts!
 <br>
 <div>
   <h3>Selection Sort</h3>
@@ -21,7 +21,7 @@ The algorithm divides the input list into two parts: the sublist of items alread
 <br>
 Insertion sort iterates, consuming one input element each repetition, and growing a sorted output list. Each iteration, insertion sort removes one element from the input data, finds the location it belongs within the sorted list, and inserts it there. It repeats until no input elements remain.
 <br>
-##Efficient Sorts
+##Efficient Sorts!
 <div>
   <h3>Quick Sort</h3>
   <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Sorting_quicksort_anim.gif">
