@@ -29,6 +29,13 @@ Insertion sort iterates, consuming one input element each repetition, and growin
 <br>
 Quicksort is a divide and conquer algorithm. Quicksort first divides a large array into two smaller sub-arrays: the low elements and the high elements. Quicksort can then recursively sort the sub-arrays.
 <br>
+<div>
+  <h3>Merge Sort</h3>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/c/cc/Merge-sort-example-300px.gif">
+<div>
+<br>
+Merge sort first divides the list into the smallest unit (1 element), then compares each element with the adjacent list to sort and merge the two adjacent lists. Finally all the elements are sorted and merged.
+<br>
 ##Algorithms
 
 I am also storing algorithms I have stumbled upon and have given me difficulty.
