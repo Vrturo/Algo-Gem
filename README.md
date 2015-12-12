@@ -51,7 +51,14 @@ In the first step, a heap is built out of the data. The heap is often placed in 
 ##Bubble Sorts and Variants!
 <br>
 Bubble sort, and variants such as the cocktail sort, are simple but highly inefficient sorts. They are thus frequently seen in introductory texts, and are of some theoretical interest due to ease of analysis, but they are rarely used in practice, and primarily of recreational interest. Some variants, such as the Shell sort, have open questions about their behavior.
+<div>
+  <h3>Bubble Sort</h3>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/c/c8/Bubble-sort-example-300px.gif">
+<div>
 <br>
+ Starting from the beginning of the list, compare every adjacent pair, swap their position if they are not in the right order (the latter one is smaller than the former one). After each iteration, one less element (the last one) is needed to be compared until there are no more elements left to be compared.
+<br>
+
 
 ##Algorithms
 
