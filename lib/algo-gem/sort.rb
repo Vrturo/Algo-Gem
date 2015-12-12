@@ -12,10 +12,8 @@ class Array
     return sorted
   end
 
-
   def quicksort
   # You need a base case, otherwise your recursive calls never terminate
-
     if self.length <= 1
       return self
     # Now pick a pivot:
@@ -25,9 +23,7 @@ class Array
       puts "Picked pivot of: #{pivot}"
       less = []
       greater = []
-
   # Loop through the array, comparing items to pivot and collecting them into less and greater arrays.
-
       self.each do |x|
         if x <= pivot
           less << x
@@ -36,20 +32,18 @@ class Array
         end
   # Now, recursively call self.quicksort on your less and greater arrays.
       end
-
       sorted_array = []
       sorted_array << less.quicksort
       sorted_array << pivot
       sorted_array << greater.quicksort
-    # Return the sorted_array and you're done.
-
+      # Return the sorted_array and you're done.
       # using Array.flatten to remove subarrays
       sorted_array.flatten!
     end
   end
 
-
   def insertion_sort
+    # Efficient for small number of elements
     final = [self[0]]
     self.delete_at(0)
     # main code
