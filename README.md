@@ -43,6 +43,8 @@ Merge sort is a popular conquer and divide sorting algorithm. Merge sort first d
 <br>
 In the first step, a heap is built out of the data. The heap is often placed in an array with the layout of a complete binary tree. The complete binary tree maps the binary tree structure into the array indices; each array index represents a node; the index of the node's parent, left child branch, or right child branch are simple expressions. For a zero-based array, the root node is stored at index 0; if i is the index of the current node, then in the second step, a sorted array is created by repeatedly removing the largest element from the heap (the root of the heap), and inserting it into the array. The heap is updated after each removal to maintain the heap. Once all objects have been removed from the heap, the result is a sorted array.
 <br>
+##Bubble Sorts and Variants!
+
 ##Algorithms
 
 I am also storing algorithms I have stumbled upon and have given me difficulty.
