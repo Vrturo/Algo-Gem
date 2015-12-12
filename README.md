@@ -36,6 +36,13 @@ Quicksort is a divide and conquer algorithm. Quicksort first divides a large arr
 <br>
 Merge sort is a popular conquer and divide sorting algorithm. Merge sort first divides the list into the smallest unit (1 element), then compares each element with the adjacent list to sort and merge the two adjacent lists. Finally all the elements are sorted and merged.
 <br>
+<div>
+  <h3>Heapsort</h3>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Sorting_heapsort_anim.gif">
+<div>
+<br>
+In the first step, a heap is built out of the data. The heap is often placed in an array with the layout of a complete binary tree. The complete binary tree maps the binary tree structure into the array indices; each array index represents a node; the index of the node's parent, left child branch, or right child branch are simple expressions. For a zero-based array, the root node is stored at index 0; if i is the index of the current node, then in the second step, a sorted array is created by repeatedly removing the largest element from the heap (the root of the heap), and inserting it into the array. The heap is updated after each removal to maintain the heap. Once all objects have been removed from the heap, the result is a sorted array.
+<br>
 ##Algorithms
 
 I am also storing algorithms I have stumbled upon and have given me difficulty.
