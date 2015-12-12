@@ -64,4 +64,27 @@ class Array
     final
   end
 
+  def merge_sort
+    if self.length <= 1
+      self
+    else
+      mid = (self.length / 2).floor #Returns the largest integer less than or equal to float.
+      left = merge_sort(self[0..mid - 1])
+      right = merge_sort(self[mid..self.length])
+      merge(left, right)
+    end
+  end
+
+  def merge(left, right)
+    if left.empty?
+      right
+    elsif right.empty?
+      left
+    elsif left.first < right.first
+      [left.first] + merge(left[1..left.length], right)
+    else
+      [right.first] + merge(left, right[1..right.length])
+    end
+  end
+
 end

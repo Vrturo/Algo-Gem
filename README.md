@@ -34,7 +34,7 @@ Quicksort is a divide and conquer algorithm. Quicksort first divides a large arr
   <img src="https://upload.wikimedia.org/wikipedia/commons/c/cc/Merge-sort-example-300px.gif">
 <div>
 <br>
-Merge sort first divides the list into the smallest unit (1 element), then compares each element with the adjacent list to sort and merge the two adjacent lists. Finally all the elements are sorted and merged.
+Merge sort is a popular conquer and divide sorting algorithm. Merge sort first divides the list into the smallest unit (1 element), then compares each element with the adjacent list to sort and merge the two adjacent lists. Finally all the elements are sorted and merged.
 <br>
 ##Algorithms
 
