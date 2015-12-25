@@ -1,3 +1,7 @@
+# Write a function condense_meeting_times that takes an array of meeting time ranges and returns an array of condensed ranges.
+ # a meeting is stored as arrays of integers [start_time, end_time].
+ # These integers represent the number of 30-minute blocks past 9:00am.
+
 def merge_ranges(meetings)
 
 # sort by start times, breaking ties with end times
