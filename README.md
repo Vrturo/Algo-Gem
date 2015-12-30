@@ -68,8 +68,7 @@ Bubble sort, and variants such as the cocktail sort, are simple but highly ineff
   <img src="https://upload.wikimedia.org/wikipedia/commons/4/46/Comb_sort_demo.gif">
 <div>
 <br>
-
-
+  Comb sort is a comparison sorting algorithm. It is an exchange sort, similar to bubble sort. In comb sort, gaps (distance of two items from each other) are introduced. The gap in bubble sort is 1. The Comb Sort is a variant of the Bubble Sort. Like the Shell sort, the Comb Sort increases the gap used in comparisons and exchanges. Some implementations use the insertion sort once the gap is less than a certain amount.
 
 ##Algorithms
 
