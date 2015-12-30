@@ -64,6 +64,11 @@ Bubble sort, and variants such as the cocktail sort, are simple but highly ineff
 <br>
   Shellsort is a generalization of insertion sort that allows the exchange of items that are far apart. The idea is to arrange the list of elements so that, starting anywhere, considering every hth element gives a sorted list. Starts by comparing elements far apart, then elements less far apart, and finally comparing adjacent elements (effectively an insertion sort).
 <br>
+<h5>Comb Sort</h5>
+  <img src="">
+<div>
+<br>
+
 
 
 ##Algorithms
