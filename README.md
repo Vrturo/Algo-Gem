@@ -3,7 +3,33 @@
 
 A gem that overwrites the Array class and is able to implement different type methods quickly so the user can choose which is made for the best case scenario.
 
+Installing
+----------
+```bash
+gem install algo-gem
+```
+
+Methods Available
+----------
+```bash
+array = [9, 5, 1]
+
+array.selection_sort #=> [1, 5, 9]
+
+array.quick_sort #=> [1, 5, 9]
+
+array.insertion_sort #=> [1, 5, 9]
+
+array.merge_sort #=> [1, 5, 9]
+
+array.heap_sort #=> [1, 5, 9]
+
+array.comb_sort #=> [1, 5, 9]
+
+```
+
 ##Algorithm Methods
+
 
 ###Simple Sorts!
 <br>

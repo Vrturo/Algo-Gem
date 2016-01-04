@@ -12,7 +12,7 @@ class Array
     return sorted
   end
 
-  def quicksort
+  def quick_sort
   # You need a base case, otherwise your recursive calls never terminate
     if self.length <= 1
       return self
@@ -87,11 +87,11 @@ class Array
     end
   end
 
-  def heapsort
-    self.dup.heapsort!
+  def heap_sort
+    self.dup.heap_sort!
   end
 
-  def heapsort!
+  def heap_sort!
     # in pseudo-code, heapify only called once, so inline it here
     ((length - 2) / 2).downto(0) {|start| siftdown(start, length - 1)}
 
@@ -120,7 +120,7 @@ class Array
     end
   end
 
-  def combsort!
+  def comb_sort
     gap = size
     swaps = true
     while gap > 1 or swaps
