@@ -39,6 +39,7 @@ Two of the simplest sorts are insertion sort and selection sort, both of which a
   <img src="./imgs/selection_sort.gif">
 </div>
 <br>
+Description:<br>
 The algorithm divides the input list into two parts: the sublist of items already sorted, which is built up from left to right at the front (left) of the list, and the sublist of items remaining to be sorted that occupy the rest of the list. Initially, the sorted sublist is empty and the unsorted sublist is the entire input list. The algorithm proceeds by finding the smallest (or largest, depending on sorting order) element in the unsorted sublist, exchanging (swapping) it with the leftmost unsorted element (putting it in sorted order), and moving the sublist boundaries one element to the right.
 <br>
 <div>
@@ -46,6 +47,7 @@ The algorithm divides the input list into two parts: the sublist of items alread
   <img src="./imgs/insertion_sort.gif">
 </div>
 <br>
+Description:<br>
 Insertion sort iterates, consuming one input element each repetition, and growing a sorted output list. Each iteration, insertion sort removes one element from the input data, finds the location it belongs within the sorted list, and inserts it there. It repeats until no input elements remain.
 <br>
 ###Efficient Sorts!
@@ -58,6 +60,7 @@ While these algorithms are asymptotically efficient on random data, for practica
   <img src="./imgs/quick_sort.gif">
 <div>
 <br>
+Description:<br>
 Quicksort is a divide and conquer algorithm. Quicksort first divides a large array into two smaller sub-arrays: the low elements and the high elements. Quicksort can then recursively sort the sub-arrays.
 <br>
 <div>
@@ -72,28 +75,33 @@ Merge sort is a popular conquer and divide sorting algorithm. Merge sort first d
   <img src="./imgs/heap_sort.gif">
 <div>
 <br>
+Description:<br>
 In the first step, a heap is built out of the data. The heap is often placed in an array with the layout of a complete binary tree. The complete binary tree maps the binary tree structure into the array indices; each array index represents a node; the index of the node's parent, left child branch, or right child branch are simple expressions. For a zero-based array, the root node is stored at index 0; if i is the index of the current node, then in the second step, a sorted array is created by repeatedly removing the largest element from the heap (the root of the heap), and inserting it into the array. The heap is updated after each removal to maintain the heap. Once all objects have been removed from the heap, the result is a sorted array.
 <br>
 ###Bubble Sorts and Variants!
 <br>
+Description:<br>
 Bubble sort, and variants such as the cocktail sort, are simple but highly inefficient sorts. They are thus frequently seen in introductory texts, and are of some theoretical interest due to ease of analysis, but they are rarely used in practice, and primarily of recreational interest. Some variants, such as the Shell sort, have open questions about their behavior.
 <div>
   <h5>Bubble Sort</h5>
   <img src="./imgs/bubble_sort.gif">
 <div>
 <br>
+Description:<br>
  Starting from the beginning of the list, compare every adjacent pair, swap their position if they are not in the right order (the latter one is smaller than the former one). After each iteration, one less element (the last one) is needed to be compared until there are no more elements left to be compared.
 <br>
 <h5>Shell Sort</h5>
   <img src="./imgs/shell_sort.gif">
 <div>
 <br>
+Description:<br>
   Shellsort is a generalization of insertion sort that allows the exchange of items that are far apart. The idea is to arrange the list of elements so that, starting anywhere, considering every hth element gives a sorted list. Starts by comparing elements far apart, then elements less far apart, and finally comparing adjacent elements (effectively an insertion sort).
 <br>
 <h5>Comb Sort</h5>
   <img src="./imgs/comb_sort.gif">
 <div>
 <br>
+Description:<br>
   Comb sort is a comparison sorting algorithm. It is an exchange sort, similar to bubble sort. In comb sort, gaps (distance of two items from each other) are introduced. The gap in bubble sort is 1. The Comb Sort is a variant of the Bubble Sort. Like the Shell sort, the Comb Sort increases the gap used in comparisons and exchanges. Some implementations use the insertion sort once the gap is less than a certain amount.
 
 ##Algorithms
