@@ -14,6 +14,7 @@ gem install algo-gem
 Methods Available
 ----------
 ```bash
+#=> Example Code
 array = [9, 5, 1]
 
 array.selection_sort #=> [1, 5, 9]
