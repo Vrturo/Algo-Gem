@@ -113,7 +113,6 @@ I am also storing algorithms I have stumbled upon and have given me difficulty.
 <br>I encourage anyone to add challenging algorithm problems on the Algortihms Directory.
 
 ## Resources
-
 https://www.interviewcake.com/
 <br>https://leetcode.com/
 <br>https://www.glassdoor.com/Interview/index.htm
