@@ -14,7 +14,7 @@
 #     return true
 # end
 
-# ----------------------
+# ---------------------- two method answer
 # def reverse_string(string)
 #   start = 0
 #   finish = string.length-1
