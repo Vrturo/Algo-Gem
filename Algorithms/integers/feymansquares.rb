@@ -11,7 +11,14 @@
 # count_squares(3) = 14
 
 
+# def count_squares(n)
+#    (1..n).inject{|sum, e| sum+e*e}
+# end
 
-def count_squares(n)
-   (1..n).inject{|sum, e| sum+e*e}
-end
+# def count_squares(n)
+#   n == 1 ? 1 : (n * n) + count_squares(n - 1);
+# end
+
+# def count_squares(n)
+#     (0..n).map { |x| x**2 }.reduce(:+)
+# end
