@@ -11,3 +11,23 @@
 # foo9 -> foo10
 # foo099 -> foo100
 
+# def increment_string(input)
+#   input.sub(/\d*$/) { |n| n.empty? ? 1 : n.succ } # succ method increments by one
+# end
+
+# def increment_string(input)
+#   return "1" if input.empty?
+#   input << "0" unless input[-1].match(/\d+/)
+
+#   input.gsub(/\d+$/) { |n| n.next }
+# end
+
+# def increment_string(input)
+#  if input.scan( /\d+$/ ).first == nil
+#   num = 1
+# else
+#   num = input.scan( /\d+$/ ).first
+#   num = num.next
+# end
+# input = "#{input.gsub(/ *\d+$/, '')}#{num}"
+# end
