@@ -18,3 +18,36 @@
 
 # There aren't necessarily only three cups in this game, but there will be at least two.
 # You can assume all swaps are valid, and involve two distinct indices.
+
+
+# def find_the_ball start, moves
+#   moves.reduce(start) { |ball, (a, b)|
+#     case ball
+#     when a then b
+#     when b then a
+#     else ball
+#     end
+#   }
+# end
+
+
+# def find_the_ball start, moves
+#   ball_pos = start
+#   moves.each do |swap|
+#     if swap[0] == ball_pos then ball_pos = swap[1]
+#     elsif swap[1] == ball_pos then ball_pos = swap[0]
+#     end
+#   end
+#   ball_pos
+# end
+
+
+# def find_the_ball(start, swaps)
+#   swaps.inject(start) { |position, (from, to)|
+#     case position
+#     when from then to
+#     when to then from
+#     else position
+#     end
+#   }
+# end
