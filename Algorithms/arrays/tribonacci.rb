@@ -20,3 +20,30 @@
 # Signature will always contain 3 numbers; n will always be a non-negative number;
 # be ready for anything else which is not clearly specified ;)
 
+# def tribonacci(s, n)
+#   for i in 3..n
+#     s[i] = s[i-1] + s[i-2] + s[i-3]
+#   end
+#   return s.slice(0, n)
+# end
+
+# def tribonacci(sign,n)
+#   while sign.length<n
+#     sign+=[sign[-3]+sign[-2]+sign[-1]]
+#   end
+#   return sign[0,n]
+# end
+
+# def tribonacci(signature,n)
+#   if n == 0
+#     return []
+#   elsif n < 3
+#       return [signature[n]]
+#   else
+#       for i in 1..n - 3
+#         new_sum = signature[signature.length - 3...signature.length].reduce(:+)
+#         signature << new_sum
+#       end
+#       signature
+#    end
+# end
