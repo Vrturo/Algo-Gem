@@ -1,6 +1,5 @@
 # Algo-Gem
 
-
 A gem that overwrites the Array class and is able to implement different type of algorithmic methods quickly, so the user can implement algorithmic methods for their best case scenario.
 
 NOTE: Methods only work on the Array class
