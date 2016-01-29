@@ -29,3 +29,10 @@
 # => 11 ...
 # => 1 + 1
 # => 2
+
+def digital_root(n)
+   until n.to_s.split('').count == 1 do
+     n = n.to_s.split('').map(&:to_i).reduce(:+)
+   end
+   return n
+end
