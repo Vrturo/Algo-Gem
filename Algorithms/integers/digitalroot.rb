@@ -30,18 +30,18 @@
 # => 1 + 1
 # => 2
 
-def digital_root(n)
-  n < 10 ? n : digital_root(n / 10 + n % 10) #once n is less than 10, it is a single digit
-end
+# def digital_root(n)
+#   n < 10 ? n : digital_root(n / 10 + n % 10) #once n is less than 10, it is a single digit
+# end
 
-def digital_root(n)
-  n = n.to_s.chars.map(&:to_i).inject(&:+) while n > 9
-  n
-end
+# def digital_root(n)
+#   n = n.to_s.chars.map(&:to_i).inject(&:+) while n > 9
+#   n
+# end
 
-def digital_root(n)
-   until n.to_s.split('').count == 1 do
-     n = n.to_s.split('').map(&:to_i).reduce(:+)
-   end
-   return n
-end
+# def digital_root(n)
+#    until n.to_s.split('').count == 1 do
+#      n = n.to_s.split('').map(&:to_i).reduce(:+)
+#    end
+#    return n
+# end
