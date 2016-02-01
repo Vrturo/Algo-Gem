@@ -6,32 +6,32 @@
 # isPrime(5)
 # => true
 
-# def isPrime(num)
-#   return false if num <= 1
-#   Math.sqrt(num).to_i.downto(2).each {|i| return false if num % i == 0}
-#   true
-# end
+def isPrime(num)
+  return false if num <= 1
+  Math.sqrt(num).to_i.downto(2).each {|i| return false if num % i == 0}
+  true
+end
 
 
-# require 'prime'
+require 'prime'
 
-# def isPrime(num)
-#   num.prime?
-# end
+def isPrime(num)
+  num.prime?
+end
 
 
-# def isPrime(num)
-#   return false if num <= 1
-#   return true if num < 4
-#   (2...num).each do |i|
-#      return false if num % i == 0
-#    end
-#   true
-# end
+def isPrime(num)
+  return false if num <= 1
+  return true if num < 4
+  (2...num).each do |i|
+     return false if num % i == 0
+   end
+  true
+end
 
-# def isPrime(num)
-#   return false if num < 2
-#   return true if num == 2
+def isPrime(num)
+  return false if num < 2
+  return true if num == 2
 
-#   (2..(num-1)).none? { |i| num % i == 0 }
-# end
+  (2..(num-1)).none? { |i| num % i == 0 }
+end
