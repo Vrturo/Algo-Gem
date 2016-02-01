@@ -1,5 +1,5 @@
-"Given an array_of_ints, find the highest_product you can get from three of the integers.
-The input array_of_ints will always have at least three integers."
+# "Given an array_of_ints, find the highest_product you can get from three of the integers.
+# The input array_of_ints will always have at least three integers."
 
 
 array = [2, 6, 4, -1, -5, 10]
