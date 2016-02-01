@@ -9,3 +9,8 @@
 # The Challenge:
 # Your code must return true or false depending upon whether the given number is a Narcissistic number.
 # Error checking for text strings or other invalid inputs is not required, only valid integers will be passed into the function.
+
+def narcissistic?( value )
+  value == value.to_s.chars.map { |x| x.to_i**value.to_s.size }.reduce(:+)
+end
+
