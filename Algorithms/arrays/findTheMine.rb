@@ -12,3 +12,22 @@
 # mineLocation( [ [0, 0, 0], [0, 1, 0], [0, 0, 0] ] ) => returns [1, 1]
 # mineLocation( [ [0, 0, 0], [0, 0, 0], [0, 1, 0] ] ) => returns [2, 1]
 
+def mineLocation field
+  field.each_with_index do |x, i|
+    return i, x.index(1) if x.include? 1
+  end
+end
+
+def mineLocation(field)
+  field.flatten.index(1).divmod field.size
+end
+
+def mineLocation field
+  field.each_with_index do |x, i|
+    x.each_with_index do |y, t|
+      if field[i][t] == 1
+        return [i, t]
+      end
+    end
+  end
+end
