@@ -1,3 +1,15 @@
+# Advantages to using a Linked List:
+#   Simple to conceptualize
+#   Constant time deletion
+#   Constant time insertion
+#   Dynamically expand and contract
+#     Memory not stored continuously
+
+# Disadvantages to using a Linked List:
+#   Extra memory to store pointers
+#   Accessing nodes must be read in order
+#   Can not navigate backwards
+
 class Node
     attr_accessor :value, :next
 
