@@ -10,6 +10,21 @@
 #   Accessing nodes must be read in order
 #   Can not navigate backwards
 
+# Examples of Linked Lists
+#   Create many other data structures
+#     stacks
+#     queues
+#     graphs
+#     hash tables
+#   FAT(File Allocation Table) System
+
+# When should I use a Linked List
+#   Primarily neededto insert and delete in the middle of the collection
+#     Since the insertion and delete action are only a Constant time => O(1) Operation
+#   Splitting and Joining are common case uses for Linked Lists
+#   Searching and Accessing values are not needed
+#   No random access needed
+
 class Node
     attr_accessor :value, :next
 
