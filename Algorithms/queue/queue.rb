@@ -1,3 +1,17 @@
+Queue
+  A linear data structure that adds and removes elements using a FIFO(first in first out) rule
+
+  Attributes
+    Storage
+      Typically Linked List or Array
+      What if array is usedor large queues?
+        LinkedList is preffered for large queues.
+          Time Complexity of LL is Constant and Array is linear
+    Methods
+      enqueue - add element to the queue
+      dequeue - remove & return first element from the queue
+      peek (optional) - return the first element but does not remove
+
 
 
 class Queue
