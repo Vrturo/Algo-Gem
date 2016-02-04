@@ -33,6 +33,12 @@ Queue
       Ruby/Javascript Array
       Python List
 
+  Example Uses of Queue
+    Shared resourceamong multiple users
+      CPU scheduling
+    Handle asynchronous operations
+      I/O buffers
+
 
 
 class Queue
