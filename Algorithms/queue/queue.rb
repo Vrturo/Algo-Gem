@@ -21,6 +21,18 @@ Queue
     Peek
       Constant => 0(1)
 
+  Advantages to using a Queue
+    Great for enforcing FIFO(First In First Out) restriction
+    Able to dynamically expand and contract
+      (with the use of linked list)
+
+  Disadvantages to using a Queue
+    Restricted access to values
+      In order to access anything but first element in the stack you have to pop off all other elements
+    Obsolete in more modern languages
+      Ruby/Javascript Array
+      Python List
+
 
 
 class Queue
