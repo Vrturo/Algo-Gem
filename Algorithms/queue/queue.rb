@@ -12,6 +12,15 @@ Queue
       dequeue - remove & return first element from the queue
       peek (optional) - return the first element but does not remove
 
+  Time Complexity
+    Enqueue
+      Constant => 0(1)
+    Dequeue
+      if LL Constant => 0(1)
+      if Array Linear => 0(n)
+    Peek
+      Constant => 0(1)
+
 
 
 class Queue
