@@ -6,7 +6,7 @@ function swapNumb(a, b){
   b = a-b;
 }
 
-
+// bit manipulation
 // WTFFFFF idk why
 function swapNumb(a, b){
   b = a ^ b;
