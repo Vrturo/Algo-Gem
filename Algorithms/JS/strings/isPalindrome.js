@@ -8,3 +8,27 @@ function isPalindrome(str){
   }
   return true;
 }
+
+function isPalindrome(str) {
+    var revStr = "";
+    for (var i = str.length - 1; i >= 0; i--) {
+        revStr += str[i];
+    }
+    if (str === revStr) {
+      return true
+    }
+    else {
+      return false
+    }
+}
+
+//  palindrome, considering only alphanumeric characters and ignoring cases.
+var isPalindrome = function(str) {
+  var s = str.toUpperCase().replace(/[\W_]+/g,"");
+  var len = s.length;
+  for(var i = 0; i < len/2; i++){
+    if (s[i]!== s[len -1 -i])
+       return false;
+  }
+  return true;
+};
