@@ -18,3 +18,16 @@
 // ]
 
 
+var subsets = function(nums) {
+    var result = [];
+    function helper(set, i){
+        if (nums.length === i){
+            result.push(set);
+            return;
+        }
+        helper(set, Number(i+1));
+        helper(set + nums[i], Number(i+1));
+    }
+    helper([],0);
+    return result;
+};
