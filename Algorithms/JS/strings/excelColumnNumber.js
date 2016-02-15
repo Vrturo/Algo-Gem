@@ -10,3 +10,15 @@
 //     AA -> 27
 //     AB -> 28
 
+var titleToNumber = function(s) {
+    var map = {},
+    result = 0;
+    for (var j = 0; j != 26; j++){
+        map[String.fromCharCode(j + 65)] = j + 1;  // populate object keys with alphabet, and add number value
+    }
+
+    s.split('').forEach(function(currentVal,i,arr){
+        result += map[currentVal] * (Math.pow(26,arr.length - 1 - i ) );
+    })
+    return result;
+};
