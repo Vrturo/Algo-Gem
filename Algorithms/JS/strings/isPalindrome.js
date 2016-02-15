@@ -32,3 +32,15 @@ var isPalindrome = function(str) {
   }
   return true;
 };
+
+var isPalindrome = function(str) {
+  var s = str.toUpperCase().replace(/[\W_]+/g,"");
+  var len = s.length;
+  var counter = 0;
+      for(var i = len - 1; i > len/2; i--){
+          if (s[i]!== s[counter])
+               return false;
+          counter++;
+       }
+  return true;
+};
