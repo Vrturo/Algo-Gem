@@ -16,9 +16,9 @@
 
 
 function mergeSort(arr){
-    if (arr.length < 2)
+    if (arr.length < 2){
         return arr;
-
+     }
     var mid = parseInt(arr.length / 2);
     var left   = arr.slice(0, mid);
     var right  = arr.slice(mid, arr.length);
@@ -26,8 +26,7 @@ function mergeSort(arr){
     return merge(mergeSort(left), mergeSort(right));
 }
 
-function merge(l, r)
-{
+function merge(l, r){
     var result = [];
 
     while (l.length && r.length) {
