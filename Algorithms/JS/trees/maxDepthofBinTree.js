@@ -20,3 +20,21 @@ var maxDepth = function(root) {
     }
     return Math.max(maxDepth(root.right),maxDepth(root.left)) + 1;
 };
+
+
+var maxDepth = function(root){
+    var maxDepth = 0;
+
+    var traverse = function(cNode, depth){
+        if (cNode === null){
+            maxDepth = Math.max(maxDepth, depth);
+            return;
+        }
+
+        traverse(cNode.right, depth + 1);
+        traverse(cNode.left, depth + 1);
+    }
+    traverse(root, 0);
+
+    return maxDepth;
+}
