@@ -4,7 +4,7 @@
 
 var romanToInt = function(s) {
 
-    var map = {
+    var lib = {
         "I": 1, //can be in front of "V" or "X"
         "V": 5,
         "X": 10, //can be in front of "L" or "C"
@@ -16,14 +16,14 @@ var romanToInt = function(s) {
     var ret = 0;
     for(var i = 0; i < s.length; i++){
         if((i < s.length - 1) && (s[i] === "I" || s[i] === "X" || s[i] === "C")){
-            if(map[s[i + 1]] > map[s[i]]){
-                ret = ret + (map[s[i + 1]] - map[s[i]]);
+            if(lib[s[i + 1]] > lib[s[i]]){
+                ret = ret + (lib[s[i + 1]] - lib[s[i]]);
                 i++;
                 continue;
             }
         }
 
-        ret = ret + map[s[i]];
+        ret = ret + lib[s[i]];
     }
 
     return ret;
