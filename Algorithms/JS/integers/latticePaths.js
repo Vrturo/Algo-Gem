@@ -45,7 +45,7 @@ var latticePaths = function(n){
 }
 
 
-///// SOLUTION TAKING COORDINATES AS ARGUMENTS
+///// SOLUTIONS TAKING COORDINATES AS ARGUMENTS
 
 
 var latticePaths = function(x, y){
@@ -56,4 +56,21 @@ var latticePaths = function(x, y){
     return;
   }
     return (latticePaths(x - 1, y) + latticePaths(x, y -1)
+}
+
+
+var latticePaths = function(x, y) {
+  if(y === undefined){
+    return latticePaths(x,x);
+  }
+  else {
+    if(x === 0 && y === 0){
+    return 1;
+    }
+    else if(x < 0 || y < 0){
+      return 0;
+    }
+    else{
+      return (latticePaths(x - 1, y) + latticePaths(x, y -1)
+  }
 }
