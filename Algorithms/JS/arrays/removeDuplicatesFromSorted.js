@@ -11,7 +11,15 @@
 
 
 
+// set two pointers
+  // one that starts at 0
+  // second that is the index
 
+// loop through the array
+  // if pointer 1 isnt equal to pointer 2 value
+    // increment p1 and set p2 to incremented value to jump over duplicate
+
+// return p1 plus 1 for length
 
 var removeDuplicates = function(nums) {
   var p1 = 0;
