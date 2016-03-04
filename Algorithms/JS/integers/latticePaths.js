@@ -40,37 +40,48 @@ var latticePaths = function(n){
     traverse(x + 1, y);
     traverse(x, y+ 1);
   }
-  function((0, 0);
+  latticePaths(0, 0);
     return count;
 }
 
 
 ///// SOLUTIONS TAKING COORDINATES AS ARGUMENTS
 
-
-var latticePaths = function(x, y){
-  if(x === 0 && y === 0){
-    return 1;
-  }
-  else if(x < 0 || y < 0){
-    return;
-  }
-    return (latticePaths(x - 1, y) + latticePaths(x, y -1)
-}
-
-
-var latticePaths = function(x, y) {
-  if(y === undefined){
-    return latticePaths(x,x);
-  }
-  else {
+var latPaths = function(x, y){
+  var cache = {};
+  function latMem(x, y){
+    if(cache[x,y] !== undefined){
+      return cache[x,y];
+    };
     if(x === 0 && y === 0){
-    return 1;
+      return 1;
     }
     else if(x < 0 || y < 0){
-      return 0;
-    }
-    else{
-      return (latticePaths(x - 1, y) + latticePaths(x, y -1)
+      return;
+    };
+    var toInsert =  latMem(x - 1, y) + latMem(x, y -1)
+    cache[x,y] = toInsert;
+    return toInsert;
   }
+  return latMem(x, y);
 }
+
+console.log(latPaths(1,1));
+
+
+// var latticePaths = function(x, y) {
+//   if(y === undefined){
+//     return latticePaths(x,x);
+//   }
+//   else {
+//     if(x === 0 && y === 0){
+//     return 1;
+//     }
+//     else if(x < 0 || y < 0){
+//       return 0;
+//     }
+//     else{
+//       return (latticePaths(x - 1, y) + latticePaths(x, y -1)
+//     }
+//   }
+// }
