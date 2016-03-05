@@ -1,4 +1,4 @@
-// The challenge is to write the function taht returns all anagrams
+// The challenge is to write the function that returns all anagrams
 
 // Note: Anagrams are case insensitive, ignore all non-alphanumeric characters,
 // input will always be two strings. Also: two identical words may be considered to be an
