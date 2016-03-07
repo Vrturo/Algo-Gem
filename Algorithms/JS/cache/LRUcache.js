@@ -34,7 +34,7 @@ var LRUCache = function(capacity){
   this.capacity = capacity
   this.length = 0
   this.map = {}
-  // save the head and tail so we can update it easily
+  // save the head and tail to can update easily
   this.head = null
   this.tail = null
 }

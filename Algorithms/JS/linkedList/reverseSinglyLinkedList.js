@@ -30,3 +30,42 @@ function reversesll(sll){
   }
   return reversedLL;
 }
+
+
+function reverseList(head) {
+    this.prev = null;
+    this.curr = head;
+    while (this.curr != null) {
+        this.nextTemp = curr.next;
+        curr.next = this.prev;
+        this.prev = curr;
+        curr = nextTemp;
+    }
+    return this.prev;
+}
+// ----------------------------------------
+
+// 0(n) iterative
+var reverseList = function(head) {
+    this.prev = null;
+    this.curr = head;
+    while (this.curr !== null) {
+        var nextTemp = curr.next;
+        curr.next = this.prev;
+        this.prev = this.curr;
+        this.curr = nextTemp;
+    }
+    return prev;
+};
+
+// --------------------------------------------
+// 0(n) recursive
+
+var reverseList = function(head) {
+    if (head === null || head.next === null)
+      return head;
+    var p = reverseList(head.next);
+    head.next.next = head;
+    head.next = null;
+    return p;
+};
