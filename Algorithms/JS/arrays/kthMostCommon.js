@@ -4,7 +4,16 @@
 // [1,2,2,3,3,4,4,4], 4 => 1
 
 
+// Logic
 
+// create a freqhash to keep the track of how many times an elemnt occurs
+// the freqHash wil have the element as the key, and the number of occurance as the value
+// loop through the given array
+  // if the key isnt asigned yet set the value to one for its first occurance
+  // else add one to the value
+// loop through the freqhash and push each key into the storage array
+// sort out the storage arr in descending order
+// return the kth element - 1 to find the kth most common element
 
 function common(arr, k){
   var freqHash = {},
