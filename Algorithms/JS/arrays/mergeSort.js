@@ -50,7 +50,7 @@ function merge(l, r){
 
 // using pointers
 
-function merge(l, r){
+function merge(l, r) {
 
     var result = [];
     var p1 = 0;
@@ -76,7 +76,7 @@ function merge(l, r){
     return result;
 }
 
-function mergeSort(arr){
+function mergeSort(arr) {
     if (arr.length < 2){
         return arr;
      }

@@ -14,7 +14,7 @@ var quickSort = function(input){
       less = [],
       greater = [],
       sortedArr = [];
-  if (input.length <= 1){
+  if (input.length < 2){
     return input;
   }
   else {
