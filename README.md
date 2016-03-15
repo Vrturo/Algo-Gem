@@ -32,7 +32,6 @@ array.comb_sort #=> [1, 5, 9]
 
 ##Algorithm Methods
 
-
 ###Simple Sorts!
 <br>
 Two of the simplest sorts are insertion sort and selection sort, both of which are efficient on small data, due to low overhead, but not efficient on large data.
