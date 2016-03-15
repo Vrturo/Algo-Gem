@@ -20,3 +20,42 @@
  *
  *
  */
+
+var paperRockScissors = function(n) {
+    var result = [];
+    function helper(buildUp){
+      if(buildUp.length === n){
+        result.push(buildUp.slice());
+        return;
+      }
+      buildUp.push('paper')
+      helper(buildUp);
+      buildUp.pop();
+      buildUp.push('rock')
+      helper(buildUp);
+      buildUp.pop();
+      buildUp.push('scissors')
+      helper(buildUp);
+      buildUp.pop();
+    }
+    helper([])
+    return result;
+};
+
+var paperRockScissors = function(n) {
+    var result = [];
+    var possibilities = ['paper', 'rock', 'scissors'];
+    function helper(buildUp){
+      if(buildUp.length === n){
+        result.push(buildUp.slice());
+        return;
+      }
+      for(var i = 0; i<possibilities.length; i++){
+        buildUp.push(possibilities[i]);
+        helper(buildUp);
+        buildUp.pop();
+      }
+    }
+    helper([])
+    return result;
+};
