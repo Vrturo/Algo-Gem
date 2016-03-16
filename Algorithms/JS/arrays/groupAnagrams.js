@@ -13,20 +13,20 @@
 // All inputs will be in lower-case.
 
 
-create an obj to store
-create an result arr to return at the end
+// create an obj to store
+// create an result arr to return at the end
 
-create a function to add an index to the obj
-  create a var that will split down each string in the input, sort it, and join
-  set the  var as the key of the obj
-    if it exists push it into the existing array
+// create a function to add an index to the obj
+//   create a var that will split down each string in the input, sort it, and join
+//   set the  var as the key of the obj
+//     if it exists push it into the existing array
 
 
-now that we have the function...
-loop through the input and envoke the function to each elements
-once result obj is filled we can push it into the result arr and sort it
+// now that we have the function...
+// loop through the input and envoke the function to each elements
+// once result obj is filled we can push it into the result arr and sort it
 
-return resultArr
+// return resultArr
 
 var groupAnagrams = function(strs) {
     var resultObj = {},
