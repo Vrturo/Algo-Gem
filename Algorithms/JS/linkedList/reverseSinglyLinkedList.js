@@ -55,7 +55,7 @@ var reverseList = function(head) {
         this.prev = this.curr;
         this.curr = nextTemp;
     }
-    return prev;
+    return this.prev;
 };
 
 // --------------------------------------------
@@ -65,8 +65,22 @@ var reverseList = function(head) {
     if (head === null || head.next === null){
       return head;
     }
-    var p = reverseList(head.next);
+    var temp = reverseList(head.next);
     head.next.next = head;
     head.next = null;
-    return p;
+    return temp;
+};
+
+
+
+var reverseList = function(head, prev) {
+   if(prev === undefined){
+       prev = null;
+   }
+   if(head === null){
+       return prev;
+   }
+   var temp = head.next;
+   head.next = prev;
+   return reverseList(temp, head);
 };
