@@ -29,7 +29,6 @@
  *      |______| <= older.|______| <= older.|______| <= older.|______|
  *
  */
-
 var LRUCache = function(capacity){
   this.capacity = capacity
   this.length = 0
