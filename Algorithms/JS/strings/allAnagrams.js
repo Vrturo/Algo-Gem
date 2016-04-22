@@ -12,8 +12,14 @@
 
 // 'abc' = ['abc','acb', 'bca', 'bac', 'cab', 'cba']
 
+// create a variable called split that splits our characters in individual char in a string
+// create results variable which is an array to return at the end
+  // create a helper function called recurse that takes two arguments
+  // first argument is gonna be builtUp because it's the array we're gonna build up
+  // second is passedOn because
+
 var allAnagramsRecursive = function(string){
-  var work = string.split('');
+  var split = string.split('');
   var results = [];
 
   var recurse = function(builtUp, passedOn){
@@ -29,7 +35,7 @@ var allAnagramsRecursive = function(string){
       passedOn.splice(i, 0, temp);
     }
   }
-  recurse([], work);
+  recurse([], split);
   return results;
 
 }
