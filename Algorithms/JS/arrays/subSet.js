@@ -31,3 +31,36 @@ var subsets = function(nums) {
     helper([],0);
     return result;
 };
+
+
+Q: Given an array of characters, print all possible combinations. For example given a, b, c, print
+a
+b
+c
+ab
+ac
+abc
+bc
+
+
+
+var combination = function(array){
+    var str = array.join("");
+
+    function helper(string){
+        if (set.length === 0){
+            return [""]
+        }
+        else{
+          var last = str[string.length-1]
+          var sub = helper(str.slice(0, -1));
+          var joined = sub.map(function(character){
+              return character + last;
+          })
+          return sub.concat(joined)
+        }
+    }
+
+    return helper(str)
+}
+
