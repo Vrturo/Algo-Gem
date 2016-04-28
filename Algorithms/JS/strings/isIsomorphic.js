@@ -17,6 +17,13 @@
 
 
 
+// create a hash and set is a variable called obj
+// loop through one of the strings length
+  // set s + each character of the string as the same character of the t string
+  // set s + each character of the string as the same character of the t string
+  // return false if the character of the string doesnt equal the objec key
+// return true
+
 var isIsomorphic = function(s, t) {
     var obj = {};
 
