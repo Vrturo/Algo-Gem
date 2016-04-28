@@ -18,6 +18,8 @@
 //    3   1
 
 
+// RECURSIVE
+
 // if root is null return null
 // create helper function that takes a node
   // set base case.
@@ -46,4 +48,27 @@ var upsideDownBinaryTree = function(root) {
         return tmp;
     }
     return helper(root);
+};
+
+
+// ITERATIVE
+
+
+var upsideDownBinaryTree = function(root) {
+    if(!root || !root.left) return root;
+    var left = root.left;
+    var right = root.right;
+    var top = root;
+    top.left = null;
+    top.right = null;
+    while(left) {
+        var nextLeft = left.left;
+        var nextRight = left.right;
+        left.right = top;
+        left.left = right;
+        top = left;
+        left = nextLeft;
+        right = nextRight;
+    }
+    return top;
 };
