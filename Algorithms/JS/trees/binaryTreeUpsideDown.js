@@ -16,3 +16,23 @@
 //  5   2
 //     / \
 //    3   1
+
+
+
+var upsideDownBinaryTree = function(root) {
+    if(root === null){
+        return null;
+    }
+    function helper(node) {
+    if(node.left === null){
+        return node;
+    }
+    var tmp = helper(node.left);
+    node.left.left = node.right;
+    node.right = null;
+    node.left.right = node;
+    node.left = null;
+    return tmp;
+}
+    return helper(root);
+};
