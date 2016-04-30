@@ -7,3 +7,20 @@
 // For example,
 // Given [5, 7, 7, 8, 8, 10] and target value 8,
 // return [3, 4].
+
+
+var searchRange = function(nums, target) {
+    var result = [];
+    if(nums[0] === undefined){
+        return;
+    }
+    if(nums[0] === target){
+        result.push(i);
+    }
+    nums = nums.splice(0, 1);
+    searchRange(nums, target);
+    if (result.length === 0){
+        result = [-1, -1];
+    }
+    return result;
+};
