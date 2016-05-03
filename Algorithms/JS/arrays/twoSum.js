@@ -7,3 +7,21 @@
 
 // Because nums[0] + nums[1] = 2 + 7 = 9,
 // return [0, 1].
+
+
+var twoSum = function(nums, target) {
+    var numLength=nums.length;
+    if(numLength<2){
+        return nums;
+    }
+    var map={};
+    for(var i = 0; i < numLength; i++){
+         if(map[target - nums[i]] || map[target-nums[i]] === 0)
+        {
+            return [map[target-nums[i]], i];
+        }
+        if(map[nums[i]]===undefined){
+            map[nums[i]]=i;
+        }
+    }
+};
