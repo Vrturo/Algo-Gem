@@ -1,3 +1,18 @@
+
+
+var addDigits = function(num) {
+   if(num === 0){
+        return 0;
+   }
+   if(num%9 === 0){
+       return 9;
+   }
+   else{
+      return num%9;
+   }
+};
+
+
 var addDigits = function(num) {
     if(num<10){
         return num;
@@ -11,4 +26,4 @@ var addDigits = function(num) {
         addDigits(sum);
     }
 };
-addDigits(20);
+addDigits(56);
