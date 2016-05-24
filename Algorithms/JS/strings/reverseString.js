@@ -1,7 +1,7 @@
 // Reverse a string
 
 var reverseString = function(input){
-  result = ""
+  var result = ""
 
   function travel(index){
     if (index < 0){
@@ -17,10 +17,10 @@ var reverseString = function(input){
 
 
 var reverse = function(input){
-  if (input.length == 0){
-    return ""
+  if (input.length === 0){
+    return "";
   };
-  return input[input.length - 1] + reverse(input.slice(0, input.length - 1))
+  return input[input.length - 1] + reverse(input.slice(0, input.length - 1));
 }
 
 function reverse(str){
@@ -56,9 +56,10 @@ function reverse (str) {
 
 // using reverse
 function reverse(str){
-  if(!str || str.length <2) return str;
-
-  return str.split('').reverse().join('');
+    if(!str || str.length <2){
+      return str;
+    };
+    return str.split('').reverse().join('');
 }
 
 
