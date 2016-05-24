@@ -4,7 +4,12 @@
 // and it should return false if every element is distinct.
 
 
-
+// create a hash map to keep track of what numbers exist
+// reverse loop through nums array
+  // if the number exists in the hash map
+    // return true
+  // else set it to something
+// return false if true hasnt yet
 
 var containsDuplicate = function(nums) {
     var map = {};
