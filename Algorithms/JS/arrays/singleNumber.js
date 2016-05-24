@@ -8,7 +8,14 @@
 
 
 
-
+var singleNumber = function(nums) {
+    var result;
+    for(var i=0; i<nums.length; i++)
+    {
+        result ^= nums[i];
+    }
+    return result;
+};
 
 var singleNumber = function(nums) {
     return nums.reduce((a,b) => a^b);
