@@ -1,3 +1,11 @@
+// Given two binary strings, return their sum (also a binary string).
+
+// For example,
+// a = "11"
+// b = "1"
+// Return "100".
+
+
 var addBinary = function(a, b) {
     var aVal = 0;
     var bVal = 0;
