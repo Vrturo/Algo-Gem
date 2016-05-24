@@ -2,6 +2,18 @@
 
 
 
+
+
+
+
+
+
+
+
+var singleNumber = function(nums) {
+    return nums.reduce((a,b) => a^b);
+};
+
 // return input if length is less than 1
 // create a hash map
 // loop through nums input
