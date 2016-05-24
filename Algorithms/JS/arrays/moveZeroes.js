@@ -6,3 +6,11 @@
 // You must do this in-place without making a copy of the array.
 // Minimize the total number of operations.
 
+var moveZeroes = function(nums) {
+    for(var i = nums.length; i--;){
+        if(nums[i] === 0){
+            nums.splice(i,1);
+            nums.push(0);
+        }
+    }
+};
