@@ -6,6 +6,10 @@
 // Return "100".
 
 
+
+
+//UNFINISHED
+
 var addBinary = function(a, b) {
     var aVal = 0;
     var bVal = 0;
