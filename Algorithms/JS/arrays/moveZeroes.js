@@ -6,6 +6,12 @@
 // You must do this in-place without making a copy of the array.
 // Minimize the total number of operations.
 
+
+
+// loop through the nums array in reverse
+  // if the current nums value is 0
+    // remove it from the array and push it to the end
+
 var moveZeroes = function(nums) {
     for(var i = nums.length; i--;){
         if(nums[i] === 0){
