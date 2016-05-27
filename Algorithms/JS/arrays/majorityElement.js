@@ -1,1 +1,0 @@
-majorityElement.js
