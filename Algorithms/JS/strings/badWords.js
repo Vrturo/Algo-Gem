@@ -19,3 +19,8 @@ var badwords = ['window', 'chair', 'knockings'];
 var hasBadwords = function (message, index) {
 
 }
+
+// Tell us what the output is from running this code:
+console.log(sentences.map(function (sentence, index) {
+   return hasBadwords(sentence) ? index : '';
+}).join(''));
