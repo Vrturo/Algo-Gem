@@ -30,7 +30,6 @@ array.comb_sort #=> [1, 5, 9]
 
 ```
 
-
 ##Algorithm Methods
 
 ###Simple Sorts!
