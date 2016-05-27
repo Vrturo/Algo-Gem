@@ -17,7 +17,12 @@ var badwords = ['window', 'chair', 'knockings'];
 
 // Fill in function body here
 var hasBadwords = function (message, index) {
-
+  var words = message.split(" ");
+  for(var i = 0; i< words.length; i++){
+    if(words[i] === badwords[0] || badwords[1] || badwords[2]){
+      return true
+    }
+  }
 }
 
 // Tell us what the output is from running this code:
