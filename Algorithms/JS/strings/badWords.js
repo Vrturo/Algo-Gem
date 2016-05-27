@@ -14,3 +14,8 @@ var sentences = [
 ];
 
 var badwords = ['window', 'chair', 'knockings'];
+
+// Fill in function body here
+var hasBadwords = function (message, index) {
+
+}
