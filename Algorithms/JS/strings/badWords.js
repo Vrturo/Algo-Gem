@@ -1,0 +1,1 @@
+badWords.js
