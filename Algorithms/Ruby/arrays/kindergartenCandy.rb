@@ -7,6 +7,11 @@
 # What is the minimum candies you must give?
 
 
+
+
+# DOESNT WORK
+
+
 def distributeCandy( ratings)
     if (ratings == nil || ratings.length == 0)
         return 0
