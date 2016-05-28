@@ -2,14 +2,14 @@
 
 // The brackets must close in the correct order, "()" and "()[]{}" are all valid but "(]" and "([)]" are not.
 
-
-var valid = true,
-        pair = {
-            '(': ')',
-            '[': ']',
-            '{': '}'
-        },
-        nowWaitingFor = [];
+var isValid = function(s) {
+    var valid = true,
+            pair = {
+                '(': ')',
+                '[': ']',
+                '{': '}'
+            },
+            nowWaitingFor = [];
 
     for (var i = 0; i < s.length; i++) {
         var nowChar = s.charAt(i);
@@ -28,3 +28,16 @@ var valid = true,
         valid = false;
     }
     return valid;
+}
+
+
+var isValid = function(s) {
+    var st = [];
+    for(var l of s)
+        if ((i="({[]})".indexOf(l))>-1)
+            if (st[st.length-1]+i===5)
+                st.length--;
+            else
+                st.push(i);
+    return st.length===0;
+}
