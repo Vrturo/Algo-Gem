@@ -7,8 +7,6 @@
 # What is the minimum candies you must give?
 
 
-
-
 # DOESNT WORK
 
 
