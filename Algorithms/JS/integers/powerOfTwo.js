@@ -13,3 +13,8 @@ var isPowerOfTwo = function(n) {
     }
     return (0 === ((n - 1) & n));
 };
+
+
+var isPowerOfTwo = function(n) {
+    return Number.isInteger(Math.log(n/4)/Math.log(2));
+};
