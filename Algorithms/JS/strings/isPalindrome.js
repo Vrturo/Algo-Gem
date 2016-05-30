@@ -37,6 +37,19 @@ function isPalindrome(str){
   return true;
 }
 
+var isPalindrome = function(str) {
+  var s = str.toUpperCase().replace(/[\W_]+/g,"");
+  var len = Math.floor(s.length -1);
+  var counter = 0;
+      for(var i = len; i > len/2; i--){
+          if (s[i]!== s[counter]){
+               return false;
+          }
+          counter++;
+       }
+  return true;
+};
+
 
 function isPalindrome(str){
   var len = str.length;
