@@ -3,3 +3,7 @@
 var isPowerOfThree = function(n) {
     return Math.log10(n) / Math.log10(3) % 1 === 0;
 };
+
+var isPowerOfThree = function(n) {
+    return n.toString(3).replace(/0/g, '') === '1';
+};
