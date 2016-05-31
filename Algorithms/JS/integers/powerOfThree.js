@@ -9,5 +9,9 @@ var isPowerOfThree = function(n) {
 };
 
 var isPowerOfThree = function(n) {
+    return /^10*$/.test(n.toString(3));
+};
+
+var isPowerOfThree = function(n) {
     return n.toString(3).split("").reduce((prev,curr)=>parseInt(prev)+parseInt(curr))==1;
 };
