@@ -29,29 +29,51 @@
 
 // "racecar".isPalindrome()
 
-fib = [0, 1]
-function bounding(n){
-  // var fib = [0, 1];
-  f = fib;
-  function recurse(i){
-    var sum = f[i] + f[i+1]
-    if(sum === f[i]){
-      // console.log([sum, sum])
-      return [sum, sum]
+f = [0, 1];
+function fib(n){
+    function recurse(i){
+      if(f[n]){
+        return f[n];
+      }
+      else{
+        var sum = f[i - 1] + f[i];
+        f.push(sum);
+        return recurse(i+1);
+      }
     }
-    if(n < sum){
-      f.push(sum);
-      return [f[i+1], f[i+2]]
-    } else{
-      f.push(sum);
-      return recurse(i + 1);
-    }
-  }
-  return recurse(0)
+    return recurse(f.length -1)
 }
+console.log(fib(5))
+console.log(f)
+// console.log(fib(2));
+// console.log(f)
 
-console.log(bounding(7))
-// console.log(fib)
+// f = [0, 1];
+// function bounding(n){
+
+//  function recurse(curr){
+//    var sum = f[curr] + f[curr + 1];
+
+//    if(n === f[curr]){
+//      return [f[curr], f[curr]];
+//    }
+//    if(f[curr] < n && f[curr+1] > n){
+//      return [f[curr], f[curr+1]];
+//    } else if(f[curr] > n){
+//      return recurse(curr -1)
+//    }
+//    else{
+//      f.push(sum);
+//      return recurse(curr + 1);
+//    }
+//  }
+
+//  return recurse(f.length -2);
+// }
+// console.log(bounding(8))
+// console.log(f)
+// console.log(bounding(2));
+// console.log(f)
 // console.log(bounding(7))
 // console.log(fib)
 
