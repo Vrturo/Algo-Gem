@@ -18,3 +18,16 @@
 
 // 19:05:45
 
+function conversion(time) {
+    var ampm = time[time.length-2] + time[time.length-1]
+    time = time.slice(0, time.length -1)
+    if(ampm === 'AM'){
+        console.log(time)
+    } else{
+       var newtime = Number(time[0] + time[1]) + 12;
+       time = time.slice(2, -1);
+       time = newtime + time;
+       console.log(time)
+    }
+
+}
