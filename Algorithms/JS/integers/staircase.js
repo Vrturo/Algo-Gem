@@ -13,3 +13,12 @@
 //  #####
 // ######
 // Note: The last line has 0 spaces before it.
+
+
+function staircase(n) {
+    for(var i = 1; i <= n; i++){
+        var diff = n - i;
+        ht = " ".repeat(diff) + '#'.repeat(i);
+        console.log(ht);
+    }
+}
