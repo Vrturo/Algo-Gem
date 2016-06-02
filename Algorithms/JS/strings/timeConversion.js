@@ -29,5 +29,4 @@ function conversion(time) {
        time = newtime + time;
        console.log(time)
     }
-
 }
