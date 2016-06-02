@@ -15,10 +15,16 @@
 // Note: The last line has 0 spaces before it.
 
 
+
+// create a loop that runs as many times as n starting from 1. (starting from zero ads an extra empty space)
+  // create a variable that gets the difference of n minus the current level we're on
+  // create a variable that stores as many spaces as the difference and as many hashtags as on the level the loop is on
+  // print out the variable
+
 function staircase(n) {
     for(var i = 1; i <= n; i++){
         var diff = n - i;
-        ht = " ".repeat(diff) + '#'.repeat(i);
+        var ht = " ".repeat(diff) + '#'.repeat(i);
         console.log(ht);
     }
 }
