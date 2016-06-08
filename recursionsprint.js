@@ -159,9 +159,7 @@ function merge(array1, array2){
 
 
 
-
 // 3. What are side effects?
-
 
 
 
@@ -169,9 +167,7 @@ function merge(array1, array2){
 
 
 
-
 // 4. How is Pure Recursion different from Recursion w/ Side Effects?
-
 
 
 
