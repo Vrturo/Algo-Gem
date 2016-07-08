@@ -33,14 +33,14 @@ var subsets = function(nums) {
 };
 
 
-Q: Given an array of characters, print all possible combinations. For example given a, b, c, print
-a
-b
-c
-ab
-ac
-abc
-bc
+// Q: Given an array of characters, print all possible combinations. For example given a, b, c, print
+// a
+// b
+// c
+// ab
+// ac
+// abc
+// bc
 
 
 
