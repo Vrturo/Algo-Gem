@@ -36,3 +36,33 @@
  *
  *
  */
+ var tasks = [
+    function cbOne(){
+      setTimeout(function(){
+         console.log('one')
+        }, 300);
+    }.
+    function cbTwo(){
+      setTimeout(function(){
+         console.log('Two')
+        }, 200);
+    },
+    function cbThree(){
+      setTimeout(function(){
+         console.log('Three')
+        }, 100);
+    }
+  ]
+
+// var asyncMap = function( tasks, callback ){
+//   var results = [];
+
+//   for( var i = 0; i < tasks.length; i++ ){
+//     results.push( callback( tasks[i] ) )();
+//   }
+
+// };
+var asyncMap = function(tasks, callback){
+
+
+};
