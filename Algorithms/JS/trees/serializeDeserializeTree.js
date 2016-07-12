@@ -20,39 +20,40 @@
 
 
 
-var serialize = function(root) {
-  var results=[];
-  var serializeHelper = function(root,list) {
-      if (!root) {
-        list.push("#");
+var serialize = function( root ) { // 252 ms
+  var results = [];
+
+  var serializeHelper = function( root,list ) { // recursive helper to push a '#' into our list if val is null
+      if ( !root ) {
+        list.push( "#" );
       }
       else {
-          lst.push(root.val);
-          serializeHelper(root.left,list);
-          serializeHelper(root.right,list);
+          list.push( root.val );
+          serializeHelper( root.left, list );
+          serializeHelper( root.right, list );
       }
   };
-    serializeHelper(root,results);
-    return results.toString();
+    serializeHelper( root,results );
+    return results.toString(); // "[1,2,3,null,null,4,5]"
 };
 
 
-var deserialize = function(data) {
-    if(!data||data.length===0) {
+var deserialize = function( data ) {
+    if( !data || data.length === 0 ) { // base case
       return null;
     }
-    var deserializeHelper = function(list) {
-      if (list.length<1) {
+    var deserializeHelper = function( list ) {
+      if ( list.length<1 ) {
         return null;
       }
-      var val=list.splice(0,1);
-      if (val[0]==="#") {
+      var val = list.splice(0,1);
+      if ( val[0] === "#" ) {
         return null;
       }
-      var root=new TreeNode(parseInt(val));
-      root.left=deserializeHelper(list);
-      root.right=deserializeHelper(list);
+      var root = new TreeNode( parseInt(val) );
+      root.left = deserializeHelper( list );
+      root.right = deserializeHelper( list );
       return root;
   };
-    return deserializeHelper(data.split(","));
+    return deserializeHelper( data.split(",") );
 };
