@@ -21,18 +21,18 @@
     // create a map key as they current number and value as the index
 
 
-var twoSum = function(nums, target) {
-    var numLength=nums.length;
-    if(numLength<2){
+var twoSum = function(nums, target) { //96ms runtime
+    var numLength = nums.length;
+    if( numLength<2 ){
         return nums;
     }
-    var map={};
+    var map = {};
     for(var i = 0; i < numLength; i++){
-         if(map[target - nums[i]] || map[target-nums[i]] === 0){
-            return [map[target-nums[i]], i];
+         if( map[target - nums[i]] || map[target-nums[i]] === 0 ){
+            return [map [ target-nums[i] ], i];
         }
-        if(map[nums[i]]===undefined){
-            map[nums[i]]=i;
+        if( map[nums[i]] === undefined ){
+            map[ nums[i] ] = i;
         }
     }
 };
