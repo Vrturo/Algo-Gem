@@ -40,4 +40,46 @@
 // as the string will still be a palindrome if any one of the characters at those indices are removed.
 
 
+function processData(input) {
 
+    function isPalindrome(str) {
+        var revStr = "";
+        for (var i = str.length - 1; i >= 0; i--) {
+            revStr += str[i];
+        }
+        if (str === revStr) {
+          return true
+        }
+        else {
+          return false
+        }
+    };
+
+    function helper( str, count ){
+
+        if( isPalindrome( str ) ){
+           console.log(count)
+       }
+       else {
+           console.log(-1)
+           helper( str, count +1 )
+       };
+
+
+    }
+
+   var num = input[0],
+       arr = input.slice(1);
+
+   for( var i = 0; i < num; i++ ){ // each string aaab, baa, aaa
+       var str = arr[i],
+           len = str.length,
+           counter = 1,
+           newArr = str.slice( counter );
+       for( var j = 0; j < str.length; j++ ){
+          helper(newArr, counter);
+       }
+
+   }
+
+}
