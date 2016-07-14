@@ -6,3 +6,36 @@
 // By considering the terms in the Fibonacci sequence whose values do not exceed four million,
 // find the sum of the even-valued terms.
 
+function evenFib(){
+  var fibo = [2, 4],
+      sum = 0;
+
+  while( sum < 4000000) {
+    var len = fibo.length;
+    sum = fibo[len - 2] + fibo[len - 1];
+    fibo.push(sum)
+  }
+
+  return sum
+}
+
+
+console.log(evenFib());
+
+// function evenFib(){
+//   var one = 2,
+//       two = 4,
+//       sum = 0,
+//       temp;
+
+//   while( sum < 10){
+//     temp = two;
+//     sum = one + two;
+//     one = two;
+//     two = temp;
+//   }
+
+//    return sum;
+// }
+
+// console.log(evenFib());
