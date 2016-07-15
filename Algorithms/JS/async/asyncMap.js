@@ -39,20 +39,23 @@
  var tasks = [
     function cbOne(){
       setTimeout(function(){
-         console.log('one')
+         return 'one';
         }, 300);
-    }.
+    },
     function cbTwo(){
       setTimeout(function(){
-         console.log('Two')
+         return 'Two';
         }, 200);
     },
     function cbThree(){
       setTimeout(function(){
-         console.log('Three')
+         return 'Three';
         }, 100);
     }
   ]
+  var print = function( fn ){
+     fn(); // ['one', 'two']
+  };
 
 // var asyncMap = function( tasks, callback ){
 //   var results = [];
@@ -62,7 +65,18 @@
 //   }
 
 // };
-var asyncMap = function(tasks, callback){
+var asyncMap = function(arr, cb){
 
-
+  var results = [];
+  // if ( array.length === 0 ){
+  //   cb();
+  // }
+  // else{
+  //   array[0]();
+  // }
+ for( var i = 0; i < arr.length; i++ ){
+    print(arr[i]);
+ }
 };
+
+console.log( asyncMap(tasks, print) );
