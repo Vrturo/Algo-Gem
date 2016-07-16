@@ -4,37 +4,38 @@
 // concurrency - how many tasks we can run at a time - integer
 function TaskRunner(concurrency) {
     this.capacity = concurrency;
-    this.storage = 0;
     this.state = "empty";
-
-
-
+    this.count = 0;
+    this.storage = [] // turn to q
 }
 
-TaskRunner.prototype.push = function push(task) {
+
+TaskRunner.prototype.push = function push( task ) {
     var that = this;
 
-    if( this.storage === this.capacity ){
-        this.state = "filled";
+    if( this.state >= this.capacity ){
+        console.log( "executes immediately" );
+        this.storage.push( task );
+        task(cb);
+        this.count += 1
+    }
+    else{
+        console.log( "should wait until one of the running tasks completes" );
+        this.storage.push( task );
     }
 
-    function anon(){
-        var waiting = [];
+    function cb(){
+      // return that.count -= 1;
+      console.log("cb: ", that.count);
+      that.count -= 1;
+      // that.storage[that.count];
 
-        if( that.state !== "filled" ){
-            that.storage += 1;
-            console.log( "executes immediately" );
-            if( waiting[0] ){
-               waiting[0]();
-            };
-        }
-        else{
-            waiting.push( this );
-            console.log( "should wait until one of the running tasks completes" );
-        }
-    };// anon
-
-    task(anon);
+      // that.storage[that.count]();
+      // if( that.storage[0] ){
+      //   return that.storage[0]()
+      //   that.storage = that.storage.slice(1);
+      // }
+    };// cb
 
 }// push
 
@@ -51,3 +52,4 @@ r.push(exampleSimpleTask); // executes immediately
 r.push(exampleSimpleTask); // executes immediately
 r.push(exampleSimpleTask); // should wait until one of the running tasks completes
 r.push(exampleSimpleTask); // should wait until one of the running tasks completes
+
