@@ -6,16 +6,15 @@ function TaskRunner(concurrency) {
     this.capacity = concurrency;
     this.state = "empty";
     this.count = 0;
-    this.storage = [] // turn to q
-}
+    this.storage = []; // turn to q
+};
 
 
 TaskRunner.prototype.push = function push( task ) {
     var that = this;
 
-    if( this.state >= this.capacity ){
+    if( this.count < this.capacity ){
         console.log( "executes immediately" );
-        this.storage.push( task );
         task(cb);
         this.count += 1
     }
@@ -26,23 +25,20 @@ TaskRunner.prototype.push = function push( task ) {
 
     function cb(){
       // return that.count -= 1;
-      console.log("cb: ", that.count);
       that.count -= 1;
-      // that.storage[that.count];
+      if( that.storage[0] ){
+        that.storage[0]();
+        that.storage = that.storage.slice(1);
+      }
 
-      // that.storage[that.count]();
-      // if( that.storage[0] ){
-      //   return that.storage[0]()
-      //   that.storage = that.storage.slice(1);
-      // }
     };// cb
 
-}// push
+};// push
 
-function exampleSimpleTask(done) {
+function exampleSimpleTask(done){
   console.log("running");
   setTimeout(done, Math.random() * 1000);
-}
+};
 
 var r = new TaskRunner(3);
 // use the exampleSimpleTask from above;
