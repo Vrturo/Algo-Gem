@@ -24,13 +24,11 @@ TaskRunner.prototype.push = function push( task ) {
     }
 
     function cb(){
-      // return that.count -= 1;
       that.count -= 1;
       if( that.storage[0] ){
         that.storage[0]();
         that.storage = that.storage.slice(1);
       }
-
     };// cb
 
 };// push
