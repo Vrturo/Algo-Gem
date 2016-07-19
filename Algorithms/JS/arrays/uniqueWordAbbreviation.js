@@ -29,26 +29,34 @@ var ValidWordAbbr = function(dictionary) {
 
     for( var i = 0; i < dictionary.length; i++ ){
         var word = dictionary[i],
-            firstChar = word[0],
-            lastChar = word[word.length - 1],
-            num = word.length - 2;
+            abbv = abbreviate( word );
 
         if( word.length > 2 ){
-          this.map[ firstChar+num+lastChar ] += 1;
+          if( this.map[ abbv ] ){
+            this.map[ abbv ].push( word );
+          } else{
+            this.map[ abbv ] = [ word ];
+          }
         }
-
     }
-
 };
 
 ValidWordAbbr.prototype.isUnique = function(word) {
+    var abbv = abbreviate( word ),
+        check = this.map[abbv];
 
-    if( this.map[word] )
+    return !check || (check.length === 1 && check[0] === word);
 };
+
+function abbreviate(str){
+    if(str.length < 3) return str;
+    return str.charAt(0)+(str.length-2)+str.charAt(str.length-1);
+}
 
 
 var dict = [ "deer", "door", "cake", "card" ]
 var vwa = new ValidWordAbbr(dict);
-vwa.isUnique("word");
-vwa.isUnique("anotherWord");
-
+console.log(vwa.isUnique("word"));
+console.log(vwa.isUnique("anotherWord"));
+console.log(vwa.map);
+console.log(vwa.isUnique("deer"));
