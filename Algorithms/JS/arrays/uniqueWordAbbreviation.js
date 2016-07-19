@@ -22,3 +22,33 @@
 // isUnique("cart") -> true
 // isUnique("cane") -> false
 // isUnique("make") -> true
+
+
+var ValidWordAbbr = function(dictionary) {
+    this.map = {};
+
+    for( var i = 0; i < dictionary.length; i++ ){
+        var word = dictionary[i],
+            firstChar = word[0],
+            lastChar = word[word.length - 1],
+            num = word.length - 2;
+
+        if( word.length > 2 ){
+          this.map[ firstChar+num+lastChar ] += 1;
+        }
+
+    }
+
+};
+
+ValidWordAbbr.prototype.isUnique = function(word) {
+
+    if( this.map[word] )
+};
+
+
+var dict = [ "deer", "door", "cake", "card" ]
+var vwa = new ValidWordAbbr(dict);
+vwa.isUnique("word");
+vwa.isUnique("anotherWord");
+
