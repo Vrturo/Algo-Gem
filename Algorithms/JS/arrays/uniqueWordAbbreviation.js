@@ -24,7 +24,7 @@
 // isUnique("make") -> true
 
 
-var ValidWordAbbr = function(dictionary) {
+var ValidWordAbbr = function(dictionary) { // 232ms runtime
     this.map = {};
 
     for( var i = 0; i < dictionary.length; i++ ){
@@ -45,7 +45,9 @@ ValidWordAbbr.prototype.isUnique = function(word) {
     var abbv = abbreviate( word ),
         check = this.map[abbv];
 
-    return !check || (check.length === 1 && check[0] === word);
+    return !check || (check.length === 1 && check[0] === word);  // if the given word itself is in the dictionary,
+                                                                 // and it has the unique abbreviation,
+                                                                 //then we should return true.
 };
 
 function abbreviate(str){
