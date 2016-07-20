@@ -32,3 +32,39 @@
 
 // a = "hello", b = "world". The substrings "o" and "l" are common to both a and b, so we print YES on a new line.
 // a - "hi", b= "world". Because a and b have no common substrings, we print NO on a new line.
+
+function processData(input) {
+    input = input.split( "\n" );
+    var map,
+        stringArr = input.slice( 1 ),
+        results = [];
+
+    for( var i = 0; i < stringArr.length; i++ ){
+        var splitStr = stringArr[i].split("");
+
+        if( i % 2 === 0 ){
+            map = {};
+            for( var j = 0; j < splitStr.length; j++ ){
+                if( map[ splitStr[j] ] ){
+                    map[ splitStr[j] ] += 1;
+                }else{
+                    map[ splitStr[j] ] = 1;
+                }
+            }
+        }else{
+            var count = 0;
+            for( var j = 0; j < splitStr.length; j++ ){
+                if( map[ splitStr[j] ] ){
+                    count += 1;
+                }
+            }
+            if( count > 1 ){
+                console.log( "YES" );
+            }else{
+                console.log( "NO" );
+            }
+
+        }
+
+    }
+}
