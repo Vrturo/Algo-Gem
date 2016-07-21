@@ -12,3 +12,19 @@
 // then the reverse of 1000000003 overflows. How should you handle such cases?
 
 // For the purpose of this problem, assume that your function returns 0 when the reversed integer overflows.
+
+
+var reverse = function(x) {
+    var strInt = JSON.stringify( x ),
+        result = [],
+        maxNumIn32Bit = Math.pow(2, 31)-1;
+    if( strInt.length === 1 ) return x;
+
+    for( var i = strInt.length; i--; ){
+        result.push( strInt[ i ] );
+    }
+    result = parseInt( result.join("") );
+    if ( result > maxNumIn32Bit ) return 0;
+    if ( x < 0 ) result = result * -1;
+    return result;
+};
