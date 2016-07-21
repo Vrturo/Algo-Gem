@@ -14,17 +14,18 @@
 // For the purpose of this problem, assume that your function returns 0 when the reversed integer overflows.
 
 
-var reverse = function(x) {
-    var strInt = JSON.stringify( x ),
-        result = [],
-        maxNumIn32Bit = Math.pow(2, 31)-1;
+var reverse = function(x) { // 196 ms runtime
+    var strInt = JSON.stringify( x );
     if( strInt.length === 1 ) return x;
+
+    var result = [],
+        maxNumIn32Bit = Math.pow(2, 31)-1;
 
     for( var i = strInt.length; i--; ){
         result.push( strInt[ i ] );
     }
     result = parseInt( result.join("") );
+
     if ( result > maxNumIn32Bit ) return 0;
-    if ( x < 0 ) result = result * -1;
-    return result;
+    return  x < 0 ? result = result * -1 : result;
 };
