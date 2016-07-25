@@ -13,7 +13,7 @@ function createMatrix( rows ){
   return result;
 }
 
-function diag( matrix ){
+function mainDiag( matrix ){
     var result = matrix;
 
   for ( var i = 0; i < matrix.length; i++ ) {
@@ -24,6 +24,17 @@ function diag( matrix ){
   return matrix;
 }
 
+function antiDiag( matrix ){
+  var result = matrix;
+
+  for ( var i = 0; i < matrix.length; i++ ) {
+      var j = i;
+      matrix[i][j] = 1;
+  }
+
+  return matrix;
+}
+
 var arr = createMatrix(3);
-console.log( diag( arr ) );
+console.log( antiDiag( arr ) );
 
