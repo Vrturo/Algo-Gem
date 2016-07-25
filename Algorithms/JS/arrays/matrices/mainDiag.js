@@ -14,7 +14,7 @@ function createMatrix( rows ){
 }
 
 function mainDiag( matrix ){
-    var result = matrix;
+  var result = matrix;
 
   for ( var i = 0; i < matrix.length; i++ ) {
       var j = i;
@@ -25,6 +25,6 @@ function mainDiag( matrix ){
 }
 
 
-var arr = createMatrix(3);
+var arr = createMatrix( 3 );
 console.log( mainDiag( arr ) );
 
