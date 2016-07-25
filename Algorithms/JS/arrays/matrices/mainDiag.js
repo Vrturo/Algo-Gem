@@ -24,17 +24,7 @@ function mainDiag( matrix ){
   return matrix;
 }
 
-function antiDiag( matrix ){
-  var result = matrix;
-
-  for ( var i = 0; i < matrix.length; i++ ) {
-      var j = i;
-      matrix[i][j] = 1;
-  }
-
-  return matrix;
-}
 
 var arr = createMatrix(3);
-console.log( antiDiag( arr ) );
+console.log( mainDiag( arr ) );
 
