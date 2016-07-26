@@ -2,10 +2,10 @@
 
 
 
-function dfs(node){
-  if(node){
-    console.log(node.value);
-    dfs(node.left);
-    dfs(node.right);
+function dfs( node ){
+  if( node ){
+    console.log( node.value );
+    dfs( node.left );
+    dfs( node.right );
   }
 }
