@@ -54,3 +54,34 @@
 //   [8,2],
 //   [7]
 // ]
+
+
+var verticalOrder = function(root) {
+    var hashMap = {};
+
+    function traverse( node, count, map ){
+        if( node ){
+            if( map[count] ){
+                map[count].push( node.val );
+                traverse( node.left, count + 1, map );
+                traverse( node.right, count - 1, map );
+            }
+            else{
+                map[count] = [ node.val ];
+                traverse( node.left, count + 1, map );
+                traverse( node.right, count - 1, map );
+            }
+        }
+    }
+    traverse( root, 0, hashMap );
+
+    var keys = Object.keys( hashMap ),
+        result = [];
+    keys.sort(function(a, b){ return b - a });
+
+    for (var i = 0; i < keys.length; i++) {
+        result.push( hashMap[ keys[i] ] );
+    }
+
+    return result;
+};
