@@ -45,3 +45,25 @@ var permute = function(nums) {
     getPermutations([], nums);
     return result;
 };
+
+// ----------------------------------------------------------
+
+
+function swap (nums, index1, index2) {
+  var temp = nums[index1];
+  nums[index1] = nums[index2];
+  nums[index2] = temp;
+  return nums;
+}
+
+var permute = function( nums, startIndex=0, endIndex=nums.length-1) {
+  if (startIndex === endIndex) {
+     console.log(nums);
+  } else {
+        for (var i = startIndex; i <= endIndex; i++) {
+          swap(nums, startIndex, i );
+          permute(nums, startIndex + 1, endIndex);
+          swap(nums, i, startIndex); // backtrack
+        }
+  }
+}; // output is console.log
