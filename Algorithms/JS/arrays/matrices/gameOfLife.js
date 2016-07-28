@@ -10,3 +10,36 @@
 // Any live cell with more than three live neighbors dies, as if by over-population..
 // Any dead cell with exactly three live neighbors becomes a live cell, as if by reproduction.
 // Write a function to compute the next state (after one update) of the board given its current state.
+
+var gameOfLife = function(board) {
+    var result = [],
+        i,
+        j;
+
+    for ( i = 0; i < board.length; i++ ) {
+      result.push( [] );
+    }
+
+    for( i = 0; i < board.length; i++ ){ //
+        for( j = 0; j < board[i].length; j++ ){ // cell
+                // var row = board[i],
+                //     cell = board[i][j];
+                result[i][j] = 0;
+                if( board[i][j+1] === 1 || board[i][j-1] === 1 ) result[i][j] = 1; // horizontal check
+                if( board[i+1][j] === 1 || board[i-1][j] === 1) result[i][j] = 1; // vertical check
+                if( board[i+1][j+1] === 1 || board[i-1][j+1] === 1) result[i][j] = 1; // rdiag check
+                if( board[i-1][j-1] === 1 || board[i+1][j-1] === 1) result[i][j] = 1; // ldiag check
+
+
+        }// end cell
+    } // end row
+    return result;
+};
+// i = row; j = cell
+// horizontal[i][j] j + 1 || j - 1
+// vertical[i][j] i + 1 || i - 1
+// rdiag[i][j] i+1 && j+1 || i-1 && j+1
+// rdiag[i][j] i-1 && j-1 || i+1 && j-1
+//[00,01,02]
+//[10,11,12]
+//[20,21,22]
