@@ -13,39 +13,48 @@
 
 var gameOfLife = function(board) {
     var result = [],
+        m = board.length,
+        n,
         i,
         j;
 
-    for ( i = 0; i < board.length; i++ ) { //dup amount of arrays
+    for ( i = 0; i < m; i++ ) { //dup amount of arrays
       result.push( [] );
     }
 
-    for( i = 0; i < board.length; i++ ){ //
+    for( i = 0; i < m; i++ ){ //
         for( j = 0; j < board[i].length; j++ ){ // cell
                 // var row = board[i],
                 //     cell = board[i][j];
+                var count = 0;
                 if( board[i][j+1] )
-                    if( board[i][j+1] === 1 ){ result[i][j] = 1; continue; } // horizontal r check
+                    if( board[i][j+1] === 1 ) count+=1 // horizontal r check
                 if( board[i][j-1] )
-                    if( board[i][j-1] === 1 ){ result[i][j] = 1; continue; } // horizontal l check
+                    if( board[i][j-1] === 1 ) count+=1 // horizontal l check
                 if( board[i-1] ){
-                    if( board[i-1][j] === 1 ){ result[i][j] = 1; continue; } // vertical t check
-                    if( board[i-1][j+1] )
-                        if( board[i-1][j+1] === 1 ){ result[i][j] = 1; continue; } // rdiag t check
-                    if( board[i-1][j-1] )
-                        if( board[i-1][j-1] === 1 ){ result[i][j] = 1; continue; } // ldiag t check
+                    if( board[i-1][j] === 1 ) count+=1 // vertical t check
+                    if( board[i-1][j+1] ){ if( board[i-1][j+1] === 1 ) count+=1 }// rdiag t check
+                    if( board[i-1][j-1] ){ if( board[i-1][j-1] === 1 ) count+=1 }// ldiag t check
                 }
                 if( board[i+1] ){
-                    if( board[i+1][j] === 1 ){ result[i][j] = 1; continue; } // vertical b check
-                    if( board[i+1][j+1] )
-                        if( board[i+1][j+1] === 1 ){ result[i][j] = 1; continue; } // rdiag b check
-                    if( board[i+1][j-1] )
-                        if( board[i+1][j-1] === 1 ){ result[i][j] = 1; continue; } // ldiag t check
+                    if( board[i+1][j] === 1 ) count+=1 // vertical b check
+                    if( board[i+1][j+1] ){ if( board[i+1][j+1] === 1 ) count+=1 }// rdiag b check
+                    if( board[i+1][j-1] ){ if( board[i+1][j-1] === 1 ) count+=1 }// ldiag t check
                 }
                 result[i][j] = 0;
+                if( (count === 2 || count === 3) && board[i][j] === 1 ) result[i][j] = 1;
+                if( board[i][j] === 0 && count === 3 ) result[i][j] = 1;
+
+
+
         }// end cell
     } // end row
-    return result;
+
+    for (m = 0; m < board.length; m++) {
+        for (n = 0; n < board[m].length; n++) {
+            board[m][n] = result[m][n];
+        }
+    }
 };
 var arr = [
           [1,0,1],
