@@ -16,7 +16,7 @@ var gameOfLife = function(board) {
         i,
         j;
 
-    for ( i = 0; i < board.length; i++ ) {
+    for ( i = 0; i < board.length; i++ ) { //dup amount of arrays
       result.push( [] );
     }
 
@@ -24,25 +24,25 @@ var gameOfLife = function(board) {
         for( j = 0; j < board[i].length; j++ ){ // cell
                 // var row = board[i],
                 //     cell = board[i][j];
-                result[i][j] = 0;
                 if( board[i][j+1] )
-                    if( board[i][j+1] === 1 ) result[i][j] = 1;  // horizontal r check
+                    if( board[i][j+1] === 1 ){ result[i][j] = 1; continue; } // horizontal r check
                 if( board[i][j-1] )
-                    if( board[i][j-1] === 1 ) result[i][j] = 1; // horizontal l check
+                    if( board[i][j-1] === 1 ){ result[i][j] = 1; continue; } // horizontal l check
                 if( board[i-1] ){
-                    if( board[i-1][j] === 1 ) result[i][j] = 1; // vertical t check
+                    if( board[i-1][j] === 1 ){ result[i][j] = 1; continue; } // vertical t check
                     if( board[i-1][j+1] )
-                        if( board[i-1][j+1] === 1 ) result[i][j] = 1; // rdiag t check
+                        if( board[i-1][j+1] === 1 ){ result[i][j] = 1; continue; } // rdiag t check
                     if( board[i-1][j-1] )
-                        if( board[i-1][j-1] === 1 ) result[i][j] = 1; // ldiag t check
+                        if( board[i-1][j-1] === 1 ){ result[i][j] = 1; continue; } // ldiag t check
                 }
                 if( board[i+1] ){
-                    if( board[i+1][j] === 1 ) result[i][j] = 1; // vertical b check
+                    if( board[i+1][j] === 1 ){ result[i][j] = 1; continue; } // vertical b check
                     if( board[i+1][j+1] )
-                        if( board[i+1][j+1] === 1 ) result[i][j] = 1; // rdiag b check
+                        if( board[i+1][j+1] === 1 ){ result[i][j] = 1; continue; } // rdiag b check
                     if( board[i+1][j-1] )
-                        if( board[i+1][j-1] === 1 ) result[i][j] = 1; // ldiag t check
+                        if( board[i+1][j-1] === 1 ){ result[i][j] = 1; continue; } // ldiag t check
                 }
+                result[i][j] = 0;
         }// end cell
     } // end row
     return result;
@@ -52,7 +52,7 @@ var arr = [
           [1,0,0],
           [0,0,0]
           ]
-console.timeEnd( gameOfLife(arr) );
+console.log( gameOfLife(arr) );
 // i = row; j = cell
 // horizontal[i][j] j + 1 || j - 1
 // vertical[i][j] i + 1 || i - 1
