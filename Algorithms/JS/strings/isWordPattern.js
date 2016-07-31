@@ -36,3 +36,26 @@ var wordPattern = function(pattern, str) { // 96ms runtime
     pattern.length !== subSet.length ? result = false : result = map( pattern, subSet ) && map( subSet, pattern );
     return result;
 };
+
+// -----------------------------------------------------------------
+
+
+var wordPattern = function(pattern, str) {
+    var subSet = str.split(" "),
+        result = true,
+        i;
+    function decode( string ){
+      var storage = {},
+          arrayValues = [];
+
+      for( i = 0; i < string.length; i++ ){ // set counter. { "a": 2, "b": 2 }
+        storage[string[i]] ? storage[string[i]] += 1 : storage[string[i]] = 1
+      }
+      for(var key in storage ){ // push values into array. [2,2]
+        arrayValues.push( storage[key] );
+      }
+      return arrayValues; // [2,2]
+    }
+    return decode( str.split(" ") ).toString() === decode( pattern ).toString(); // check return arrays as strings
+                                                                                 // for a faster comparison
+};

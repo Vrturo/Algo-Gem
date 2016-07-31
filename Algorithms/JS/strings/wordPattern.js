@@ -16,7 +16,7 @@ var wordPattern = function(pattern, str) {
       for( i = 0; i < string.length; i++ ){ // set counter. {"a": 1, "b": 1, "c": 1}
         storage[string[i]] ? storage[string[i]] += 1 : storage[string[i]] = 1
       }
-      for( key in storage ){ // push values into array. [1,1,1]
+      for(var key in storage ){ // push values into array. [1,1,1]
         arrayValues.push( storage[key] );
       }
       return arrayValues; // [1,1,1]
