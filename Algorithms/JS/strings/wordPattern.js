@@ -1,0 +1,1 @@
+wordPattern.js
