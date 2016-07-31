@@ -16,16 +16,16 @@
  * @return {boolean}
  */
 
-var wordPattern = function(pattern, str) {
+var wordPattern = function(pattern, str) { // 96ms runtime
     var subSet = str.split(" "),
         result = true,
         i;
 
      function map( a, b ){
         var storage = {};
-        for ( i = 0; i < subSet.length; i++ ){
+        for( i = 0; i < subSet.length; i++ ){
            if( storage[a[i]] ){
-               if ( storage[a[i]] !== b[i] ) return false;
+               if( storage[a[i]] !== b[i] ) return false;
            }else{
                storage[a[i]] = b[i];
             }
