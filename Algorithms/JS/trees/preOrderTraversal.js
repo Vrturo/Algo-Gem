@@ -10,3 +10,11 @@
 // Preorder traversal:
 // 23 16 3 22 45 37 99
 
+
+function preOrder( node ){
+   if( node ){
+      console.log( node.value );
+      preorder( node.left );
+      preorder( node.right );
+   }
+}
