@@ -13,7 +13,7 @@
 
 function preOrder( node ){
    if( node ){
-      console.log( node.value );
+      console.log( node.value ); // print out current node, then traverse
       preorder( node.left );
       preorder( node.right );
    }
