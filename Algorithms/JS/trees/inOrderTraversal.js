@@ -1,6 +1,16 @@
 // How to perform in order traversal
 
 
+//     23
+//    /  \
+//   16   45
+//  / \   /  \
+// 3 22  37  99
+
+// Inorder traversal:
+// 3 16 22 23 37 45 99
+
+
 function inorder( node ){
    if( node ){
       inorder( node.left ); // traverse down tree till bottom node hits before output value
