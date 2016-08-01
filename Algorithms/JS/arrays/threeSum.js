@@ -13,39 +13,35 @@
 // BREAKDOWN PROBLEM
 
 var threeSum = function(nums) {
-    var rtn = [];
-    if (nums.length < 3) {
-        return rtn;
-    }
-    nums = nums.sort(function(a, b) {
+    var result = [];
+    if( nums.length < 3 ) return result;
+
+    nums = nums.sort(function( a, b ) { // sort numbers in order
         return a - b;
     });
-    for (var i = 0; i < nums.length - 2; i++) {
-        if (nums[i] > 0) {
-            return rtn;
-        }
-        if (i > 0 && nums[i] == nums[i - 1]) {
-            continue;
-        }
-        for (var j = i + 1, k = nums.length - 1; j < k;) {
-            if (nums[i] + nums[j] + nums[k] === 0) {
-                rtn.push([nums[i], nums[j], nums[k]]);
-                j++;
-                k--;
-                while (j < k && nums[j] == nums[j - 1]) {
+    for( var i = 0; i < nums.length - 2; i++ ){ // nums.length - 2 because adding j and k var to search array
+        if( nums[i] > 0 ) return result
+        if( i > 0 && nums[i] == nums[i - 1] ) continue; // both positive so sum isnt 0
+
+        for( var j = i + 1, k = nums.length - 1; j < k; ){ // j is + 1 of i, k is at the end of the array
+            if( nums[i] + nums[j] + nums[k] === 0 ){ // if all numbers add up to 0 push into result
+                result.push( [ nums[i], nums[j], nums[k] ] );
+                j++; // increment to finish loop
+                k--; // decrement to finish loop
+                while( j < k && nums[j] == nums[j - 1] ){ // if number is repetitive and sum still isnt zero move to next
                     j++;
                 }
-                while (j < k && nums[k] == nums[k + 1]) {
+                while( j < k && nums[k] == nums[k + 1] ){ // if number is repetitive and sum still isnt zero move to next
                     k--;
                 }
-            } else if (nums[i] + nums[j] + nums[k] > 0) {
-                k--;
+            } else if( nums[i] + nums[j] + nums[k] > 0 ){
+                k--; // if sum is greater than 0, find lesser values in the array to decrement the sum
             } else {
-                j++;
+                j++; // if sum is less than 0, find greater values in the array to increment the sum
             }
         }
     }
-    return rtn;
+    return result;
 };
 
 
