@@ -1,0 +1,1 @@
+isWordPattern2.js
