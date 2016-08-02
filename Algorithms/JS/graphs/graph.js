@@ -6,7 +6,7 @@ function Graph(){
     this.adjList = new Dictionary();
 }
 
-Graph.prototype.addVertex = function (vertex) {
+Graph.prototype.addVertex = function( vertex ) {
     this.vertices.push( vertex );
     this.adjList.set( vertex, [] );
 }
