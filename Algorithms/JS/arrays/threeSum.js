@@ -68,3 +68,10 @@ var threeSum = function(nums) {
     }
     return results;
 };
+
+
+
+// TO DO LIST:
+// another solution
+// use a hash to store each value of the array and the opposite value (value * -1)
+// faster look up time
