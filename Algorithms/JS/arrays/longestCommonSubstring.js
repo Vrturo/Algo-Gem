@@ -6,11 +6,26 @@ var longestCommonPrefix = function(strs) { //120 ms runtime
         a1 = sortedArr[0],
         a2 = sortedArr[sortedArr.length-1],
         len = a1.length,
-        i= 0;
+        i = 0;
 
     while( (i<len) && a1.charAt(i) === a2.charAt(i) ) i++;
     return a1.substring(0, i);
 };
+
+
+var longestCommonPrefix = function(strs) { //120 ms runtime
+    if( strs.length < 1 ) return "";
+    var prefix = strs[0];
+
+    for( var i =0; i < strs.length; i++ ){
+        while( strs[i].indexOf(prefix) !== 0 ){
+            prefix = prefix.substring(0, prefix.length - 1);
+            if( !prefix ) return "";
+        }
+    }
+    return prefix;
+};
+
 
 // ------ Unfinished Solution ---------------------------------
 // var longestCommonPrefix = function(strs) {
