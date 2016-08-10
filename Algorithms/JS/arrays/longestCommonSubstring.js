@@ -12,7 +12,12 @@ var longestCommonPrefix = function(strs) { //120 ms runtime
     return a1.substring(0, i);
 };
 
-
+// Horizontal scanning
+// strs = [ "leet", "leets", "leetcode", "leeds"]
+// l e e t
+// l e e t s
+// l e e t c o d e
+// l e e d s
 var longestCommonPrefix = function(strs) { //120 ms runtime
     if( strs.length < 1 ) return "";
     var prefix = strs[0];
