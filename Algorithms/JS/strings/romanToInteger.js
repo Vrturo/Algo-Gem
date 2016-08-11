@@ -7,7 +7,7 @@
  * @return {number}
  */
 
-var romanToInt = function(s) {
+var romanToInt = function(s) { // 332 ms - 94%
     var map = {
         I: 1,
         V: 5,
@@ -20,12 +20,12 @@ var romanToInt = function(s) {
         result = 0;
 
     for (var i = s.length - 1; i >= 0; i--) {
-        if ( map[s[i]] < prev ) {
-            result -= map[s[i]];
-        } else {
-            result += map[s[i]];
+        if ( map[s[i]] < prev ) { // if prev char is bigger or same, subtract from result
+            result -= map[s[i]]; // 'IV' -> 4
+        } else { //if prev char is smaller, add valeu to result
+            result += map[s[i]];// 'VI' -> 6
         }
-        prev = map[s[i]];
+        prev = map[s[i]]; // set current value to prev for next
     }
     return result;
 };
