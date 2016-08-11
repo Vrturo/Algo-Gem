@@ -7,3 +7,13 @@
  * @param {number} k
  * @return {void} Do not return anything, modify nums in-place instead.
  */
+
+var rotate = function(nums, k) {
+    var len = nums.length,
+        diff = len - k;
+
+    var extra = nums.splice(diff, len);
+    for( var i = extra.length-1; i >= 0; i-- ){
+       nums.unshift( extra[i] );
+    }
+};
