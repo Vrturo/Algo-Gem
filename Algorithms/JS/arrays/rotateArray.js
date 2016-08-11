@@ -17,3 +17,62 @@ var rotate = function(nums, k) {
        nums.unshift( extra[i] ); // push to front of nums
     }
 };
+
+// -------------------------------------------------
+
+// Time complexity : O(n). One pass is used to put the numbers in the new array.
+                  // And another pass to copy the new array to the original one.
+
+// Space complexity : O(n). Another array of the same size is used.
+var rotate = function(nums, k) {
+    var result = [],
+        i;
+
+    for( i=0; i<nums.length; i++ ){
+            result[(i + k) % nums.length] = nums[i];
+    }
+    for( i=0; i<nums.length; i++ ){
+        nums[i] = result[i];
+    }
+};
+
+// ------------------------------------------------------
+
+// Time complexity : O(n). nn elements are reversed a total of three times.
+// Space complexity : O(1). No extra space is used.
+
+var rotate = function(nums, k) {
+    k %= nums.length;
+    reverse(nums, 0, nums.length - 1);
+    reverse(nums, 0, k - 1);
+    reverse(nums, k, nums.length - 1);
+
+    function reverse( nums, start, end ){
+        while( start < end ){
+            var temp = nums[start];
+            nums[start] = nums[end];
+            nums[end] = temp;
+            start++;
+            end--;
+        }
+    }
+};
+
+
+// ------------------------------------
+// BRUTE FORCE
+// Time: O(n*k)  All the numbers are shifted by one step(O(n) k times(O(k)).
+// Space: O(1)    No extra space is used.
+
+var rotate = function(nums, k) {
+    var temp, previous, i, j;
+
+    for( i=0; i < k; i++ ){
+        previous = nums[nums.length-1];
+        for( j=0; j<nums.length; j++ ){
+            temp = nums[j];
+            nums[j] = previous;
+            previous = temp;
+        }
+    }
+};
