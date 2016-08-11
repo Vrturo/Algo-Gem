@@ -11,3 +11,13 @@
 // Hint:
 
 // If there are 5 stones in the heap, could you figure out a way to remove the stones such that you will always be the winner?
+
+
+/**
+ * @param {number} n
+ * @return {boolean}
+ */
+
+var canWinNim = function(n) { // 108ms runtime
+    return n % 4 !== 0; // You can always win a Nim game if the number of stones n in the pile is not divisible by 4.
+};
