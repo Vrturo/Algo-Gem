@@ -12,8 +12,8 @@ var rotate = function(nums, k) {
     var len = nums.length,
         diff = len - k;
 
-    var extra = nums.splice(diff, len);
-    for( var i = extra.length-1; i >= 0; i-- ){
-       nums.unshift( extra[i] );
+    var extra = nums.splice(diff, len); // pull elements out to bring k element to the front
+    for( var i = extra.length-1; i >= 0; i-- ){ // start from back of the array to push them in the right order
+       nums.unshift( extra[i] ); // push to front of nums
     }
 };
