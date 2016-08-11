@@ -31,21 +31,19 @@ var $ = function(selector) {
                     traverse( [children[i]], index + 1);
                 }
             }
-            index++;
-            traverse( newList, index );
+            traverse( newList, index+1 );
         }
-
     }// end traverse
 
     return traverse( dom, 0);
 };
 
 //
-  class4
-    class1
-     class5
-      class2
-        class3
+//   class4
+//     class1
+//      class5
+//       class2
+//         class3
 
 
-.class1 .class2 .class3
+// .class1 .class2 .class3
