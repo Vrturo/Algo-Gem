@@ -17,20 +17,20 @@
 
 
 function scores(a, b){
-  var points = [2, 5, 7];
-  var results = [];
-  for(var i = 0; i <= a; i++){
+  var points = [2, 5, 7], // all possible scores
+      results = [];
+  for( var i = 0; i <= a; i++ ){
     results[i] = [];
-    for(var j = 0; j <= b; j++){
-      results[i][j] = getPossible(i, j);
+    for( var j = 0; j <= b; j++ ){
+      results[i][j] = getPossible( i, j );
     }
   }
   return results[a][b];
 
   function getPossible(i, j){
-    if(!i && !j) return 1;
+    if( !i && !j ) return 1;
     var result = 0;
-    for(var k = 0; k < points.length; k++){
+    for( var k = 0; k < points.length; k++ ){
       result += i-points[k] >= 0 ? results[i-points[k]][j] : 0;
       result += j-points[k] >= 0 ? results[i][j-points[k]] : 0;
     }
