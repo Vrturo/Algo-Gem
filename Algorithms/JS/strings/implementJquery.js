@@ -1,3 +1,43 @@
+
+var $ = function(selector) {
+    var classes = selector.split("."), //class1, class2, class3
+        dom = document.children,
+        results = [dom];
+
+    function filter( nodes ){
+        var matches;
+        for( var i = 0; i<nodes.length; i++ ){
+            matches.push( traverse(nodes) );
+        }
+    }
+
+    function traverse( currentNode ){
+        var child = currentNode.children;
+
+        if( !currentNode ){
+            return;
+        }
+        else{
+
+        }
+    }// end traverse
+
+    for( var i=0; i<classes.length; i++ ){
+        var currentSelector = class[i];
+        results = filter( results );
+    }
+    return results
+};
+
+
+
+
+
+
+
+
+
+
 // jQuery selector
 // $(selector) => list[elements]
 // selector:
@@ -44,6 +84,8 @@ var $ = function(selector) {
 //      class5
 //       class2
 //         class3
+
+
 
 
 // .class1 .class2 .class3
