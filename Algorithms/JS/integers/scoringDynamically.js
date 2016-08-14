@@ -14,6 +14,32 @@
 // input: 2 params, (integer, integer) -> positive // not always a perfect score
 // output: integer, if sore isnt possible return 0
 
+
+
+function scores(a, b){
+  var points = [2, 5, 7];
+  var results = [];
+  for(var i = 0; i <= a; i++){
+    results[i] = [];
+    for(var j = 0; j <= b; j++){
+      results[i][j] = getPossible(i, j);
+    }
+  }
+  return results[a][b];
+
+  function getPossible(i, j){
+    if(!i && !j) return 1;
+    var result = 0;
+    for(var k = 0; k < points.length; k++){
+      result += i-points[k] >= 0 ? results[i-points[k]][j] : 0;
+      result += j-points[k] >= 0 ? results[i][j-points[k]] : 0;
+    }
+    return result;
+  }
+}
+
+// ------------------------------------------------------------------------------
+
 function scoreTally( scoreOne, scoreTwo ){
    var uniques = [1],// set uniques as buildUp array to store elements to be saved so we don't have to start again
    score = [2,5,7]; // all possible scores
