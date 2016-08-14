@@ -86,3 +86,17 @@ function coinChange(total, coins){
   }
   return ways.length;
 }
+
+
+var coinChange = function(coins, amount) {
+    var change = new Array( amount + 1);
+    change.fill( Number.MAX_VALUE-1 );
+    change[0] = 0;
+
+    for( var i=1; i<=amount; i++){
+        for( var j=0; j<coins.length; j++ ){
+            if( coins[j]<=i ) change[i] = Math.min( change[i-coins[j]]+1, change[i] );
+        }
+    }
+    return change[amount] === Number.MAX_VALUE-1 ? -1 : change[amount];
+};
