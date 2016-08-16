@@ -31,3 +31,23 @@
 
 // After applying operation [0, 2, -2]:
 // [-2, 0, 3, 5, 3 ]
+
+
+var getModifiedArray = function(length, updates) {
+    var result = new Array( length );
+    result.fill(0);
+
+    for( var i=0; i<updates.length; i++ ){
+        for( var j=0; j<updates[i].length; j++ ){
+            var element = updates[i][ updates[j].length-1 ];
+            var index = updates[i][j]; // 1
+            if( index < result.length && index >= 0 ){
+                result[index] += element;
+            }else if( index < 0 ){
+                index = index * -1 - 1;
+                result[index] += element;
+            }
+        }
+    }
+    return result;
+};
