@@ -88,7 +88,7 @@ function coinChange(total, coins){
 }
 
 
-var coinChange = function(coins, amount) {
+var coinChange = function(coins, amount) { // 196ms runtime
     var change = new Array( amount + 1);
     change.fill( Number.MAX_VALUE-1 );
     change[0] = 0;
