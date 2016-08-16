@@ -34,6 +34,25 @@
 
 
 var getModifiedArray = function(length, updates) {
+    var result = new Array( length ),
+        i;
+    result.fill(0);
+
+    for( i=0; i<updates.length; i++ ){
+        result[updates[i][0]] += updates[i][2];
+        if( updates[i][1] < length -1 ) result[updates[i][1] + 1] -= updates[i][2];
+    }
+    var sum = 0, j;
+    for( j=0; j<length; j++ ){
+        sum += result[j];
+        result[j] = sum;
+    }
+    return result;
+};
+
+// -----------------------------------------------------------------
+
+var getModifiedArray = function(length, updates) {
     var result = new Array( length );
     result.fill(0);
 
