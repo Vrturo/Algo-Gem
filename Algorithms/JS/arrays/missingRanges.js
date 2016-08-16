@@ -10,12 +10,12 @@
  * @return {string[]}
  */
 
-
 var findMissingRanges = function(nums, lower, upper) {
     var result = [],
-        start = lower;
+        start = lower,
+        i;
 
-    for( var i=0; i<nums.length; i++ ){
+    for( i=0; i<nums.length; i++ ){
        if( lower<= nums[i] && upper >= nums[i] ){
             if( start !== nums[i] ){
                 result.push( getRange(start, nums[i]-1) );
@@ -23,14 +23,11 @@ var findMissingRanges = function(nums, lower, upper) {
             start = nums[i] + 1;
        }
     }
-
     if( start <= upper ){
         result.push( getRange(start,upper) );
     }
-
     return result;
 };
-
 function getRange( start, end ){
     return start === end ? start.toString() : [start,end].join('->');
 }
