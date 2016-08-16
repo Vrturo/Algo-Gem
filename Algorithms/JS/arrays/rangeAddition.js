@@ -38,6 +38,28 @@ var getModifiedArray = function(length, updates) {
     result.fill(0);
 
     for( var i=0; i<updates.length; i++ ){
+        var value = updates[i][2];
+        var start = updates[i][0];
+        var end = updates[i][1];
+        result[start] += value;
+        if( end < length - 1 ) result[end + 1] -= value;
+    }
+    var sum = 0;
+    for( var j=0; j<length; j++ ){
+        sum += result[j];
+        result[j] = sum;
+    }
+    return result;
+};
+
+
+// -------------UNFINISHED---------------------------------
+
+var getModifiedArray = function(length, updates) {
+    var result = new Array( length );
+    result.fill(0);
+
+    for( var i=0; i<updates.length; i++ ){
         for( var j=0; j<updates[i].length; j++ ){
             var element = updates[i][ updates[j].length-1 ];
             var index = updates[i][j]; // 1
