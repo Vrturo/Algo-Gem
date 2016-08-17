@@ -9,6 +9,7 @@
  */
 
 
+// Static Dynamic Programming:
 
 var numSquares = function(n) {
     var possible = [0],
@@ -16,12 +17,14 @@ var numSquares = function(n) {
     while( possible.length <= n ){
         len = possible.length;
         temp = n;
-        for( var i=1; i*i<=len; i++ ){
-            if( temp > possible[len-i*i]+1 ){
-                temp = possible[len-i*i]+1;
+        for( var i=1; i*i<=len; i++ ){ // [0] -> building up our array
+            console.log("tmp: ", temp, "element: ", possible[len-i*i])
+            if( temp > possible[len-i*i]+1 ){ // 9 > possible[ 1 - 1*1 ]+1
+                temp = possible[len-i*i]+1;// temp = possible[ 1 - 1*1 ]+1 -> temp = 1
             }
         }
-        possible.push( temp );
+        possible.push( temp ); // [0, 1]
     }
     return possible[n];
 };
+
