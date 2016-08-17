@@ -8,6 +8,21 @@
  * @return {number}
  */
 
+function numSquares(n) {
+  var map = [0],
+      i, j, min;
+  for( i = 1; i <= n; i++ ){
+    j = 1;
+    min = i;
+    while( j * j <= i ){ // 1*1 <= 1
+      min = Math.min(min, 1 + map[i - j * j]); // min = 1, 1 + map[1 - 1*1] -> (1, 1)
+      j++; // j = 2
+    }
+    map[i] = min; //[0, 1, 2]
+  }
+  return map[n];
+}
+
 
 // Static Dynamic Programming:
 
@@ -27,4 +42,5 @@ var numSquares = function(n) {
     }
     return possible[n];
 };
+
 
