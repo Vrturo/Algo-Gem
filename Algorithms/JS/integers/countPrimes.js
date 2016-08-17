@@ -57,4 +57,24 @@
 // For the more mathematically inclined readers, you can read more about its algorithm complexity on Wikipedia.
 
 
+// Sieve of Eratosthenes solution
 
+var countPrimes = function(n) {
+    var isPrime = [false, false];
+    var floorSqrtN = Math.floor (Math.sqrt(n) );
+    var i = 2;
+    while(i <= floorSqrtN ){
+        if( isPrime[i] !== false) {
+            for( var j = i * i; j <= n; j += i )
+                isPrime[j] = false;
+        }
+        i++;
+    }
+    var count = 0;
+    for( i = 0; i < n; i++ ){
+        if( isPrime[i] !== false )
+            count++;
+    }
+
+    return count;
+};
