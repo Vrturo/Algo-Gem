@@ -18,3 +18,17 @@
 // Output: Integer
 // 5
 
+function parse( string ){
+    var numbers = string.split(""),
+        counter = 0,
+        sum = 0,
+        power;
+    for( var i=numbers.length; i<=0; i-- ){
+        var integer = ParseInt( numbers[i] );
+        power = Math.pow( 2, counter );
+        sum += power*integer;
+        counter++;
+    }
+    return sum;
+}
+
