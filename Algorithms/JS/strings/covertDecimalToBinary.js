@@ -19,6 +19,13 @@
 // 5
 
 function parse( string ){
+    return parseInt( string, 2 ); // The parseInt function converts strings to numbers,
+                                  // and it takes a second argument specifying the base in which the string representation is:
+}
+
+// -----------------------------------
+
+function parse( string ){
     var numbers = string.split(""),
         counter = 0,
         sum = 0,
