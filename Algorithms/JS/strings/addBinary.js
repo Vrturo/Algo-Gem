@@ -7,6 +7,16 @@
 
 
 
+//UNFINISHED
+
+var addBinary = function(a, b) {
+    var digitOne = parseInt(a, 2),
+        digitTwo = parseInt(b, 2);
+    var integer = JSON.stringify(digitOne + digitTwo);
+
+    return Number(integer).toString(2);
+
+};
 
 //UNFINISHED
 
