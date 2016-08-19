@@ -1,4 +1,4 @@
-// Convert binary (101) to it's decimal equivelant( 5)
+// Convert decimal ( '5' ) to it's binary equivelant ('101')
 
 // 0   00
 // 1   01
@@ -12,11 +12,14 @@
 // 9   1001
 // 10  1010
 
-// Input: String
+
+// Input: Integer
+// 5
+
+// Output: String
 // ex. '101'
 
-// Output: Integer
-// 5
+
 
 function parse( string ){
     return parseInt( string, 2 ); // The parseInt function converts strings to numbers,
