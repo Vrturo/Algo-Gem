@@ -20,3 +20,23 @@
 // 5
 
 
+function parse( string ){
+    return parseInt( string, 2 ); // The parseInt function converts strings to numbers,
+                                  // and it takes a second argument specifying the base in which the string representation is:
+}
+
+// -----------------------------------
+
+function parse( string ){
+    var numbers = string.split(""),
+        counter = 0,
+        sum = 0,
+        power;
+    for( var i=numbers.length; i<=0; i-- ){
+        var integer = ParseInt( numbers[i] );
+        power = Math.pow( 2, counter );
+        sum += power*integer;
+        counter++;
+    }
+    return sum;
+}
