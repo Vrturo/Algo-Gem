@@ -67,7 +67,7 @@ var rob = function(nums) {
         currMax = 0;
     for ( var i=0; i<nums.length; i++  ) {
         var temp = currMax;
-        currMax = Math.max(prevMax + nums[i], currMax);
+        currMax = Math.max( prevMax + nums[i], currMax );
         prevMax = temp;
     }
     return currMax;

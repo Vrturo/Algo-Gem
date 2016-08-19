@@ -21,13 +21,6 @@
 
 
 function parse( string ){
-    return parseInt( string, 2 ); // The parseInt function converts strings to numbers,
-                                  // and it takes a second argument specifying the base in which the string representation is:
-}
-
-// -----------------------------------
-
-function parse( string ){
     var numbers = string.split(""),
         counter = 0,
         sum = 0,
@@ -40,3 +33,21 @@ function parse( string ){
     }
     return sum;
 }
+
+// ----------------------------------------
+
+function BinaryToDecimal(BinaryValue){
+    var DecimalValue = 0;
+    // Flip the character array (aka string) in order to make itterating over it easier
+    BinaryValue = BinaryValue.split("").reverse().join("");
+    // Loop over BinaryValue (from left to right)
+    for (var i=BinaryValue.length-1;i>=0;i--){
+        // Is there a 1 in the place?
+        if(BinaryValue[i] == '1'){
+            // If so, add 2^i/2 to DecimalValue
+            DecimalValue = DecimalValue + (Math.pow(2,i+1)/2);
+        }
+    }
+    return DecimalValue;
+}
+
