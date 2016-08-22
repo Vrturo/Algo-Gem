@@ -31,4 +31,16 @@ function staircase(n) {
 
 // -------------------------------------------------
 
-
+function StairCase(n) {
+    for( var i=1; i<=n; i++ ){ // 6 [ , , , , ,#]
+        var str = "";
+        for( var j=1; j<=n; j++ ){
+            if( j <= n-i ){ // 6 <= 6 - 0
+                str+=' ';
+            } else{
+                str+='#'
+            }
+        }
+        console.log(str)
+    }
+}
