@@ -37,7 +37,7 @@ var longestPalindrome = function(s) { // 488ms runtime
     for( j = 0; j < 2; j++ ){ // l: 0 r: 0, l: 0 r: 1, l: 1 r: 1
       var left = i;
       var right = i + j;
-      while( s[left] && s[left] === s[right] ){ //??
+      while( s[left] && s[left] === s[right] ){ //
         left--;
         right++;
       }
