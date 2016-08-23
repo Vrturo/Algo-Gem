@@ -24,8 +24,8 @@
 function staircase(n) {
     for(var i = 1; i <= n; i++){
         var diff = n - i;
-        var ht = " ".repeat(diff) + '#'.repeat(i);
-        console.log(ht);
+        var row = " ".repeat(diff) + '#'.repeat(i);
+        console.log(row);
     }
 }
 

@@ -1,4 +1,5 @@
 
+
 function paginate(num, results) {
     var solution = [],
         dup = [],
@@ -21,10 +22,10 @@ function paginate(num, results) {
             }
         }
         if(i >= results.length){
-            solution.push( dup.splice(j,1)[1] );
+            solution.push( dup.splice(j,1)[1] ); // once results length hits, push all duplicates into solution
         } else {
             currentListing = results[i].split(','); //
-            if( cache[currentListing[0]] !== undefined ){
+            if( cache[currentListing[0]] !== undefined ){ // incase id is 0, can be falsy
                 dup.push( [currentListing[0], results[i]] );
                 i++
             }else{
@@ -48,18 +49,7 @@ function paginate(num, results) {
     return solution;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
+console.log( paginate(5, test) )
 
 
 

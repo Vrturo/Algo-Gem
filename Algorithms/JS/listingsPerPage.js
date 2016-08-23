@@ -46,10 +46,10 @@ function sortListing( n, listings ){
         if( current === head ){
           head = linkedList[head];
         }
-        linkedList[prev] = linkedList[current];
+        linkedList[prev] = linkedList[current]; // keep moving down list
         current = linkedList[current];
     } else {
-      prev = current;
+      prev = current; // keep moving down list
       current = linkedList[current];
     }
   }
