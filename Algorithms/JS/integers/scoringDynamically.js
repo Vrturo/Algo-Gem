@@ -12,7 +12,7 @@
 
 
 // input: 2 params, (integer, integer) -> positive // not always a perfect score
-// output: integer, if sore isnt possible return 0
+// output: integer, if score isnt possible return 0
 
 
 
