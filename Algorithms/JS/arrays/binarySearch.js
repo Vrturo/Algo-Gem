@@ -12,7 +12,7 @@ function binarySearch( item, arr ){
             // If element is smaller than mid, then it can only
             // be present in left subarray
             if( arr[mid] > item )
-               return binarySearch( item, arr.splice( 0, mid ));
+               return binarySearch( item, arr.splice( l, mid ));
 
             // Else the element can only be present in right
             // subarray
