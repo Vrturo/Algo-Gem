@@ -4,7 +4,7 @@ function binarySearch( item, arr ){
     var l = 0,
         r = arr.length -1
     if( r>=l ){ // check if there are elements in the array
-            var mid = (r - l)/2;
+            var mid = Math.floor( r/2 );
 
             // If the element is present at the middle itself
             if( arr[l] === item || arr[r] === item || arr[mid] === item ) return true;
@@ -49,4 +49,4 @@ function binarySearch(item, arr){
       }
 }
 
-console.log(binarySearch(4, [1, 2, 3, 5, 7, 8]));
+console.log(binarySearch(8, [1, 2, 3, 5, 7, 8]));
