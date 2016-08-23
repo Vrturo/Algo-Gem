@@ -105,10 +105,18 @@ var testThree = [ "1, 2, 99, San Francisco",
                 "2, 11, 26, San Francisco",
                 "5, 19, 20, San Francisco"
             ];
-sortListing( 4, test );
-sortListing( 5, testTwo );
-sortListing( 2, testThree );
+// sortListing( 4, test );
+// sortListing( 5, testTwo );
+// sortListing( 2, testThree );
 
+function benchMark( n, results){
+  var start = new Date();
+  paginate(n, results);
+  var end = new Date();
+  return Number(end - start) // number of miliseconds
+}
+
+console.log( benchMark( 4, test ) );
 
 // -----------------------------------------------------------
 
@@ -161,7 +169,5 @@ function paginate(num, results) {
 
     return solution;
 }
-
-console.log( paginate(5, test) )
 
 
