@@ -17,8 +17,8 @@ function karatsubaMulti(x, y) {
 
   if( n == 1 ) return x * y;
 
-  var tenpowhalfn = Math.pow( 10, parseInt(n / 2) ),
-      tenpown = Math.pow( 10, 2 * parseInt(n / 2) );
+  var tenpowhalfn = Math.pow( 10, parseInt(n / 2) ), // helps pad 4 0's
+      tenpown = Math.pow( 10, 2 * parseInt(n / 2) ); // // helps pad 2 0's
 
   var a = parseInt(x / tenpowhalfn),
       b = x % tenpowhalfn,
