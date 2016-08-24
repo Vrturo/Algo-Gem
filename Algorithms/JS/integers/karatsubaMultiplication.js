@@ -9,3 +9,25 @@
 // The Karatsuba algorithm was the first multiplication algorithm asymptotically faster than the quadratic "grade school" algorithm.
 // The Toom–Cook algorithm is a faster generalization of Karatsuba's method,
 // and the Schönhage–Strassen algorithm is even faster, for sufficiently large n.
+
+
+function karatsubaMulti(x, y) {
+
+  var n = Math.min( ('' + x).length, ('' + y).length );
+
+  if( n == 1 ) return x * y;
+
+  var tenpowhalfn = Math.pow( 10, parseInt(n / 2) ),
+      tenpown = Math.pow( 10, 2 * parseInt(n / 2) );
+
+  var a = parseInt(x / tenpowhalfn),
+      b = x % tenpowhalfn,
+      c = parseInt(y / tenpowhalfn),
+      d = y % tenpowhalfn;
+
+  return tenpown * karatsubaMulti(a, c) + tenpowhalfn * (karatsubaMulti(a, d) + karatsubaMulti(b, c)) + karatsubaMulti(b, d);
+}
+
+
+console.log( karatsubaMulti(100, 5) ); // return 500
+console.log( karatsubaMulti(1234, 56789) );// return 70077626
