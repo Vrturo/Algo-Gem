@@ -15,23 +15,32 @@
 // call the median function on the two given arrays comboned or concat'd
 
 
-var findMedianSortedArrays = function(nums1, nums2) {
-    function median( values ) {
-        values.sort( function(a,b) {return a - b;} );
-        var half = Math.floor( values.length/2 );
-        if( values.length % 2 ){
-          return values[half];
-        } else{
-            return (values[half-1] + values[half]) / 2.0;
-        }
+
+var findMedianSortedArrays = function(nums1, nums2) { // 264 ms runtime
+    var result = [],
+        lLen = nums1.length,
+        rLen = nums2.length,
+        l = 0,
+        r = 0;
+
+    while(l < lLen && r < rLen){
+       if(nums1[l] <= nums2[r]){
+         result.push(nums1[l++]);
+       }
+       else{
+         result.push(nums2[r++]);
+      }
     }
-    return median( nums1.concat(nums2) );
+    while(l < lLen ) result.push(nums1[l++]);
+    while(r < rLen ) result.push(nums2[r++]);
+
+    var len = result.length;
+    return (len%2 === 0) ? ( result[len/2] + result[len/2-1] )/2 : result[(len-1)/2];
 };
 
 // ------------------------------------------------
 
-
-var findMedianSortedArrays = function(nums1, nums2) {
+var findMedianSortedArrays = function(nums1, nums2) { // 284 ms runtime
     var result = [];
 
     while( nums1.length && nums2.length ){
@@ -47,6 +56,22 @@ var findMedianSortedArrays = function(nums1, nums2) {
     var len = result.length;
     return (len%2 === 0) ? ( result[len/2] + result[len/2-1] )/2 : result[(len-1)/2];
 };
+
+// ------------------------------------------------
+
+var findMedianSortedArrays = function(nums1, nums2) {
+    function median( values ) {
+        values.sort( function(a,b) {return a - b;} );
+        var half = Math.floor( values.length/2 );
+        if( values.length % 2 ){
+          return values[half];
+        } else{
+            return (values[half-1] + values[half]) / 2.0;
+        }
+    }
+    return median( nums1.concat(nums2) );
+};
+
 
 // -------------------------------------------
 
