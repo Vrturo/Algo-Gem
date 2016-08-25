@@ -23,6 +23,25 @@
   // return result
 
 
+var permute = function( nums, l=0, result=[]){
+    if( l >= nums.length ){
+        var arr = nums.slice();
+        result.push( arr );
+    } else {
+        for ( var i = l; i < nums.length; i++ ){
+            var temp = nums[l];
+            nums[l] = nums[i];
+            nums[i] = temp;
+            permute( nums, l+1, result );
+            temp = nums[l];
+            nums[l] = nums[i];
+            nums[i] = temp;
+        }
+    }
+    return result;
+};
+
+// ------------------------------------
 
 var permute = function(nums) { // 144ms runtime
     var result = [];
@@ -70,5 +89,6 @@ var permute = function( nums, startIndex=0, endIndex=nums.length-1) {
 }; // output is console.log
 
 
-// ------------------------------------
+
+
 
