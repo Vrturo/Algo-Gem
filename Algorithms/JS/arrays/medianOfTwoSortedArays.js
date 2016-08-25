@@ -28,6 +28,31 @@ var findMedianSortedArrays = function(nums1, nums2) {
     return median( nums1.concat(nums2) );
 };
 
+// ------------------------------------------------
+
+
+var findMedianSortedArrays = function(nums1, nums2) {
+    return merge( nums1, nums2 );
+};
+
+
+function merge(l, r){
+    var result = [];
+
+    while( l.length && r.length ){
+        if( l[0] <= r[0] ){
+            result.push(l.shift());
+        } else {
+            result.push(r.shift());
+        }
+    }
+    while( l.length ) result.push(l.shift());
+    while( r.length ) result.push(r.shift());
+
+    var len = result.length;
+    return (len%2 === 0) ? ( result[len/2] + result[len/2-1] )/2 : result[(len-1)/2];
+}
+
 // -------------------------------------------
 
 // There are 2 sorted arrays A and B of size n each.
@@ -36,15 +61,12 @@ var findMedianSortedArrays = function(nums1, nums2) {
 function findMedianSortedArrays( nums1, nums2, n ){
 
     /* return -1  for invalid input */
-    if ( n <= 0 )
-        return -1;
-    if ( n === 1 )
-        return ( nums1[0] + nums2[0] )/2;
-    if ( n === 2 )
-        return ( Math.max(nums1[0], nums2[0]) + Math.min(nums1[1], nums2[1]) ) / 2;
+    if ( n <= 0 ) return -1;
+    if ( n === 1 ) return ( nums1[0] + nums2[0] )/2;
+    if ( n === 2 ) return ( Math.max(nums1[0], nums2[0]) + Math.min(nums1[1], nums2[1]) ) / 2;
 
-    var m1 = findMedianSortedArrays(nums1, n), /* get the median of the first array */
-        m2 = findMedianSortedArrays(nums2, n); /* get the median of the second array */
+    var m1 = median( nums1, n ), /* get the median of the first array */
+        m2 = median( nums2, n ); /* get the median of the second array */
 
     /* If medians are equal then return either m1 or m2 */
     if ( m1 == m2 ) return m1;
@@ -52,17 +74,22 @@ function findMedianSortedArrays( nums1, nums2, n ){
     /* if m1 < m2 then median must exist in nums1[m1....] and
         nums2[....m2] */
     if ( m1 < m2 ) {
-        if (n % 2 === 0) return getMedian(nums1 + n/2 - 1, nums2, n - n/2 +1);
-        return getMedian(nums1 + n/2, nums2, n - n/2);
+        if (n % 2 === 0) return findMedianSortedArrays( nums1 + n/2 - 1, nums2, n - n/2 +1 );
+        return findMedianSortedArrays( nums1 + n/2, nums2, n - n/2 );
     }
 
-    /* if m1 > m2 then median must exist in ar1[....m1] and
+    /* if m1 > m2 then median must exist in nums1[....m1] and
         nums2[m2...] */
-    if (n % 2 === 0) return getMedian(nums2 + n/2 - 1, ar1, n - n/2 + 1);
-    return getMedian(nums2 + n/2, ar1, n - n/2);
+    if (n % 2 === 0) return findMedianSortedArrays(nums2 + n/2 - 1, nums1, n - n/2 + 1);
+    return findMedianSortedArrays(nums2 + n/2, nums1, n - n/2);
 }
 
 /* Function to get median of a sorted array */
 function median( arr, n ){
-    return n%2 === 0 ? ( arr[n/2] + arr[n/2-1] )/2 : arr[n/2];
+    // return n%2 === 0 ? ( arr[n/2] + arr[n/2-1] )/2 : arr[n/2];
+    if( n%2 === 0 ){
+        return ( arr[n/2] + arr[n/2-1] )/2;
+    } else {
+        return arr[n/2];
+    }
 }
