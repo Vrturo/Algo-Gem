@@ -22,27 +22,6 @@
   // run get permutations function on an empty arr and nums or our input
   // return result
 
-
-var permute = function( nums, l=0, result=[]){
-    if( l >= nums.length ){
-        var arr = nums.slice();
-        result.push( arr );
-    } else {
-        for ( var i = l; i < nums.length; i++ ){
-            var temp = nums[l];
-            nums[l] = nums[i];
-            nums[i] = temp;
-            permute( nums, l+1, result );
-            temp = nums[l];
-            nums[l] = nums[i];
-            nums[i] = temp;
-        }
-    }
-    return result;
-};
-
-// ------------------------------------
-
 var permute = function(nums) { // 144ms runtime
     var result = [];
     //nums are distinct numbers.
@@ -65,6 +44,29 @@ var permute = function(nums) { // 144ms runtime
     getPermutations( [], nums );
     return result;
 };
+
+
+// ------------------------------------
+// Backtracking
+
+var permute = function( nums, l=0, result=[]){ // 144ms runtime
+    if( l >= nums.length ){
+        var arr = nums.slice();
+        result.push( arr );
+    } else {
+        for ( var i = l; i < nums.length; i++ ){
+            var temp = nums[l]; // swap
+            nums[l] = nums[i];
+            nums[i] = temp;
+            permute( nums, l+1, result );
+            temp = nums[l]; // swap back
+            nums[l] = nums[i];
+            nums[i] = temp;
+        }
+    }
+    return result;
+};
+
 
 // ----------------------------------------------------------
 
