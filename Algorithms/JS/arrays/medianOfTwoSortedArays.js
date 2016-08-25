@@ -32,26 +32,21 @@ var findMedianSortedArrays = function(nums1, nums2) {
 
 
 var findMedianSortedArrays = function(nums1, nums2) {
-    return merge( nums1, nums2 );
-};
-
-
-function merge(l, r){
     var result = [];
 
-    while( l.length && r.length ){
-        if( l[0] <= r[0] ){
-            result.push(l.shift());
+    while( nums1.length && nums2.length ){
+        if( nums1[0] <= nums2[0] ){
+            result.push(nums1.shift());
         } else {
-            result.push(r.shift());
+            result.push(nums2.shift());
         }
     }
-    while( l.length ) result.push(l.shift());
-    while( r.length ) result.push(r.shift());
+    while( nums1.length ) result.push(nums1.shift());
+    while( nums2.length ) result.push(nums2.shift());
 
     var len = result.length;
     return (len%2 === 0) ? ( result[len/2] + result[len/2-1] )/2 : result[(len-1)/2];
-}
+};
 
 // -------------------------------------------
 
