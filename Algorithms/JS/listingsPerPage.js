@@ -116,7 +116,9 @@ function benchMark( n, results){
   return Number(end - start) // number of miliseconds
 }
 
+console.time('bm');
 console.log( benchMark( 4, test ) );
+console.timeEnd('bm');
 
 // -----------------------------------------------------------
 
