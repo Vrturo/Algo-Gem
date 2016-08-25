@@ -24,35 +24,35 @@ function countInversions(array){
 
   function merge(left, right){
 
-    var merged = [],
+    var result = [],
         l = 0,
         r = 0,
         multiplier = 0;
 
     while (l < left.length || r < right.length){
       if (l === left.length){
-        merged.push(right[r]);
+        result.push(right[r]);
         r++;
       } else if (r === right.length){
-        merged.push(left[l]);
+        result.push(left[l]);
         l++;
         count += multiplier;
       } else if (left[l] < right[r]) {
-        merged.push(left[l]);
+        result.push(left[l]);
         count += multiplier;
         l++;
       } else {
-        merged.push(right[r]);
+        result.push(right[r]);
         r++;
         multiplier++;
       }
     }
-    return merged;
+    return result;
   }
 }
 
-// console.log(countInversions([1, 2, 3]) === 0);
-// console.log(countInversions([1, 3, 2]) === 1);
-// console.log(countInversions([3, 2, 1, 4, 5]) === 3);
-// console.log(countInversions([6, 5, 4, 3, 2, 1]) === 15);
+console.log(countInversions([1, 2, 3]) === 0);
+console.log(countInversions([1, 3, 2]) === 1);
+console.log(countInversions([3, 2, 1, 4, 5]) === 3);
+console.log(countInversions([6, 5, 4, 3, 2, 1]) === 15);
 
