@@ -6,51 +6,6 @@
 // Here we are solv­ing it for N queens in NxN chess board.
 
 
-
-function NQueens(){
-    this.result = [];
-    // result[i]=j; means queen at i-th row is placed at j-th column.
-    // Queens placed at (x1, y1) and (x2,y2)
-    // x1==x2 means same rows, y1==y2 means same columns, |x2-x1|==|y2-y1| means
-    // they are placed in diagonals.
-}
-
-NQueens.prototype.canPlace = function( x2, y2 ){
-    // This function will check if queen can be placed (x2,y2), or we can
-    // say that Can queen at x2 row is placed at y2 column.
-    // for finding the column for x2 row, we will check all the columns for
-    // all the rows till x2-1.
-    for (var i = 0; i < x2; i++) {
-      //result[i] == y2 => columns are same
-      //|i - x2| == |result[i] - y2| => in diagonals.
-      if( (this.result[i] === y2) || ((i - x2) === (this.result[i] - y2)) ){
-        return false;
-      }
-    }
-    return true;
-}
-
-NQueens.prototype.placeQueens = function( x, size ){
-    for (var i = 0; i < size; i++) {
-      //check if queen at xth row can be placed at i-th column.
-      if ( this.canPlace(x, i) ) {
-        this.result[x] = i; // place the queen at this position.
-        if (x === size - 1) {
-          console.log("Order of " + size + " queens "
-              + this.result);
-        }
-        this.placeQueens(x + 1, size);
-      }
-    }
-}
-
-
-// var n = 6;
-// var i = new NQueens();
-// i.result = new Array(6);
-// i.placeQueens(0, n);
-// -----------------------------------------------------------
-
 var iterations = 0
 
 var print_board = function (columns) {
@@ -98,3 +53,49 @@ var place_next_queen = function (total, queens, columns) {
 
 print_board(place_next_queen(10, 10))
 console.log('\niterations: ', iterations)
+
+// -----------------------------------------------------------
+
+function NQueens(){
+    this.result = [];
+    // result[i]=j; means queen at i-th row is placed at j-th column.
+    // Queens placed at (x1, y1) and (x2,y2)
+    // x1==x2 means same rows, y1==y2 means same columns, |x2-x1|==|y2-y1| means
+    // they are placed in diagonals.
+}
+
+NQueens.prototype.canPlace = function( x2, y2 ){
+    // This function will check if queen can be placed (x2,y2), or we can
+    // say that Can queen at x2 row is placed at y2 column.
+    // for finding the column for x2 row, we will check all the columns for
+    // all the rows till x2-1.
+    for (var i = 0; i < x2; i++) {
+      //result[i] == y2 => columns are same
+      //|i - x2| == |result[i] - y2| => in diagonals.
+      if( (this.result[i] === y2) || ((i - x2) === (this.result[i] - y2)) ){
+        return false;
+      }
+    }
+    return true;
+}
+
+NQueens.prototype.placeQueens = function( x, size ){
+    for (var i = 0; i < size; i++) {
+      //check if queen at xth row can be placed at i-th column.
+      if ( this.canPlace(x, i) ) {
+        this.result[x] = i; // place the queen at this position.
+        if (x === size - 1) {
+          console.log("Order of " + size + " queens "
+              + this.result);
+        }
+        this.placeQueens(x + 1, size);
+      }
+    }
+}
+
+
+// var n = 6;
+// var i = new NQueens();
+// i.result = new Array(6);
+// i.placeQueens(0, n);
+
