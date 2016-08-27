@@ -8,7 +8,7 @@
 
 var iterations = 0
 
-var print_board = function (columns) {
+var printBoard = function (columns) {
   var n = columns.length,
       row = 0,
       col = 0;
@@ -25,34 +25,34 @@ var print_board = function (columns) {
   }
 }
 
-var has_conflict = function (columns) {
-  var len = columns.length,
-      last = columns[len - 1],
-      previous = len - 2;
+var hasConflict = function (columns) {
+  var len = columns.length-1,
+      last = columns[len],
+      previous = len - 1;
 
   while (previous >= 0) {
     if (columns[previous] === last) return true;
-    if (last - (len - 1) === columns[previous] - previous) return true;
-    if (last + (len - 1) === columns[previous] + previous) return true;
+    if (last - (len) === columns[previous] - previous) return true;
+    if (last + (len) === columns[previous] + previous) return true;
     previous--;
   }
   return false;
 }
 
-var place_next_queen = function (total, queens, columns) {
+var placeNextQueen = function (total, queens, columns) {
   if (queens === 0) return columns;
   columns = columns || [];
 
   for (var column = 0; column < total; column++) {
     columns.push(column);
     iterations++;
-    if ( !has_conflict(columns) && place_next_queen(total, queens - 1, columns) ) return columns;
+    if ( !hasConflict(columns) && placeNextQueen(total, queens - 1, columns) ) return columns;
     columns.pop(column);
   }
   return null;
 }
 
-print_board(place_next_queen(10, 10));
+printBoard(placeNextQueen(10, 10));
 console.log('\niterations: ', iterations);
 
 // -----------------------------------------------------------
