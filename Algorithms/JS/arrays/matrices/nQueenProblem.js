@@ -16,12 +16,12 @@ var print_board = function (columns) {
   while (row < n) {
     while (col < n) {
       process.stdout.write(columns[row] === col ? 'Q ' : '# ')
-      col++
+      col++;
     }
 
-    process.stdout.write('\n')
-    col = 0
-    row++
+    process.stdout.write('\n');
+    col = 0;
+    row++;
   }
 }
 
@@ -36,8 +36,7 @@ var has_conflict = function (columns) {
     if (last + (len - 1) === columns[previous] + previous) return true;
     previous--;
   }
-
-  return false
+  return false;
 }
 
 var place_next_queen = function (total, queens, columns) {
@@ -48,15 +47,13 @@ var place_next_queen = function (total, queens, columns) {
     columns.push(column);
     iterations++;
     if ( !has_conflict(columns) && place_next_queen(total, queens - 1, columns) ) return columns;
-
     columns.pop(column);
   }
-
-  return null
+  return null;
 }
 
-print_board(place_next_queen(10, 10))
-console.log('\niterations: ', iterations)
+print_board(place_next_queen(10, 10));
+console.log('\niterations: ', iterations);
 
 // -----------------------------------------------------------
 
