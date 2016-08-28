@@ -31,13 +31,16 @@ var hasConflict = function (columns) {
       previous = len - 1;
 
   while (previous >= 0) {
-    if (columns[previous] === last) return true;
-    if (last - (len) === columns[previous] - previous) return true;
+    if (columns[previous] === last) return true; // cant be same row
+    if (last - (len) === columns[previous] - previous) return true; // prev cant be one away from current cuz of diag
     if (last + (len) === columns[previous] + previous) return true;
     previous--;
   }
   return false;
 }
+// 00 01 02
+// 10 11 12
+// 20 21 22
 
 var placeNextQueen = function (total, queens, columns) {
   if (queens === 0) return columns;
