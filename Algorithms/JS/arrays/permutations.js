@@ -5,8 +5,6 @@
 // [1,2,3], [1,3,2], [2,1,3], [2,3,1], [3,1,2], and [3,2,1].
 
 
-
-
 // Logic
 // create a result array to push our permutations in and return
 // create a get getPermutations function that takes in an array, and our input
@@ -49,7 +47,8 @@ var permute = function(nums) { // 144ms runtime
 // ------------------------------------
 // Backtracking
 
-var permute = function( nums, l=0, result=[]){ // 144ms runtime
+var permute = function( nums, l, result ){ // 144ms runtime
+    if( !l )
     if( l >= nums.length ){
         var arr = nums.slice();
         result.push( arr );
@@ -66,7 +65,7 @@ var permute = function( nums, l=0, result=[]){ // 144ms runtime
     }
     return result;
 };
-
+console.log(perme)
 
 // ----------------------------------------------------------
 
