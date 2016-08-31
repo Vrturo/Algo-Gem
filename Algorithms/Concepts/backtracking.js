@@ -19,3 +19,12 @@
 //     else undo the current move and return false.
 //   End For
 //   If none of the move works out, return false, NO SOLUTON.
+
+
+// Prob­lems on Backtracking
+
+ // Back­track­ing — N Queens Problem
+// Back­track­ing — Knight’s Tour Problem
+// The Word Break Problem
+// Back­track­ing — Rat In A Maze Puzzle
+// Back­track­ing — Search a Word In a Matrix
