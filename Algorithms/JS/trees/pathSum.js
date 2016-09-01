@@ -28,7 +28,7 @@
  * }
  */
 
-var hasPathSum = function(root, sum) {
+var hasPathSum = function(root, sum) { // 132ms runtime. 100% on leetcode
     if(!root) return false;
 
     if(root.left === null && root.right === null) return sum === root.val;
