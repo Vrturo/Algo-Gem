@@ -1,5 +1,8 @@
 // What is Back­track­ing Programming??
 
+
+// Back­track­ing is a gen­eral algo­rith­mic tech­nique that con­sid­ers search­ing every pos­si­ble com­bi­na­tion
+// in order to solve a problem.
 // Recur­sion is the key in back­track­ing pro­gram­ming.
 // As the name sug­gests we back­track to find the solu­tion.
 // We start with one pos­si­ble move out of many avail­able moves and try to solve the prob­lem
