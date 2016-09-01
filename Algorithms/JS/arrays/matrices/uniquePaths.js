@@ -17,11 +17,11 @@
 // ex. 6
 
 
-var uniquePaths = function(m, n) {
-    if (m === 0 || n === 0) return 0;
-    if (m === 1 || n === 1) return 1;
+var uniquePaths = function(m, n) { // 112ms runtime
+    if (m === 0 || n === 0) return 0; // when either is 0 there will be no way to go down or right, so return 0.
+    if (m === 1 || n === 1) return 1; // when either is 1 there can only be one path, so return 1
 
-    var dp = [];
+    var dp = []; // dynamic programming
     for (var i = 0; i < n; i++) {
         dp[i] = 1;
     }
