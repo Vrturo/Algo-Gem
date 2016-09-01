@@ -30,8 +30,8 @@
 
 
 var sumNumbers = function(root, sum=0) {
-    if(!root) return 0;
-    sum = 10 * sum + root.val;
-    if (!root.left && !root.right) return sum;
-    return sumNumbers(root.left, sum) + sumNumbers(root.right, sum);
+    if(!root) return 0; //return 0 when node doesn't exists
+    sum = 10 * sum + root.val; // sum of current path (till this node)
+    if (!root.left && !root.right) return sum; //return on leaf node
+    return sumNumbers(root.left, sum) + sumNumbers(root.right, sum); //keep on calculating
 };
