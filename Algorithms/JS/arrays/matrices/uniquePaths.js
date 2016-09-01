@@ -24,15 +24,15 @@ var uniquePaths = function(m, n) {
             map[i][j] = 0;
         }
     }
-    for(i = 0; i<m; i++){
+    for(i = 0; i<m; i++){ // When (n===0||m===0) the function always returns 1 since the robot can't go left or up.
         map[i][0] = 1;
     }
-    for(j= 0; j<n; j++){
+    for(j= 0; j<n; j++){ // Populate the edges with 1 first and use DP to get the full 2-D array.
         map[0][j] = 1;
     }
     for(i = 1; i<m; i++){
         for(j = 1; j<n; j++){
-            map[i][j] = map[i-1][j]+map[i][j-1];
+            map[i][j] = map[i-1][j]+map[i][j-1]; // For all other cells. The result = uniquePaths(m-1,n)+uniquePaths(m,n-1)
         }
     }
     return map[m-1][n-1];
