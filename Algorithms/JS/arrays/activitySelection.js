@@ -14,3 +14,27 @@
 //      finish =  [2, 4, 6, 7, 9, 9];
 
 // The maximum set of activities that can be executed by a single person is [0, 1, 3, 4]
+
+
+function activitySelect( start, finish ){
+    var result = [],
+        last;
+
+    for( var i = 0; i<start.length; i++ ){
+        if( start[i-1] !== undefined ){ // 0 can be falsy
+            if( start[i] < finish[i] && last < start[i]){
+               result.push(i);
+               last = finish[i];
+            }
+        } else{
+          if( start[i] < finish[i] ){
+            result.push(i);
+            last = finish[i];
+          }
+        }
+    }
+    return result;
+}
+var start  =  [1, 3, 0, 5, 8, 5];
+var finish =  [2, 4, 6, 7, 9, 9];
+console.log(activitySelect( start, finish ))
