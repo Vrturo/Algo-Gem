@@ -16,6 +16,29 @@
 // ex. 3
 // ex. 6
 
+var uniquePaths = function(m, n) { // 108ms runtime
+    var tab = [];
+    for(var i = 0; i < m; i++) { // create 2d matrix
+        tab[i] = [];
+        for (var j = 0; j < n; j++) {
+            tab[i][j] = 0;
+        }
+    }
+    for(i=0; i<m; i++){
+        for(j=0; j<n; j++){
+            if(i===0 || j===0){
+                tab[i][j] = 1;
+            }
+            else{
+                tab[i][j] = tab[i-1][j]+tab[i][j-1];
+            }
+        }
+    }
+
+    return tab[m-1][n-1];
+};
+
+// ---------------------------------------------------
 
 var uniquePaths = function(m, n) { // 112ms runtime
     if (m === 0 || n === 0) return 0; // when either is 0 there will be no way to go down or right, so return 0.
