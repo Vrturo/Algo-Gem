@@ -85,3 +85,10 @@ function fibonacci(n){
   }
  return fibo[n];
 }
+
+// Both tabulated and Memoized store the solutions of subproblems.
+// In Memoized version, table is filled on demand while in tabulated version, starting from the first entry,
+// all entries are filled one by one.
+// Unlike the tabulated version, all entries of the lookup table are not necessarily filled in memoized version.
+
+
