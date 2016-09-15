@@ -10,12 +10,12 @@
  * @return {void} Do not return anything, modify nums in-place instead.
  */
 
- var sortColors = function(nums) {
+ var sortColors = function(nums) { // 96 ms runtime
     if( nums === null || nums.length<2 ) return;
     var low = 0,
         high = nums.length-1;
-
-    for(var i=low; i<=high; ){
+    // The idea is to sweep all 0s to the left and all 2s to the right, then all 1s are left in the middle.
+    for( var i=low; i<=high; ){
         if( nums[i] === 1 ){
            i++;
         } else if( nums[i] === 2 ){
@@ -25,7 +25,7 @@
             nums[high] = temp;
             high--;
         } else{
-            // swap A[i] and A[low] and i,low both ++
+            // swap nums[i] and nums[low] and i,low both ++
             var temp = nums[i];
             nums[i] = nums[low];
             nums[low] = temp;
