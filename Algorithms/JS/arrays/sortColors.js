@@ -10,6 +10,32 @@
  * @return {void} Do not return anything, modify nums in-place instead.
  */
 
+ var sortColors = function(nums) {
+    if( nums === null || nums.length<2 ) return;
+    var low = 0,
+        high = nums.length-1;
+
+    for(var i=low; i<=high; ){
+        if( nums[i] === 1 ){
+           i++;
+        } else if( nums[i] === 2 ){
+            //swap nums[i] and nums[high] and high--;
+            var temp = nums[i];
+            nums[i] = nums[high];
+            nums[high] = temp;
+            high--;
+        } else{
+            // swap A[i] and A[low] and i,low both ++
+            var temp = nums[i];
+            nums[i] = nums[low];
+            nums[low] = temp;
+            i++;low++;
+        }
+    }
+};
+
+// ------------------------------------------------------------
+
 var sortColors = function(nums) {
     var red = [],
         white = [],
