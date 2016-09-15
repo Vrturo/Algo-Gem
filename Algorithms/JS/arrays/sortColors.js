@@ -5,3 +5,23 @@
 
 // Note:
 // You are not suppose to use the library's sort function for this problem.
+/**
+ * @param {number[]} nums
+ * @return {void} Do not return anything, modify nums in-place instead.
+ */
+
+var sortColors = function(nums) {
+    var red = [],
+        white = [],
+        blue = [];
+    for(var i=0; i<nums.length; i++ ){
+        if( nums[i] === 1 ){
+           white.push(nums[i]);
+        } else if( nums[i] === 2 ){
+            blue.push(nums[i]);
+        } else{
+            red.push(nums[i]);
+        }
+    }
+    nums = red.concat( white, blue );
+};
