@@ -71,3 +71,17 @@ function fibMemo(n){
   }
   return fib(n);
 }
+
+// b) Tabulation (Bottom Up):
+
+// The tabulated program for a given problem builds a table in bottom up fashion and returns the last entry from table.
+
+function fibonacci(n){
+  var fibo = [0, 1];
+  if (n <= 2) return 1;
+
+  for ( var i=2; i <=n; i++ ){
+    fibo[i] = fibo[i-1] + fibo[i-2];
+  }
+ return fibo[n];
+}
