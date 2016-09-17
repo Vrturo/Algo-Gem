@@ -7,3 +7,23 @@
 // Examples:
 // LCS for input Sequences “ABCDGH” and “AEDFHR” is “ADH” of length 3.
 // LCS for input Sequences “AGGTAB” and “GXTXAYB” is “GTAB” of length 4.
+
+
+function lengthOfLCS( a, b ){
+    var lcs = new Array(a.length);
+
+     for( var i=0; i<a.length; i++ ){ //populate n-sized Array
+            lcs[i] = 1;
+    }
+    for( i=0; i<a.length; i++ ){
+        for( j=0; j<b.length; j++ ){
+            if( a[i] === b[j] && lcs[i] < lcs[j] +1 ) lcs[i] = lcs[j] +1;
+        }
+    }
+    console.log(lcs)
+};
+
+var one = 'abcdgh';
+var two = 'aedfhr';
+lengthOfLCS(one, two)
+
