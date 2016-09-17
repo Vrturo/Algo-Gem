@@ -31,3 +31,21 @@ function mergeSortedArray(a, b){
   }
   return merged;
 }
+
+
+// --------------------
+
+var merge = function(nums1, m, nums2, n) {
+
+    for( var i=0, j=0; i<m && j<n; ){
+        if( nums1[i] < nums2[j] ){
+            i++;
+        } else if( nums1[i] === nums2[j] ){
+            j++;
+        } else {
+            nums1.splice( i, 0, nums2[j] );
+            j++;
+        }
+    }
+
+};
