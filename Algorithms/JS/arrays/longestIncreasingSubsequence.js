@@ -6,17 +6,19 @@
 
 // Note that there may be more than one LIS combination, it is only necessary for you to return the length.
 
-
-var lengthOfLIS = function(nums, n=nums.length) {
+// 0(n^2)
+var lengthOfLIS = function(nums, n=nums.length) { // 109 ms runtime
         var max = 0,
             lis = new Array(n);
 
         for( var i=0; i<n; i++ ){ //populate n-sized Array
             lis[i] = 1;
         }
-        for( i=1; i<n; i++ ){ // Compute optimized LIS values in bottom up manner
-            for( j=0; j<i;j++ ){
-                if( nums[i] > nums[j] && lis[i] < lis[j] +1 ) lis[i] = lis[j] +1;
+        // checking for increasing subsequence in bottom up manner
+        for( i=1; i<n; i++ ){
+            for( j=0; j<i; j++ ){ // check if any number before is smaller to increase subsequence
+                if( nums[i] > nums[j] && lis[i] < lis[j] +1 ) lis[i] = lis[j] +1; // every number that is smaller
+                                                                                  // increases the index of lis array
             }
         }
         for( i=0; i<n; i++ ){ // Pick maximum of all LIS values
