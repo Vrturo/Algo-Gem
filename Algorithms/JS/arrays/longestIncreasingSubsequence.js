@@ -7,6 +7,27 @@
 // Note that there may be more than one LIS combination, it is only necessary for you to return the length.
 
 
+var lengthOfLIS = function(nums, n=nums.length) {
+        var max = 0,
+            lis = new Array(n);
+
+        for( var i=0; i<n; i++ ){ //populate n-sized Array
+            lis[i] = 1;
+        }
+        for( i=1; i<n; i++ ){ // Compute optimized LIS values in bottom up manner
+            for( j=0; j<i;j++ ){
+                if( nums[i] > nums[j] && lis[i] < lis[j] +1 ) lis[i] = lis[j] +1;
+            }
+        }
+        for( i=0; i<n; i++ ){ // Pick maximum of all LIS values
+            if( max < lis[i] ) max = lis[i];
+        }
+        return max;
+};
+
+// ------------------------------------------------------------------
+
+// Naive
 var lengthOfLIS = function(nums) {
     if( nums.length < 1 ) return 0; // if empty return 0
     var maxRef = 1; // smallest ref can be is 1
