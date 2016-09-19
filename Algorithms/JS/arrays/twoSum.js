@@ -12,27 +12,21 @@
 
 // set variable numLength as the nums array's length
 // if numsLength is less than 2, return nums array
-// create an object/hash called map to store each item in the array as the key and index as value
+// create a cache called map to store each item in the array as the key and index as value
 // create a for loop that runs as many times as the size of the array
-  // if the target minus the current number is a hash key
+  // if the target minus the current number is a key
   // or if the target minus the current number is equal to zero
     // return the key's value and the index in an array
   // if the current number is a key of the map is undefined
-    // create a map key as they current number and value as the index
+    // cache the current number and value as the index
 
 
 var twoSum = function(nums, target) { //96ms runtime
     var numLength = nums.length;
-    if( numLength<2 ){
-        return nums;
-    }
+    if( numLength<2 ) return nums;
     var map = {};
-    for(var i = 0; i < numLength; i++){
-         if( map[target - nums[i]] || map[target-nums[i]] === 0 ){
-            return [map [ target-nums[i] ], i];
-        }
-        if( map[nums[i]] === undefined ){
-            map[ nums[i] ] = i;
-        }
+    for( var i=0; i<numLength; i++ ){
+        if( map[ target-nums[i] ] || map[ target-nums[i] ] === 0 ) return [map [ target-nums[i] ], i];
+        if( map[ nums[i] ] === undefined ) map[ nums[i] ] = i;
     }
 };
