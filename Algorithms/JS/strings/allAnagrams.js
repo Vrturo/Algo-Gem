@@ -19,8 +19,8 @@
   // second is passedOn because
 
 var allAnagramsRecursive = function(string){
-  var split = string.split('');
-  var results = [];
+  var split = string.split(''),
+      results = [];
 
   var recurse = function(builtUp, passedOn){
     if (passedOn.length === 0){
@@ -37,5 +37,5 @@ var allAnagramsRecursive = function(string){
   }
   recurse([], split);
   return results;
-
 }
+
