@@ -35,7 +35,7 @@ function DecimalToBinary(DecimalValue){
       }
     }
     return BinaryValue;
-  }
+}
 
 // --------------------------------------------------------------------
 

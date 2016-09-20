@@ -18,16 +18,14 @@
 // then check if the counter reaches back to zero.
 
 function isAnagram(s, t) {
-    if (s.length() !=== t.length()){
-
-    } return false;
-    var counter = new int[26];
-    for (int i = 0; i < s.length(); i++) {
-        counter[s.charAt(i) - 'a']++;
-        counter[t.charAt(i) - 'a']--;
+    if(s.length !== t.length ) return false;
+    var alphabet = new Array(26);
+    for (var i = 0; i < s.length; i++) {
+        alphabet[s.charAt(i) - 'a']++;
+        alphabet[t.charAt(i) - 'a']--;
     };
-    for (int count : counter) {
-        if (count != 0) return false;
+    for(var letter in alphabet){
+        if (letter !== 0) return false;
     };
     return true;
 }
@@ -40,12 +38,11 @@ function isAnagram(s, t) {
 // Furthermore, if s and t have different lengths, t must not be an anagram of s and we can return early.
 
 var isAnagram = function(s, t) {
-    if (s.length !== t.length){
-      return false;
-    }
+    if (s.length !== t.length) return false;
+
     s = s.split("").sort().join("");
     t = t.split("").sort().join("");
-    return (s === t);
+    return ( s === t );
 };
 
 // Complexity analysis: Assume that n is the length of s,
