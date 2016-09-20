@@ -5,7 +5,7 @@
 // Follow up:
 // Could you do this in-place?
 
-
+// NxM array
 var rotate = function(matrix) {
     var rows = matrix.length,
         col = matrix.length;
@@ -26,3 +26,6 @@ var rotate = function(matrix) {
         }
     }
 };
+
+
+// --------------------------------------------------
