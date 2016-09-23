@@ -8,7 +8,7 @@
 // NxM matrix
 var rotate = function(matrix) {
     var rows = matrix.length,
-        col = matrix.length;
+        col = matrix[0].length;
 
     for (var i = 0; i < rows; i++){
         for (var j = i + 1; j < col; j++){
