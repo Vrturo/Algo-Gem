@@ -1,6 +1,7 @@
 // points in the form [[0, 1], [1, 1], [5, 3]....
 // reference in the form [2, 3]
 // k is an integer
+// could of used max heap of size k
 function closestPoints(points, reference, k){
 
   //collect the closest points to return
