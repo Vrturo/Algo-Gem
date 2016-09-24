@@ -6,3 +6,16 @@
 // a) Insert a character
 // b) Delete a character
 // c) Replace a character
+
+
+var minDistance = function(word1, word2, m=word1.length, n=word2.length) {
+    if (m === 0) return n;
+    if (n === 0) return m;
+    if ( word1.charAt(m-1) === word2.charAt(n-1) ) return minDistance(word1, word2, m-1, n-1);
+
+    return 1 + Math.min( minDistance(word1,  word2, m, n-1),    // Insert
+                     minDistance(word1,  word2, m-1, n),        // Remove
+                     minDistance(word1,  word2, m-1, n-1)       // Replace
+                   );
+
+};
