@@ -8,6 +8,38 @@
 // c) Replace a character
 
 
+
+var minDistance = function(word1, word2) {
+    var m = word1.length,
+        n = word2.length,
+        result = [];
+
+    for( var i=0; i<=m+1; i++ ){ // populate array
+        result.push([]);
+        for( var j=0; j<=n+1; j++ ){
+            result[i][j] = 0;
+        }
+    }
+    for( i=0; i<=m; i++ ){
+        for( j=0; j<=n; j++ ){
+            if( i===0 ){
+                result[i][j] = j;
+            } else if( j===0 ){
+                result[i][j] = i;
+            } else if( word1.charAt(i-1) === word2.charAt(j-1) ){
+                result[i][j] = result[i-1][j-1];
+            } else{
+                result[i][j] = 1 + Math.min(result[i][j-1],
+                                            result[i-1][j],
+                                            result[i-1][j-1]);
+            }
+        }
+    }
+    return result[m][n];
+};
+
+// ------------------------------------------------------------
+// 0(3^m)
 var minDistance = function(word1, word2, m=word1.length, n=word2.length) {
     // If first or second string string is empty, the only option is to
     // insert all characters of full string into empty
@@ -22,6 +54,6 @@ var minDistance = function(word1, word2, m=word1.length, n=word2.length) {
     return 1 + Math.min( minDistance(word1,  word2, m, n-1),    // Insert
                          minDistance(word1,  word2, m-1, n),    // Remove
                          minDistance(word1,  word2, m-1, n-1)   // Replace
-                   );
+                        );
 
 };
