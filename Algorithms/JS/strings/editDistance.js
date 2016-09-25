@@ -15,20 +15,21 @@ var minDistance = function(word1, word2) {
         result = [];
 
     for( var i=0; i<=m+1; i++ ){ // populate array
-        result.push([]);
+        result.push( [] );
         for( var j=0; j<=n+1; j++ ){
             result[i][j] = 0;
         }
     }
+    // Fill result in bottom up manner
     for( i=0; i<=m; i++ ){
         for( j=0; j<=n; j++ ){
-            if( i===0 ){
+            if( i===0 ){ // If first string is empty, insert all characters of second string
                 result[i][j] = j;
-            } else if( j===0 ){
+            } else if( j===0 ){ // If second string is empty, insert all characters of first string
                 result[i][j] = i;
             } else if( word1.charAt(i-1) === word2.charAt(j-1) ){
                 result[i][j] = result[i-1][j-1];
-            } else{
+            } else {
                 result[i][j] = 1 + Math.min(result[i][j-1],
                                             result[i-1][j],
                                             result[i-1][j-1]);
