@@ -8,7 +8,7 @@
 // c) Replace a character
 
 
-
+// 0(MxN)
 var minDistance = function(word1, word2) {
     var m = word1.length,
         n = word2.length,
@@ -27,12 +27,13 @@ var minDistance = function(word1, word2) {
                 result[i][j] = j;
             } else if( j===0 ){ // If second string is empty, insert all characters of first string
                 result[i][j] = i;
-            } else if( word1.charAt(i-1) === word2.charAt(j-1) ){
+            } else if( word1.charAt(i-1) === word2.charAt(j-1) ){ // If last characters are same, ignore last char
+                                                                  // and recur for remaining string
                 result[i][j] = result[i-1][j-1];
-            } else {
-                result[i][j] = 1 + Math.min(result[i][j-1],
-                                            result[i-1][j],
-                                            result[i-1][j-1]);
+            } else { // If last character are different, consider all possibilities and find minimum
+                result[i][j] = 1 + Math.min(result[i][j-1],     // Insert
+                                            result[i-1][j],     // Remove
+                                            result[i-1][j-1]);  // Replace
             }
         }
     }
