@@ -128,7 +128,10 @@ function paginate(num, results) {
         }
         //if end of dup is reached then start moving through results
         if( i >= results.length ){
-            solution.push( dup.splice(j,1)[1] ); // once results length hits, push all duplicates into solution
+            while( dup.length ){ // at the end as long as theres dups, push into solutions till dup is empty
+                solution.push( dup.splice(j,1)[1] ); // once results length hits, push all duplicates into solution
+                j++;
+            }
         } else {
             currentListing = results[i].split(','); // the whole array object or element?
             if( cache[currentListing[0]] !== undefined ){ // if host id is cached
@@ -156,16 +159,13 @@ var test = [    "11, 2, 99, San Francisco",
                 "11, 3, 97, Los Angeles",
                 "11, 24, 96, San Francisco",
                 "11, 56, 90, San Francisco",
-                "6, 65, 80, Los Angeles",
-                "1, 29, 76, San Francisco",
-                "6, 10, 52, Los Angeles",
                 "11, 11, 46, San Francisco",
                 "5, 65, 40, Los Angeles",
-                "2, 29, 36, San Francisco",
-                "3, 19, 32, San Francisco",
-                "2, 10, 28, Los Angeles",
                 "2, 11, 26, San Francisco",
-                "5, 19, 20, San Francisco"
+                "5, 19, 20, San Francisco",
+                "11, 3, 19, Los Angeles",
+                "11, 24, 18, San Francisco",
+                "11, 56, 17, San Francisco"
             ];
 console.log( paginate( 3, test ) );
 
