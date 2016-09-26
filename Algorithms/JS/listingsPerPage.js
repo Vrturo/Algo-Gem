@@ -8,70 +8,54 @@
 // After each page insert an empty space as a line break escept for the last page
 
 
-function sortListing( n, listings ){
-  var head = 0,
-      linkedList = [];
-  //created linkedList of indices
-  for( var i = 1; i < listings.length; i++ ){
-    linkedList.push( i );
-  }
-  linkedList.push( null );
+// function sortListing( n, listings ){
+//   var head = 0,
+//       linkedList = [];
+//   //created linkedList of indices
+//   for( var i = 1; i < listings.length; i++ ){
+//     linkedList.push( i );
+//   }
+//   linkedList.push( null );
 
-  var results = [],
-      cache = {},
-      pageCount = 0;
+//   var results = [],
+//       cache = {},
+//       pageCount = 0;
 
-  var prev = null,
-      current = head,
-      listing;
+//   var prev = null,
+//       current = head,
+//       listing;
 
-  while( head !== null ){ //  Breaks when every value is inserted into results array
-    if( pageCount === n ){
-      // if page hits limit, add line break and reset
-      results.push( 'page break' );
-      cache = {};
-      prev = null;
-      current = head; // restart at the current head index.
-      pageCount = 0;
-    }
-    if( current === null ){ // Hit the end of results so push in next value with repeated host
-      results.push( listings[head] );
-      pageCount++;
-      head = linkedList[head];
-    } else if( !cache[/[^,]*/.exec(listings[current])[0]] ){ // regex grabs up to 1st comma
-        cache[/[^,]*/.exec(listings[current])[0]] = true; // cache listing
-        results.push( listings[current] ); // push current listing into results
-        pageCount++;
-        // With each insert, the linked list gets updated by modifying what the prev points to.
-        if( current === head ){
-          head = linkedList[head];
-        }
-        linkedList[prev] = linkedList[current]; // keep moving down list
-        current = linkedList[current];
-    } else {
-      prev = current; // keep moving down list
-      current = linkedList[current];
-    }
-  }
-  return results;
-}
+//   while( head !== null ){ //  Breaks when every value is inserted into results array
+//     if( pageCount === n ){
+//       // if page hits limit, add line break and reset
+//       results.push( 'page break' );
+//       cache = {};
+//       prev = null;
+//       current = head; // restart at the current head index.
+//       pageCount = 0;
+//     }
+//     if( current === null ){ // Hit the end of results so push in next value with repeated host
+//       results.push( listings[head] );
+//       pageCount++;
+//       head = linkedList[head];
+//     } else if( !cache[/[^,]*/.exec(listings[current])[0]] ){ // regex grabs up to 1st comma
+//         cache[/[^,]*/.exec(listings[current])[0]] = true; // cache listing
+//         results.push( listings[current] ); // push current listing into results
+//         pageCount++;
+//         // With each insert, the linked list gets updated by modifying what the prev points to.
+//         if( current === head ){
+//           head = linkedList[head];
+//         }
+//         linkedList[prev] = linkedList[current]; // keep moving down list
+//         current = linkedList[current];
+//     } else {
+//       prev = current; // keep moving down list
+//       current = linkedList[current];
+//     }
+//   }
+//   return results;
+// }
 
-var test = [    "11, 2, 99, San Francisco",
-                "6, 3, 92, Los Angeles",
-                "2, 24, 96, San Francisco",
-                "11, 56, 90, San Francisco",
-                "6, 65, 80, Los Angeles",
-                "1, 29, 76, San Francisco",
-                "12, 19, 60, San Francisco",
-                "6, 10, 52, Los Angeles",
-                "11, 11, 46, San Francisco",
-                "6, 65, 40, Los Angeles",
-                "1, 29, 36, San Francisco",
-                "3, 19, 32, San Francisco",
-                "2, 10, 28, Los Angeles",
-                "2, 11, 26, San Francisco",
-                "5, 19, 20, San Francisco"
-            ];
 
 var testTwo = [ "11, 2, 99, San Francisco",
                 "6, 3, 92, Los Angeles",
@@ -109,16 +93,16 @@ var testThree = [ "1, 2, 99, San Francisco",
 // sortListing( 5, testTwo );
 // sortListing( 2, testThree );
 
-function benchMark( n, results){
-  var start = new Date();
-  paginate(n, results);
-  var end = new Date();
-  return Number(end - start) // number of miliseconds
-}
+// function benchMark( n, results){
+//   var start = new Date();
+//   paginate(n, results);
+//   var end = new Date();
+//   return Number(end - start) // number of miliseconds
+// }
 
-console.time('bm');
-console.log( benchMark( 4, test ) );
-console.timeEnd('bm');
+// console.time('bm');
+// console.log( benchMark( 4, test ) );
+// console.timeEnd('bm');
 
 // -----------------------------------------------------------
 
@@ -129,47 +113,59 @@ function paginate(num, results) {
         cache = {},
         currentListing;
 
-    for( var i=0, j=0, pageCount=0; i < results.length || dup.length > 0;){
-
+    for( var i=0, j=0, pageCount=0; i < results.length || dup.length > 0; ){ // declare var that are used as indexs
+                                                                            // || while one of these is true
         while(j < dup.length){
            //check if current listing in dup is unique user
-            //if unique, then add to solution
-            //remove the item from duplcates
-        //if current listing in dup is already in cache
-            //  increment j++
-        //if end of dup is reached then start moving through results
-            if( cache[dup[j][0]] ){
-                j++;
-            } else{
-                solution.push( dup.splice(j,1)[1] );
+            if( cache[dup[j][0]] ){ //if current listing in dup is already in cache
+                j++; // move to next item in dup array
+            } else { //if unique, then remove the item from duplicates add to solution
+                var temp = dup.splice(j,1)[0];
+                solution.push( temp[1] );
+                cache[temp[0]] = true;
+                pageCount++;
             }
         }
-        if(i >= results.length){
+        //if end of dup is reached then start moving through results
+        if( i >= results.length ){
             solution.push( dup.splice(j,1)[1] ); // once results length hits, push all duplicates into solution
         } else {
-            currentListing = results[i].split(','); //
-            if( cache[currentListing[0]] !== undefined ){ // incase id is 0, can be falsy
+            currentListing = results[i].split(','); // the whole array object or element?
+            if( cache[currentListing[0]] !== undefined ){ // if host id is cached
                 dup.push( [currentListing[0], results[i]] );
-                i++
-            }else{
+                i++;
+            } else {
                 cache[currentListing[0]] = true;
                 solution.push( results[i] );
                 pageCount++;
                 i++;
             }
         }
-        if(pageCount === num){
-            //add blank line into solution
-            //reset pageCount to 0;
-            solution.push( "" );
-            pageCount = 0;
-            cache = {};
-            //restart back to beginning of dup j = 0
-            j = 0;
+        if( pageCount === num ){
+            solution.push( "" ); //add blank line into solution
+            pageCount = 0; //reset pageCount to 0;
+            cache = {}; // reset cache
+            j = 0; //restart back to beginning of dup j = 0
         }
     }
-
     return solution;
 }
 
+
+var test = [    "11, 2, 99, San Francisco",
+                "11, 3, 97, Los Angeles",
+                "11, 24, 96, San Francisco",
+                "11, 56, 90, San Francisco",
+                "6, 65, 80, Los Angeles",
+                "1, 29, 76, San Francisco",
+                "6, 10, 52, Los Angeles",
+                "11, 11, 46, San Francisco",
+                "5, 65, 40, Los Angeles",
+                "2, 29, 36, San Francisco",
+                "3, 19, 32, San Francisco",
+                "2, 10, 28, Los Angeles",
+                "2, 11, 26, San Francisco",
+                "5, 19, 20, San Francisco"
+            ];
+console.log( paginate( 3, test ) );
 
