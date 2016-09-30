@@ -1,3 +1,24 @@
 // Create an async timer that can display the date every second using a promise
 
+function getDateAsync() {
+  return new Promise( function( resolve ){
+      // resolve it with the date
+      var date = new Date();
+      resolve(date);
+  });
+  // asynchronously return date
+}
+
+function update() {
+
+  getDateAsync().then(function (returnValue) {
+    // promise is resolved
+    // returnValue == the date
+    // update date
+    var timeDiv = document.getElementById('time');
+    timeDiv.innerHTML = returnValue;
+  });
+}
+
+setInterval(update, 1000);
 
