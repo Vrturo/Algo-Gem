@@ -33,3 +33,19 @@ new Promise( function(resolve, reject){
 
 Promise is a try catch wrapper around that finish at an un predictable time.
 Promise is a constructor. Store a promise as a variable or work once created.
+
+Document.readyState
+1. loading
+  - Document is still loading
+
+2. interactive
+  - Document has loaded and been parsed
+  - but subresources like images and stylesheets have yet to load
+
+3. complete
+  - Everything including images and stylesheets have loaded
+
+
+
+
+
