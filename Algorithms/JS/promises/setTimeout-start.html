@@ -19,6 +19,7 @@
 			 */
 			  return new Promise(function(resolve) {
 					window.setTimeout(function(){
+						console.log(this)
 			  		resolve();
 					}, ms);
 				})
