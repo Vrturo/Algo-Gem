@@ -23,3 +23,13 @@ Fullfilled - resolved (it worked)
 Rejected - it didnt work
 
 Pending - Still waiting
+
+// Promise Constructor
+new Promise( function(resolve, reject){
+  resolve('hi'); // works
+  resolve('bye') // cant happend a second time
+})
+
+
+Promise is a try catch wrapper around that finish at an un predictable time.
+Promise is a constructor. Store a promise as a variable or work once created.
