@@ -16,7 +16,7 @@
 // create a for loop that runs as many times as the size of the array
   // if the target minus the current number is a key
   // or if the target minus the current number is equal to zero
-    // return the key's value and the index in an array
+    // return the key's value and the index in an array because if zero we found a match, and if key we know itll subtract to 0
   // if the current number is a key of the map is undefined
     // cache the current number and value as the index
 
