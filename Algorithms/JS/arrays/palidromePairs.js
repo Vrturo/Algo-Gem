@@ -20,16 +20,18 @@
 
 var palindromePairs = function(words, index=0, results=[]) {
 
-    if( index > words.length ){
+    // Recurse through words checking each pair
+    if( index > words.length ){ // if index gets bigger than length of words arr return results
         return results;
-    } else{
+    } else {
         for( var i=0; i<words.length; i++ ){
-            if( index === i ) continue;
-            if( check(words[index]+words[i]) ) results.push( [index, i] );
+            if( index === i ) continue; // skip current word we're checking
+            // if any combo's, starting with the current words[index], are palindrome push into result
+            if( palindromeCheck(words[index]+words[i]) ) results.push( [index, i] );
         }
-        return palindromePairs( words, index+=1, results )
+        return palindromePairs( words, index+=1, results );
     }
-    function check( str ){
+    function palindromeCheck( str ){ // palindrome check
         var re = /[\W_]/g,
         lowRegStr = str.toLowerCase().replace(re, ''),
         reverseStr = lowRegStr.split('').reverse().join('');
