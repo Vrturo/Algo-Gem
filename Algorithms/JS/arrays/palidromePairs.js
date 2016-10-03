@@ -18,7 +18,27 @@
  * @return {number[][]}
  */
 
+var palindromePairs = function(words, index=0, results=[]) {
 
+    if( index > words.length ){
+        return results;
+    } else{
+        for( var i=0; i<words.length; i++ ){
+            if( index === i ) continue;
+            if( check(words[index]+words[i]) ) results.push( [index, i] );
+        }
+        return palindromePairs( words, index+=1, results )
+    }
+    function check( str ){
+        var re = /[\W_]/g,
+        lowRegStr = str.toLowerCase().replace(re, ''),
+        reverseStr = lowRegStr.split('').reverse().join('');
+        return reverseStr === lowRegStr;
+    }
+
+};
+
+// ------------------------------------------------------------
 
 
  // ------------NOT DONE---------
