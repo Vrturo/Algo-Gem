@@ -8,8 +8,8 @@
 // [[5, 10],[15, 20],[0, 3]]
 // return true
 
-var canAttendMeetings = function(intervals) {
-    intervals.sort(function(a, b) { // sort intervals incase first meeting is in the back
+var canAttendMeetings = function(intervals) { // 109 ms runtime
+    intervals.sort(function(a, b) { // sort intervals incase first set of meeting times is in the back
         return a.start - b.start;
     });
     for( var i=0; i<intervals.length-1; i++ ){ // loop through intervals and stop right before the last one
