@@ -121,7 +121,8 @@ function paginate(num, results) {
     var solution = [],
         dup = [],
         cache = {},
-        currentListing;
+        currentListing,
+        tuple;
 
     for( var i=0, j=0, pageCount=0; i < results.length || dup.length > 0; ){ // declare var that are used as indexs
                                                                             // || while one of these is true
@@ -130,9 +131,9 @@ function paginate(num, results) {
             if( cache[dup[j][0]] ){ //if current listing in dup is already in cache
                 j++; // move to next item in dup array
             } else { //if unique, then remove the item from duplicates add to solution
-                var temp = dup.splice(j,1)[0];
-                solution.push( temp[1] );
-                cache[temp[0]] = true;
+                tuple = dup.splice(j,1)[0];
+                solution.push( tuple[1] );
+                cache[tuple[0]] = true;
                 pageCount++;
             }
         }
@@ -146,8 +147,8 @@ function paginate(num, results) {
                     j = 0;
                     solution.push( "" );
                 }
-                var temp = dup.splice(j,1)[0];
-                solution.push( temp[1] );
+                tuple = dup.splice(j,1)[0];
+                solution.push( tuple[1] );
                 pageCount++;
                 j++;
             }
