@@ -9,11 +9,13 @@
 // return true
 
 var canAttendMeetings = function(intervals) {
-    intervals.sort(function(a, b) {
+    intervals.sort(function(a, b) { // sort intervals incase first meeting is in the back
         return a.start - b.start;
     });
-    for( var i=0; i<intervals.length-1; i++ ){
-        if( intervals[i].end > intervals[i+1].start ) return false;
+    for( var i=0; i<intervals.length-1; i++ ){ // loop through intervals and stop right before the last one
+                                               // because our check involves checking the next interval
+        if( intervals[i].end > intervals[i+1].start ) return false; // if the end time is greater than the next interval's
+                                                                    // start it has to be false
     }
-    return true;
+    return true; // if there arent any crossing intervals, its true
 };
