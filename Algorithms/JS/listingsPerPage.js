@@ -143,6 +143,7 @@ function paginate(num, results) {
                                     // once results length hits, push all duplicates into solution
                 if( pageCount === num ){
                     pageCount = 0;
+                    j = 0;
                     solution.push( "" );
                 }
                 var temp = dup.splice(j,1)[0];

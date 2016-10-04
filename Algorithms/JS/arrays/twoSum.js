@@ -21,7 +21,7 @@
     // cache the current number and value as the index
 
 
-var twoSum = function(nums, target) { //96ms runtime
+var twoSum = function(nums, target) { // 96ms runtime
     var numLength = nums.length;
     if( numLength<2 ) return nums;
     var map = {};
