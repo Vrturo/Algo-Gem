@@ -112,7 +112,8 @@ I am also storing algorithms I have stumbled upon and have given me difficulty.
 
 
 ## Resources
-https://www.interviewcake.com/
+http://outco.co/
+<br>https://www.interviewcake.com/
 <br>https://leetcode.com/
 <br>https://www.glassdoor.com/Interview/index.htm
 <br>http://devbootcamp-algorithm-night.github.io/
