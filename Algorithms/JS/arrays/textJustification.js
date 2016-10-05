@@ -23,8 +23,8 @@
 // Note: Each word is guaranteed not to exceed L in length.
 
 var fullJustify = function(words, maxWidth) {
-    if( maxWidth<1 ) return [""];
-    if( words.length <= 1 ) return [addSpaces( maxWidth )];
+    // if( maxWidth<1 ) return [""];
+    // if( words.length <= 1 ) return [addSpaces( maxWidth )];
     var result = [],
         currentRow = "",
         rowLength = 0,
