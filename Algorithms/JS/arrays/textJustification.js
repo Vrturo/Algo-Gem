@@ -21,3 +21,37 @@
 //    "justification.  "
 // ]
 // Note: Each word is guaranteed not to exceed L in length.
+
+var fullJustify = function(words, maxWidth) {
+    if( maxWidth<1 ) return [""];
+    if( words.length <= 1 ) return [addSpaces( maxWidth )];
+    var result = [],
+        currentRow = "",
+        rowLength = 0,
+        currentWord,
+        temp;
+    for( var i=0; i<words.length; i++ ){
+        currentWordLength = words[i].length;
+        if( rowLength+currentWordLength <= maxWidth ){
+            currentRow += words[i];
+            rowLength += currentWordLength;
+        } else {
+            temp = maxWidth - rowLength;
+            currentRow = addSpaces(temp) + currentRow;
+            result.push(currentRow);
+            currentRow = words[i];
+            rowLength = words[i].length;
+        }
+    }
+    if( !result[result.length-1].includes( words[words.length-1] ) ){
+        temp = maxWidth - rowLength;
+        currentRow = addSpaces(temp) + currentRow;
+        result.push( currentRow );
+
+    }
+    return result;
+};
+
+function addSpaces( n ){
+    return " ".repeat(n);
+}
