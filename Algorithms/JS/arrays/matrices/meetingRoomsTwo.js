@@ -5,6 +5,30 @@
 // Given [[0, 30],[5, 10],[15, 20]],
 // return 2.
 
+// To understand why it works, first let’s define two events:
+// Meeting Starts
+// Meeting Ends
+
+// Next, we acknowledge three facts:
+// The numbers of the intervals give chronological orders
+// When an ending event occurs, there must be a starting event has happened before that,
+// where “happen before” is defined by the chronological orders given by the intervals
+// Meetings that started which haven’t ended yet have to be put into different meeting rooms,
+// and the number of rooms needed is the number of such meetings
+
+// So, what this algorithm works as follows:
+
+// for example, we have meetings that span along time as follows:
+
+// |_____|
+//       |______|
+// |________|
+//         |_______|
+// Then, the start time array and end time array after sorting appear like follows:
+
+// ||    ||
+//      |   |   |  |
+
 var minMeetingRooms = function(intervals) { // 135 ms runtime
     var interLen = intervals.length,
         starts = new Array(interLen),
@@ -32,29 +56,7 @@ var minMeetingRooms = function(intervals) { // 135 ms runtime
     return rooms;
 };
 
-To understand why it works, first let’s define two events:
-Meeting Starts
-Meeting Ends
 
-Next, we acknowledge three facts:
-The numbers of the intervals give chronological orders
-When an ending event occurs, there must be a starting event has happened before that,
-where “happen before” is defined by the chronological orders given by the intervals
-Meetings that started which haven’t ended yet have to be put into different meeting rooms,
-and the number of rooms needed is the number of such meetings
-
-So, what this algorithm works as follows:
-
-for example, we have meetings that span along time as follows:
-
-|_____|
-      |______|
-|________|
-        |_______|
-Then, the start time array and end time array after sorting appear like follows:
-
-||    ||
-     |   |   |  |
 
 
 Initially, endsItr points to the first end event, and we move i which is the start event pointer.
