@@ -28,7 +28,7 @@
  * @return {boolean}
  */
 
-var isSymmetric = function(root) {
+var isSymmetric = function(root) { // 109 ms runtime
     return root === null || helper( root.left, root.right );
 };
 
