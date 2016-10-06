@@ -16,12 +16,10 @@ function printTree( tree ){
         for( var i = 0; i < queue.length; i++ ){
 
             // dequeue
-            var index = queue.shift();
+            var node = queue.shift();
 
             // print node
-            console.log( index )
-
-            var node = tree[index];
+            console.log( node.val )
 
             // enqueue children of the node
             if( node.left ) queue.push( node.left );
