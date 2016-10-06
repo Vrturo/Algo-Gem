@@ -30,29 +30,35 @@
 //      |   |   |  |
 
 var minMeetingRooms = function(intervals) { // 135 ms runtime
+    // create new arrays the size of our intervals
     var interLen = intervals.length,
         starts = new Array(interLen),
         ends = new Array(interLen);
 
+    // populate each array
     for( var i=0; i<interLen; i++ ){
-        starts[i] = intervals[i].start;
-        ends[i] = intervals[i].end;
+        starts[i] = intervals[i].start; // first, with start times only
+        ends[i] = intervals[i].end; // second, with end times only
     }
+    // sort each array to see which intervals intersect
     starts.sort(function(a, b) {
         return a - b;
     });
     ends.sort(function(a, b) {
         return a - b;
     });
-    var rooms = 0,
-        endsItr = 0;
-    for( var j=0; j<starts.length; j++ ){
-        if( starts[j]<ends[endsItr] ){
+
+    var rooms = 0, // keep track of rooms
+        endsItr = 0; // ends pointer
+    for( var j=0; j<starts.length; j++ ){ // check each start time
+        if( starts[j] < ends[endsItr] ){ // if intervals intersect increment rooms
             rooms++;
-        } else {
+        } else { // else check next starts and ends item
             endsItr++;
         }
     }
+    // [ 0, 5, 15 ]
+    // [ 10, 20, 30 ]
     return rooms;
 };
 
