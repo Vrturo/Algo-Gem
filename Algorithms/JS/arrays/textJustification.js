@@ -32,18 +32,18 @@ var fullJustify = function(words, maxWidth) {
         temp;
     for( var i=0; i<words.length; i++ ){
         currentWordLength = words[i].length;
-        if( rowLength+currentWordLength <= maxWidth ){
-            currentRow += words[i];
-            rowLength += currentWordLength;
-        } else {
-            temp = maxWidth - rowLength;
-            currentRow = addSpaces(temp) + currentRow;
-            result.push(currentRow);
+        if( rowLength+currentWordLength <= maxWidth ){ // if current word fits in row
+            currentRow += words[i]; // add wrod to row
+            rowLength += currentWordLength; // add to the row length
+        } else { // if current word
+            temp = maxWidth - rowLength; // get how many spaces are needed to fill
+            currentRow = addSpaces(temp) + currentRow; // fill row with spaces
+            result.push(currentRow); // push row into result
             currentRow = words[i];
             rowLength = words[i].length;
         }
     }
-    if( !result[result.length-1].includes( words[words.length-1] ) ){
+    if( !result[result.length-1].includes( words[words.length-1] ) ){ // if the last row doesnt include the last word
         temp = maxWidth - rowLength;
         currentRow = addSpaces(temp) + currentRow;
         result.push( currentRow );
