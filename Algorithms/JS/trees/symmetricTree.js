@@ -27,3 +27,15 @@
  * @param {TreeNode} root
  * @return {boolean}
  */
+
+var isSymmetric = function(root) {
+    return root === null || helper( root.left, root.right );
+};
+
+function helper( left, right ){
+    if( left===null || right===null ) return left === right;
+    if( left.val!==right.val ) return false;
+    return helper(left.left, right.right) && helper(left.right, right.left);
+}
+
+
