@@ -22,3 +22,16 @@ var minDepth = function(root) { // 139ms runtime
     // gather smallest depth and add 1 because depth starts at 1
     return (left === 0 || right === 0) ? left + right + 1: Math.min( left,right ) + 1;
 };
+
+// -----------------------------------------------
+
+var minDepth = function(root) {
+    if( root == null ) return 0;
+    if( root.left !== null && root.right !== null ){
+        return Math.min( minDepth(root.left), minDepth(root.right) )+1;
+    } else {
+        return Math.max( minDepth(root.left), minDepth(root.right) )+1;
+    }
+}
+
+

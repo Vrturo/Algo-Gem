@@ -5,24 +5,38 @@
 // and explores the neighbor nodes first, before moving to the next level neighbors.
 
 
-function printTree( root ){
+function printTree( tree ){
     var queue = [];
 
-    queue.push( root );
+    // enqueue root
+    queue.push( 0 );
 
     while( queue.length ){
+        // for each node in the queue
         for( var i = 0; i < queue.length; i++ ){
 
+            // dequeue
             var index = queue.shift();
 
+            // print node
             console.log( index )
 
             var node = tree[index];
 
+            // enqueue children of the node
             if( node.left ) queue.push( node.left );
             if( node.right ) queue.push( node.right );
         }
-    }
+    } // repeat
 }
 
 printTree(T);
+var T = [
+    { left: 1, right: 2 },
+    { left: 3, right: 4 },
+    { left: null, right: 6 },
+    { left: null, right: null },
+    { left: null, right: null },
+    { left: null, right: null },
+    { left: null, right: null }
+];
