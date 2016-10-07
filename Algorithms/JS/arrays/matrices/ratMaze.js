@@ -56,8 +56,10 @@ RatInMaze.prototype.isSafeToGo = function( maze, x, y, n ){
     return false;
 }
 
-var n = 5;
 var maze = [ [ 1, 0, 1, 1,1 ], [ 1, 1, 1, 0,1 ], [ 0, 0,0, 1, 1 ],
         [ 0, 0, 0, 1,0 ],[ 0, 0,0, 1, 1 ] ];
-r = new RatInMaze(n);
-r.solveMaze(maze, n);
+var mazeTwo = [[0, 1, 1, 0], [0, 0, 0, 1], [1, 1, 0, 0], [1, 1, 1, 0]]
+var mazeThree = [[0, 0, 0, 0, 0, 0], [1, 1, 1, 1, 1, 0], [0, 0, 0, 0, 0, 0], [0, 1, 1, 1, 1, 1], [0, 1, 1, 1, 1, 1], [0, 0, 0, 0, 0, 0]]
+var n = mazeThree.length;
+r = new RatInMaze(6);
+console.log( r.solveMaze(mazeThree, n) );
