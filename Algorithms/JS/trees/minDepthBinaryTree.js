@@ -36,4 +36,19 @@ var minDepth = function(root) {
 
 // ---------------------------------------------------------------------
 
-
+var minDepth = function(root) {
+  if( root === null ) return 0;
+    var queue = [],
+        j = 0;
+    queue.push( root );
+    while( queue.length ){
+        j++;
+        for( var i = 0; i < queue.length; i++ ){
+            var node = queue.shift();
+            if( node.left ) queue.push( node.left );
+            if( node.right ) queue.push( node.right );
+            if( !node.left && !node.right ) return j;
+        }
+    }
+    return j;
+};
