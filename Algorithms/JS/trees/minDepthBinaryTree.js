@@ -15,20 +15,21 @@
  * @return {number}
  */
 
-var minDepth = function(root) {
+// Breadth First Search
+var minDepth = function(root) { // 119 ms runtime
   if( root === null ) return 0;
     var queue = [],
         j = 0;
-    queue.push( root );
-    while( queue.length ){
+    queue.push( root ); // push root to q
+    while( queue.length ){ // as long as root contains anything
         j++;
-        var k = queue.length;
-        for( var i = 0; i < k; i++ ){
-            var node = queue[0];
-            if( !node.left && !node.right ) return j;
-            queue.shift();
-            if( node.left ) queue.push( node.left );
-            if( node.right ) queue.push( node.right );
+        var k = queue.length; // reset q's length every pass
+        for( var i = 0; i < k; i++ ){ // loop through q
+            var node = queue[0]; // store first nod
+            if( !node.left && !node.right ) return j; // if no children we reached min depth
+            queue.shift(); // de q
+            if( node.left ) queue.push( node.left ); // push if node exists
+            if( node.right ) queue.push( node.right ); // push if node exists
         }
     }
 };
