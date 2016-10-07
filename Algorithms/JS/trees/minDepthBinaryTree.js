@@ -15,6 +15,27 @@
  * @return {number}
  */
 
+var minDepth = function(root) {
+  if( root === null ) return 0;
+    var queue = [],
+        j = 0;
+    queue.push( root );
+    while( queue.length ){
+        j++;
+        var k = queue.length;
+        for( var i = 0; i < k; i++ ){
+            var node = queue[0];
+            if( !node.left && !node.right ) return j;
+            queue.shift();
+            if( node.left ) queue.push( node.left );
+            if( node.right ) queue.push( node.right );
+        }
+    }
+};
+
+// -------------------------------
+
+
 var minDepth = function(root) { // 139ms runtime
     if( root === null ) return 0;
     var left = minDepth(root.left),
@@ -36,19 +57,3 @@ var minDepth = function(root) {
 
 // ---------------------------------------------------------------------
 
-var minDepth = function(root) {
-  if( root === null ) return 0;
-    var queue = [],
-        j = 0;
-    queue.push( root );
-    while( queue.length ){
-        j++;
-        for( var i = 0; i < queue.length; i++ ){
-            var node = queue.shift();
-            if( node.left ) queue.push( node.left );
-            if( node.right ) queue.push( node.right );
-            if( !node.left && !node.right ) return j;
-        }
-    }
-    return j;
-};
