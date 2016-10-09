@@ -78,13 +78,49 @@ function addSpaces( n ){
 
 
 var fullJustify = function(words, maxWidth) {
-    // if( maxWidth<1 ) return [""];
-    // if( words.length <= 1 ) return [addSpaces( maxWidth )];
-    var result = [];
-
-
+    var result = [],
+        i=0,
+        index=0,
+        currentWordLength,
+        currentRow,
+        currentRowLength = 0,
+        currentRowWords = 0,
+        rowCharacters = 0;
+    while( i < words.length ){
+        currentWordLength = words[i].length;
+        if( currentRowLength+currentWordLength+1 <= maxWidth ){
+            i++;
+            currentRowLength = currentRowLength+currentWordLength+1;
+            rowCharacters+=currentWordLength;
+            currentRowWords+=1;
+        } else {
+            var spaces = maxWidth-rowCharacters,
+                spacePerWord = Math.floor( spaces/currentRowWords ),
+                wordSet = words.slice(index, currentRowWords),
+                leftOver = spaces%currentRowWords;
+            if( isNaN(leftOver) ) leftOver = spaces%currentRowWords-1;
+            currentRow = wordSet[0];
+            for( var j=1; j<wordSet.length; j++ ){
+                if( leftOver>0 ){
+                    currentRow = currentRow+addSpaces(spacePerWord+1)+wordSet[j];
+                    leftOver-=1;
+                } else {
+                    currentRow = currentRow+addSpaces(spacePerWord)+wordSet[j];
+                }
+            }
+            result.push( currentRow );
+            currentRow = "";
+            currentRowLength = 0;
+            rowCharacters = 0;
+            index+=currentRowWords;
+        }
+    }
     return result;
 };
+
+function addSpaces( n ){
+    return " ".repeat(n);
+}
 
 function addSpaces( n ){
     return " ".repeat(n);
