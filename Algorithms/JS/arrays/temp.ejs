@@ -1,0 +1,29 @@
+function answer(words, maxWidth){
+  var row = []; //array of strings
+  var result = []; //array of arrays
+  var rowL = 0; //integer
+  var pad =  0; //number of string of empty spaces to add to row
+  var padding = ""; //string of empty spaces
+  words.forEach( function(word) {
+     padding = ""; pad = 0;
+     if( (rowL + word.length) <= maxWidth ){
+       row.push(word);
+       rowL += word.length;
+       if( rowL < maxWidth){
+        row.push(" ");
+        rowL += 1;
+       }
+      }
+     else{
+      pad = maxWidth - rowL;
+     }
+     for(var i=0; i<=pad; i++){
+        padding += " ";
+     }
+     if(rowL === maxWidth){
+      result.push(row);
+      rowL = 0;
+     }
+  });
+  return result;
+}
