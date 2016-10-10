@@ -131,8 +131,56 @@ var test = ["This", "is", "an", "example", "of", "text", "justification."]
 console.log(fullJustify( test, 16 ));
 
 
-// --------------------------------------------------
+// --------------------------------------------------THIRD ATTEMPT
 
+
+var fullJustify = function(words, maxWidth) {
+    if( maxWidth < 1 ) return words;
+    var result = [],
+        i=0,
+        index=0,
+        currentWordLength,
+        currentRow,
+        currentRowLength = 0,
+        currentRowWords = 0,
+        rowCharacters = 0,
+        lastWord = false;
+    while( i < words.length ){
+        currentWordLength = words[i].length;
+        if( currentRowLength+currentWordLength+1 <= maxWidth ){
+            i++;
+            currentRowLength = currentRowLength+currentWordLength+1;
+            rowCharacters+=currentWordLength;
+            currentRowWords+=1;
+        } else {
+            var spaces = maxWidth-rowCharacters,
+                spacePerWord = (currentRowWords-1 !== 0) ? Math.floor( spaces/(currentRowWords-1) ) : spaces,
+                wordSet = words.slice(index, index+currentRowWords), // 6
+                leftOver = spaces%(currentRowWords-1);
+            currentRow = wordSet[0];
+            for( var j=1; j<wordSet.length; j++ ){
+                if( leftOver>0 ){
+                    currentRow = currentRow+addSpaces(spacePerWord+1)+wordSet[j];
+                    leftOver-=1;
+                } else {
+                    currentRow = currentRow+addSpaces(spacePerWord)+wordSet[j];
+                }
+            }
+            index+=currentRowWords;
+            result.push( currentRow );
+            currentRow = "";
+            currentRowLength = 0;
+            rowCharacters = 0;
+            currentRowWords = 0;
+
+        }
+    }
+    return result;
+};
+
+function addSpaces( n ){
+    return " ".repeat(n);
+}
 
 
 
