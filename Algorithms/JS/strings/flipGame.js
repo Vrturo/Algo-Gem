@@ -21,10 +21,9 @@ var generatePossibleNextMoves = function(s) {
 
     while( i<s.length-1){
         var current = check(i);
-        if( current !== 'no combo' ) result.push( current );
+        if( current ) result.push( current );
         i++;
     }
-
     function check( index ){
         var string = s.slice().split("");
         for( var j=index; j<s.length; j++ ){
@@ -35,7 +34,32 @@ var generatePossibleNextMoves = function(s) {
                 return string.join("");
             }
         }
-        return 'no combo';
+        return false;
+    }
+    result = result.filter(function(item, pos) {
+        return result.indexOf(item) == pos;
+    });
+    return counter < 1 ? [] : result;
+};
+
+// --------------------------------------
+
+var generatePossibleNextMoves = function(s) {
+    var result = [],
+        counter = 0,
+        i=0;
+    while( i<s.length-1){
+        var string = s.slice().split("");
+        for( var j=i; j<s.length; j++ ){
+            if( string[j] === '+' && string[j+1]=== '+' ){
+                counter++;
+                string.splice.apply( string,[j,1].concat( '-'.split('') ) );
+                string.splice.apply( string,[j+1,1].concat( '-'.split('') ) );
+                result.push( string.join("") );
+                break;
+            }
+        }
+        i++;
     }
     result = result.filter(function(item, pos) {
         return result.indexOf(item) == pos;
