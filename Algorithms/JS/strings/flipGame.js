@@ -15,36 +15,6 @@
 // If there is no valid move, return an empty list [].
 
 var generatePossibleNextMoves = function(s) {
-    var result = [],
-        counter = 0,
-        i=0;
-
-    while( i<s.length-1){
-        var current = check(i);
-        if( current ) result.push( current );
-        i++;
-    }
-    function check( index ){
-        var string = s.slice().split("");
-        for( var j=index; j<s.length; j++ ){
-            if( string[j] === '+' && string[j+1]=== '+' ){
-                counter++;
-                string.splice.apply( string,[j,1].concat( '-'.split('') ) );
-                string.splice.apply( string,[j+1,1].concat( '-'.split('') ) );
-                return string.join("");
-            }
-        }
-        return false;
-    }
-    result = result.filter(function(item, pos) {
-        return result.indexOf(item) == pos;
-    });
-    return counter < 1 ? [] : result;
-};
-
-// --------------------------------------
-
-var generatePossibleNextMoves = function(s) {
     var result = [];
     for( var i=0; i<s.length-1; i++ ){
         var string = s.split("");
@@ -75,3 +45,34 @@ function uniq(arr) {
     }
     return out;
 }
+
+// --------------------------------------
+
+var generatePossibleNextMoves = function(s) {
+    var result = [],
+        counter = 0,
+        i=0;
+
+    while( i<s.length-1){
+        var current = check(i);
+        if( current ) result.push( current );
+        i++;
+    }
+    function check( index ){
+        var string = s.slice().split("");
+        for( var j=index; j<s.length; j++ ){
+            if( string[j] === '+' && string[j+1]=== '+' ){
+                counter++;
+                string.splice.apply( string,[j,1].concat( '-'.split('') ) );
+                string.splice.apply( string,[j+1,1].concat( '-'.split('') ) );
+                return string.join("");
+            }
+        }
+        return false;
+    }
+    result = result.filter(function(item, pos) {
+        return result.indexOf(item) == pos;
+    });
+    return counter < 1 ? [] : result;
+};
+
