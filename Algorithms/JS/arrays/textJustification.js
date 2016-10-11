@@ -22,43 +22,7 @@
 // ]
 // Note: Each word is guaranteed not to exceed L in length.
 
-var fullJustify = function(words, maxWidth) {
-    // if( maxWidth<1 ) return [""];
-    // if( words.length <= 1 ) return [addSpaces( maxWidth )];
-    var result = [],
-        currentRow = "",
-        rowLength = 0,
-        currentWord,
-        temp;
-    for( var i=0; i<words.length; i++ ){
-        currentWordLength = words[i].length;
-        if( rowLength+currentWordLength <= maxWidth ){ // if current word fits in row
-            currentRow += words[i]; // add wrod to row
-            rowLength += currentWordLength; // add to the row length
-        } else { // if current word
-            temp = maxWidth - rowLength; // get how many spaces are needed to fill
-            currentRow = currentRow + addSpaces(temp); // fill row with spaces
-            result.push(currentRow); // push row into result
-            currentRow = words[i];
-            rowLength = words[i].length;
-        }
-    }
-    if( !result[result.length-1].includes( words[words.length-1] ) ){ // if the last row doesnt include the last word
-        temp = maxWidth - rowLength;
-        currentRow = addSpaces(temp) + currentRow;
-        result.push( currentRow );
-
-    }
-    return result;
-};
-
-function addSpaces( n ){
-    return " ".repeat(n);
-}
-
-
-// ----------------------------------------------
-
+// ----------------------------------------------------
 // currentRow = 10
 // firstIndex = 0
 // word = 3
@@ -78,49 +42,58 @@ function addSpaces( n ){
 
 
 var fullJustify = function(words, maxWidth) {
+    if( maxWidth < 1 ) return words;
     var result = [],
-        i=0,
         index=0,
-        currentWordLength,
-        currentRow,
-        currentRowLength = 0,
-        currentRowWords = 0,
-        rowCharacters = 0;
-    while( i < words.length ){
-        currentWordLength = words[i].length;
-        if( currentRowLength+currentWordLength+1 <= maxWidth ){
-            i++;
-            currentRowLength = currentRowLength+currentWordLength+1;
-            rowCharacters+=currentWordLength;
-            currentRowWords+=1;
-        } else {
+        lastWord = false;
+
+    for( var i = 0; i<words.length; ){
+            var rowCharacters = 0,
+                wordsinRow = 0;
+            while( i< words.length && wordsinRow+rowCharacters+words[i].length <= maxWidth ){
+                rowCharacters+=words[i].length;
+                wordsinRow++;
+                i++;
+            }
+            if( i >= words.length ) lastWord = true;
             var spaces = maxWidth-rowCharacters,
-                spacePerWord = Math.floor( spaces/currentRowWords ),
-                wordSet = words.slice(index, currentRowWords),
-                leftOver = spaces%currentRowWords;
-            if( isNaN(leftOver) ) leftOver = spaces%currentRowWords-1;
-            currentRow = wordSet[0];
-            for( var j=1; j<wordSet.length; j++ ){
-                if( leftOver>0 ){
-                    currentRow = currentRow+addSpaces(spacePerWord+1)+wordSet[j];
-                    leftOver-=1;
+                spacePerWord = (wordsinRow-1 !== 0) ? Math.floor( spaces/(wordsinRow-1) ) : spaces,
+                wordSet = words.slice(index, index+wordsinRow),
+                leftOver = spaces%(wordsinRow-1),
+                currentRow = wordSet[0];
+            if( !lastWord ){
+                if( wordsinRow > 1){
+                    for( var j=1; j<wordSet.length; j++ ){
+                        if( leftOver>0 ){
+                            currentRow = currentRow+addSpaces(spacePerWord+1)+wordSet[j];
+                            leftOver-=1;
+                        } else {
+                            currentRow = currentRow+addSpaces(spacePerWord)+wordSet[j];
+                        }
+                    }
                 } else {
-                    currentRow = currentRow+addSpaces(spacePerWord)+wordSet[j];
+                    currentRow = currentRow+addSpaces(spaces);
+                }
+            } else {
+                if( wordsinRow > 1 ){
+                    currentRow = ""
+                    for( var j=0; j<wordSet.length; j++ ){
+                        currentRow = currentRow+wordSet[j]+addSpaces(1);
+                    }
+                    currentRow = currentRow+addSpaces(maxWidth-currentRow.length)
+                } else {
+                    currentRow = words[words.length-1]+addSpaces(maxWidth-words[words.length-1].length)
                 }
             }
-            result.push( currentRow );
+            index+=wordsinRow;
+            result.push(currentRow);
             currentRow = "";
-            currentRowLength = 0;
+            rowLength = 0;
             rowCharacters = 0;
-            index+=currentRowWords;
-        }
+            wordsinRow = 0;
     }
     return result;
 };
-
-function addSpaces( n ){
-    return " ".repeat(n);
-}
 
 function addSpaces( n ){
     return " ".repeat(n);
@@ -130,66 +103,7 @@ var test = ["This", "is", "an", "example", "of", "text", "justification."]
 
 console.log(fullJustify( test, 16 ));
 
-
-// --------------------------------------------------THIRD ATTEMPT
-
-
-var fullJustify = function(words, maxWidth) {
-    if( maxWidth < 1 ) return words;
-    var result = [],
-        i=0,
-        index=0,
-        currentWordLength,
-        currentRow,
-        currentRowLength = 0,
-        currentRowWords = 0,
-        rowCharacters = 0,
-        lastWord = false;
-    while( i < words.length ){
-        currentWordLength = words[i].length;
-        if( currentRowLength+currentWordLength+1 <= maxWidth ){
-            i++;
-            currentRowLength = currentRowLength+currentWordLength+1;
-            rowCharacters+=currentWordLength;
-            currentRowWords+=1;
-        } else {
-            var spaces = maxWidth-rowCharacters,
-                spacePerWord = (currentRowWords-1 !== 0) ? Math.floor( spaces/(currentRowWords-1) ) : spaces,
-                wordSet = words.slice(index, index+currentRowWords), // 6
-                leftOver = spaces%(currentRowWords-1);
-            currentRow = wordSet[0];
-            for( var j=1; j<wordSet.length; j++ ){
-                if( leftOver>0 ){
-                    currentRow = currentRow+addSpaces(spacePerWord+1)+wordSet[j];
-                    leftOver-=1;
-                } else {
-                    currentRow = currentRow+addSpaces(spacePerWord)+wordSet[j];
-                }
-            }
-            index+=currentRowWords;
-            result.push( currentRow );
-            currentRow = "";
-            currentRowLength = 0;
-            rowCharacters = 0;
-            currentRowWords = 0;
-
-        }
-    }
-    return result;
-};
-
-function addSpaces( n ){
-    return " ".repeat(n);
-}
-
-
-
-
-
-
-
-
-
+//--------------------------------------------------
 
 /**
  * @param {string[]} words
