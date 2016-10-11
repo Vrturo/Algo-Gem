@@ -45,24 +45,33 @@ var generatePossibleNextMoves = function(s) {
 // --------------------------------------
 
 var generatePossibleNextMoves = function(s) {
-    var result = [],
-        counter = 0,
-        i=0;
-    while( i<s.length-1){
-        var string = s.slice().split("");
+    var result = [];
+    for( var i=0; i<s.length-1; i++ ){
+        var string = s.split("");
         for( var j=i; j<s.length; j++ ){
             if( string[j] === '+' && string[j+1]=== '+' ){
-                counter++;
-                string.splice.apply( string,[j,1].concat( '-'.split('') ) );
-                string.splice.apply( string,[j+1,1].concat( '-'.split('') ) );
+                string[j] = '-';
+                string[j+1] = '-';
                 result.push( string.join("") );
                 break;
             }
         }
-        i++;
     }
-    result = result.filter(function(item, pos) {
-        return result.indexOf(item) == pos;
-    });
-    return counter < 1 ? [] : result;
+    result = uniq(result);
+    return result;
 };
+
+function uniq(arr) {
+    var seen = {},
+        out = [],
+        len = arr.length,
+        j = 0;
+    for(var i = 0; i < len; i++) {
+         var item = arr[i];
+         if(seen[item] !== 1) {
+               seen[item] = 1;
+               out[j++] = item;
+         }
+    }
+    return out;
+}
