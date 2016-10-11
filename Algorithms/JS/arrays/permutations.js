@@ -24,13 +24,12 @@ var permute = function(nums) { // 144ms runtime
     var result = [];
     //nums are distinct numbers.
     function getPermutations (currentArray, inputArr) {
-        var inputLength = inputArr.length,
-            i;
+        var inputLength = inputArr.length;
         if ( inputLength < 1 ) {
             result.push( currentArray.slice() ); //Here we must do a copy. Because an array is an object,
                                                 // every time we're passing its reference into a new function.
         } else {
-            for ( i = 0; i < inputLength; i++) {
+            for ( var i = 0; i < inputLength; i++) {
                 var nextInput = inputArr.slice(); //Same reason, array is object, copy is needed.
                 currentArray.push( inputArr[i] );
                 nextInput.splice( i, 1 );
