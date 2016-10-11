@@ -9,10 +9,6 @@
 // https://en.wikipedia.org/wiki/Change-making_problem
 // https://www.amazon.com/Cracking-Coding-Interview-Programming-Questions/dp/0984782850/ref=dp_ob_title_bk
 
-var items = ["Fruit", "Fries", "Salad", "Wings", "Stick", "Plate"];
-var prices =[ 2.15,    2.75,    3.35,    3.55,    4.20,    5.80  ];
-var results = [];
-
 function appetize(money_left, cart=[]){
   if( money_left < 0 ){
     return;
@@ -22,7 +18,7 @@ function appetize(money_left, cart=[]){
     return;
   }
   var i =0;
-  while( i<items.length ){
+  while( i< items.length ){
     cart.push(items[i])
     // if( prices[i] === money_left )
     appetize( money_left - prices[i], cart )
