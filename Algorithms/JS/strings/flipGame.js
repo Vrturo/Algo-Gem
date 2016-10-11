@@ -14,20 +14,20 @@
 // ]
 // If there is no valid move, return an empty list [].
 
-var generatePossibleNextMoves = function(s) {
+var generatePossibleNextMoves = function(s) { // 99 ms runtime
     var result = [];
-    for( var i=0; i<s.length-1; i++ ){
-        var string = s.split("");
+    for( var i=0; i<s.length-1; i++ ){ // only loop till 2nd last cuz of i+1 check in for loop
+        var string = s.split(""); // split str so we can relace by index
         for( var j=i; j<s.length; j++ ){
-            if( string[j] === '+' && string[j+1]=== '+' ){
+            if( string[j] === '+' && string[j+1]=== '+' ){ // check if + are next to eachother
                 string[j] = '-';
                 string[j+1] = '-';
-                result.push( string.join("") );
-                break;
+                result.push( string.join("") ); // join split string and push to result
+                break; // stop loop if string is found
             }
         }
     }
-    result = uniq(result);
+    result = uniq(result); // remove uniq characters
     return result;
 };
 
