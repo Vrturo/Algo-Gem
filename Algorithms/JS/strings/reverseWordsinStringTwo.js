@@ -9,16 +9,20 @@
 // Do it in-place without allocating extra space?
 
 var reverseWords = function(str) {
+    // Three step to reverse
+    // 1. reverse the whole sentence
     reverse(str, 0, str.length - 1);
+    // 2. reverse each word
     var start = 0,
         end = -1;
 
     for( var i = 0; i < str.length; i++ ){
-        if( str[i] == ' ' ) {
+        if( str[i] === ' ' ) {
             reverse( str, start, i-1 );
             start = i + 1;
         }
     }
+    // 3. reverse the last word, if there is only one word this will solve the corner case
     reverse( str, start, str.length - 1 );
 };
 
