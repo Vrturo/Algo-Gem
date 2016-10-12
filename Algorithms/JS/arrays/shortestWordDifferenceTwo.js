@@ -22,7 +22,7 @@
  */
 
 var WordDistance = function(words) {
-    this.lib = {};
+    this.lib = {}; // create a lib to store the word as a key and an array of indices
     for( var i=0; i<words.length; i++ ){
         if( this.lib[words[i]] ){
             this.lib[words[i]].push(i);
@@ -43,7 +43,7 @@ WordDistance.prototype.shortest = function(word1, word2) {
         arr1 = this.lib[word1],
         arr2 = this.lib[word2];
     for( var i=0, j=0; i < arr1.length && j < arr2.length; ){
-        if( arr1[i] < arr2[j] ){
+        if( arr1[i] < arr2[j] ){ // check to see which is bigger know which to subtract first
             distance = Math.min( distance, arr2[j]-arr1[i] );
             i++;
         } else {
