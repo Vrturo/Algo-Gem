@@ -14,3 +14,41 @@
 
 // Note:
 // You may assume that word1 does not equal to word2, and word1 and word2 are both in the list.
+
+
+/**
+ * @constructor
+ * @param {string[]} words
+ */
+var WordDistance = function(words) {
+    this.lib = {};
+    for( var i=0; i<words.length; i++ ){
+        if( this.lib[words[i]] ){
+            this.lib[words[i]].push(i);
+        } else {
+            this.lib[words[i]] = [i];
+        }
+    }
+};
+
+/**
+ * @param {string} word1
+ * @param {string} word2
+ * @return {integer}
+ */
+
+WordDistance.prototype.shortest = function(word1, word2) {
+    var distance = Number.MAX_VALUE,
+        arr1 = this.lib[word1],
+        arr2 = this.lib[word2];
+    for( var i=0, j=0; i < arr1.length && j < arr2.length; ){
+        if( arr1[i] < arr2[j] ){
+            distance = Math.min( distance, arr2[j]-arr1[i] );
+            i++;
+        } else {
+            distance = Math.min( distance, arr1[i]-arr2[j] );
+            j++;
+        }
+    }
+    return distance;
+};
