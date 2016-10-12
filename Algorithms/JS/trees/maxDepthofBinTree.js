@@ -14,11 +14,13 @@
  * @return {number}
  */
 
-var maxDepth = function(root) {
+var maxDepth = function(root) { // 104 ms runtime
     if( root === undefined || root===null ) return 0;
     return Math.max( maxDepth(root.right), maxDepth(root.left) ) +1;
 };
 
+
+//-----------------------------------------------------
 
 var maxDepth = function(root){
     var maxDepth = 0;
