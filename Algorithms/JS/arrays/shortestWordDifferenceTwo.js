@@ -20,6 +20,7 @@
  * @constructor
  * @param {string[]} words
  */
+
 var WordDistance = function(words) {
     this.lib = {};
     for( var i=0; i<words.length; i++ ){
@@ -52,3 +53,11 @@ WordDistance.prototype.shortest = function(word1, word2) {
     }
     return distance;
 };
+
+
+/**
+ * Your WordDistance object will be instantiated and called as such:
+ * var wordDistance = new WordDistance(words);
+ * wordDistance.shortest("word1", "word2");
+ * wordDistance.shortest("anotherWord1", "anotherWord2");
+ */
