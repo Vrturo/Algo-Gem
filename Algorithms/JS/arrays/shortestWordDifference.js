@@ -17,12 +17,14 @@
  */
 
 
-var shortestDistance = function(words, word1, word2) {
-    var distance = Number.MAX_VALUE,
-        w1, w2;
+var shortestDistance = function(words, word1, word2) { // 92 ms runtime
+    var distance = Number.MAX_VALUE, // start distance at highest possible so we can set minimum faster
+        w1, w2; // set pointers
     for( var i=0; i<words.length; i++ ){
-        if( words[i] === word1 ) w1 = i;
-        if( words[i] === word2 ) w2 = i;
+        if( words[i] === word1 ) w1 = i; // once word is found store index
+        if( words[i] === word2 ) w2 = i; // once word is found store index
+
+        // once both words have been found we can start checking the minimum distance from the index's
         if( w1 !== undefined && w2 !== undefined) distance = Math.min( distance, Math.abs(w1 - w2) );
     }
    return distance;
