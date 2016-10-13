@@ -11,6 +11,18 @@
   // if sum is less than 0 set to 0
 // return max
 
+var maxSubArray = function(nums) {
+    var max = nums[0],
+        sum = 0;
+    for( var i=0; i<nums.length; i++ ){
+        sum += nums[i];
+        if( sum > max ) max = sum;
+        if( sum < 0 ) sum = 0;
+    }
+    return max;
+};
+
+//----------------------------------------------
 
 var maxSubArray = function(nums) {
   var max = nums[0],
