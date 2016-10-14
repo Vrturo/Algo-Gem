@@ -32,7 +32,6 @@
  * @return {ListNode}
  */
 
-
 var getIntersectionNode = function(headA, headB) {
     var p1 = headA,
         p2 = headB;
