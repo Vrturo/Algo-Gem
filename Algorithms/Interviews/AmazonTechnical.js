@@ -1,3 +1,13 @@
+// Questions asked..
+// Detailed resume experience
+// rate yourself 1 - 10 on rails, css, javascript
+// rails work - why use rails over node
+// react vs backbone
+// how does react work
+// css what are...
+// transitions, display properties, position properties
+
+
 
 // If you had an app that plays videos, and it saves a position if someone leaves a video,
 // can you write 2 function which when a video is played,
