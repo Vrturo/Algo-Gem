@@ -1,0 +1,1 @@
+AmazonTechnical.js
