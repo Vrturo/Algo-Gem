@@ -15,3 +15,18 @@
  */
 
 
+var firstUniqChar = function(s) {
+    var map = {};
+    for( var i=0; i<s.length; i++ ){
+        if( map[ s[i] ] ){
+            map[ s[i] ][1]+=1;
+        } else{
+            map[ s[i] ] = [i,1];
+        }
+    }
+
+    for( var k in map ){
+        if( map[k][1] === 1 ) return map[k][0];
+    }
+    return -1;
+};
