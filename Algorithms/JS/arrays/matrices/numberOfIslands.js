@@ -19,7 +19,7 @@
 // Answer: 3
 
 
-var numIslands = function (grid) {
+var numIslands = function (grid) { // 156 ms runtime
     var islands = 0,
         row,
         column;
@@ -46,3 +46,6 @@ function walk( grid, row, col ) {
         /* bottom */    if( row < grid.length - 1 ) walk( grid, row + 1, col );
     }
 }
+
+
+// ------------------------------------
