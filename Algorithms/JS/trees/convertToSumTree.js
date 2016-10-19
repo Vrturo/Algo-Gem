@@ -34,3 +34,12 @@
  */
 
 
+function toSumTree( node ){
+    if (node == null) return 0;
+
+    var oldVal = node.val;
+
+    node.val = toSumTree(node.left) + toSumTree(node.right);
+
+    return node.val + oldVal;
+}
