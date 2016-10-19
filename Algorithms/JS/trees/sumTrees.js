@@ -52,8 +52,8 @@ function isSumTree( node ) {
 
     /* if the node and both of its children satisfy the
        property return 1 else 0*/
-    if ( (node.data == ls + rs) && (isSumTree(node.left) !== 0 ) && ( isSumTree(node.right)) != 0 )
-        return 1;
+    if ( (node.data === ls + rs) && (isSumTree(node.left) !== 0 ) && ( isSumTree(node.right)) != 0 )
+        return true;
 
-    return 0;
+    return false;
 }
