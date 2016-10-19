@@ -35,11 +35,17 @@
 
 
 function toSumTree( node ){
+    // Base case
     if (node == null) return 0;
 
+    // Store the old value
     var oldVal = node.val;
 
+    // Recursively call for left and right subtrees and store the sum
+    // as new value of this node
     node.val = toSumTree(node.left) + toSumTree(node.right);
 
+    // Return the sum of values of nodes in left and right subtrees
+    // and oldValue of this node
     return node.val + oldVal;
 }
