@@ -13,12 +13,12 @@
 // can you write 2 function which when a video is played,
 
 // One which saves the position of a video when they leave?
-
 // One to which restores the last position they were at given the name or ID of the video?
 
+// Notes:
 // // one function saves the time
 // // function
-// // after 100 videos frop a time
+// // after 100 videos drop a time
 
 // // id, postion
 var q = []; // [id, time]
