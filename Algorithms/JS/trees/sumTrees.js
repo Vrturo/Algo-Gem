@@ -9,3 +9,20 @@
 //       10     3
 //     /    \     \
 //   4      6      3
+
+
+function isBalanced(root) {
+    function helper( node ){
+        if(!node){
+            return;
+        } else {
+            if ( node.left.val + node.right.val !== node.val ){
+                return false;
+            } else {
+                isBalanced( node.left && node.right );
+            }
+            return true;
+        }
+    }
+    return helper(root.left && root.right);
+}
