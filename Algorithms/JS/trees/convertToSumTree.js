@@ -18,3 +18,14 @@
 //      4(8-4)      12(7+5)
 //            /   \      /  \
 //    0      0    0    0
+
+
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
+ * }
+ */
+
+
