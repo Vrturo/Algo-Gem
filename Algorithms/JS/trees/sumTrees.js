@@ -29,6 +29,7 @@ function isSumTree(root) {
 
 // ---------------------------------------
 
+// 0(n^2)
 /* A helper function to get the sum of values in tree with root
      as root */
 function sum( node ) {
