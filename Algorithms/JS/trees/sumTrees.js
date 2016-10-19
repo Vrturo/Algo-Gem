@@ -11,7 +11,7 @@
 //   4      6      3
 
 
-function isBalanced(root) {
+function isSumTree(root) {
     function helper( node ){
         if(!node){
             return;
@@ -19,10 +19,14 @@ function isBalanced(root) {
             if ( node.left.val + node.right.val !== node.val ){
                 return false;
             } else {
-                isBalanced( node.left && node.right );
+                isSumTree( node.left && node.right );
             }
             return true;
         }
     }
     return helper(root.left && root.right);
 }
+
+// ---------------------------------------
+
+
