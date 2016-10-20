@@ -6,23 +6,28 @@
 
 
 
-function subSetSum( nums, target ){
-  var list = [];
-  backtrack( list, [], nums, 0);
-  return list;
-}
+var combinationSum = function(candidates, target) {
+    var result = [];
 
-function backtrack( list, tempList, nums, start ){
-    list.push( tempList );
-    for( var i = start; i < nums.length; i++ ){
-      tempList.push( nums[i] );
-      backtrack( list, tempList, nums, i+1 );
-      tempList.pop();
+    function backtrack( start, sum, buildUp ){
+        if( sum === target ){
+            result.push(buildUp);
+        } else if( sum < target ){
+            for( var i = start; i < candidates.length; i++ ){
+                buildUp.push( candidates[i] );
+                sum += candidates[i];
+                backtrack( i, sum, buildUp );
+                sum -= candidates[i];
+                buildUp.pop();
+            }
+        }
     }
-}
+    backtrack( 0, 0, [] );
+    return result;
+};
 
 
 
-var set = [ [1, 2] ];
-console.log(subSetSum( set ))
+var set = [3, 34, 4, 12, 5, 2]
+console.log(combinationSum( set, 3 ))
 
