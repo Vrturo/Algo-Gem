@@ -18,18 +18,16 @@ function fizzBuzz() { // 95 ms runtime
 
 // -----------------------------------------------
 
-var fizzBuzz = function(n) { // 156 ms
-    var result = [];
-    for( var i=1; i<=n; i++ ){
-        if( i%3===0 && i%5===0 ){
-            result.push( 'FizzBuzz' );
-        } else if( i%3===0 ){
-            result.push( 'Fizz' );
-        } else if( i%5===0 ){
-            result.push( 'Buzz' );
-        } else {
-            result.push( ""+i );
-        }
+var fizzBuzz = function(n) {
+    var result = [],
+        str, i=1;
+    while( i <= n ){
+        str = "";
+        if( i%3===0 ) str = 'Fizz';
+        if( i%5===0 ) str += 'Buzz';
+        if(!str) str += i;
+        result.push( str );
+        i++;
     }
     return result;
 };
