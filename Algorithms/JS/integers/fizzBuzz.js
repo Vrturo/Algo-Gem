@@ -18,7 +18,7 @@ function fizzBuzz() { // 95 ms runtime
 
 // -----------------------------------------------
 
-var fizzBuzz = function(n) {
+var fizzBuzz = function(n) { // 89 ms runtime
     var result = [],
         str, i=1;
     while( i <= n ){
