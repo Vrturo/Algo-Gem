@@ -3,7 +3,7 @@
 // For multiples of 5 print "Buzz" instead of the number.
 // For numbers that are multiples of both print "FizzBuzz."
 
-function fizzBuzz() {
+function fizzBuzz() { // 95 ms runtime
     var res = "";
     var resStr = ""
     for (var i = 1; i < 100; i++) {
@@ -18,7 +18,7 @@ function fizzBuzz() {
 
 // -----------------------------------------------
 
-var fizzBuzz = function(n) {
+var fizzBuzz = function(n) { // 156 ms
     var result = [];
     for( var i=1; i<=n; i++ ){
         if( i%3===0 && i%5===0 ){
