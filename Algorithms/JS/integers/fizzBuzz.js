@@ -18,6 +18,13 @@ function fizzBuzz() { // 95 ms runtime
 
 // -----------------------------------------------
 
+
+/**
+ * @param {number} n
+ * @return {string[]}
+ */
+
+
 var fizzBuzz = function(n) { // 89 ms runtime
     var result = [],
         str, i=1;
