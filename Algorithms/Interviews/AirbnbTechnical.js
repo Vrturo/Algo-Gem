@@ -1,10 +1,10 @@
-// var choices =
-//   {Fruit: 2.15,
-//   Fries: 2.75,
+// var choices =[
+//   {Fruit: 2.15}
+//   Fries: 2.75}.
 //   Salad: 3.35,
 //   Wings: 3.55,
 //   Stick: 4.20,
-//   Plate: 5.80}
+//   {Plate: 5.80}]
 
 // https://en.wikipedia.org/wiki/Change-making_problem
 // https://www.amazon.com/Cracking-Coding-Interview-Programming-Questions/dp/0984782850/ref=dp_ob_title_bk
