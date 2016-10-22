@@ -11,7 +11,8 @@ var combinationSum = function(candidates, target) {
 
     function backtrack( start, sum, buildUp ){
         if( sum === target ){
-            result.push(buildUp);
+          console.log(buildUp);
+            result.push(buildUp.slice());
         } else if( sum < target ){
             for( var i = start; i < candidates.length; i++ ){
                 buildUp.push( candidates[i] );
