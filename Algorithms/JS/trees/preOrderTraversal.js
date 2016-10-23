@@ -1,6 +1,8 @@
 // How to perform preOrder traversal
 
 
+// pre order: P L R
+
 //     23
 //    /  \
 //   16   45
