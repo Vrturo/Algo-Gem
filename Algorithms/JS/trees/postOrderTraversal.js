@@ -1,5 +1,7 @@
 // How to perform postOrder traversal
 
+// post order: L R P
+
 
 //     23
 //    /  \
