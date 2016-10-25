@@ -25,13 +25,13 @@
 var sumOfLeftLeaves = function(root) { // 105 ms runtime
     if( !root ) return 0;
     var sum = 0;
-    if( root.left ) {
-        if( root.left.left === null && root.left.right === null ) {
-            sum += root.left.val;
+    if( root.left ) { // if node exists
+        if( root.left.left === null && root.left.right === null ) { // if left leaf node
+            sum += root.left.val; // add sum
         } else {
-            sum += sumOfLeftLeaves(root.left);
+            sum += sumOfLeftLeaves(root.left); // if not leaf, keep traversing
         }
     }
-    if( root.right ) sum += sumOfLeftLeaves(root.right );
+    if( root.right ) sum += sumOfLeftLeaves(root.right ); // keep traversing if not right child
     return sum;
 };
