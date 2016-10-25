@@ -35,3 +35,21 @@ var sumOfLeftLeaves = function(root) { // 105 ms runtime
     if( root.right ) sum += sumOfLeftLeaves(root.right ); // keep traversing if not right child
     return sum;
 };
+
+// ---------------------------------------------------------------
+
+var sumOfLeftLeaves = function(root) {
+    if( root === null || root.left === null && root.right === null ) return 0;
+    var sum = 0,
+        q = [];
+    q.push(root);
+    while( q.length ) {
+        var curr = q.shift();
+        if( curr.left !== null && curr.left.left === null && curr.left.right === null ) sum += curr.left.val;
+        if( curr.left !== null ) q.push(curr.left);
+        if( curr.right !== null ) q.push(curr.right);
+    }
+    return sum;
+};
+
+
