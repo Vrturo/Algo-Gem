@@ -22,16 +22,16 @@
  * @return {number}
  */
 
-var sumOfLeftLeaves = function(root) {
+var sumOfLeftLeaves = function(root) { // 105 ms runtime
     if( !root ) return 0;
     var sum = 0;
-    if( root.left !== null ) {
+    if( root.left ) {
         if( root.left.left === null && root.left.right === null ) {
             sum += root.left.val;
         } else {
             sum += sumOfLeftLeaves(root.left);
         }
     }
-    if( root.right !== null) sum += sumOfLeftLeaves(root.right );
+    if( root.right ) sum += sumOfLeftLeaves(root.right );
     return sum;
 };
