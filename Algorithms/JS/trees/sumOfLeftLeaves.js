@@ -22,6 +22,7 @@
  * @return {number}
  */
 
+// DFS
 var sumOfLeftLeaves = function(root) { // 105 ms runtime
     if( !root ) return 0;
     var sum = 0;
@@ -38,6 +39,7 @@ var sumOfLeftLeaves = function(root) { // 105 ms runtime
 
 // ---------------------------------------------------------------
 
+// BFS
 var sumOfLeftLeaves = function(root) {
     if( root === null || root.left === null && root.right === null ) return 0;
     var sum = 0,
