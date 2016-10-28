@@ -19,37 +19,39 @@
  */
 
 
-var calculate = function(s) {
+var calculate = function(s) { // 159 ms runtime
     var result = 0,
         num = 0,
         sign = 1,
         stack = [];
 
     for( var i = 0; i < s.length; i++ ){
-        if( Number(s[i]) || s[i] === '0' ){
-            num = JSON.stringify(num)+s[i];
+        if( Number(s[i]) || s[i] === '0' ){ // Number(0) isnt true
+            num = JSON.stringify(num)+s[i]; // append strings for double+ digit numbers
             num = Number(num);
-        }else if( s[i] === '+' ){
+        } else if( s[i] === '+' ){
             result += sign * num;
             num = 0;
             sign = 1;
-        }else if( s[i] === '-' ){
+        } else if( s[i] === '-' ){
             result += sign * num;
             num = 0;
             sign = -1;
-        }else if( s[i] === '(' ){
+        } else if( s[i] === '(' ){
             stack.push(result);
             stack.push(sign);
+            //reset the sign and result for the value in the parenthesis
             sign = 1;
             result = 0;
-        }else if( s[i] == ')' ){
+        } else if( s[i] == ')' ){
             result += sign * num;
             num = 0;
-            result *= stack.pop();
-            result += stack.pop();
+            result *= stack.pop(); //  sign before the parenthesis
+            result += stack.pop(); // now the result calculated before the parenthesis
         }
+        // no else to skip empty spaces
     }
 
-    if( num !== 0 ) result += sign * num;
-    return result;
+    // if there is only one number, we haven't add the number to the result
+    return result += sign * num
 };
