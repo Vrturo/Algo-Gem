@@ -32,36 +32,6 @@ class BinarySearchTree {
     }
 
     insertNode( val ) {
-       var root = this.root;
-
-       if(!root){
-          this.root = new Node(val);
-          return;
-       }
-
-       var currentNode = root,
-           newNode = new Node(val);
-
-       while(currentNode){
-          if(val < currentNode.value){
-              if(!currentNode.left){
-                 currentNode.left = newNode;
-                 break;
-              }
-              else{
-                 currentNode = currentNode.left;
-            }
-         }
-         else{
-             if(!currentNode.right){
-                currentNode.right = newNode;
-                break;
-             }
-             else{
-                currentNode = currentNode.right;
-             }
-         }
-      }
 
     }
 }
@@ -138,7 +108,7 @@ function buildBinarySearchTree(arr) {
             // }
         q.shift();
     }
-    return ourTree.root.right
+    return ourTree.root
 }
 
 
