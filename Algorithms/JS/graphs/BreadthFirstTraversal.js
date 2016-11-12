@@ -93,13 +93,13 @@ g.addEdge('F', 'G')
 
 function BFT(graph){
   var visited = {},
-      firstVertex = graph.vertices[Object.keys(graph.vertices)[0]],
+      firstVertex = graph.vertices[Object.keys(graph.vertices)[0]], // accessing first vertex in graph
       q = [],
       results = [];
 
-  q.push( firstVertex );
-  results.push( firstVertex.value );
-  visited[ firstVertex.value ] = true;
+  q.push( firstVertex ); // push object so we have access to properties
+  results.push( firstVertex.value ); // push value
+  visited[ firstVertex.value ] = true; // cache value
 
   while( q.length ){
     var currentVertex = q[0];
@@ -107,8 +107,8 @@ function BFT(graph){
     for( var k in currentVertex.edges ){
       if( !visited[k] ){
         visited[k] = true;
-        q.push(graph.vertices[k]);
-        results.push(k);
+        q.push(graph.vertices[k]); // push object so we have access to properties
+        results.push(k); // push value
       }
     }
 
