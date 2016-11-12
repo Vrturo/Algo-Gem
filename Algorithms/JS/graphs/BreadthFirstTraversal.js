@@ -71,9 +71,37 @@ g.addEdge('D', 'F')
 g.addEdge('D', 'G')
 g.addEdge('F', 'G')
 
-console.log(g);
+// console.log(g);
 
 function BFT(graph){
+  var visited = {},
+      firstVertex = graph.vertices[Object.keys(graph.vertices)[0]],
+      q = [],
+      results = [];
 
+  q.push( firstVertex );
+  results.push( firstVertex.value );
+  visited[ firstVertex.value ] = true;
+
+  while( q.length ){
+    var currentVertex = q[0];
+
+    for( var k in currentVertex.edges ){
+      if( !visited[k] ){
+        visited[k] = true;
+        q.push(graph.vertices[k]);
+        results.push(k);
+      }
+    }
+
+    q.shift();
+  }
+  return results;
 }
+
+console.log( BFT(g) )
+
+
+
+
 
