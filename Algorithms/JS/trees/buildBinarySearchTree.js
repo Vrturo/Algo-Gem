@@ -27,16 +27,57 @@ class Node {
 }
 
 class BinarySearchTree {
-    constructor( root ) {
-        this.root = root;
+    constructor( arr ) {
+        this.root =  new Node( arr[0] );
+        this.q = [];
+        this.index = 1;
+        this.arr = arr;
+        this.q.push( this.root );
     }
 
-    insertNode( val ) {
+    insert( val, parent, side ){
+        var newNode = new Node( val );
+        side === 'l' ? parent.left = newNode : parent.right = newNode;
+        this.index++;
+        this.q.push( newNode );
+    }
 
+    buildTree() {
+        while( this.q.length ){
+            var currentNode = this.q[0],
+                newNode;
+
+            if( currentNode === this.root ){
+                if( currentNode.val > this.arr[this.index] ) this.insert( this.arr[this.index], currentNode, 'l' );
+                this.insert(this.arr[this.index], currentNode)
+                if( currentNode.val < this.arr[this.index] ) this.insert( this.arr[this.index], currentNode, 'r' );
+            }
+
+            if( currentNode.val < this.root.val ){
+                if( currentNode.val > this.arr[this.index] && this.root.val > this.arr[this.index] ){
+                    this.insert( this.arr[this.index], currentNode, 'l' );
+                }
+                if( currentNode.val < this.arr[this.index] && this.root.val > this.arr[this.index] ){
+                    this.insert( this.arr[this.index], currentNode, 'r' );
+                }
+            } else {
+                if( currentNode.val > this.arr[this.index] && this.root.val < this.arr[this.index] ){
+                    this.insert( this.arr[this.index], currentNode, 'l' );
+                }
+                if( currentNode.val < this.arr[this.index] && this.root.val < this.arr[this.index] ){
+                    this.insert( this.arr[this.index], currentNode, 'r' );
+                }
+            }
+
+            this.q.shift();
+        }
     }
 }
 
-
+var ex = [4, 2, 5, 1, 3, 7, 6, 8];
+var newTree = new BinarySearchTree( ex );
+newTree.buildTree();
+console.log(newTree)
 
 function buildBinarySearchTree(arr) {
     var ourRoot = new Node( arr[0] ),
@@ -63,8 +104,7 @@ function buildBinarySearchTree(arr) {
         }
 
         if( currentNode.val < ourRoot.val ){
-            // current node = 3
-            // Left
+
             if( currentNode.val > arr[i] && ourRoot.val > arr[i] ){
                 newNode = new Node( arr[i] );
                 currentNode.left = newNode;
@@ -79,8 +119,7 @@ function buildBinarySearchTree(arr) {
             }
 
         } else {
-            // 7
-            // right
+
             if( currentNode.val > arr[i] && ourRoot.val < arr[i] ){
                 newNode = new Node( arr[i] );
                 currentNode.left = newNode;
@@ -94,18 +133,6 @@ function buildBinarySearchTree(arr) {
                 q.push( newNode )
             }
         }
-            // if( currentNode.val > arr[i] && arr[i] < ourRoot.val ){
-            //     newNode = new Node( arr[i] );
-            //     currentNode.left = newNode;
-            //     i++;
-            //     q.push( newNode )
-            // }
-            // if( currentNode.val < arr[i] && arr[i] > ourRoot.val ){
-            //     newNode = new Node( arr[i] );
-            //     currentNode.right = newNode;
-            //     i++;
-            //     q.push( newNode )
-            // }
         q.shift();
     }
     return ourTree.root
@@ -114,13 +141,4 @@ function buildBinarySearchTree(arr) {
 
 
 var example = [4, 2, 5, 1, 3, 7, 6, 8];
-// var tree = new BinarySearchTree();
-// tree.insertNode(4);
-// tree.insertNode(2);
-// tree.insertNode(5);
-// tree.insertNode(1);
-// tree.insertNode(3);
-// tree.insertNode(7);
-// tree.insertNode(6);
-// tree.insertNode(8);
 console.log(buildBinarySearchTree(example))
