@@ -73,6 +73,24 @@ g.addEdge('F', 'G')
 
 // console.log(g);
 
+
+// create an object to keep track of visited vertices
+// keep track of first vertex in graph
+// create a queue to keep track of the next nodes to traverse
+// create a results array to return at the end of our function
+// push the first vertex object into queue
+// push the value into results
+// cache the first vertex's value
+// create a while loop that breaks once there are no longer any vertex's to traverse
+  // loop through each vertex's edges
+    // if we haven't visited them
+        // cache the value as true
+        // push the vertex object into q so we have access to its properties
+        // push value into results
+  // remove item in queue once traversed
+// return results
+
+
 function BFT(graph){
   var visited = {},
       firstVertex = graph.vertices[Object.keys(graph.vertices)[0]],
