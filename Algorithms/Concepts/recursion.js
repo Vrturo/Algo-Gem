@@ -58,3 +58,25 @@
 //     tracking at each step two successive values. A more sophisticated example is using a threaded binary tree,
 //     which allows iterative tree traversal, rather than multiple recursion.
 
+  // Indirect recursion
+
+  //   Most basic examples of recursion, and most of the examples presented here, demonstrate direct recursion,
+  //   in which a function calls itself. Indirect recursion occurs when a function is called not by itself
+  //   but by another function that it called (either directly or indirectly). For example,
+  //   if f calls f, that is direct recursion, but if f calls g which calls f, then that is indirect recursion of f.
+  //   Chains of three or more functions are possible; for example,
+  //   function 1 calls function 2, function 2 calls function 3, and function 3 calls function 1 again.
+
+  //   Indirect recursion is also called mutual recursion, which is a more symmetric term,
+  //   though this is simply a difference of emphasis, not a different notion. That is, if f calls g and then g calls f,
+  //   which in turn calls g again, from the point of view of f alone, f is indirectly recursing,
+  //   while from the point of view of g alone, it is indirectly recursing, while from the point of view of both,
+  //   f and g are mutually recursing on each other.
+  //   Similarly a set of three or more functions that call each other can be called a set of mutually recursive functions.
+
+  // Anonymous recursion
+
+  //   Recursion is usually done by explicitly calling a function by name. However,
+  //   recursion can also be done via implicitly calling a function based on the current context,
+  //   which is particularly useful for anonymous functions, and is known as anonymous recursion.
+
