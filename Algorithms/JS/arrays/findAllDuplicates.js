@@ -35,4 +35,16 @@ var findDuplicates = function(nums) { // 0(n) runtime - 0(1) space
 
 // ------------------------------------------------
 
-
+var findDuplicates = function(nums) {
+    var result = [],
+        storage = {};
+    for( var i=0; i<nums.length; i++ ){
+        if( !storage[nums[i]] ){
+            storage[nums[i]] = true;
+        } else {
+            result.push( nums[i] );
+            delete storage[nums[i]];
+        }
+    }
+    return result;
+};
