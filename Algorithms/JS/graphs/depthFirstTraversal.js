@@ -11,6 +11,7 @@
  *  HINT: Use a hash table to handle redundancy
  */
 
+// ------------ Constructors for Graph and Vertex ----------------------
 
 class Vertex {
   constructor( val ){
@@ -65,3 +66,12 @@ g.addEdge('D', 'G')
 g.addEdge('F', 'G')
 
 console.log(g);
+
+
+// ------ end Classes -----------------------------
+
+
+function DFT(Vertex){
+
+}
+
