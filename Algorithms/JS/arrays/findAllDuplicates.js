@@ -39,11 +39,11 @@ var findDuplicates = function(nums) {
     var result = [],
         storage = {};
     for( var i=0; i<nums.length; i++ ){
-        if( !storage[nums[i]] ){
+        if( !storage[nums[i]] ){ // check to see if number has passed
             storage[nums[i]] = true;
         } else {
-            result.push( nums[i] );
-            delete storage[nums[i]];
+            result.push( nums[i] ); // push into result if nimber existed
+            delete storage[nums[i]]; // delete key/value because it can only occur 2 times max
         }
     }
     return result;
