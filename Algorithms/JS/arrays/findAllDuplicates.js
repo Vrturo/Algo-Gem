@@ -17,14 +17,18 @@
  */
 
 
+
+// store and flip each number at position i-1 to negative.
+// if the number at position i-1 is already negative, i is the number that occurs twice.
+
 var findDuplicates = function(nums) {
     var result = [];
-    for (var i = 0; i < nums.length; ++i) {
-        var index = Math.abs(nums[i])-1;
-        if (nums[index] < 0){
-            result.push(Math.abs(index+1));
+    for (var i = 0; i < nums.length; i++) {
+        var index = Math.abs(nums[i])-1; // 1
+        if (nums[index] < 0){ // if number is negative it's occured
+            result.push(Math.abs(index+1)); // push regular value
         }
-        nums[index] = -nums[index];
+        nums[index] = -nums[index]; // set number as negative
     }
     return result;
 };
