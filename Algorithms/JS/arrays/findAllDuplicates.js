@@ -10,3 +10,10 @@
 
 // Output:
 // [2,3]
+
+/**
+ * @param {number[]} nums
+ * @return {number[]}
+ */
+
+
