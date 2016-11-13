@@ -65,13 +65,27 @@ g.addEdge('D', 'F')
 g.addEdge('D', 'G')
 g.addEdge('F', 'G')
 
-console.log(g);
+// console.log(g);
 
 
 // ------ end Classes -----------------------------
 
 
-function DFT(Vertex){
+function DFT(graph){
+  var visited = {},
+      firstVertex = graph.vertices[Object.keys(graph.vertices)[0]],
+      result = [];
 
+  function helper(v, check){
+    check[v.value] = true;
+    result.push(v.value);
+    for( var k in v.edges ){
+      if( !check[k] ) helper( graph.vertices[k], check );
+    }
+  }
+
+  helper( firstVertex, visited )
+  return result;
 }
 
+console.log( DFT(g) )
