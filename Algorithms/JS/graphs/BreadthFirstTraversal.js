@@ -118,8 +118,3 @@ function BFT(graph){
 }
 
 console.log( BFT(g) )
-
-
-
-
-
