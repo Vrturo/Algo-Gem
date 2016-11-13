@@ -19,6 +19,7 @@
  *              C       G
  */
 
+// ------------ Constructors for Graph and Vertex ----------------------
 class Vertex {
   constructor( val ){
     this.value = val;
@@ -73,6 +74,7 @@ g.addEdge('F', 'G')
 
 // console.log(g);
 
+// ---------------------------------------------
 
 // create an object to keep track of visited vertices
 // keep track of first vertex in graph
