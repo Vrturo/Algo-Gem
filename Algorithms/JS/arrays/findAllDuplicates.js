@@ -21,7 +21,7 @@
 // store and flip each number at position i-1 to negative.
 // if the number at position i-1 is already negative, i is the number that occurs twice.
 
-var findDuplicates = function(nums) {
+var findDuplicates = function(nums) { // 0(n) runtime - 0(1) space
     var result = [];
     for (var i = 0; i < nums.length; i++) {
         var index = Math.abs(nums[i])-1; // 1
@@ -32,3 +32,7 @@ var findDuplicates = function(nums) {
     }
     return result;
 };
+
+// ------------------------------------------------
+
+
