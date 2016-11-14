@@ -8,6 +8,25 @@
  * Example: arrayPairs([1, 2, 3, 4, 5])     =>    [[1,2], [3,4], [5, undefined]]
  **/
 
+
+// create result array to return at the end
+// create a helper function that takes:
+  // an index to keep track of what element we're on
+  // a build up array that fluctuates dpeending if filled or not
+  // the result array to push our buildUp in when its full
+
+  // set base case
+    // when i is greater than arr's index
+  // else
+    // if index is even
+      // push the element in the current array's index into our buildUp
+      // call helper on the next item on array and pass the buildUp and result array
+    // else
+      // push the element in the current array's index into our buildUp
+      // reset buildUp because we know if index is odd our buildUp is full
+      // call helper on the next item on array and pass the buildUp and result array
+
+
 function arrayPairs(arr){
   var result = [];
 
