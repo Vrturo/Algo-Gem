@@ -26,4 +26,4 @@ function minStepsToOne(n, steps=0){
 
 }
 
-console.log(minStepsToOne(11))
+console.log(minStepsToOne(9))
