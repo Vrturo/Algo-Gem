@@ -8,6 +8,15 @@
  * Example: power(3, 4) => 81
  **/
 
+ // create helper function that takes in:
+ //  count var that lets us know how many times we're multiplying
+ //  work that is used as a build up var and we will return when we've multiplied b amount of times
+ //  set base case as
+//     if count is equal to b amount
+//        return work
+//     else call helper on another count and work being multiplied again
+
+
 function power(a, b){
 
   function helper( count, work ){
