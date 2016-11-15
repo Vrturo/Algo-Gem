@@ -69,15 +69,3 @@ function mergeSortedArray(a, b){
   }
   return merged;
 }
-
-
-// --------------------------------------
-
-function recursion(a, b){
-
-}
-
-
-
-
-

@@ -14,17 +14,16 @@
 
 
 function minStepsToOne(n, steps=0){
-  console.log('hit')
   if( n === 1 ) return steps;
 
   if( n % 3 === 0 ){
-    minStepsToOne(n/3, steps+=1)
+    return minStepsToOne(n/3, steps+=1)
   } else if( n % 2 === 0 ){
-    minStepsToOne(n/2, steps+=1)
+    return minStepsToOne(n/2, steps+=1)
   } else {
-    minStepsToOne(n-=1, steps+=1)
+    return minStepsToOne(n-=1, steps+=1)
   };
 
 }
 
-console.log(minStepsToOne(3))
+console.log(minStepsToOne(11))
