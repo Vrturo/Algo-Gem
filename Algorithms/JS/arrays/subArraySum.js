@@ -28,7 +28,7 @@
 
 function sum(arr, sum){
 
-  for( var i = 0, j = 1, currSum = 0; i < arr.length-1; i++){
+  for( var i = 0, j = 1, currSum; i < arr.length-1; i++){
     currSum = arr[i]+arr[j];
     while( currSum < sum ){
       j++;
