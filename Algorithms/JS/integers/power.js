@@ -21,11 +21,3 @@ function power(a, b){
 }
 
 console.log(power(3,1))
-
-// write a graph structure without objects
-// DFS
-// post order DFS graph using recursion and while loop
-// review toplogical sort
-// shortest path
-// dollan ford
-// dynamic d.a.g.
