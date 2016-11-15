@@ -14,7 +14,6 @@
 
 
 function sum(arr, sum){
-  var result = [];
 
   for( var i = 0, j = 1, currSum = 0; i < arr.length-1; i++){
     currSum = arr[i]+arr[j];
@@ -22,10 +21,7 @@ function sum(arr, sum){
       j++;
       currSum += arr[j];
     };
-    if( currSum === sum ){
-      result.push(i, j);
-      return result;
-    }
+    if( currSum === sum ) return [i, j];
     j = i+2;
   }
   return 'no sum'
