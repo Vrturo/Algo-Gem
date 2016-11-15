@@ -12,5 +12,5 @@
 
 
 function jumpCountToLast(n){
-  // YOUR WORK HERE
+
 }
