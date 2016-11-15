@@ -9,17 +9,23 @@
  **/
 
 function power(a, b){
-  var result = 1;
 
-  function helper( n, count ){
-     if( count >= b ){
-        result = n;
+  function helper( count, work ){
+     if( count === b ){
+        return work;
      } else {
-      helper(n*a, count+1);
+        return helper( count+1, work * a );
      }
   }
-  helper(result, 0)
-  return result;
+  return helper(0, 1)
 }
 
-console.log(power(3,4))
+console.log(power(3,1))
+
+// write a graph structure without objects
+// DFS
+// post order DFS graph using recursion and while loop
+// review toplogical sort
+// shortest path
+// dollan ford
+// dynamic d.a.g.

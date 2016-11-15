@@ -23,18 +23,45 @@
 function flatten(arr){
   var result = [];
 
-  function helper(currObj, res){
+  function helper(currObj){
     for( var i = 0; i<currObj.length; i++ ){
       if( typeof currObj[i] === 'number'){
-        res.push( currObj[i] );
+        result.push( currObj[i] );
       } else {
-        helper( currObj[i], res )
+        helper( currObj[i] )
       }
     }
+    return result;
   }
-  helper(arr, result);
-  return result;
+  return helper(arr);
 }
+
+
+
+
+
+// -----------------------------
+
+function flatten(element){
+  if( Number.isInteger(element) ){
+    return element;
+  }
+  var work = [];
+
+  for(var i =0; i<element.length; i++){
+    work = work.concat(flatten(element[i]));
+  }
+
+  return work;
+}
+
+
+
 
 var ex = [1, [2, 3, [4]], 5, [[6]]];
 console.log( flatten(ex) );
+
+
+
+
+
