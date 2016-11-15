@@ -13,6 +13,19 @@
 // There may be more than one subarrays with sum as the given sum. The following solutions print first such subarray.
 
 
+// loop through arr and keep track of:
+  // curr index, i
+  // pointer, j
+  // current sum, currSum
+  // in our loop
+    // set currSum as the sum of our two elements pointed at
+    // create a while loop that
+      // iterates our j pointer and upates our current sum until we find our sum or pass it
+    // once our while breaks
+    // if currsum = sum return the indices
+    // if we havent found our current sum restart j one index in front of i on the next iteration
+
+
 function sum(arr, sum){
 
   for( var i = 0, j = 1, currSum = 0; i < arr.length-1; i++){
