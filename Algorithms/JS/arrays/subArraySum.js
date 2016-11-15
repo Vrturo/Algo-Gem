@@ -11,3 +11,25 @@
 // Input: arr[] = {1, 4}, sum = 0
 // Output: No subarray found
 // There may be more than one subarrays with sum as the given sum. The following solutions print first such subarray.
+
+
+function sum(arr, sum){
+  var result = [];
+
+  for( var i = 0, j = 1, currSum = 0; i < arr.length-1; i++){
+    currSum = arr[i]+arr[j];
+    while( currSum < sum ){
+      j++;
+      currSum += arr[j];
+    };
+    if( currSum === sum ){
+      result.push(i, j);
+      return result;
+    }
+    j = i+2;
+  }
+  return 'no sum'
+}
+
+var ex = [1, 4, 20, 3, 10, 5]
+console.log( sum(ex, 33) )
