@@ -33,3 +33,9 @@ function sum(arr, sum){
 
 var ex = [1, 4, 20, 3, 10, 5]
 console.log( sum(ex, 33) )
+
+var ex2 = [1, 4, 0, 0, 3, 10, 5]
+console.log( sum(ex2, 7) )
+
+var ex3 = [1, 4]
+console.log( sum(ex3, 0) )
