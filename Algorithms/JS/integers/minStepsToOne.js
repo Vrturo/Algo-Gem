@@ -15,7 +15,6 @@
 
 // solved using pure recurion w/ side effects
 // set base case if n = 1, return amount of steps we took
-
 // if n is divisible by 3 divide and increase steps by 1
 // if n is divisible by 2 divide and increase steps by 1
 // if n isnt divisible by 2 or 3 subtract by 1
