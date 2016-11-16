@@ -19,3 +19,9 @@
 // Given s = "apple", abbr = "a2e":
 
 // Return false.
+
+/**
+ * @param {string} word
+ * @param {string} abbr
+ * @return {boolean}
+ */
