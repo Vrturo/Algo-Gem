@@ -25,3 +25,28 @@
  * @param {string} abbr
  * @return {boolean}
  */
+
+
+var validWordAbbreviation = function(word, abbr) {
+    if(word.length < 1) return false;
+    var stack = '';
+    for( var i=0, j=0, k; i< word.length || j<abbr.length;){// j = abbr | i = word
+        console.log(i, word[i], abbr[j])
+        if( Number(abbr[j]) ){
+            k = i+1;
+            stack = abbr[j];
+            while( Number(abbr[k]) ){
+                stack += abbr[k];
+                k++;
+                j++;
+            }
+            i+=Number(stack);
+            j++;
+            continue;
+        }
+        if( word[i] !== abbr[j] ) return false;
+        i++;
+        j++;
+    }
+    return true;
+};
