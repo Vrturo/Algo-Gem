@@ -33,6 +33,11 @@ class Graph{
       return 'val exists';
     }
   }
+
+  removeVertex(val){
+    delete this.vertices[val];
+    this.vertices--;
+  }
 }
 
 
