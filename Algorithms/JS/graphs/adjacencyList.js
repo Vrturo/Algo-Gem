@@ -38,6 +38,15 @@ class Graph{
     delete this.vertices[val];
     this.vertices--;
   }
+
+  addEdge(valOne, valTwo){
+    this.vertices[valOne].push(valTwo);
+    this.vertices[valTwo].push(valOne);
+
+    this.totalEdges++;
+   }
+
+
 }
 
 
