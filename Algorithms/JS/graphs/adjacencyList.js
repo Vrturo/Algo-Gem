@@ -105,7 +105,37 @@ function breadthFirstTraverse(g){
   return result;
 }
 
-console.log( breadthFirstTraverse(graph) );
+// console.log( breadthFirstTraverse(graph) );
+
+function depthFirstTraversal(g){
+  var result = [],
+      firstV = Object.keys(g.vertices)[0],
+      visited = {},
+      stack = [];
+
+  result.push(firstV);
+  stack.push(firstV);
+  visited[firstV] = true;
+
+  while( stack.length ){
+    var curr = stack.pop(),
+        neighbors = g.getNeighbors(curr);
+
+    for( var i=0; i<neighbors.length; i++ ){
+      if( !visited[neighbors[i]] ){
+        visited[neighbors[i]] = true;
+        stack.push(neighbors[i]);
+        result.push(neighbors[i]);
+      }
+    }
+  }
+
+  return result;
+}
+
+console.log(depthFirstTraversal(graph))
+
+
 
 
 
