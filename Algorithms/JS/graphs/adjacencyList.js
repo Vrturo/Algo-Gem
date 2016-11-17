@@ -46,6 +46,13 @@ class Graph{
     this.totalEdges++;
    }
 
+   removeEdge(valOne, valTwo){
+
+    valOne.splice( valOne.indexOf(valTwo), 1 );
+    valTwo.splice( valTwo.indexOf(valOne), 1 );
+
+    this.totalEdges--;
+  }
 
 }
 
