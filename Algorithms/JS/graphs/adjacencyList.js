@@ -10,3 +10,17 @@
 // neighbors(vertex) -> return the array of neighbors for a vertex
 
 
+class Vertex{
+  constructor( val ){
+    this.value = val;
+    this.edges = {};
+  }
+}
+
+class Graph{
+  constructor(){
+    this.vertices = {};
+    this.totalVertices = 0;
+    this.totalEdges = 0;
+  }
+}
