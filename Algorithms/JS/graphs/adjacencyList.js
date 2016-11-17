@@ -23,4 +23,16 @@ class Graph{
     this.totalVertices = 0;
     this.totalEdges = 0;
   }
+
+  addVertex(val){
+    if ( !this.vertices[val] ){
+      this.vertices[val] = []; // storage
+      this.totalVertices++;
+    }
+    else {
+      return 'val exists';
+    }
+  }
 }
+
+
