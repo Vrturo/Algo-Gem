@@ -30,23 +30,33 @@
 var validWordAbbreviation = function(word, abbr) {
     if(word.length < 1) return false;
     var stack = '';
-    for( var i=0, j=0, k; i< word.length || j<abbr.length;){// j = abbr | i = word
-        console.log(i, word[i], abbr[j])
+    for( var i=0, j=0, k; i< word.length || j < abbr.length; ){// j = abbr | i = word
         if( Number(abbr[j]) ){
-            k = i+1;
+            k = j+1;
             stack = abbr[j];
-            while( Number(abbr[k]) ){
-                stack += abbr[k];
+            while( Number(abbr[k]) || abbr[k] < 1 ){ // check for double digits
+                stack += abbr[k]; // add extra digits to stack
                 k++;
                 j++;
             }
             i+=Number(stack);
             j++;
+            if( i > word.length ) return false; // false if number is is bigger than word length
             continue;
         }
+
         if( word[i] !== abbr[j] ) return false;
         i++;
         j++;
     }
     return true;
 };
+
+var ex1 = ["internationalization", "i12iz4n"]
+console.log(validWordAbbreviation(ex1[0], ex1[1]))
+
+var ex2 = ["apple", "appl1"]
+console.log(validWordAbbreviation(ex2[0], ex2[1]))
+
+var ex3 = ["apple", "a2e"]
+console.log(validWordAbbreviation(ex3[0], ex3[1]))
