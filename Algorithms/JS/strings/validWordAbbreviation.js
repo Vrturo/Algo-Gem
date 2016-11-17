@@ -31,8 +31,8 @@ var validWordAbbreviation = function(word, abbr) {
     if(word.length < 1) return false;
     var stack = '';
     for( var i=0, j=0, k; i< word.length || j < abbr.length; ){// j = abbr | i = word
-        if( Number(abbr[j]) ){
-            k = j+1;
+        if( Number(abbr[j]) ){ // when abbr pointer is on an Integer
+            k = j+1; // k pointer checks for double, triple, etc. digits
             stack = abbr[j];
             while( Number(abbr[k]) || abbr[k] < 1 ){ // check for double digits
                 stack += abbr[k]; // add extra digits to stack
@@ -45,7 +45,7 @@ var validWordAbbreviation = function(word, abbr) {
             continue;
         }
 
-        if( word[i] !== abbr[j] ) return false;
+        if( word[i] !== abbr[j] ) return false; // once index's are adjusted we check if elements match
         i++;
         j++;
     }
