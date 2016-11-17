@@ -43,7 +43,7 @@ class Graph{
     this.totalEdges--;
   }
 
-  neighbors(val){
+  getNeighbors(val){
     if( this.vertices[val] ){
       return this.vertices[val]
     } else {
@@ -68,11 +68,46 @@ graph.addEdge('D', 'H');
 graph.addEdge('B', 'E');
 graph.addEdge('B', 'F');
 graph.addEdge('E', 'I');
-console.log(graph)
-console.log(graph.neighbors('A'))
-console.log(graph.neighbors('B'))
-graph.removeEdge('A', 'B')
-console.log(graph.neighbors('A'))
-console.log(graph.neighbors('B'))
-graph.removeVertex('A')
-console.log(graph.neighbors('A'))
+// console.log(graph)
+// console.log(graph.getNeighbors('A'))
+// console.log(graph.getNeighbors('B'))
+// graph.removeEdge('A', 'B')
+// console.log(graph.getNeighbors('A'))
+// console.log(graph.getNeighbors('B'))
+// graph.removeVertex('A')
+// console.log(graph.getNeighbors('A'))
+
+
+function breadthFirstTraverse(g){
+  var result = [],
+      q = [],
+      firstV = Object.keys(g.vertices)[0],
+      visited = {};
+
+  q.push(firstV);
+  result.push(firstV);
+  visited[firstV] = true;
+
+  while( q.length ){
+    var curr = q.shift(),
+        neighbors = g.getNeighbors(curr);
+
+    for( var i=0; i<neighbors.length; i++ ){
+      if( !visited[neighbors[i]] ){
+        visited[neighbors[i]] = true;
+        q.push(neighbors[i]);
+        result.push(neighbors[i]);
+      }
+    }
+
+  }
+
+  return result;
+}
+
+console.log( breadthFirstTraverse(graph) );
+
+
+
+
+
