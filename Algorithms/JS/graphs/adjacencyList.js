@@ -10,13 +10,6 @@
 // neighbors(vertex) -> return the array of neighbors for a vertex
 
 
-class Vertex{
-  constructor( val ){
-    this.value = val;
-    this.edges = {};
-  }
-}
-
 class Graph{
   constructor(){
     this.vertices = {};
@@ -25,18 +18,13 @@ class Graph{
   }
 
   addVertex(val){
-    if ( !this.vertices[val] ){
-      this.vertices[val] = []; // storage
-      this.totalVertices++;
-    }
-    else {
-      return 'val exists';
-    }
+    this.vertices[val] = []; // storage
+    this.totalVertices++;
   }
 
   removeVertex(val){
     delete this.vertices[val];
-    this.vertices--;
+    this.totalVertices--;
   }
 
   addEdge(valOne, valTwo){
@@ -47,7 +35,6 @@ class Graph{
    }
 
    removeEdge(valOne, valTwo){
-
     valOne.splice( valOne.indexOf(valTwo), 1 );
     valTwo.splice( valTwo.indexOf(valOne), 1 );
 
