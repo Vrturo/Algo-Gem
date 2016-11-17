@@ -18,8 +18,10 @@ class Graph{
   }
 
   addVertex(val){
-    this.vertices[val] = []; // storage
-    this.totalVertices++;
+    if ( !this.vertices[val] ){ // no duplicates
+      this.vertices[val] = []; // storage
+      this.totalVertices++;
+    }
   }
 
   removeVertex(val){
@@ -35,20 +37,24 @@ class Graph{
    }
 
    removeEdge(valOne, valTwo){
-    valOne.splice( valOne.indexOf(valTwo), 1 );
-    valTwo.splice( valTwo.indexOf(valOne), 1 );
+    this.vertices[valOne].splice( this.vertices[valOne].indexOf(valTwo), 1 );
+    this.vertices[valTwo].splice( this.vertices[valTwo].indexOf(valOne), 1 );
 
     this.totalEdges--;
   }
 
   neighbors(val){
-    return this.vertices[val]
+    if( this.vertices[val] ){
+      return this.vertices[val]
+    } else {
+      return 'val doesnt exist';
+    }
   }
 
 }
 
 var graph = new Graph;
-var myVertices = ['A','B','C','D','E','F','G','H','I']; // 9
+var myVertices = ['A','B','C','D','E','F','G','H','I', 'A']; // 9
 for( var i=0; i<myVertices.length; i++ ){
   graph.addVertex( myVertices[i] );
 }
@@ -62,5 +68,11 @@ graph.addEdge('D', 'H');
 graph.addEdge('B', 'E');
 graph.addEdge('B', 'F');
 graph.addEdge('E', 'I');
-// console.log(graph)
+console.log(graph)
+console.log(graph.neighbors('A'))
+console.log(graph.neighbors('B'))
+graph.removeEdge('A', 'B')
+console.log(graph.neighbors('A'))
+console.log(graph.neighbors('B'))
+graph.removeVertex('A')
 console.log(graph.neighbors('A'))
