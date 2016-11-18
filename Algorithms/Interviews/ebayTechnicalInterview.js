@@ -62,8 +62,6 @@ function convert(input){
 
 }
 
-
-
 //output - Group the items into Categories
 result =
 {
