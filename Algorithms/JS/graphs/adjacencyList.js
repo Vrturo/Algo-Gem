@@ -133,10 +133,17 @@ function depthFirstTraversal(g){
   return result;
 }
 
-console.log(depthFirstTraversal(graph))
+// console.log(depthFirstTraversal(graph))
 
 function topologicalSort(g){
+  var result = [],
+      firstV = Object.keys(g.vertices)[0],
+      visited = {},
+      stack = [];
 
+  function helper(){
+
+  }
 }
 
 
