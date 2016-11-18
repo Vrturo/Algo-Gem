@@ -53,21 +53,21 @@ class Graph{
 
 }
 
-var graph = new Graph;
-var myVertices = ['A','B','C','D','E','F','G','H','I', 'A']; // 9
-for( var i=0; i<myVertices.length; i++ ){
-  graph.addVertex( myVertices[i] );
-}
-graph.addEdge('A', 'B');
-graph.addEdge('A', 'C');
-graph.addEdge('A', 'D');
-graph.addEdge('C', 'D');
-graph.addEdge('C', 'G');
-graph.addEdge('D', 'G');
-graph.addEdge('D', 'H');
-graph.addEdge('B', 'E');
-graph.addEdge('B', 'F');
-graph.addEdge('E', 'I');
+// var graph = new Graph;
+// var myVertices = ['A','B','C','D','E','F','G','H','I', 'A']; // 9
+// for( var i=0; i<myVertices.length; i++ ){
+//   graph.addVertex( myVertices[i] );
+// }
+// graph.addEdge('A', 'B');
+// graph.addEdge('A', 'C');
+// graph.addEdge('A', 'D');
+// graph.addEdge('C', 'D');
+// graph.addEdge('C', 'G');
+// graph.addEdge('D', 'G');
+// graph.addEdge('D', 'H');
+// graph.addEdge('B', 'E');
+// graph.addEdge('B', 'F');
+// graph.addEdge('E', 'I');
 // console.log(graph)
 // console.log(graph.getNeighbors('A'))
 // console.log(graph.getNeighbors('B'))
@@ -137,14 +137,44 @@ function depthFirstTraversal(g){
 
 function topologicalSort(g){
   var result = [],
-      firstV = Object.keys(g.vertices)[0],
       visited = {},
       stack = [];
 
-  function helper(){
+  function helper(v, visited, stack){
+    visited[v] = true;
+    var neighbors = g.getNeighbors(v);
 
+    for( var i=0; i<neighbors.length; i++ ){
+      if( !visited[neighbors[i]] ) helper(neighbors[i], visited, stack);
+    }
+    stack.push(v);
   }
+  for( var k in g.vertices ){
+    if( !visited[k] ) helper(k, visited, stack);
+  }
+  while( stack.length ){
+    result.push(stack.pop());
+  }
+  return result;
 }
+
+
+var graph = new Graph;
+for( var i=0; i<6; i++ ){
+  graph.addVertex( i );
+}
+
+graph.addEdge(5, 2);
+graph.addEdge(5, 0);
+graph.addEdge(4, 0);
+graph.addEdge(4, 1);
+graph.addEdge(2, 3);
+graph.addEdge(3, 1);
+// console.log(graph)
+
+console.log(topologicalSort(graph))
+
+
 
 
 
