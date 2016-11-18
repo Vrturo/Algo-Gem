@@ -74,5 +74,15 @@ result =
 }
 
 function convert(arr){
-
+  var result = {};
+  for( var i=0; i <arr.length; i++ ){
+    var categories = arr[i].category.split(/[ ,]+/);
+    for( var j = 0; j < categories.length; j++){
+          var newElement = Object.assign({}, arr[i]);
+          delete newElement.category;
+          if( !result[categories[j]] ) result[ categories[j] ] = [];
+          result[categories[j]].push(newElement);
+    }
+  }
+  return result;
 }
