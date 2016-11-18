@@ -135,7 +135,9 @@ function depthFirstTraversal(g){
 
 console.log(depthFirstTraversal(graph))
 
+function topologicalSort(g){
 
+}
 
 
 
