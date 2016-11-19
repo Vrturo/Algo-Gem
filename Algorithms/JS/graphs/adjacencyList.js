@@ -31,7 +31,7 @@ class Graph{
 
   addEdge(valOne, valTwo){
     this.vertices[valOne].push(valTwo);
-    this.vertices[valTwo].push(valOne);
+    this.vertices[valTwo].push(valOne); //
 
     this.totalEdges++;
    }
