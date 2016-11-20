@@ -36,7 +36,6 @@ class Stack{
 }
 
 let stack = new Stack();
-stack.push(10);
 let x = [{
             'name': 'info',
             'location': 'stuff'
@@ -53,6 +52,10 @@ let x = [{
             'name': 'info',
             'location': 'stuff'
         }];
-stack.push(x);
-let y = stack.pop();
+for(var i =0; i<x.length; i++){
+  stack.push(x[i]);
+}
+
+
+// let y = stack.pop();
 
