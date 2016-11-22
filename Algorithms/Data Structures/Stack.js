@@ -30,7 +30,7 @@ class Stack{
         return this.splice(1, lastElement);
     }
 
-    isEmpty?(){
+    isEmpty(){
         return this.size < 1 ? true : false;
     }
 }
@@ -56,6 +56,6 @@ for(var i =0; i<x.length; i++){
   stack.push(x[i]);
 }
 
-
+console.log(stack)
 // let y = stack.pop();
 
