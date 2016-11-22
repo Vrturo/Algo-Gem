@@ -25,13 +25,15 @@ class Stack{
 
     pop(){
         if(this.size < 1) return 'PUSH SOMETHING FIRST, please';
-        var lastElement = this.storage[this.size-1];
+        while (this.storage.next ){
+            if(!this.storage.next) this.storage = null;
+            this.storage  = this.storage.next;
+        }
         this.size-=1;
-        return this.splice(1, lastElement);
     }
 
     isEmpty(){
-        return this.size < 1 ? true : false;
+        return this.size < 1;
     }
 }
 
@@ -56,6 +58,5 @@ for(var i =0; i<x.length; i++){
   stack.push(x[i]);
 }
 
+let y = stack.pop();
 console.log(stack)
-// let y = stack.pop();
-
