@@ -163,4 +163,23 @@ function nthFibonacci(n){
             i /= 2;
         }
 
+// ---------------------------------------------
 
+// What is the worst case time complexity of the following code :
+
+/*
+ * V is sorted
+ * V.size() = N
+ * The function is initially called as searchNumOccurrence(V, k, 0, N-1)
+ */
+
+
+function searchNumOccurrence(vector<int> &V, k, start, end) {
+    if (start > end) return 0;
+    var mid = (start + end) / 2;
+    if (V[mid] < k) return searchNumOccurrence(V, k, mid + 1, end);
+    if (V[mid] > k) return searchNumOccurrence(V, k, start, mid - 1);
+    return searchNumOccurrence(V, k, start, mid - 1) + 1 + searchNumOccurrence(V, k, mid + 1, end);
+}
+
+Time Complexity: 0(n); // all elements can be the same
