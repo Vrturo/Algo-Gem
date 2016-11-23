@@ -59,4 +59,5 @@ for(var i =0; i<x.length; i++){
 }
 
 let y = stack.pop();
-console.log(stack)
+console.log(stack);
+

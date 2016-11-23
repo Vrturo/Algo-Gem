@@ -110,11 +110,6 @@ function nthFibonacci(n) {
 
 
 /************************
- *     Extra Credit     *
- ************************/
-
-/**
- * Extra Credit 1:
  *
  * Problem: Refactor findDuplicate to find all repeating elements in O(n) time complexity
  *          What is the auxiliary space complexity of your solution?
@@ -140,7 +135,6 @@ function nthFibonacci(n) {
 
 
 /**
- * Extra Credit 2:
  *  Time Complexity:
  *  Auxiliary Space Complexity:
  **/
@@ -159,3 +153,14 @@ function nthFibonacci(n){
   result = searchFib(n);
   return result;
 };
+
+// /----------------------------------------------
+
+// time complexity of the following code: O(log N)
+ var a = 0, i = N;
+        while (i > 0) {
+            a += i;
+            i /= 2;
+        }
+
+
