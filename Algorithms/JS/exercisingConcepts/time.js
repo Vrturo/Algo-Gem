@@ -182,4 +182,20 @@ function searchNumOccurrence(vector<int> &V, k, start, end) {
     return searchNumOccurrence(V, k, start, mid - 1) + 1 + searchNumOccurrence(V, k, mid + 1, end);
 }
 
-Time Complexity: 0(n); // all elements can be the same
+// Time Complexity: 0(n); // all elements can be the same
+
+// -----------------------------------------------------
+
+// What is the time complexity of the following code :
+
+        var j = 0;
+        for(var i = 0; i < n; ++i) {
+            while(j < n && arr[i] < arr[j]) {
+                j++;
+            }
+        }
+
+// Time Complexity: 0(n) - In the first look, the time complexity seems to be O(n^2) due to two loops.
+//                         However, note that the variable j is not initialized for each value of variable i.
+
+// --------------------------------------------------------------------------------------------
