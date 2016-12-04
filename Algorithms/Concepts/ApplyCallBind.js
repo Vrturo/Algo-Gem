@@ -67,7 +67,12 @@ sayHelloKelly(); // Hello Kelly King
 // We can also use it for events like onClick where we don’t know when they’ll be fired but
 // we know what context we want them to have.
 
+ //--------------------------------------------------------
 
+// Resources
+
+// This blog helped me understand this concept
+// https://codeplanet.io/javascript-apply-vs-call-vs-bind/
 
 
 
