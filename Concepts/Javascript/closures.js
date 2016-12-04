@@ -29,3 +29,19 @@ return makeFullName (); 
 showName ("Michael", "Jackson"); // Your name is Michael Jackson 
 
 // ---------------------------------------------------------------------------------
+
+
+Note: Closures are used extensively in Node.js; they are workhorses in Node.js’ asynchronous, non-blocking architecture.
+      Closures are also frequently used in jQuery and just about every piece of JavaScript code you read.
+
+
+ - Classic jQuery Example of Closures: 
+
+$(function() {
+  ​var selections = [];
+  $(".niners").click(function() { // this closure has access to the selections variable​
+    selections.push (this.prop("name")); // update the selections variable in the outer function's scope​
+  });
+});
+
+
