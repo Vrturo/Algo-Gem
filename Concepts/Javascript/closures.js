@@ -31,11 +31,11 @@ showName ("Michael", "Jackson"); // Your name is Michael Jackson 
 // ---------------------------------------------------------------------------------
 
 
-Note: Closures are used extensively in Node.js; they are workhorses in Node.js’ asynchronous, non-blocking architecture.
-      Closures are also frequently used in jQuery and just about every piece of JavaScript code you read.
+// Note: Closures are used extensively in Node.js; they are workhorses in Node.js’ asynchronous, non-blocking architecture.
+//       Closures are also frequently used in jQuery and just about every piece of JavaScript code you read.
 
 
- - Classic jQuery Example of Closures: 
+//  - Classic jQuery Example of Closures: 
 
 $(function() {
   ​var selections = [];
@@ -43,5 +43,46 @@ $(function() {
     selections.push (this.prop("name")); // update the selections variable in the outer function's scope​
   });
 });
+
+// -------------------------------------------------------------------------------------
+
+// - Closures’ Rules and Side Effects
+
+// Closures have access to the outer function’s variable even after the outer function returns:
+
+//     The inner function still has access to the outer function’s variables even after the outer function has returned.
+//     When functions in JavaScript execute, they use the same scope chain that was in effect when they were created.
+//     This means that even after the outer function has returned,
+//     the inner function still has access to the outer function’s variables.
+//     Therefore, you can call the inner function later in your program.
+
+// This example demonstrates:
+
+
+function celebrityName (firstName) {
+    var nameIntro = "This celebrity is ";
+    // this inner function has access to the outer function's variables, including the parameter​
+   function lastName (theLastName) {
+        return nameIntro + firstName + " " + theLastName;
+    }
+    return lastName;
+}
+​
+​var mjName = celebrityName ("Michael"); // At this juncture, the celebrityName outer function has returned.​
+​
+​// The closure (lastName) is called here after the outer function has returned above​
+​// Yet, the closure still has access to the outer function's variables and parameter​
+mjName ("Jackson"); // This celebrity is Michael Jackson 
+
+
+
+
+
+
+
+
+
+
+
 
 
