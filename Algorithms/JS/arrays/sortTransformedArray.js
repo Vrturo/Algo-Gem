@@ -24,3 +24,15 @@
  */
 
 
+var sortTransformedArray = function(nums, a, b, c) {
+    var result = [];
+    function helper( num ){
+        num = a*num*num + b*num + c;
+        return num;
+    }
+    for( var i =0; i<nums.length; i++ ){
+        result.push( helper(nums[i]) );
+    }
+    result.sort(function (a, b) { return a - b; });
+    return result;
+};
