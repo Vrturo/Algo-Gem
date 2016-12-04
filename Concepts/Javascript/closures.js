@@ -76,7 +76,7 @@ mjName ("Jackson"); // This celebrity is Michael Jackson 
 
 // -------------------------------------------------------------------------------------
 
-// Closures store references to the outer function’s variables;
+// - Closures store references to the outer function’s variables;
 
 //     they do not store the actual value. 
 //     Closures get more interesting when the value of the outer function’s variable changes before the closure is called.
@@ -104,8 +104,37 @@ mjID.getID(); // 999​
 mjID.setID(567); // Changes the outer function's variable​
 mjID.getID(); // 567: It returns the updated celebrityId variable 
 
+// -------------------------------------------------------------------------------------
 
+// - Closures' Common bugs
 
+//      Closures have access to the updated values of the outer function’s variables,
+//    they can also lead to bugs when the outer function’s variable changes with a for loop.
+
+//    Example below:
+
+​function celebrityIDCreator (theCelebrities) {
+    var uniqueID = 100,
+        i;
+    for (i = 0; i < theCelebrities.length; i++) {
+      theCelebrities[i]["id"] = function ()  {
+        return uniqueID + i;
+      }
+    }
+
+    return theCelebrities;
+}
+​
+​var actionCelebs = [{
+                        name:"Stallone", id:0
+                      }, {
+                        name:"Cruise", id:0
+                      }, {
+                        name:"Willis", id:0
+                    }];
+​var createIdForActionCelebs = celebrityIDCreator (actionCelebs);
+​var stalloneID = createIdForActionCelebs [0];  
+console.log( stalloneID.id() ); // 103
 
 
 
