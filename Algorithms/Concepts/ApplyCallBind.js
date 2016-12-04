@@ -53,3 +53,21 @@ var sayHelloKelly = say.bind(person2);
 
 sayHelloJon(); // Hello Jon Kuperman
 sayHelloKelly(); // Hello Kelly King
+
+ //--------------------------------------------------------
+
+// - When To Use Each
+
+// Call and apply are pretty interchangeable. Just decide whether it’s easier to send in an array or
+// a comma separated list of arguments.
+// I always remember which one is which by remembering that Call is for comma (separated list) and Apply is for Array.
+// Bind is a bit different. It returns a new function. Call and Apply execute the current function immediately.
+// Bind is great for a lot of things. We can use it to curry functions like in the above example.
+// We can take a simple hello function and turn it into a helloJon or helloKelly.
+// We can also use it for events like onClick where we don’t know when they’ll be fired but
+// we know what context we want them to have.
+
+
+
+
+
