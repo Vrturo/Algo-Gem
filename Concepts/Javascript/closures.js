@@ -17,13 +17,13 @@
 // - A Basic Example of Closures in JavaScript: 
 
 function showName (firstName, lastName) { 
-var nameIntro = "Your name is ";
-    // this inner function has access to the outer function's variables, including the parameter
-function makeFullName () { 
-return nameIntro + firstName + " " + lastName; 
-}
+  var nameIntro = "Your name is ";
+      // this inner function has access to the outer function's variables, including the parameter
+  function makeFullName () { 
+    return nameIntro + firstName + " " + lastName; 
+  }
 
-return makeFullName (); 
+  return makeFullName (); 
 } 
 
 showName ("Michael", "Jackson"); // Your name is Michael Jackson 
@@ -62,7 +62,7 @@ $(function() {
 function celebrityName (firstName) {
     var nameIntro = "This celebrity is ";
     // this inner function has access to the outer function's variables, including the parameter​
-   function lastName (theLastName) {
+    function lastName (theLastName) {
         return nameIntro + firstName + " " + theLastName;
     }
     return lastName;
