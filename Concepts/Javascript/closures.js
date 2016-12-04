@@ -176,6 +176,11 @@ function celebrityIDCreator (theCelebrities) {
  console.log(stalloneID.id); // 100​
 ​var cruiseID = createIdForActionCelebs [1]; console.log(cruiseID.id); // 101
 
+// ----------------------------------------------------------------------------------------
+
+ // - Resources
+ //   This blog provided info and examples:
+ //    http://javascriptissexy.com/understand-javascript-closures-with-ease/
 
 
 
