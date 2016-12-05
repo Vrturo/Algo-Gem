@@ -46,6 +46,10 @@
 // In many cases, you won’t need multiple “instances” of whatever your makeWhatever function returns,
 // and can make do with just a single instance, and in other cases, you’re not even explicitly returning a value.
 
+// ----------------------------------------------------------------------------------------
 
+ // - Resources
+ //   This blog provided info and examples:
+ //    http://benalman.com/news/2010/11/immediately-invoked-function-expression/
 
 
