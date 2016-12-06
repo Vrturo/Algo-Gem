@@ -1,1 +1,32 @@
-destroyButtons.html
+/* Create a button that is destroyed by clicking on it but two new buttons are created in it's place. */
+
+<div id="doubleHolder">
+  <button class="double">double1</button>
+</div>
+<div id="doubleHolder">
+  <button class="double">double2</button>
+  <button class="double">double3</button>
+</div>
+<div id="doubleHolder">
+  <button class="double">double2</button>
+  <button class="double">double4</button>
+  <button class="double">double5</button>
+</div>
+<script type="text/javascript">
+  function addEl(){
+      var buttons = document.getElementsByClassName('double');
+      for(var i=0; i<buttons.length; i++){
+          buttons[i].addEventListener('click', function(){
+              var newButton = document.createNewElement('button');
+              newButton.class = 'double';
+              var newButtonTwo = document.createNewElement('button');
+              newButtonTwo.class = 'double';
+
+              this.parentElement.append(
+                 newButton, newButtonTwo
+              )
+              this.remove
+            })();
+      }
+  }
+</script>
