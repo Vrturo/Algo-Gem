@@ -1,15 +1,22 @@
-Ebay Technical Interview. Senior Front End Engineer Role - Shopping experience team
+// Ebay Technical Interview. Senior Front End Engineer Role - Shopping experience team
 
-10 min Intro
-20 min random questions
-10 min on html challenge
-10 min on algorithm
-10 Q&A
+// 10 min Intro
+// 15 min random questions
+//     What happens when you type something into a url
+//     What does CSS stand for? How would you explain it towards a website
+//     == vs !== in Javascript?
+// 5 min on JS question
+// 10 min on html challenge
+// 10 min on merge algorithm
+// 10 Q&A
 
 
 // -------------------------------------------------------
 
+// JS question
+
 // What does this return?? Why?
+
 function f() {
   console.log("foo");
   setTimeout(g, 0);
@@ -50,56 +57,15 @@ f();
 //   <button class="double">double5</button>
 // </div>
 
-function addEl(){
-    var buttons = document.getElementsByClassName('double');
-    for(var i=0; i<buttons.length; i++){
-        buttons[i].addEventListener('click', function(){
-            var newButton = document.createNewElement('button');
-            newButton.class = 'double';
-            var newButtonTwo = document.createNewElement('button');
-            newButtonTwo.class = 'double';
 
-            this.parentElement.append(
-               newButton, newButtonTwo
-            )
-            this.remove
-          }();
-    }
-
-}
+// ------------------------------------------------------------------
 
 
+// Write an algorithm that will sort two arrays together
 
 // merge sort
 var a1= [1, 3, 5, 7, 7, 8, 8, 9, 9];
 var b1= [2, 4, 5, 6, 7, 8, 9];
-
-
-function mergeSort(arr){
-    var mid = ParseInt(arr.length/2),
-        left = arr.slice(0, mid),
-        right = arr.slice(mid, arr.length);
-
-    return merge( mergeSort(a1), mergeSort(b1) );
-}
-
-function merge(l, r){
-    var result = [];
-
-    while( l.length && r.length ){
-        if( l[0]<=r[0] ){
-            result.push( l.shift() );
-        } else {
-            result.push( r.shift() );
-        }
-    }
-
-    while(l.length) result.push( l.shift() );
-    while(r.length) result.push( r.shift() );
-    return result;
-}
-
-merge(a1, b1)
 
 
 
