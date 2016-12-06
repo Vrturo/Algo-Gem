@@ -1,10 +1,12 @@
 // Given an array of integers, every element appears twice except for one. Find that single one.
 
+// Logic: XOR will return 1 only on two different bits. So if two numbers are the same, XOR will return 0.
+// Finally only one number left.
+// A ^ A = 0 and A ^ B ^ A = B.
 
 var singleNumber = function(nums) {
     var result;
-    for(var i=0; i<nums.length; i++)
-    {
+    for(var i=0; i<nums.length; i++){
         result ^= nums[i];
     }
     return result;
