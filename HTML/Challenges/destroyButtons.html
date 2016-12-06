@@ -17,16 +17,15 @@
       var buttons = document.getElementsByClassName('double');
       for(var i=0; i<buttons.length; i++){
           buttons[i].addEventListener('click', function(){
-              var newButton = document.createNewElement('button');
+              var newButton = document.createElement('button');
               newButton.class = 'double';
-              var newButtonTwo = document.createNewElement('button');
+              var newButtonTwo = document.createElement('button');
               newButtonTwo.class = 'double';
-
-              this.parentElement.append(
-                 newButton, newButtonTwo
-              )
-              this.remove
-            })();
-      }
+              this.parentNode.appendChild(newButton)
+              this.parentNode.appendChild(newButtonTwo)
+              this.parentNode.removeChild(this)
+            });
+      };
   }
+  addEl();
 </script>
