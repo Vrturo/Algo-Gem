@@ -15,3 +15,9 @@ var counter2 = makeCounter();
 counter2(); // logs: 1
 counter2(); // logs: 2
 
+pass by value
+pass by reference
+
+smart enough?
+intiative to take on extra work
+cool person

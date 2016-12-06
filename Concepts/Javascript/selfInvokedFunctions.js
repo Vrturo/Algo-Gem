@@ -30,7 +30,7 @@
     // `i` is only accessible inside `makeCounter`.
       var i = 0;
 
-      return function() {
+      return function(){
         console.log( ++i );
       };
     }
