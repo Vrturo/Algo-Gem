@@ -38,6 +38,8 @@ Multi-Threaded Application vs. Single Threaded Application
 //       interact with the static object on at a time.
 
 
+// -------------------------------------------------------------------------------------------
 
-
-//
+ // - Resources
+ //   This blog provided info and examples:
+ //    http://benalman.com/news/2010/11/immediately-invoked-function-expression/
