@@ -10,7 +10,7 @@
 
 // - Example Use Cases
 
-//     Module pattern can  be implemented with the help of IIFE.
+//     Module pattern can be implemented with the help of IIFE.
 //     One of the most common ways in which immediate functions are used:
 //         as simple, self-contained wrappers for functionality.
 //         The variables needed for the unit of functionality are trapped in the closure,
