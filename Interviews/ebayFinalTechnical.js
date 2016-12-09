@@ -1,4 +1,4 @@
-// Ebay Technical Interview. Senior Front End Engineer Role - Shopping experience team
+// Ebay Final Technical Interview. Senior Front End Engineer Role - Shopping experience team
 
 // 10 min Intro (Project work and Technologies)
 // 40 min HTML challenge
