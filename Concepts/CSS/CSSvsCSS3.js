@@ -162,5 +162,9 @@ New CSS3 Selectors
     border-image
       The shorthand property for all the border image properties
 
+// ------------------------------------------------------------------------------------
 
+// Resources:
+
+// http://webdesign.about.com/od/css3/a/differences-css2-css3.htm
 
