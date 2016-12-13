@@ -90,7 +90,77 @@ New CSS3 Selectors
       Some of these, like border-radius or box-shadow, have been around since the introduction if CSS3.
       Others, like flexbox or even CSS Grid are newer styles that are still often considered CSS3 additions.
 
+    Multiple Background images
 
+      Using the background-image, background-position, and background-repeat styles
+      you can specify multiple background images to be layered on top of one another in the box.
+      The first image is the layer closest to the user, with the following ones painted behind.
+
+      If there is a background color, it is painted below all the image layers.
+
+    New Background Style Properties
+
+
+  There are also some new background properties in CSS3.
+
+    background-clip
+      This property defines how the background image should be clipped.
+      The default is the border box, but it can be changed to the padding box or the content box.
+
+    background-origin
+      This property determines whether the background should be places in the padding box, the border box, or the content box.
+
+    background-size
+      This property allows you to indicate the size of the background image.
+      It allows you to stretch smaller images to fit the page.
+
+
+  Changes to Existing Background Style Properties
+
+    And there are a few changes to exixting background style properties:
+
+    background-repeat
+      There are two new values for this property: space and round.
+      Space spaces the tiled image evenly within the box without being clipped.
+      Round rescales the background image so that it will tile a whole number of times in the box.
+
+    background-attachment
+      A new value "local" is added so that the background will scroll with the element's content
+      when that element has a scroll bar.
+
+    background
+      The background shorthand property adds in the size and origin properties.
+
+  CSS3 Border Properties
+
+    In CSS3 borders can be the styles we're used to (solid, double, dashed, etc.) or they can be an image.
+    Plus, CSS3 brings in the ability to create rounded corners. Border images are interesting because you create an image of all four borders and then tell the CSS how to apply that image to your borders.
+
+    New Border Style Properties
+
+    There are some new border properties in CSS3:
+
+    border-radius
+      border-top-right-radius, border-bottom-right-radius, border-bottom-left-radius, border-top-left-radius
+      These properties allow you to create rounded corners on your borders.
+
+    border-image-source
+      Specifies the image source file to be used instead of border styles already defined.
+
+    border-image-slice
+      Represents the inward offsets from the border image edges
+
+    border-image-width
+      Defines the value of the width for your border image
+
+    border-image-outset
+      Specifies the amount that the border image area extends beyond the border box
+
+    border-image-stretch
+      Defines how the sides and middle parts of the border image should be tiled or scaled
+
+    border-image
+      The shorthand property for all the border image properties
 
 
 
