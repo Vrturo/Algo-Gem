@@ -14,18 +14,16 @@
 
 var x = [];
 
-
-var count = 0;
-  for( var i = 0; i<10; i++ ){
-    function(){
-      return i
+for( var i = 0; i<10; i++ ){
+    x[i] = function y(){
+      return i;
     }
-  }
 }
 
 for(var j = 0; j<x.length; j++){
   console.log(x[j]())
 }
+
 //--------------------------------------------------------------
 
 
