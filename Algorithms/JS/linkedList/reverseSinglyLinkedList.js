@@ -5,10 +5,10 @@ function reversesll(sll){
 
   if(!sll.head || !sll.head.next) return sll; //check if empty
 
-  var nodes=[],
-    current = sll.head;
-  //storing all the nodes in an array
-  while(current){
+  var nodes = [],
+      current = sll.head;
+
+  while(current){ //storing all the nodes in an array
     nodes.push(current);
     current = current.next;
   }
@@ -31,11 +31,12 @@ function reversesll(sll){
   return reversedLL;
 }
 
+//------------------------------------------------
 
 function reverseList(head) {
     this.prev = null;
     this.curr = head;
-    while (this.curr != null) {
+    while (this.curr) {
         this.nextTemp = curr.next;
         curr.next = this.prev;
         this.prev = curr;
@@ -43,6 +44,7 @@ function reverseList(head) {
     }
     return this.prev;
 }
+
 // ----------------------------------------
 
 // 0(n) iterative
