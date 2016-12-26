@@ -21,4 +21,14 @@
  * @return {number[]}
  */
 
-
+var findDisappearedNumbers = function(nums) {
+    var result = [],
+        cache = {};
+    for( var i=0, min=Number.MAX_VALUE; i<nums.length; i++ ){
+        if(!cache[nums[i]]) cache[nums[i]] = true;
+    }
+    for( var j=1; j<=nums.length; j++ ){
+        if(!cache[j]) result.push(j);
+    }
+    return result;
+};
