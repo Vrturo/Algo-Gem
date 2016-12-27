@@ -21,10 +21,21 @@
  * @return {number[]}
  */
 
+
+ // -------------- Naive
+// create a result array to return missing numbers
+// create a cache to check if a number has came up
+// loop through nums
+  // cache each number
+// create a for loop the size of the array
+  // if number hasnt been cached somewhere in bewteen
+    // push into result
+// return result that has missing numbers
+
 var findDisappearedNumbers = function(nums) {
     var result = [],
         cache = {};
-    for( var i=0, min=Number.MAX_VALUE; i<nums.length; i++ ){
+    for( var i=0; i<nums.length; i++ ){
         if(!cache[nums[i]]) cache[nums[i]] = true;
     }
     for( var j=1; j<=nums.length; j++ ){
@@ -32,3 +43,5 @@ var findDisappearedNumbers = function(nums) {
     }
     return result;
 };
+
+
