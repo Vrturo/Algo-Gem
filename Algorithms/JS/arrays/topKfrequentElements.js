@@ -14,4 +14,18 @@
  * @return {number[]}
  */
 
+var topKFrequent = function(nums, k) {
+    var map = {},
+        result;
 
+    for(var i=0; i<nums.length; i++){
+        if( map[nums[i]] ){
+            map[nums[i]]+=1;
+        } else {
+            map[nums[i]] = 1;
+        }
+    }
+    result = Object.keys(map).sort( function(a,b){ return map[b] - map[a]});
+    result = result.map(Number);
+    return result.splice(0, k);
+};
