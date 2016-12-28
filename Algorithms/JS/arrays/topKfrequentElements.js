@@ -14,6 +14,18 @@
  * @return {number[]}
  */
 
+ // --------------------------
+
+// create a map var to keep count of each key
+// create a result to return later
+// loop through nums
+  // if key number exists in map increment
+  // else if it doesnt exist set current number as key and set value as 1
+// set result as an array sorted from big to small by value
+// map through array to turn string keys into Number
+// return the k elements
+
+
 var topKFrequent = function(nums, k) {
     var map = {},
         result;
