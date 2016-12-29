@@ -32,5 +32,5 @@ var islandPerimeter = function(grid) {
                 }
         }
     }
-    return result;
+    return islands * 4 - neighbours * 2;
 };
