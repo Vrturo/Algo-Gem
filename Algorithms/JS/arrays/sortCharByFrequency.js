@@ -42,6 +42,18 @@
  * @return {string}
  */
 
+// ----------------------------------------
+
+// create map var to keep track of char frequency
+// create result to return final string
+// loop through string to keep track of frequency of char
+  // if char exists in map, add 1 to count
+  // else set it as a key to map, and set as 1
+// sort maps keys from highest freq to smallest
+// loop through map hash
+  // add each key(letter) the amount of times its count is onto result
+// return result string
+
 var frequencySort = function(s) {
     var map = {},
         result = "";
