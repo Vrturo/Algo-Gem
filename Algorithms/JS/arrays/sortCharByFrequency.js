@@ -42,4 +42,22 @@
  * @return {string}
  */
 
+var frequencySort = function(s) {
+    var map = {},
+        result = "";
 
+    for(var i=0; i<s.length; i++){
+        if( map[s[i]] ){
+            map[s[i]]+=1;
+        } else {
+            map[s[i]] = 1;
+        }
+    }
+    var temp = Object.keys(map).sort( function(a,b){ return map[b] - map[a]});
+    for(var j = 0; j<temp.length; j++){
+        for(var k = 0; k < map[temp[j]]; k++){
+            result+=temp[j];
+        }
+    }
+    return result;
+};
