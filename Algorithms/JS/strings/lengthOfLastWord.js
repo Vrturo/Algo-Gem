@@ -15,6 +15,13 @@
  * @return {number}
  */
 
+// -----------------------------------------
+
+// create a count variable to return once we have full count
+// loop through string
+  // if current char is a space and our count is greater than zero return count
+  // if character isnt a space increment count
+// return count if it hasnt been returned (one word instances)
 
 var lengthOfLastWord = function(s) {
     for( var i = s.length-1, count=0; i >= 0; i--){
