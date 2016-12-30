@@ -23,6 +23,27 @@
  * @return {number}
  */
 
+ // ------------------------------------------------------
+
+ var longestPalindrome = function(s) {
+    var map = {},
+        count = 0;
+
+    for(var i=0; i<s.length; i++){
+        if( map[s[i]] ){
+            delete map[s[i]];
+            count++;
+        } else {
+            map[s[i]] = true;
+        }
+    }
+    return Object.keys(map).length === 0 ? count*2 : count*2+1;
+};
+
+
+
+ // ---------- DOES NOT PASS ALL EDGE CASES
+
 var longestPalindrome = function(s) {
     var map = {},
         result = 0,
