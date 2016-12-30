@@ -20,6 +20,16 @@
  * @return {boolean}
  */
 
+// -------------------------------------------------------
+
+// create a var map to store all characters and their count
+// loop through magazine
+  // if char exists in map, increment count
+  // else create char in map, and increment by 1
+// loop through ransomNote
+  // if a char is found that isnt in map OR there's a char who's count is less than 1, return false
+  // if char in map exists in ransomNote, decrement count
+// return true at end, meaning above cases passed
 
 var canConstruct = function(ransomNote, magazine) {
     var map = {};
