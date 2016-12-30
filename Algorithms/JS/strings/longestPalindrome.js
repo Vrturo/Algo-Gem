@@ -23,4 +23,23 @@
  * @return {number}
  */
 
-|
+var longestPalindrome = function(s) {
+    var map = {},
+        result = 0,
+        max = 0;
+    for(var i=0; i<s.length; i++){
+        if( map[s[i]] ){
+            map[s[i]]+=1;
+        } else {
+            map[s[i]] = 1;
+        }
+    }
+    for(var k in map){
+        if( map[k] % 2 === 0 ){
+            result += map[k];
+        } else {
+            if( max < map[k] ) max = map[k];
+        }
+    }
+    return result + max;
+};
