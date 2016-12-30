@@ -17,8 +17,8 @@
 
 // -----------------------------------------
 
-var lengthOfLastWord = function(s) {
-    return s.trim().length-s.trim().lastIndexOf(" ")-1;
+var lengthOfLastWord = function(s) { // 88 ms
+    return s.trim().length - s.trim().lastIndexOf(" ")-1;
 };
 
 
@@ -30,7 +30,7 @@ var lengthOfLastWord = function(s) {
   // if character isnt a space increment count
 // return count if it hasnt been returned (one word instances)
 
-var lengthOfLastWord = function(s) {
+var lengthOfLastWord = function(s) { // 119 ms
     for( var i = s.length-1, count=0; i >= 0; i--){
         if (s[i] === " " && count >= 1) return count;
         if (s[i] !== " ") count+=1;
