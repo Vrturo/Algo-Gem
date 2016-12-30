@@ -13,3 +13,11 @@
 // canConstruct("aa", "ab") -> false
 // canConstruct("aa", "aab") -> true
 // canConstruct("aa", "sdfaab") -> true
+
+/**
+ * @param {string} ransomNote
+ * @param {string} magazine
+ * @return {boolean}
+ */
+
+
