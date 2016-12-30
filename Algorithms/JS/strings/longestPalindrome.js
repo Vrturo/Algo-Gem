@@ -25,7 +25,15 @@
 
  // ------------------------------------------------------
 
- var longestPalindrome = function(s) {
+// create var map to keep track of char
+// create var count to keep track of final count
+// loop through string
+  // if char exists in map delete key and increment count
+  // if it doesnt exist, creeate key
+// if all frequencies were even hash will be empty so return count * 2
+// if there was an odd count jsut add 1 to the final count * 2
+
+ var longestPalindrome = function(s) { // 126 ms
     var map = {},
         count = 0;
 
