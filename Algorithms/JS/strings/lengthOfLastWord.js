@@ -17,6 +17,8 @@
 
 // -----------------------------------------
 
+// subtract all characters from the last index of an empty string
+
 var lengthOfLastWord = function(s) { // 88 ms
     return s.trim().length - s.trim().lastIndexOf(" ")-1;
 };
