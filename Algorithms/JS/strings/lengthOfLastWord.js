@@ -9,3 +9,10 @@
 // For example,
 // Given s = "Hello World",
 // return 5.
+
+/**
+ * @param {string} s
+ * @return {number}
+ */
+
+
