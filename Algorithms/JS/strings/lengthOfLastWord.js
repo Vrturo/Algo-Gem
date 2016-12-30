@@ -17,6 +17,13 @@
 
 // -----------------------------------------
 
+var lengthOfLastWord = function(s) {
+    return s.trim().length-s.trim().lastIndexOf(" ")-1;
+};
+
+
+// -----------------------------------------
+
 // create a count variable to return once we have full count
 // loop through string
   // if current char is a space and our count is greater than zero return count
