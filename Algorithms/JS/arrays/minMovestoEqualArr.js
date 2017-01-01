@@ -46,7 +46,14 @@ var minMoves = function(nums) { // 132 ms
 
 // ---------- TIME LIMIT EXCEEDS OVER 9,999,999 STEPS
 
-
+// create var index to keep track of smallest value's place in the array
+// create var steps to keep track of steps and return at the end
+// create helper function to check if all elements in the arr are the same value
+// create while loop that breaks once every element in arr are the same
+  // grab place of the smallest element in arr
+  // incrememnt element
+  // increment steps
+// return steps
 
 var minMoves = function(nums) {
     var index,
