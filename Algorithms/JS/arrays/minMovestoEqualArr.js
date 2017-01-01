@@ -21,6 +21,19 @@
  * @return {number}
  */
 
+// --------------------------------------------------
+
+var minMoves = function(nums) {
+    var steps = 0,
+        min = Math.min(...nums);
+
+    for(var i=0; i<nums.length; i++){
+        steps+= nums[i] - min;
+    }
+    return steps;
+};
+
+
 // ---------- TIME LIMIT EXCEEDS OVER 9,999,999 STEPS
 
 var minMoves = function(nums) {
