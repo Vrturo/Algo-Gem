@@ -33,7 +33,7 @@
   // subtract the current value by the minimum value and add it to the steps var
 // return steps
 
-var minMoves = function(nums) {
+var minMoves = function(nums) { // 132 ms
     var steps = 0,
         min = Math.min(...nums);
 
@@ -46,9 +46,10 @@ var minMoves = function(nums) {
 
 // ---------- TIME LIMIT EXCEEDS OVER 9,999,999 STEPS
 
+
+
 var minMoves = function(nums) {
-    var incr = nums.length -2,
-        index,
+    var index,
         steps = 0;
 
     function sameVals(arr){
