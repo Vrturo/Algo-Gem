@@ -21,4 +21,21 @@
  * @return {number}
  */
 
+// ---------- TIME LIMIT EXCEEDS OVER 9,999,999 STEPS
 
+var minMoves = function(nums) {
+    var incr = nums.length -2,
+        lowVal,
+        index,
+        steps = 0;
+
+    function sameVals(arr){
+        return arr.every(x => x === arr[0]);
+    }
+    while( !sameVals(nums) ){
+        index = nums.indexOf( Math.min.apply(null, nums) );
+        nums[index]++;
+        steps++;
+    }
+    return steps;
+};
