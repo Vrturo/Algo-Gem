@@ -27,6 +27,12 @@
 // So, best way to do this is make all the elements in the array equal to the min element.
 // sum(array) - n * minimum
 
+// create var steps to keep track of steps and return at the end
+// create var min by grabbing the min val of array
+// loop through nums
+  // subtract the current value by the minimum value and add it to the steps var
+// return steps
+
 var minMoves = function(nums) {
     var steps = 0,
         min = Math.min(...nums);
