@@ -25,7 +25,6 @@
 
 var minMoves = function(nums) {
     var incr = nums.length -2,
-        lowVal,
         index,
         steps = 0;
 
