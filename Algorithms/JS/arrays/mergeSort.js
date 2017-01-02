@@ -25,12 +25,11 @@
 
 
 function mergeSort(arr){
-    if (arr.length < 2){
-        return arr;
-     }
+    if (arr.length < 2) return arr;
+
     var mid = parseInt(arr.length / 2),
         left   = arr.slice(0, mid),
-        right  = arr.slice(mid, arr.length);
+        right  = arr.slice(mid); // slices rest of array
 
     return merge( mergeSort(left), mergeSort(right) );
 }
