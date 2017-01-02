@@ -23,3 +23,21 @@
  * @return {number}
  */
 
+var minMoves2 = function(nums) {
+    if(nums ===null|| nums.length===0) return 0;
+    var moves = Number.MAX_VALUE;
+    nums.sort(function(a, b) {
+        return a-b;
+    });
+    var totalSum = 0,
+        sum = 0;
+    for(var i =0;i<nums.length;i++){
+        totalSum += nums[i];
+    }
+    for(i =0;i<nums.length;i++){
+        var m = (i-(nums.length-i-1)-1)*nums[i]-sum+(totalSum-sum);
+        moves = Math.min(m, moves);
+        sum+=nums[i];
+    }
+    return moves;
+};
