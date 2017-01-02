@@ -101,12 +101,12 @@ function BFT(graph){
 
   q.push( firstVertex ); // push object so we have access to properties
   results.push( firstVertex.value ); // push value
-  visited[ firstVertex.value ] = true; // cache value
+  visited[firstVertex.value] = true; // cache value
 
   while( q.length ){
     var currentVertex = q[0];
 
-    for( var k in currentVertex.edges ){
+    for (var k in currentVertex.edges) {
       if( !visited[k] ){
         visited[k] = true;
         q.push(graph.vertices[k]); // push object so we have access to properties
