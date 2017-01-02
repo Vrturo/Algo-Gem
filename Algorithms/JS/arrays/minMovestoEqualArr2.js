@@ -40,7 +40,7 @@ var minMoves2 = function(nums) {
     });
     var totalSum = 0,
         sum = 0;
-    for(var i =0;i<nums.length;i++){
+    for(var i=0;i<nums.length;i++){
         totalSum += nums[i];
     }
     for(i =0;i<nums.length;i++){
