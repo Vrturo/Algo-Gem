@@ -84,12 +84,10 @@ function merge(l, r) {
 }
 
 function mergeSort(arr) {
-    if (arr.length < 2){
-        return arr;
-     }
-    var mid = parseInt(arr.length / 2);
-    var left   = arr.slice(0, mid);
-    var right  = arr.slice(mid, arr.length);
+    if (arr.length < 2) return arr;
+    var mid = parseInt(arr.length / 2),
+        left   = arr.slice(0, mid),
+        right  = arr.slice(mid, arr.length);
 
     return merge(mergeSort(left), mergeSort(right));
 }
