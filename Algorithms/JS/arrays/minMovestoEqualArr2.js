@@ -23,6 +23,15 @@
  * @return {number}
  */
 
+// ----------------------------------------------------
+
+// if we sort out the original array first, we can immediately know both the number of elements that are
+// less than the current element and the number of elements that are greater that the current element.
+// In addition we have to know total sum of elements and sum of elements before each element.
+
+// O(nlog(n)) time and O(1) space solution
+
+
 var minMoves2 = function(nums) {
     if(nums ===null|| nums.length===0) return 0;
     var moves = Number.MAX_VALUE;
