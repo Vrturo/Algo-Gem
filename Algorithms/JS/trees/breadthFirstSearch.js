@@ -11,30 +11,16 @@ function printTree( tree ){
     // enqueue root
     queue.push( 0 );
 
-    while( queue.length ){
-        // for each node in the queue
-        for( var i = 0; i < queue.length; i++ ){
+    while( queue.length ){ // for each node in the queue
 
             // dequeue
             var node = queue.shift();
 
             // print node
-            console.log( node.val )
+            console.log( node )
 
             // enqueue children of the node
             if( node.left ) queue.push( node.left );
             if( node.right ) queue.push( node.right );
-        }
     } // repeat
 }
-
-printTree(T);
-var T = [
-    { left: 1, right: 2 },
-    { left: 3, right: 4 },
-    { left: null, right: 6 },
-    { left: null, right: null },
-    { left: null, right: null },
-    { left: null, right: null },
-    { left: null, right: null }
-];
