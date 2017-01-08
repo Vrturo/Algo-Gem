@@ -15,36 +15,39 @@
 
 
 function maxset(A){
-        var result = [],
-            temp = [],
+        var allSub = [], // store all sub arrays
+            temp = [], // build up array
             negCount = 0;
+
         for( var i = 0; i < A.length; i++ ){
             if( A[i] >= 0 ){
                 temp.push(A[i]);
             } else {
-                result.push( temp );
+                allSub.push( temp );
                 temp = [];
-                negCount += 1
+                negCount += 1; //increment everytime a negative numbers is encountered
             }
         }
-        if( negCount === A.length ) return 0;
-        if( A[A.length -1] > 0 ) result.push(temp);
+        if( negCount === A.length ) return 0; // if all numbers are negative return 0
+        if( A[A.length -1] > 0 ) allSub.push(temp); // if last element was positive push build up into result arr
+
         var maxSum = 0,
             length = 0,
             sum,
             sub;
-        for( var j =0, sum = result[j[0]]; j< result.length; j++ ){
-          sum = result[j].reduce(function(a, b) { return a + b; }, 0);
-          if( sum > maxSum ){
+
+        for( var j =0, sum = allSub[j[0]]; j< allSub.length; j++ ){
+          sum = allSub[j].reduce(function(a, b) { return a + b; }, 0);
+          if( sum >maxSum ){
             maxSum = sum;
-            length = result[j].length;
-            sub = result[j];
+            length = allSub[j].length;
+            sub = allSub[j];
           }
           if( sum === maxSum){
-            if( result[j].length > length ){
+            if( allSub[j].length > length ){
               maxSum = sum;
-              length = result[j].length;
-              sub = result[j];
+              length = allSub[j].length;
+              sub = allSub[j];
             }
           }
         }
