@@ -4,12 +4,11 @@
 // design an algorithm to find the maximum profit.
 
 var maxProfit = function(prices) {
-    if(prices.length < 2){
-        return 0;
-    }
+    if( prices.length < 2 ) return 0;
     var minPrice = prices[0],
         maxProfit = prices[1] - prices[0],
         potentialProfit;
+
     for(var i = 0; i < prices.length; i++){
         potentialProfit = prices[i] - minPrice
         maxProfit = maxProfit > potentialProfit ? maxProfit : potentialProfit
