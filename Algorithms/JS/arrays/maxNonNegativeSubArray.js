@@ -13,6 +13,10 @@
 // NOTE: If there is a tie, then compare with segment's length and return segment which has maximum length
 // NOTE 2: If there is still a tie, then return the segment with minimum starting index
 
+/**
+ * @param {array []} A
+ * @return {array []}
+ */
 
 function maxset(A){
         var allSub = [], // store all sub arrays
