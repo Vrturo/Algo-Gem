@@ -32,6 +32,8 @@ var findDuplicates = function(nums) { // 0(n) runtime - 0(1) space
     }
     return result;
 };
+var arr = [4,3,2,7,8,2,3,1]
+console.log( findDuplicates(arr) );
 
 // ------------------------------------------------
 
@@ -42,7 +44,7 @@ var findDuplicates = function(nums) {
         if( !storage[nums[i]] ){ // check to see if number has passed
             storage[nums[i]] = true;
         } else {
-            result.push( nums[i] ); // push into result if nimber existed
+            result.push( nums[i] ); // push into result if number existed
             delete storage[nums[i]]; // delete key/value because it can only occur 2 times max
         }
     }
