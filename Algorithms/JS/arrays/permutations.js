@@ -23,7 +23,7 @@
 var permute = function(nums) { // 144ms runtime
     var result = [];
     //nums are distinct numbers.
-    function getPermutations (currentArray, inputArr) {
+    function getPermutations(currentArray, inputArr) {
         var inputLength = inputArr.length;
         if ( inputLength < 1 ) {
             result.push( currentArray.slice() ); //Here we must do a copy. Because an array is an object,
@@ -33,7 +33,7 @@ var permute = function(nums) { // 144ms runtime
                 var nextInput = inputArr.slice(); //Same reason, array is object, copy is needed.
                 currentArray.push( inputArr[i] );
                 nextInput.splice( i, 1 );
-                getPermutations ( currentArray, nextInput );
+                getPermutations( currentArray, nextInput );
                 currentArray.pop();
             }
         }
@@ -86,8 +86,4 @@ var permute = function( nums, startIndex=0, endIndex=nums.length-1) {
         }
   }
 }; // output is console.log
-
-
-
-
 
