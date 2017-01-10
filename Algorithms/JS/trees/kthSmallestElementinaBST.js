@@ -39,7 +39,7 @@
   // call our helper function starting with root
   // return result
 
-var kthSmallest = function(root, k) { // 159 ms runtime
+var kthSmallest = function(root, k) { // 152 ms runtime
     var counter = 0,
         result;
 
@@ -47,7 +47,10 @@ var kthSmallest = function(root, k) { // 159 ms runtime
         if(node){
             helper(node.left);
             counter++;
-            if(counter === k) result = node.val;
+            if(counter === k){
+              result = node.val;
+              return;
+            }
             helper(node.right);
         }
     }
