@@ -8,3 +8,9 @@
 // factors = [1, 2, 3, 6]
 
 // Make sure the returned array is sorted.
+
+
+/**
+ * @param {number} A
+ * @return {array []}
+ */
