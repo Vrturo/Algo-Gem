@@ -16,3 +16,9 @@
  *     this.left = this.right = null;
  * }
  */
+
+/**
+ * @param {TreeNode} root
+ * @param {number} k
+ * @return {number}
+ */
