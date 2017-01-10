@@ -24,15 +24,19 @@
  */
 
 
+// ------------------------------------------------------------------------
+var kthSmallest = function(root, k, counter=0) {
+    if(root ){
 
- if(root){
-        var smaller = kthSmallest(root.left, k, counter);
-        if(smaller !== undefined) return smaller;
+        var next = kthSmallest(root.left, k, counter);
+        if(next !== undefined) return next;
         counter++;
         if(counter === k) return root.val;
-        smaller = kthSmallest(root.right, k, counter );
-        return smaller
+        next = kthSmallest(root.right, k, counter );
+        return next;
     }
+};
+
 
 // function helper(node, counter){
     //     if(node){

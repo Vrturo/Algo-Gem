@@ -19,3 +19,4 @@ function inorder( node ){
       inorder( node.right );
    }
 }
+// concat bst in array
