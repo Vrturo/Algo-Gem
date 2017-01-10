@@ -24,3 +24,22 @@
  */
 
 
+
+ if(root){
+        var smaller = kthSmallest(root.left, k, counter);
+        if(smaller !== undefined) return smaller;
+        counter++;
+        if(counter === k) return root.val;
+        smaller = kthSmallest(root.right, k, counter );
+        return smaller
+    }
+
+// function helper(node, counter){
+    //     if(node){
+    //         helper(node.left, counter);
+    //         counter++;
+    //         if(counter === k) return node.val;
+    //         helper(node.right, counter );
+    //     }
+    // }
+    // return helper(root, 0);
