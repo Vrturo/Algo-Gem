@@ -24,7 +24,22 @@
  */
 // -------------------------------------------------------------------
 
-var kthSmallest = function(root, k) {
+
+// create counter variable to keep track of what kth element we're on
+// create result varable to return at end of solution
+
+// create helper function to traverse through BST
+  // if node exists
+    // traverse through left child to find smallest child first
+    // once node doesnt have left child, increment counter
+    // if counter is equal to k
+      // set value to result to return at the end of the function
+    // traverse through right child to find the next element in order
+
+  // call our helper function starting with root
+  // return result
+
+var kthSmallest = function(root, k) { // 159 ms runtime
     var counter = 0,
         result;
 
@@ -41,19 +56,19 @@ var kthSmallest = function(root, k) {
     return result;
 };
 
-// -------------------------------- does not pass all test cases ----------------
+// --------------------- DOES NOT PASS ALL TEST CASES ----------------
 
 
-var kthSmallest = function(root, k, counter=0) {
-    if(root){
-        var next = kthSmallest(root.left, k, counter);
-        if(next !== undefined) return next;
-        counter++;
-        if(counter === k) return root.val;
-        next = kthSmallest(root.right, k, counter );
-        return next;
-    }
-};
+// var kthSmallest = function(root, k, counter=0) {
+//     if(root){
+//         var next = kthSmallest(root.left, k, counter);
+//         if(next !== undefined) return next;
+//         counter++;
+//         if(counter === k) return root.val;
+//         next = kthSmallest(root.right, k, counter );
+//         return next;
+//     }
+// };
 
 
 // function helper(node, counter){
