@@ -1,38 +1,24 @@
-function maxset(A){
-        var result = [],
-            temp = [],
-            negCount = 0;
-        for( var i = 0; i < A.length; i++ ){
-            if( A[i] >= 0 ){
-                temp.push(A[i]);
-            } else {
-                result.push( temp );
-                temp = [];
-                negCount += 1
-            }
+module.exports = {
+  //param A : integer
+  //return a array of integers
+  allFactors : function(A){
+        var result = [];
+        for(var i = 1; i<=A; i++){
+            if(A % i === 0) result.push(i);
         }
-        if( negCount === A.length ) return 0;
-        if( A[A.length -1] > 0 ) result.push(temp);
-        var maxSum = 0,
-            length = 0,
-            sum,
-            sub;
-        for( var j =0, sum = result[j[0]]; j< result.length; j++ ){
-          sum = result[j].reduce(function(a, b) { return a + b; }, 0);
-          if( sum > maxSum ){
-            maxSum = sum;
-            length = result[j].length;
-            sub = result[j];
-          }
-          if( sum === maxSum){
-            if( result[j].length > length ){
-              maxSum = sum;
-              length = result[j].length;
-              sub = result[j];
-            }
-          }
-        }
-        return sub;
+        return result
   }
+};
 
-console.log( maxset([ 0, 0, -1, 0 ]) )
+module.exports = {
+  //param A : integer
+  //return a array of integers
+  allFactors : function(A){
+        var result = [1];
+        for(var i = 2; i<A; i++){
+            if(A % i === 0) result.push(i);
+        }
+        if(A > 1) result.push(A);
+        return result;
+  }
+};
