@@ -14,3 +14,11 @@
  * @param {number} A
  * @return {array []}
  */
+
+function allFactors(A){
+    var result = [];
+    for(var i = 1; i<=A; i++){
+        if(A % i === 0) result.push(i);
+    }
+    return result
+}
