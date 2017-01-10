@@ -36,14 +36,16 @@ var kthSmallest = function(root, k) {
             helper(node.right);
         }
     }
+
     helper(root);
     return result;
 };
 
-// ------------------------------------------------------------------------
-var kthSmallest = function(root, k, counter=0) {
-    if(root ){
+// -------------------------------- does not pass all test cases ----------------
 
+
+var kthSmallest = function(root, k, counter=0) {
+    if(root){
         var next = kthSmallest(root.left, k, counter);
         if(next !== undefined) return next;
         counter++;
