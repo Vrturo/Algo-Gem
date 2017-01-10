@@ -22,7 +22,23 @@
  * @param {number} k
  * @return {number}
  */
+// -------------------------------------------------------------------
 
+var kthSmallest = function(root, k) {
+    var counter = 0,
+        result;
+
+    function helper(node){
+        if(node){
+            helper(node.left);
+            counter++;
+            if(counter === k) result = node.val;
+            helper(node.right);
+        }
+    }
+    helper(root);
+    return result;
+};
 
 // ------------------------------------------------------------------------
 var kthSmallest = function(root, k, counter=0) {
