@@ -34,6 +34,7 @@
     // once node doesnt have left child, increment counter
     // if counter is equal to k
       // set value to result to return at the end of the function
+      // return out of current stack
     // traverse through right child to find the next element in order
 
   // call our helper function starting with root
