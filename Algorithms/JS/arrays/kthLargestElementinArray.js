@@ -14,3 +14,59 @@
  * @param {number} k
  * @return {number}
  */
+
+
+var findKthLargest = function(nums, k) {
+    var pivot = nums[nums.length-1],
+        greater = [],
+        lesser = [],
+        buildUp = [];
+
+    for(var i=0; i<nums.length; i++){
+        if( pivot<nums[i] ){
+            greater.push( nums[i] );
+        } else {
+            lesser.push( nums[i] );
+        }
+    }
+
+    var potential = nums.length - greater.length;
+    if(k === potential) return pivot;
+
+    if( potential > k ){
+        greater.push(pivot);
+        buildUp.concat(lesser);
+        helper(buildUp);
+    } else {
+        lesser.push(pivot);
+        buildUp.concat(greater);
+        helper(buildUp);
+    }
+
+    function helper(arr){
+        var pivot = arr[arr.length-1],
+            lesser=[],
+            greater=[];
+        for(var i=0; i<arr.length; i++){
+            if( pivot<arr[i] ){
+                greater.push( arr[i] );
+            } else {
+                lesser.push( arr[i] );
+            }
+        }
+        var potential = nums.length - arr.length;
+        if(k === potential) return pivot;
+
+        if( potential > k ){
+            greater.push(pivot);
+            buildUp.concat(lesser);
+            helper(buildUp);
+        } else {
+            lesser.push(pivot);
+            buildUp.concat(greater);
+            helper(buildUp);
+        }
+
+    }
+
+};
