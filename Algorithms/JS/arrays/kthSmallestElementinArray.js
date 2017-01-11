@@ -9,3 +9,8 @@
 // Note:
 // You may assume k is always valid, 1 ≤ k ≤ array's length.
 
+/**
+ * @param {arr[]} nums
+ * @param {number} k
+ * @return {number}
+ */
