@@ -174,7 +174,8 @@ function celebrityIDCreator (theCelebrities) {
 ​var createIdForActionCelebs = celebrityIDCreator (actionCelebs);
 ​var stalloneID = createIdForActionCelebs [0];
  console.log(stalloneID.id); // 100​
-​var cruiseID = createIdForActionCelebs [1]; console.log(cruiseID.id); // 101
+​var cruiseID = createIdForActionCelebs [1]; 
+console.log(cruiseID.id); // 101
 
 // ----------------------------------------------------------------------------------------
 
