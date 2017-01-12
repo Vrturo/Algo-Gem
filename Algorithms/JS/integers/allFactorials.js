@@ -18,17 +18,24 @@
 
 // ---------------------------------------------------
 
+// create a result variable with with 1 in it, every number has a factorial of 1 so start with it
+// create a loop as long as A but starting from 2
+// 1 is already in the result array so start the check from 2
+  // if A modulus the current index is equal to zero the number is a factorial so we push it into the result array
+// return the result array at the end
+
+
 function allFactors(A){
     var result = [1];
-    for(var i = 2; i<A; i++){
+
+    for(var i = 2; i<=A; i++){
         if(A % i === 0) result.push(i);
     }
-    if(A > 1) result.push(A);
     return result;
 }
 
 
-
+console.log(allFactors(2))
 // ---------------------------------------------------------
 
 
