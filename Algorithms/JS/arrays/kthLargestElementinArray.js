@@ -17,56 +17,38 @@
 
 
 var findKthLargest = function(nums, k) {
-    var pivot = nums[nums.length-1],
-        greater = [],
-        lesser = [],
-        buildUp = [];
-
-    for(var i=0; i<nums.length; i++){
-        if( pivot<nums[i] ){
-            greater.push( nums[i] );
-        } else {
-            lesser.push( nums[i] );
-        }
-    }
-
-    var potential = nums.length - greater.length;
-    if(k === potential) return pivot;
-
-    if( potential > k ){
-        greater.push(pivot);
-        buildUp.concat(lesser);
-        helper(buildUp);
-    } else {
-        lesser.push(pivot);
-        buildUp.concat(greater);
-        helper(buildUp);
-    }
-
-    function helper(arr){
-        var pivot = arr[arr.length-1],
-            lesser=[],
-            greater=[];
-        for(var i=0; i<arr.length; i++){
-            if( pivot<arr[i] ){
-                greater.push( arr[i] );
+     k = nums.length - k,
+         lo = 0,
+         hi = nums.length - 1;
+        while (lo < hi) {
+            var j = partition(nums, lo, hi);
+            if(j < k) {
+                lo = j + 1;
+            } else if (j > k) {
+                hi = j - 1;
             } else {
-                lesser.push( arr[i] );
+                break;
             }
         }
-        var potential = nums.length - arr.length;
-        if(k === potential) return pivot;
+        return nums[k];
 
-        if( potential > k ){
-            greater.push(pivot);
-            buildUp.concat(lesser);
-            helper(buildUp);
-        } else {
-            lesser.push(pivot);
-            buildUp.concat(greater);
-            helper(buildUp);
+    function partition(a, lo, hi) {
+        var i = lo,
+            j = hi + 1;
+        while(true) {
+            while(i < hi && a[++i] < a[lo]);
+            while(j > lo && a[lo] < a[--j]);
+            if(i >= j) break;
+            swap(a, i, j);
         }
+        swap(a, lo, j);
+        return j;
+    }
 
+    function swap(a, i, j) {
+        var tmp = a[i];
+        a[i] = a[j];
+        a[j] = tmp;
     }
 
 };

@@ -67,3 +67,35 @@ var findKthSmallest = function(nums, k, l=0, r=nums[0]) {
     }
 
 };
+
+
+// --------------------------------------------------------------------
+
+
+var findKthLargest = function(nums, k) {
+    var from = 0,
+        to = nums.length - 1;
+
+    while( from < to ){ // if from == to we reached the kth element
+        var r = from,
+            w = to,
+            mid = nums[( Math.floor(r + w) ) / 2];
+
+        while (r < w) { // stop if the reader and writer meets
+            if (nums[r] >= mid) { // put the large values at the end
+                var tmp = nums[w];
+                nums[w] = nums[r];
+                nums[r] = tmp;
+                w--;
+            } else { // the value is smaller than the pivot, skip
+                r++;
+            }
+        }
+
+        if (nums[r] > mid) r--; // if we stepped up (r++) we need to step one down
+
+         // the r pointer is on the end of the first k elements
+        k <= r ? to = r : from = r + 1;
+    }
+    return nums[k]
+};
