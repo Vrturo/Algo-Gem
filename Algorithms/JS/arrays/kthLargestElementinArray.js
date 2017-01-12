@@ -17,9 +17,10 @@
 
 
 var findKthLargest = function(nums, k) {
-     k = nums.length - k,
-         lo = 0,
-         hi = nums.length - 1;
+        k = nums.length - k;
+        var lo = 0,
+            hi = nums.length - 1;
+
         while (lo < hi) {
             var j = partition(nums, lo, hi);
             if(j < k) {
