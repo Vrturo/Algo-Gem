@@ -38,6 +38,11 @@ function allFactors(A){
 console.log(allFactors(2))
 // ---------------------------------------------------------
 
+// create a result variable to store all facorials in it
+// create a loop as long as A, starting from 1
+  // if A modulus the current index is equal to zero the number is a factorial, so we push it into the result array
+// return the result array at the end
+
 
 function allFactors(A){
     var result = [];

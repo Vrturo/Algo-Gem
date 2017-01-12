@@ -18,22 +18,22 @@
 
 var findKthSmallest = function(nums, k, l=0, r=nums[0]) {
     if (k > 0 && k <= r - l + 1){
-            // Partition the array around a random element and
-            // get position of pivot element in sorted array
-            var pos = randomPartition(nums, l, r);
+          // Partition the array around a random element and
+          // get position of pivot element in sorted array
+          var pos = randomPartition(nums, l, r);
 
-            // If position is same as k
-            if (pos-l == k-1) return nums[pos];
+          // If position is same as k
+          if (pos-l == k-1) return nums[pos];
 
-            // If position is more, recur for left subarray
-            if (pos-l > k-1) return findkthLargest(nums, k, l, pos-1);
+          // If position is more, recur for left subarray
+          if (pos-l > k-1) return findkthLargest(nums, k, l, pos-1);
 
-            // Else recur for right subarray
-            return findkthLargestt(nums, k-pos+l-1, pos+1, r);
-        }
+          // Else recur for right subarray
+          return findkthLargestt(nums, k-pos+l-1, pos+1, r);
+    }
 
 
-    // Utility method to swap arr[i] and arr[j]
+    // helper method to swap arr[i] and arr[j]
     function swap(arr, i, j){
         var temp = arr[i];
         arr[i] = arr[j];
