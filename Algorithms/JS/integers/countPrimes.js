@@ -91,13 +91,13 @@ var countPrimes = function(n) {
 
 var countPrimes = function(value) { // 222 ms runtime
     var primes = [];
-    for(var i = 2; i < value; i++) {
+    for(var i = 2; i < value; i++) { // => [true, true, .... true]
         primes[i] = true;
     }
     var limit = Math.sqrt(value);
     for(i = 2; i < limit; i++) {
-        if(primes[i] === true) {
-            for(var j = i * i; j < value; j += i) {
+        if(primes[i] === true) { // no need to check multiples of numbers that are not primes
+            for(var j = i * i; j < value; j += i) { // check off multiples because we know they wont be primes
                 primes[j] = false;
             }
         }
