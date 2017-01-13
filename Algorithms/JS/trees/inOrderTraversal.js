@@ -23,9 +23,11 @@ function inorder( node ){
 // concat bst in array
 
 function inorder(node, result=[]){
-  if(!root) return [];
+    if(!root) return [];
     inorder(root.left, k, result)
     result.push(root.val);
     inorder(root.right, k, result)
     return result;
 }
+
+
