@@ -5,25 +5,23 @@
 
 
 function isPrimeNumber(n){
-  divisor = 2;
-  counter = 0;
-  while (n > divisor){
-      console.log(counter);
-      console.log(divisor);
-      if (n % divisor === 0){
+    var divisor = 2,
+        counter = 0;
+    while (n > divisor) {
+      if (n % divisor === 0) {
         return false
-      }
-      else {     // the divisor is increased 1 at a time. after 3 i can increase by 2.
-                 // if a number is divisible by any even number, it will be divisible by 2.
-          if (divisor > 2){
-            divisor++
-          }
+      } else {     // the divisor is increased 1 at a time. after 3 i can increase by 2.
+                   // if a number is divisible by any even number, it will be divisible by 2.
+        if (divisor > 2) divisor++
       }
       counter++
-  }
-      return true;
+    }
+    return true;
 };
 console.log(isPrimeNumber(25))
+
+// --------------------------------------------------------------------------
+
 
 
 // function isPrimeNumber(n){
