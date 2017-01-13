@@ -65,15 +65,15 @@ var countPrimes = function(n) {
     var i = 2;
     while(i <= floorSqrtN ){
         if( isPrime[i] !== false) {
-            for( var j = i * i; j <= n; j += i )
+            for( var j = i * i; j <= n; j += i ){
                 isPrime[j] = false;
+            }
         }
         i++;
     }
     var count = 0;
     for( i = 0; i < n; i++ ){
-        if( isPrime[i] !== false )
-            count++;
+        if( isPrime[i] !== false ) count++;
     }
     return count;
 };
