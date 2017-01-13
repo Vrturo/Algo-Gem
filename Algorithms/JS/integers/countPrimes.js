@@ -80,7 +80,7 @@ var countPrimes = function(n) {
 
 // -----------------------------------------------
 
-var countPrimes = function(value) {
+var countPrimes = function(value) { // 222 ms runtimeg
     var primes = [];
     for(var i = 2; i < value; i++) {
         primes[i] = true;
