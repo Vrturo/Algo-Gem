@@ -11,6 +11,7 @@
 // Inorder traversal:
 // 3 16 22 23 37 45 99
 
+// TIP: if BST, order will always be smallest to biggest
 
 function inorder( node ){
    if( node ){
@@ -21,6 +22,7 @@ function inorder( node ){
 }
 
 // concat bst in array
+
 
 function inorder(node, result=[]){
     if(!root) return;
