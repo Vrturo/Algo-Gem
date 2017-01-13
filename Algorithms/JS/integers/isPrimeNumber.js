@@ -26,7 +26,7 @@ function isPrimeNumber(n){
     for(var x = 2; x < n; x++){
       if(n % x === 0) return false;
     }
-    return n > 1
+    return n > 1 // if 1 return false, if 2 return true by default
 };
 
 console.log(isPrimeNumber(2))
