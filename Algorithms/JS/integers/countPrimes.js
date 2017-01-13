@@ -71,8 +71,7 @@ var countPrimes = function(n) {
         }
         i++;
     }
-    var count = 0;
-    for( i = 0; i < n; i++ ){
+    for( i = 0, count; i < n; i++ ){
         if( isPrime[i] !== false ) count++;
     }
     return count;
@@ -80,7 +79,17 @@ var countPrimes = function(n) {
 
 // -----------------------------------------------
 
-var countPrimes = function(value) { // 222 ms runtimeg
+// create an array called primes
+// loop through primes array to store each value as true until proven false
+// create var limit to store the square root of the value given
+// loop through sqrt of the value starting from 2.
+    // if the current element is true we check its multiples
+        // loop through the current numbers multiples and mark them as false since they are not primes
+// once we've check all numbers up to our limit we loop though our primes array
+    // increment our cout variable for every number that is marked as true, as it is prime
+// return count
+
+var countPrimes = function(value) { // 222 ms runtime
     var primes = [];
     for(var i = 2; i < value; i++) {
         primes[i] = true;
