@@ -75,6 +75,26 @@ var countPrimes = function(n) {
         if( isPrime[i] !== false )
             count++;
     }
+    return count;
+};
 
+// -----------------------------------------------
+
+var countPrimes = function(value) {
+    var primes = [];
+    for(var i = 2; i < value; i++) {
+        primes[i] = true;
+    }
+    var limit = Math.sqrt(value);
+    for(i = 2; i < limit; i++) {
+        if(primes[i] === true) {
+            for(var j = i * i; j < value; j += i) {
+                primes[j] = false;
+            }
+        }
+    }
+    for(i = 2, count = 0; i < value; i++) {
+        if(primes[i] === true) count++;
+    }
     return count;
 };
