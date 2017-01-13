@@ -27,11 +27,11 @@ function isPrimeNumber(n){
       return n === 2
     } else {
       for(var x = 2; x < n; x++){
-        if(n % x === false) return false;
+        if(n % x === 0) return false;
       }
       return true;
     }
-  }
 };
 
-console.log(isPrimeNumber(25))
+console.log(isPrimeNumber(2))
+
