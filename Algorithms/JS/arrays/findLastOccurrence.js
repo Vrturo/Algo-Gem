@@ -27,7 +27,7 @@ function findLast(nums, k){
 
         if( nums[mid] === k ){
           result = mid;
-          low = mid + 1;
+          low = mid + 1; // go on searching higher indices (towards right)
         } else if( k < nums[mid]){
           high = mid-1
         } else {
