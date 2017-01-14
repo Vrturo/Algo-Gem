@@ -96,20 +96,24 @@
 //   //return an integer
   function findCount(A, B){
       function findCountTwo(a, b){
-            var l = 0,
-                r = a.length -1;
+            var low = 0,
+                high = a.length -1,
+                result;
 
-            if( r>=l ){
-                var mid = Math.floor( r/2 );
+            while( low<=high ){
+                var mid = Math.floor( low+high/2 );
 
-                if( b[l] === b ) return check(l);
-                if( a[r] === b ) return check(r);
-                if( a[mid] === b ) return check(mid);
-
+                if( a[mid] === b ){
+                  return mid;
+                } else if( x < b[mid]){
+                  high = mid-1
+                } else {
+                  low = mid+1
+                }
                 if( a[mid] > b ) return findCountTwo( a.slice( l, mid ), b);
                 return findCountTwo( a.slice(mid, r), b);
             }
-            return 0;
+            return result;
       };
       function check(index){
                 var count = 1,
