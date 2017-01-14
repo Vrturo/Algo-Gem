@@ -16,6 +16,17 @@
  * @return {number}
  */
 
+// create a function that performs a binary search until item is found and decrements index until first occurence is found
+// set lowest index, and highest index variables
+// set result to -1 in case no occurence is found
+// create a while loop that breaks once lowest index meets highest index
+  // create a mid variable by adding the index's and dividing by 2
+  // if current mid element is equal to our item we decrement down the array
+  // if the current mid element is greater than the item
+    // we reset our high index to the element before our mid element
+  // if the current mid element is less than the item
+    // we reset our low index to the element after our mid element
+// return result at the end
 
 function findFirst(nums, k){
     var low = 0,
