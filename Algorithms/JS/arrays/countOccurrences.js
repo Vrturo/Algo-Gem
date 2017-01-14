@@ -42,12 +42,12 @@
         return result; // return result to check if the element occurs
     }
 
-    var firstIndex = bSearch(test, true);
-    if(firstIndex === -1){
+    var firstIndex = bSearch(test, true); // store first index to subtract from final index later
+    if(firstIndex === -1){ // if -1 is result, no occurences found
         return 0;
     } else {
-        var lastIndex = bSearch(test, false);
-        return (lastIndex - firstIndex)+1
+        var lastIndex = bSearch(test, false); // pass false as paramater because we already have first index if there is one
+        return (lastIndex - firstIndex)+1 // return difference of last and first occurence
     }
 }
 var test = [1,2,2,2,2,3,4,5,5,5,5,6,6,7];
