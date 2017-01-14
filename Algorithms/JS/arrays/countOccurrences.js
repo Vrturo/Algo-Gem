@@ -11,28 +11,35 @@
  * @return {number}
  */
 
+
+// create a bSearch function that ultimately doesnt just find the element
+// but finds the first and last occurence indices
+
+
  function countOccur(nums, k){
 
-
     function bSearch(arr, searchFirst){
-        var low = 0,
-          high = arr.length -1,
-          result = -1,
-          mid;
+        var low = 0, // low index
+            high = arr.length -1, // highest index
+            result = -1, // final check if element occured
+            mid; // mid index
 
-        while( low<=high ){
-            mid = Math.floor( (low+high)/2 );
+        while( low<=high ){ // once low meets high index, loops stops
+            mid = Math.floor( (low+high)/2 ); // grabs mid index
 
             if( arr[mid] === k ){
               result = mid;
+              // if searchFirst is true, it means its our first search
+                    // and we go on searching lower indices (towards left) to find the first indice
+              // else we go on searching higher indices (towards right) and find the last index
               searchFirst ? high = mid - 1 : low = mid + 1;
-            } else if( k < arr[mid]){
-              high = mid-1
-            } else {
-              low = mid+1
+            } else if( k < arr[mid]){ // if mid element is greater than k
+              high = mid-1 // set our highest index to one element before the current mid index
+            } else { // if mid element is less than k
+              low = mid+1 // set our lowest index to one element after the current mid index
             }
         }
-        return result;
+        return result; // return result to check if the element occurs
     }
 
     var firstIndex = bSearch(test, true);
