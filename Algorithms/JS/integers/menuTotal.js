@@ -11,14 +11,12 @@
 // https://www.amazon.com/Cracking-Coding-Interview-Programming-Questions/dp/0984782850/ref=dp_ob_title_bk
 
 function appetize(money_left, cart=[]){
-  if( money_left < 0 ){
-    return;
-  }
+  if( money_left < 0 ) return;
   if( money_left === 0 ) {
     results.push(cart);
     return;
   }
-  var i =0;
+  var i = 0;
   while( i< items.length ){
     cart.push(items[i])
     // if( prices[i] === money_left )
