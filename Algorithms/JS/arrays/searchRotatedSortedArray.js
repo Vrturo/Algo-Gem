@@ -8,6 +8,13 @@
 
 // You may assume no duplicate exists in the array.
 
+
+// ex. input
+// [2,3,4,1], 1
+
+// output
+// 3
+
 /**
  * @param {array[]} nums
  * @param {number} target
