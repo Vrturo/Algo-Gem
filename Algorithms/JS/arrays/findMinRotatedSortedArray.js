@@ -21,3 +21,15 @@
  * @param {array[]} nums
  * @return {number}
  */
+
+var findMin = function(nums) {
+    var lo=0,
+        len = nums.length,
+        hi=len-1,
+        mid;
+    while(lo<hi){
+        mid = Math.floor( (lo+hi)/2 );
+        nums[mid] > nums[hi] ? lo=mid+1 : hi=mid;
+    }
+    return nums[lo];
+};
