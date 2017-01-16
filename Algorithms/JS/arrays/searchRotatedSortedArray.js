@@ -48,7 +48,8 @@ console.log( search(test, 1))
 
 var search = function(nums, target) {
     var lo=0,
-        hi=nums.length-1,
+        len = nums.length,
+        hi=len-1,
         mid;
     while(lo<hi){
         mid = Math.floor( (lo+hi)/2 );
@@ -57,10 +58,10 @@ var search = function(nums, target) {
     var rot=lo,
         result;
     lo=0;
-    hi=nums.length-1;
+    hi=len-1;
     while( lo<=hi ){
         mid=Math.floor( (lo+hi)/2 );
-        result= (mid+rot) % nums.length;
+        result= (mid+rot) % len;
         if(nums[result] === target) return result;
         nums[result]<target ? lo=mid+1 : hi=mid-1;
     }

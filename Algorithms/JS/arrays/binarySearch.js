@@ -1,4 +1,8 @@
-// implement a recursive way tp check if an item is in the array
+// implement a way to check if an item is in the array
+
+// time complexity must be log n
+
+
 
 function binarySearch( item, arr ){
     var l = 0,
