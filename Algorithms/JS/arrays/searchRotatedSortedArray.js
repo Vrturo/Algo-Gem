@@ -22,6 +22,31 @@
  */
 
 var search = function(nums, target) {
+    var low = 0,
+        high = nums.length-1,
+        mid;
+
+    while( low<= high ){
+        if( nums[low] <= nums[high] ) return low; // means it is sorted
+        mid = Math.floor( (high+low)/2 );
+        var next = (mid+1) % target,
+            prev = (mid+target-1) % target;
+        if( nums[mid] <= nums[next] && nums[mid] <= nums[prev] ) {
+          return mid
+        } else if( nums[mid] <= nums[low] ){
+          high = mid-1;
+        } else if( nums[mid] >= nums[low] ){
+          low = mid+1;
+        }
+    }
+    return -1;
+}
+var test = [2,3,4,1]
+console.log( search(test, 1))
+// ---------------------------------------------------------------
+
+
+var search = function(nums, target) {
     var result = -1,
         pivot;
     for( var i = 0; i<=nums.length; i++ ){
