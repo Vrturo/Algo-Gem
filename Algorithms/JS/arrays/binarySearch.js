@@ -8,10 +8,10 @@ function binarySearch(k, nums){
     var lo=0,
         hi=nums.length-1,
         mid;
-    while(lo<=hi){
+    while(lo<=hi){ // once low meets high index, loops stops.
         mid = Math.floor( (lo+hi)/2 );
         if( k === nums[mid] || k === nums[lo] || k === nums[hi] ) return true;
-        nums[mid] > nums[hi] ? lo=mid+1 : hi=mid;
+        nums[mid] > nums[hi] ? lo=mid+1 : hi=mid; // chooses which half of arr to walk based on size
     }
     return false;
 }
