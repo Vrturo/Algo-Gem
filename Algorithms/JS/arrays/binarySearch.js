@@ -2,7 +2,23 @@
 
 // time complexity must be log n
 
+// ------------- Iteratively using a while loop
 
+function binarySearch(k, nums){
+    var lo=0,
+        hi=nums.length-1,
+        mid;
+    while(lo<=hi){
+        mid = Math.floor( (lo+hi)/2 );
+        if( k === nums[mid] || k === nums[lo] || k === nums[hi] ) return true;
+        nums[mid] > nums[hi] ? lo=mid+1 : hi=mid;
+    }
+    return false;
+}
+
+console.log(binarySearch(8, [1, 2, 3, 5, 7, 8]));
+
+// -------------------------------------------------------------------------
 
 function binarySearch( item, arr ){
     var l = 0,
