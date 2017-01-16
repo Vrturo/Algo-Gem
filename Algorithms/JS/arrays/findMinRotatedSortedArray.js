@@ -16,3 +16,8 @@
 // Output:
 // 0
 // 9
+
+/**
+ * @param {array[]} nums
+ * @return {number}
+ */
