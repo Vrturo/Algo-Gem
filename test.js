@@ -76,17 +76,95 @@
 // var test = [2,3,4,1]
 // console.log( search(test, 1) )
 
-function binarySearch(k, nums){
-    var lo=0,
-        hi=nums.length-1,
-        mid;
-    while(lo<=hi){
-        mid = Math.floor( (lo+hi)/2 );
-        if( k === nums[mid] || k === nums[lo] || k === nums[hi] ) return true;
-        nums[mid] > nums[hi] ? lo=mid+1 : hi=mid;
-    }
-    return false;
-}
+// function binarySearch(k, nums){
+//     var lo=0,
+//         hi=nums.length-1,
+//         mid;
+//     while(lo<=hi){
+//         mid = Math.floor( (lo+hi)/2 );
+//         if( k === nums[mid] || k === nums[lo] || k === nums[hi] ) return true;
+//         nums[mid] > nums[hi] ? lo=mid+1 : hi=mid;
+//     }
+//     return false;
+// }
 
-console.log(binarySearch(8, [1, 2, 3, 5, 7, 8]));
+// console.log(binarySearch(8, [1, 2, 3, 5, 7, 8]));
+
+
+
+    // var map = {};
+    // function walk(moovi){
+    //     if(map[moovi.getId()]){
+    //         return;
+    //     } else {
+    //         map[moovi.getId()] = moovi.getRating();
+    //     }
+    // };
+    // for( var i=0; i<movie.similar.length; i++){
+    //     walk(similar[i])
+    // }
+
+        var ratings = [],
+        visited = {};
+    function walk(m){
+        var rating_Id = Math.floor( m.getId()*10 );
+        if(!visited[m.getId()]){
+            if(ratings[rating_Id]){
+                ratings[rating_Id].push(m.getId());
+            } else {
+                ratings[rating_Id] = [m.getId()];
+            }
+            visited[m.getId()] = true;
+            var similar = m.getSimilarMovies();
+            for( var i=0; i<similar.length; i++){
+                walk(similar[i])
+            }
+        }
+    }
+    walk(movie);
+
+    return ratings;
+
+
+
+
+function getMovieRecommendations(movie, n)
+{
+    if(movie.getSimilarMovies().length < 1) return [];
+    var ratings = [],
+        visited = {};
+    function walk(m){
+        var rating_Id = m.getId(),
+            cRating = Math.floor( m.getRating()*10 );
+        if(!visited[m.getId()]){
+            if(ratings[cRating]){
+                ratings[cRating].push(m);
+            } else {
+                ratings[cRating] = [m];
+            }
+            visited[m.getId()] = true;
+            var similar = m.getSimilarMovies();
+            for( var i=0; i<similar.length; i++){
+                if(!visited[similar[i].getId()]) walk(similar[i]);
+            }
+        }
+    }
+    walk(movie);
+    ratings = ratings.filter(function(n){ return n !== undefined });
+    var counter = 0,
+        result = [];
+    for(var i = ratings.length-1; i>=0;i--){
+        for( var j =0; j<ratings[i].length; j++ ){
+            if( counter < n ){
+                if( movie.getId() !== ratings[i][j].getId() ){
+                    result.push( ratings[i][j] );
+                    counter++;
+                }
+            } else {
+                return result;
+            }
+        }
+    }
+    return result;
+}
 
