@@ -6,3 +6,7 @@
 
 // Note: The result may be very large, so you need to return a string instead of an integer.
 
+/**
+ * @param {array[]} nums
+ * @return {string}
+ */
