@@ -1,0 +1,1 @@
+googleTechnical.js
