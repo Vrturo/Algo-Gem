@@ -24,10 +24,11 @@
 
 var findMin = function(nums) {
     var lo=0,
-        len = nums.length,
-        hi=len-1,
+        hi=nums.length-1,
         mid;
-    while(lo<hi){
+    while(lo<hi){// find the index of the smallest value using binary search.
+                 // Loop will terminate since mid < hi, and lo or hi will shrink by at least 1.
+                // Proof by contradiction that mid < hi: if mid==hi, then lo==hi and loop would have been terminated.
         mid = Math.floor( (lo+hi)/2 );
         nums[mid] > nums[hi] ? lo=mid+1 : hi=mid;
     }
