@@ -18,3 +18,8 @@
 // [a, b] < [c, d]
 
 // If a < c OR a==c AND b < d.
+
+/**
+ * @param {number} A
+ * @return {array []}
+ */
