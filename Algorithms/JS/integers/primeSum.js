@@ -23,3 +23,43 @@
  * @param {number} A
  * @return {array []}
  */
+
+//param A : integer
+//return a array of integers
+function primeSum(A){
+      var primes = [];
+      for(var i = 2; i < A; i++) {
+          primes[i] = true;
+      }
+      var limit = Math.sqrt(A);
+      for(i = 2; i < limit; i++) {
+          if(primes[i] === true) {
+              for(var j = i * i; j < A; j += i) {
+                  primes[j] = false;
+              }
+          }
+      }
+      var resultPrimes = [];
+      for(i = 2, count = 0; i < A; i++) {
+          if(primes[i] === true) resultPrimes.push(i);
+      }
+      i=0;
+      var j =0,
+          final = [];
+      while( j < resultPrimes.length ){
+          if(resultPrimes[i]+resultPrimes[j] === A){
+              final.push( [resultPrimes[i],resultPrimes[j]] )
+          }
+          if(i === j){
+              j++;
+              i=0;
+          } else {
+              i++;
+          }
+      }
+      var result = final[0];
+      for(i=1, min=final[0][0];i<final.length; i++){
+          if(final[i][0] < min) result = final[i];
+      }
+      return result;
+  }
