@@ -38,8 +38,8 @@ function prettyPrint(A){
       function genMat(k,n,m){
           var x = k,
               y = n;
-          for(var i=k; i<2*n-1;i++){
-              for(var j=k; j<2*n-1; j++){
+          for(var i=k; i<2*A-1;i++){
+              for(var j=k; j<2*A-1; j++){
                   if( i===x||j===x||i===y||j===y){
                       if(matrix[i][j] === 0) matrix[i][j] = m;
                   }
