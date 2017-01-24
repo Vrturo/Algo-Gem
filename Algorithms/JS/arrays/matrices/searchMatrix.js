@@ -13,3 +13,9 @@
 // ]
 
 // Given target = 3, return true.
+
+/**
+ * @param {array[][]} matrix
+ * @param {number} target
+ * @return {boolean}
+ */
