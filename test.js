@@ -168,9 +168,5 @@
 //     return result;
 // }
 
-
-
-{
-    'mary': 1,
-    michael
-}
+var test = [[1,3,5,7],[10,11,16,20],[23,30,34,50]]
+console.log( test.splice(1) )
