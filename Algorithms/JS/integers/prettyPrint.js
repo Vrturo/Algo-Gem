@@ -38,16 +38,16 @@ function prettyPrint(A){
       function genMat(k,n,m){
           var x = k,
               y = n;
-          for(var i=k; i<2*A-1;i++){
+          for(var i=k; i<2*A-1; i++){
               for(var j=k; j<2*A-1; j++){
-                  if( i===x||j===x||i===y||j===y){
+                  if( i===x||j===x||i===y||j===y ){
                       if(matrix[i][j] === 0) matrix[i][j] = m;
                   }
               }
           }
       }
 
-      for(var i=0;i<2*A-1;i++){ // create empty matrix
+      for(var i=0; i<2*A-1; i++){ // create empty matrix
           matrix[i] = [];
           for(var j=0;j<2*A-1;j++){
               matrix[i][j]=0;
