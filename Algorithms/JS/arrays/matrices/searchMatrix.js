@@ -21,10 +21,12 @@
  */
 
 
+
+
 var searchMatrix = function(matrix, target) {
-    var rLo=0,
+    var rLo = 0,
         rHi = matrix.length-1,
-        cLo=0,
+        cLo = 0,
         cHi,
         mid;
 
@@ -32,10 +34,11 @@ var searchMatrix = function(matrix, target) {
         mid = Math.floor(rHi/2);
         cHi  = matrix[mid].length-1;
         if( matrix[mid][cLo] === target ||  matrix[mid][cHi] === target) return true;
-        if( matrix[mid][cLo] < target && matrix[mid][cHi] > target ) return checkRow(matrix[mid], cLo, cHi);// in array
-        if( matrix[mid][cLo] > target ) return searchMatrix(  matrix.splice(rLo, mid), target );
-        return searchMatrix(  matrix.splice(mid+1), target );
+        if( matrix[mid][cLo] < target && matrix[mid][cHi] > target ) return checkRow(matrix[mid], cLo, cHi); // in current array
+        if( matrix[mid][cLo] > target ) return searchMatrix(  matrix.splice(rLo, mid), target ); //  check rows before current
+        return searchMatrix(  matrix.splice(mid+1), target ); // check rows after current
     }
+
     function checkRow(arr, l, r){
         while( l<=r ){
             if( arr[l] === target || arr[r] === target ) return true;
