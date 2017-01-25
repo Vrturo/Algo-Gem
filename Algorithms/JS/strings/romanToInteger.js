@@ -32,7 +32,7 @@ var romanToInt = function(s) { // 332 ms - 94%
 
 // ---------------------------------------------------------
 
-var romanToInt = function(s) {
+var romanToInt = function(s) {  // 186 ms
 
     var lib = {
         "I": 1, //can be in front of "V" or "X"
