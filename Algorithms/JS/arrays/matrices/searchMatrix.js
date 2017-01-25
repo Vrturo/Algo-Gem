@@ -49,7 +49,7 @@ var searchMatrix = function(matrix, target) {
     while( rHi>=rLo ){
         mid = Math.floor(rHi/2);
         cHi  = matrix[mid].length-1;
-        if( matrix[mid][cLo] === target ||  matrix[mid][cHi] === target) return true;
+        if( matrix[mid][cLo] === target ||  matrix[mid][cHi] === target ) return true;
         if( matrix[mid][cLo] < target && matrix[mid][cHi] > target ) return checkRow(matrix[mid], cLo, cHi); // in current array
         if( matrix[mid][cLo] > target ) return searchMatrix(  matrix.splice(rLo, mid), target ); //  check rows before current
         return searchMatrix(  matrix.splice(mid+1), target ); // check rows after current
