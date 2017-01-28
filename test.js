@@ -170,3 +170,47 @@
 
 var test = [[1,3,5,7],[10,11,16,20],[23,30,34,50]]
 console.log( test.splice(1) )
+
+Given an stream of strings as input, return the first unique string in the stream. Assume the stream interface only has the following public methods:
+hasNext() --> returns a boolean
+getNext() --> returns the next string
+
+Example:
+Input: 'a' --> 'bb' --> 'ccc' --> 'z' --> 'ccc' --> 'bb' --> 'a' --> 'dd'
+Return: 'z'
+
+function ouccurence(input){
+    var map = {},
+        max = 0,
+        current;
+
+    while( input.hasNext() ){
+        current = input.getNext();
+        if( map[current] ){
+            map[current]++;
+        } else {
+            map[current] = 1;
+        }
+    }
+
+    for( var k in map ){ // isnt
+       if( map[k] === 1 ) return k; // constant
+    }
+}
+
+{
+    'a' : 1
+    'bb': 1
+    'ccc': 2
+    'z': 1
+}
+
+How would you design a parking garage object that tracks the cars that are parked
+inside and has four different types of spots:
+motorcycle, EV, compact, regular
+
+current available spots overall spots, current available spots for each specific type, max count overall spots, max count for each specific type
+
+
+car object - type
+function
