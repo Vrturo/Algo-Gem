@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/Vrturo/Algo-Gem/issues"
   },
-  "homepage": "https://github.com/Vrturo/Algo-Gem#readme"
+  "homepage": "https://github.com/Vrturo/Algo-Gem#readme",
+  "devDependencies": {
+    "eslint": "^3.14.1",
+    "eslint-config-airbnb-base": "^11.0.1",
+    "eslint-plugin-import": "^2.2.0"
+  }
 }
