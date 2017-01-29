@@ -1,77 +1,81 @@
-Balanced Brackets
+// Balanced Brackets
 
-A bracket is considered to be any one of the following characters: (, ), {, }, [, or ].
+// A bracket is considered to be any one of the following characters: (, ), {, }, [, or ].
 
-Two brackets are considered to be a matched pair if the an opening bracket (i.e., (, [, or {) occurs to the
-  left of a closing bracket (i.e., ), ], or }) of the exact same type.
-There are three types of matched pairs of brackets: [], {}, and ().
+// Two brackets are considered to be a matched pair if the an opening bracket (i.e., (, [, or {) occurs to the
+//   left of a closing bracket (i.e., ), ], or }) of the exact same type.
+// There are three types of matched pairs of brackets: [], {}, and ().
 
-A matching pair of brackets is not balanced if the set of brackets it encloses are not matched.
-For example, {[(])} is not balanced because the contents in between { and } are not balanced.
-The pair of square brackets encloses a single, unbalanced opening bracket, (, and the pair of parentheses encloses a single, unbalanced closing square bracket, ].
+// A matching pair of brackets is not balanced if the set of brackets it encloses are not matched.
+// For example, {[(])} is not balanced because the contents in between { and } are not balanced.
+// The pair of square brackets encloses a single, unbalanced opening bracket, (, and the pair of parentheses encloses a single, unbalanced closing square bracket, ].
 
-By this logic, we say a sequence of brackets is considered to be balanced if the following conditions are met:
+// By this logic, we say a sequence of brackets is considered to be balanced if the following conditions are met:
 
-It contains no unmatched brackets.
-The subset of brackets enclosed within the confines of a matched pair of brackets is also a matched pair of brackets.
-Given  strings of brackets, determine whether each sequence of brackets is balanced.
-If a string is balanced, return true, otherwise, return false.
+// It contains no unmatched brackets.
+// The subset of brackets enclosed within the confines of a matched pair of brackets is also a matched pair of brackets.
+// Given  strings of brackets, determine whether each sequence of brackets is balanced.
+// If a string is balanced, return true, otherwise, return false.
 
-Input Format
+// Input Format
 
-A single string, denoting a sequence of brackets.
+// A single string, denoting a sequence of brackets.
 
-Output Format
+// Output Format
 
-For each string, print whether or not the string of brackets is balanced on a new line.
-If the brackets are balanced, return true; otherwise, return false.
+// For each string, print whether or not the string of brackets is balanced on a new line.
+// If the brackets are balanced, return true; otherwise, return false.
 
-Sample Input
+// Sample Input
 
-{[()]}
-{[(])}
-{{[[(())]]}}
-Sample Output
+// {[()]}
+// {[(])}
+// {{[[(())]]}}
+// Sample Output
 
-true
-false
-true
+// true
+// false
+// true
 
-Explanation
+// Explanation
 
-The string {[()]} meets both criteria for being a balanced string, so we print YES on a new line.
-The string {[(])} is not balanced, because the brackets enclosed by the matched pairs [(] and (]) are not balanced.
-The string {{[[(())]]}} meets both criteria for being a balanced string, so we print YES on a new line.
+// The string {[()]} meets both criteria for being a balanced string, so we print YES on a new line.
+// The string {[(])} is not balanced, because the brackets enclosed by the matched pairs [(] and (]) are not balanced.
+// The string {{[[(())]]}} meets both criteria for being a balanced string, so we print YES on a new line.
 
 
 function isBalanced(input) {
-    var arr = input.split('');
-    var stackAnalyse = function(stack, ch){
-        var top = stack[stack.length - 1 ];
-        switch(ch){
-            case '{':
-            case '(':
-            case '[':
-                stack.push(ch);
-                break;
-            case '}':
-                top === '{' ) stack.pop() : stack.push(ch);
-                break;
-            case ')':
-                top === '(' ) stack.pop() : stack.push(ch);
-                break;
-            case ']':
-                top === '[' ) stack.pop() : stack.push(ch);
-                break;
-        }
-        return stack;
-    };
-    arr.forEach(function(x){
-       var stack = [];
-       for(var i = 0 ; i < x.length ; i++){
-           stack = stackAnalyse(stack , x[i]);
-       }
-       return stack.length === 0 ? true : false;
-    });
+  const arr = input.split('');
+  const stackAnalyse = function stackAnalyse(stack, ch) {
+    const top = stack[stack.length - 1];
+    switch (ch) {
+      case '{':
+      case '(':
+      case '[':
+        stack.push(ch);
+        break;
+      case '}':
+        top === '{' ? stack.pop() : stack.push(ch);
+        break;
+      case ')':
+        top === '(' ? stack.pop() : stack.push(ch);
+        break;
+      case ']':
+        top === '[' ? stack.pop() : stack.push(ch);
+        break;
+      default:
+        break;
+    }
+    return stack;
+  };
+  arr.forEach((x) => {
+    let stack = [];
+    for (let i = 0; i < x.length; i += 1) {
+      stack = stackAnalyse(stack, x[i]);
+    }
+    return stack.length === 0;
+  });
 }
+
+isBalanced('{{[[(())]]}}');
 
