@@ -7,6 +7,9 @@ Why do you want to work at Amazon?
     You may choose whichever way you want to organize or build this application
 20 min on two algorithm questions
 15 min of OO Design Questions
+  - How would you design a parking garage object that tracks the cars that are parked
+    inside and has four different types of spots:
+    motorcycle, EV, compact, regular
 
 // Algorithms
 
@@ -41,3 +44,4 @@ Return: 'z'
 function uniqueOccurence(input){
     // write code here
 }
+
