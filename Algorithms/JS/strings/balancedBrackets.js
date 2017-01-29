@@ -44,4 +44,34 @@ The string {[(])} is not balanced, because the brackets enclosed by the matched 
 The string {{[[(())]]}} meets both criteria for being a balanced string, so we print YES on a new line.
 
 
+function isBalanced(input) {
+    var arr = input.split('');
+    var stackAnalyse = function(stack, ch){
+        var top = stack[stack.length - 1 ];
+        switch(ch){
+            case '{':
+            case '(':
+            case '[':
+                stack.push(ch);
+                break;
+            case '}':
+                top === '{' ) stack.pop() : stack.push(ch);
+                break;
+            case ')':
+                top === '(' ) stack.pop() : stack.push(ch);
+                break;
+            case ']':
+                top === '[' ) stack.pop() : stack.push(ch);
+                break;
+        }
+        return stack;
+    };
+    arr.forEach(function(x){
+       var stack = [];
+       for(var i = 0 ; i < x.length ; i++){
+           stack = stackAnalyse(stack , x[i]);
+       }
+       return stack.length === 0 ? true : false;
+    });
+}
 
