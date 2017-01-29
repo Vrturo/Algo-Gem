@@ -24,7 +24,6 @@ function highestOccurence(input){
             map[current] = 1;
         }
     }
-
     return result[1];
 }
 
@@ -53,7 +52,6 @@ function uniqueOccurence(input){
             map[current] = 1;
         }
     }
-
     for( var k in map ){
        if( map[k] === 1 ) return k;
     }
