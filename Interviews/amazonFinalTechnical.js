@@ -2,7 +2,7 @@ Amazon Final Technical Interview. Software Development Engineer, Traffic Managem
 
 10 min Intro
 Why do you want to work at Amazon?
-10 min on an algo question (no coding, jsut explaining)
+10 min on an algo question (no coding, just explaining)
   - Given an x amount of correctly spelled words, A user wants you to build a program that does a spell check on emails
     You may choose whichever way you want to organize or build this application
 20 min on two algorithm questions
@@ -20,8 +20,8 @@ hasNext() --> returns a boolean
 getNext() --> returns the next string
 
 Example:
-Input: 'a' --> 'bb' --> 'ccc' --> 'z' --> 'ccc' --> 'bb' --> 'a' --> 'dd'
-Return: 'z'
+Input: 'a' --> 'bb' --> 'ccc' --> 'z' --> 'ccc' --> 'bb' --> 'a' --> 'dd' --> 'ccc'
+Return: 'ccc'
 
 If there are multiple strings that ocurr once, return the first unique string.
 
