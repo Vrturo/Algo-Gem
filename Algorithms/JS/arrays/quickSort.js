@@ -8,6 +8,8 @@
 //   *                                                                    *
 //   *  Example: input = [3,9,1,4,7] , output = [1,3,4,7,9]               *
 
+
+
 // Recursively
 function quicksort( arr ){ // first index technique
     //if array is empty
@@ -28,6 +30,7 @@ function quicksort( arr ){ // first index technique
 
 // ---------------------------------------------------------
 
+// Iteratively
 function iterativeQsort(arr, lo=0, hi=arr.length-1) {
   var index;
 
@@ -79,8 +82,7 @@ var quickSort = function(input){
 
   if (input.length < 2){
     return input;
-  }
-  else {
+  } else {
     pivot = input[Math.floor(Math.random()*input.length)];
     input.splice([input.indexOf(pivot)], 1);
     for (var i = 0; i < input.length; i++){
