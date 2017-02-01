@@ -66,6 +66,9 @@ function partition(arr, lo, hi){
     }
     return i;
 }
+var items = [4, 2, 6, 5, 3, 9]
+
+console.log(iterativeQsort(items))
 
 // ---------------------------------------------------------
 
