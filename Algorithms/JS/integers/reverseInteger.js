@@ -1,4 +1,4 @@
-// Reverse digits of an integer.
+ // Reverse digits of an integer.
 
 // Example1: x = 123, return 321
 // Example2: x = -123, return -321
@@ -25,7 +25,7 @@ var reverse = function(x) { // 196 ms runtime
         result.push( strInt[ i ] );
     }
     result = parseInt( result.join("") );
-
+    console.log(result);
     if ( result > maxNumIn32Bit ) return 0;
     return  x < 0 ? result = result * -1 : result;
 };
