@@ -28,14 +28,12 @@ function quicksort( arr ){ // first index technique
 
 // ---------------------------------------------------------
 
-function iterativeQsort(arr) {
-  var index,
-      lo = 0,
-      hi = arr.length-1;
+function iterativeQsort(arr, lo=0, hi=arr.length-1) {
+  var index;
 
   if (arr.length > 1) {
     index = partition(arr, lo, hi);
-    if (l < index - 1) iterativeQsort(arr, l, index - 1);
+    if (lo < index - 1) iterativeQsort(arr, lo, index - 1);
     if (index < hi) iterativeQsort(arr, index, hi);
   }
 
