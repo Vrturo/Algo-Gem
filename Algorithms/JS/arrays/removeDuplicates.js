@@ -9,23 +9,6 @@
 // param arr : array of integers
 // return an integer
 
-function removeDuplicates(arr){
-  var count = {};
-  var noDups = [];
-
-  for (var i = 0;  i < arr.length; i++){
-    var item = arr[i]
-    if (!count[item]){
-      noDups.push(item);
-      count[item] = true;
-    }
-    else {
-      count[item];
-    }
-  }
-  return noDups;
-}
-
 
 function removeDuplicates(arr){
   var exists ={},
@@ -41,21 +24,3 @@ function removeDuplicates(arr){
   }
   return outArr;
 }
-
-function removeElement(arr){
-  var map = {};
-  for (var i = 0; i < arr.length; i += 1) {
-    if(map[arr[i]] === undefined){
-       map[arr[i]] = 1;
-    } else {
-        map[arr[i]] += 1;
-    }
-  }
-  var result = [];
-  for(var k in map){
-      if (map[k] === 1) result.push(k);
-  }
-  return result.length, result;
-}
-
-console.log()
