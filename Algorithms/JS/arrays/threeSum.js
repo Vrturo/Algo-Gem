@@ -10,3 +10,9 @@
 // and target = 1.
 
 // The sum that is closest to the target is 2. (-1 + 2 + 1 = 2)
+
+/**
+ * @param {arr[]} nums
+ * @param {number} target
+ * @return {number}
+ */
