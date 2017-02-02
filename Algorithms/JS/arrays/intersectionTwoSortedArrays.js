@@ -17,3 +17,9 @@
 //     B : [3 5]
 
 // Output : [3 5]
+
+/**
+ * @param {arr[]} A
+ * @param {arr[]} B
+ * @return {arr[]}
+ */
