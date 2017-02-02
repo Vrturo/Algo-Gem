@@ -8,4 +8,9 @@ It does not matter what is left beyond the expected length.
 If array A is [4, 1, 1, 2, 1, 3]
 and value elem is 1,
 then new length is 3, and A is now [4, 2, 3]
+
 Try to do it in less than linear additional space complexity.
+
+//param A : array of integers
+//param B : integer
+//return an integer
