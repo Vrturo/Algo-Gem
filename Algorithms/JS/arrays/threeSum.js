@@ -17,33 +17,26 @@
  * @return {number}
  */
 
-function threeSumClosest(A, B){
-  var map = {},
-          sum;
+function threeSumClosest(A, B) {
+  const map = {};
+  let sum;
 
-  for( var i = 0; i < A.length; i++ ){
-
-      for( var j=i+1; j<A.length; j += 1){
-
-          for(var k=j+1; k<A.length; k += 1){
-              sum = A[i] + A[j] + A[k]
-              if(sum === B) return B;
-              if(map[sum] === undefined) {
-                  map[sum] = sum;
-
-              } else {
-                  continue;
-              };
-          }
-
+  for (let i = 0; i < A.length; i += 1) {
+    for (let j = i + 1; j < A.length; j += 1) {
+      for (let k = j + 1; k < A.length; k += 1) {
+        sum = A[i] + A[j] + A[k];
+        if (sum === B) return B;
+        if (map[sum] === undefined) {
+          map[sum] = sum;
+        } else {
+          continue;
+        }
       }
-
+    }
   }
-  var sumArr = Object.keys(map);
-  var closest = sumArr.reduce(function (prev, curr) {
-    return (Math.abs(curr - B) < Math.abs(prev - B) ? curr : prev);
+  const sumArr = Object.keys(map);
+  return sumArr.reduce((prev, curr) => {
+    return Math.abs(curr - B) < Math.abs(prev - B) ? curr : prev;
   });
-  return closest
-
 }
-console.log(threeSumClosest([2, 1, -9, -7, -8, 2, -8, 2, 3, -8 ], -1))
+console.log(threeSumClosest([2, 1, -9, -7, -8, 2, -8, 2, 3, -8], -1));
