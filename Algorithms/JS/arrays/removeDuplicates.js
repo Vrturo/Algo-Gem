@@ -1,10 +1,10 @@
-Given an array and a value, remove all the instances of that value in the array.
-return the number of elements in the array once after the operation.
+// Given an array and a value, remove all the instances of that value in the array.
+// return the number of elements in the array once after the operation.
 
-Example:
-If array A is [4, 1, 1, 2, 1, 3]
-and value elem is 1,
-then new length is 3, and A is now [4, 2, 3]
+// Example:
+// If array A is [4, 1, 1, 2, 1, 3]
+// and value elem is 1,
+// then new length is 3, and A is now [4, 2, 3]
 
 // param arr : array of integers
 // return an integer
@@ -41,3 +41,21 @@ function removeDuplicates(arr){
   }
   return outArr;
 }
+
+function removeElement(arr){
+  var map = {};
+  for (var i = 0; i < arr.length; i += 1) {
+    if(map[arr[i]] === undefined){
+       map[arr[i]] = 1;
+    } else {
+        map[arr[i]] += 1;
+    }
+  }
+  var result = [];
+  for(var k in map){
+      if (map[k] === 1) result.push(k);
+  }
+  return result.length, result;
+}
+
+console.log()
