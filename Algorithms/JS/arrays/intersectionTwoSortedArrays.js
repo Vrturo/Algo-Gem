@@ -24,6 +24,21 @@
  * @return {arr[]}
  */
 
+// create a map to store each value from the first array and check against the second array
+// loop through first array
+  // if the element hasnt existed
+    // create it in map and set it to 1
+  // if element exists
+    // increment count
+// create result variable to return our intersecting integers
+// loop through second array
+  // if current element exists on our map
+    // it is an intersecting integer
+    // push the intersecting integer into result array
+    // if the count was 1 we delete the key
+    // if count is larger than one, decrement by 1
+// return result at the end
+
 function intersect(A, B) {
   const map = {};
   for (let i = 0; i < A.length; i += 1) {
