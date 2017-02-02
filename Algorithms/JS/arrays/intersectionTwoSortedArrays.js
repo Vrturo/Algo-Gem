@@ -23,3 +23,23 @@
  * @param {arr[]} B
  * @return {arr[]}
  */
+
+function intersect(A, B) {
+  const map = {};
+  for (let i = 0; i < A.length; i += 1) {
+    if (map[A[i]]) {
+      map[A[i]] += 1;
+    } else {
+      map[A[i]] = 1;
+    }
+  }
+  const result = [];
+  for (let j = 0; j < B.length; j += 1) {
+    if (map[B[j]]) {
+      result.push(B[j]);
+      map[B[j]] < 1 ? delete map[B[j]] : map[B[j]] -= 1;
+    }
+  }
+  return result;
+}
+console.log(intersect([1], [1]));
