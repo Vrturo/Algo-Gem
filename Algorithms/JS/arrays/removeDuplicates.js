@@ -10,17 +10,17 @@
 // return an integer
 
 
-function removeDuplicates(arr){
-  var exists ={},
-      outArr = [],
-      elm;
+function removeDuplicates(arr) {
+  const exists = {};
+  const outArr = [];
+  let elm;
 
-  for(var i =0; i<arr.length; i++){
+  for (let i = 0; i < arr.length; i += 1) {
     elm = arr[i];
-    if(!exists[elm]){
+    if (!exists[elm]) {
       outArr.push(elm);
       exists[elm] = true;
-   }
+    }
   }
   return outArr;
 }
