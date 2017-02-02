@@ -10,6 +10,15 @@
 // return an integer
 
 
+// create a hash to keep track of existing elements
+// create an outArr to push each elemnt only once
+// loop through arr
+  // if the current element does not exist
+    // push element into outArr
+    // set the element as key in our has and value to true
+// return iutArr at the end
+
+
 function removeDuplicates(arr) {
   const exists = {};
   const outArr = [];
