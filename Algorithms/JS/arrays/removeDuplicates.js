@@ -6,6 +6,8 @@ If array A is [4, 1, 1, 2, 1, 3]
 and value elem is 1,
 then new length is 3, and A is now [4, 2, 3]
 
+// param arr : array of integers
+// return an integer
 
 function removeDuplicates(arr){
   var count = {};
