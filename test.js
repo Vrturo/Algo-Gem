@@ -168,23 +168,4 @@
 //     return result;
 // }
 
-function intersect(A, B){
-      var map = {};
-      for(var i =0; i<A.length; i++){
-          if(map[A[i]]){
-              map[A[i]]++;
-          } else {
-              map[A[i]] = 1;
-          }
-      }
-      var result = [];
-      for( var j =0; j<B.length; j++){
-          if(map[B[j]]){
-            console.log('hit')
-              result.push(B[j])
-              map[B[j]] < 1 ? delete map[B[j]] : map[B[j]]--;
-          }
-      }
-      return result;
-  }
-console.log( intersect([1], [1]) )
+
