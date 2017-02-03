@@ -168,4 +168,23 @@
 //     return result;
 // }
 
+var removeDuplicates = function(nums) {
+  var exists = {};
+  var result = [];
+  var elm;
 
+  for (var i = 0; i < nums.length; i += 1) {
+    elm = nums[i];
+    if (!exists[elm]) {
+      result.push(elm);
+      exists[elm] = 1;
+    } else {
+      if (exists[elm] === 1)
+        result.push(elm);
+      exists[elm] += 1;
+    }
+  }
+  return result;
+};
+
+console.log(removeDuplicates([1,1,1,2]))
