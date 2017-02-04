@@ -168,23 +168,53 @@
 //     return result;
 // }
 
-var removeDuplicates = function(nums) {
-  var exists = {};
-  var result = [];
-  var elm;
+// var removeDuplicates = function(nums) {
+//   var exists = {};
+//   var result = [];
+//   var elm;
 
-  for (var i = 0; i < nums.length; i += 1) {
-    elm = nums[i];
-    if (!exists[elm]) {
-      result.push(elm);
-      exists[elm] = 1;
-    } else {
-      if (exists[elm] === 1)
-        result.push(elm);
-      exists[elm] += 1;
-    }
+//   for (var i = 0; i < nums.length; i += 1) {
+//     elm = nums[i];
+//     if (!exists[elm]) {
+//       result.push(elm);
+//       exists[elm] = 1;
+//     } else {
+//       if (exists[elm] === 1)
+//         result.push(elm);
+//       exists[elm] += 1;
+//     }
+//   }
+//   return result;
+// };
+
+// console.log(removeDuplicates([1,1,1,2]))
+
+
+var twoSum = function(nums, target) {
+  var numLength = nums.length; // --> 5
+  if( numLength<2 ) return nums; // false
+  var map = {}; // empty map object
+  for (var i=0; i<numLength; i++ ) {
+    if (map[target-nums[i]] || map[target-nums[i]] === 0) return [map [target-nums[i]], i];
+    if (map[nums[i]] === undefined) map[nums[i]] = i;
   }
-  return result;
 };
+// if(map[7])
+console.log(twoSum([1, 7, 5, 11, 2], 9))
 
-console.log(removeDuplicates([1,1,1,2]))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
