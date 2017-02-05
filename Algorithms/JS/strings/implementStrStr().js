@@ -21,8 +21,10 @@ const str = function strStr(haystack, needle) {
     return 0;
   }
   const threshold = lenOne - lenTwo;
-  for (let i = 0;i <= threshold;i += 1) {
-    if (haystack.substring(i,i + lenTwo) === needle) return i;
+  for (let i = 0; i <= threshold; i += 1) {
+    if (haystack.substring(i, i + lenTwo) === needle) return i;
   }
   return -1;
 };
+
+console.log(str('', ''));
