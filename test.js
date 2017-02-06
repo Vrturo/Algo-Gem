@@ -202,16 +202,44 @@ var twoSum = function(nums, target) {
 // if(map[7])
 console.log(twoSum([1, 7, 5, 11, 2], 9))
 
+function smallest(nums, k, l, r){
+          if (k > 0 && k <= r - l + 1){
+            var pos = randomPartition(nums, l, r);
+
+            if (pos-l === k-1) return nums[pos];
+
+            if (pos-l > k-1) return smallest(nums, k, l, pos-1);
+            return smallest(nums, k-pos+l-1, pos+1, r);
+          }
 
 
+          function swap(arr, i, j){
+            var temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+          }
 
+          function partition(arr, l, r){
+            var x = arr[r],
+                i = l;
+            for (var j = l; j <= r - 1; j++){
+              if (arr[j] <= x){
+                swap(arr, i, j);
+                i++;
+              }
+            }
+            swap(arr, i, r);
+            return i;
+          }
 
+          function randomPartition(arr, l, r){
+            var n = r-l+1;
+            var pivot = arr[0];
+            swap(arr, l + pivot, r);
+            return partition(arr, l, r);
+          }
 
-
-
-
-
-
+        }
 
 
 

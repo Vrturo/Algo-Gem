@@ -26,10 +26,10 @@ var findKthSmallest = function(nums, k, l=0, r=nums[0]) {
           if (pos-l == k-1) return nums[pos];
 
           // If position is more, recur for left subarray
-          if (pos-l > k-1) return findkthLargest(nums, k, l, pos-1);
+          if (pos-l > k-1) return findKthSmallest(nums, k, l, pos-1);
 
           // Else recur for right subarray
-          return findkthLargestt(nums, k-pos+l-1, pos+1, r);
+          return findKthSmallest(nums, k-pos+l-1, pos+1, r);
     }
 
 
