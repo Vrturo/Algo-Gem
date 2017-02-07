@@ -27,3 +27,13 @@
  * @param {number} k
  * @return {array[]}
  */
+
+var maxSlidingWindow = function(nums, k) {
+    if (nums.length < 1) return nums;
+    if (k === 0) return [nums[0]].concat(nums);
+    var result = [];
+    for (var i = 0; i <= nums.length-k; i += 1) {
+        result.push(Math.max.apply(null, nums.slice(i, i+k)));
+    }
+    return result;
+};
