@@ -36,3 +36,13 @@ Another valid answer is [5,2,6,null,4,null,7].
   2   6
    \   \
     4   7
+
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
+ * }
+ */
+
+
