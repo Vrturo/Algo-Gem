@@ -28,8 +28,16 @@
  * @return {array[]}
  */
 
-// first attempt
+// first attempt / naive solution
 
+// if nums is empty return an empty array
+// if sliding window is 0
+  // return the first element twice and the rest of the array
+// create result variable to store max in order
+// create a loop that is the size of our array minus the size of the sliding door
+  // for every iteration we only look at the k amount of elements - nums.slice(i, i + k)
+  // each iteration we look for the max - Math.max.apply(null, nums.slice(i, i + k)), and push into the result array and check the next set
+// at the end return elements we pushed into result array
 
 const maxSlidingWindow = function msw(nums, k) {
   if (nums.length < 1) return nums;
