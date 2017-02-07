@@ -67,3 +67,28 @@ var findKthSmallest = function(nums, k, l=0, r=nums[0]) {
     }
 
 };
+
+// ---------------------------------------------------------------------
+// Naive solution
+//
+function findKthSmallest(arr, k){
+  var result = arr.sort(function(a, b){ return a - b });
+  return result[k-1];
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
