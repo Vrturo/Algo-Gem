@@ -36,17 +36,19 @@
 // create result variable to store max in order
 // create a loop that is the size of our array minus the size of the sliding door
   // for every iteration we only look at the k amount of elements - nums.slice(i, i + k)
-  // each iteration we look for the max - Math.max.apply(null, nums.slice(i, i + k)), and push into the result array and check the next set
+  // each iteration we look for the max - Math.max.apply(null, nums.slice(i, i + k)), and push the max element into the result array and check the next set
 // at the end return elements we pushed into result array
 
 const maxSlidingWindow = function msw(nums, k) {
   if (nums.length < 1) return nums;
   if (k === 0) return [nums[0]].concat(nums);
-  const result = [];
+  const stack = [];
   for (let i = 0; i <= nums.length - k; i += 1) {
-    result.push(Math.max.apply(null, nums.slice(i, i + k)));
+    stack.push(Math.max.apply(null, nums.slice(i, i + k)));
   }
-  return result;
+  return stack;
 };
 
 maxSlidingWindow([1, 3, -1, -3, 5, 3, 6, 7], 3);
+
+// #
