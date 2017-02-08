@@ -157,3 +157,14 @@ function shortestPathTwo(graph, a, b) {
   return min;
 }
 
+function benchMark( g, a, b, results){
+  var start = new Date();
+  shortestPathTwo(g, a, b);
+  var end = new Date();
+  return Number(end - start) // number of miliseconds
+}
+
+console.time('bm');
+console.log( benchMark( graph, graph.getVertex('A'), graph.getVertex('F')) );
+console.timeEnd('bm');
+
