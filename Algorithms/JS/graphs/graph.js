@@ -86,21 +86,21 @@ Graph.prototype = {
 
 }
 
-var graph = new Graph();
-var myVertices = ['A','B','C','D','E','F','G','H','I']; //{7}
-for( var i=0; i<myVertices.length; i++ ){ //{8}
-  graph.addVertex( myVertices[i] );
-}
-graph.addEdge('A', 'B'); //{9}
-graph.addEdge('A', 'C');
-graph.addEdge('A', 'D');
-graph.addEdge('C', 'D');
-graph.addEdge('C', 'G');
-graph.addEdge('D', 'G');
-graph.addEdge('D', 'H');
-graph.addEdge('B', 'E');
-graph.addEdge('B', 'F');
-graph.addEdge('E', 'I');
+// var graph = new Graph();
+// var myVertices = ['A','B','C','D','E','F','G','H','I']; //{7}
+// for( var i=0; i<myVertices.length; i++ ){ //{8}
+//   graph.addVertex( myVertices[i] );
+// }
+// graph.addEdge('A', 'B'); //{9}
+// graph.addEdge('A', 'C');
+// graph.addEdge('A', 'D');
+// graph.addEdge('C', 'D');
+// graph.addEdge('C', 'G');
+// graph.addEdge('D', 'G');
+// graph.addEdge('D', 'H');
+// graph.addEdge('B', 'E');
+// graph.addEdge('B', 'F');
+// graph.addEdge('E', 'I');
 var graph = new Graph;
 graph.addVertex('A');
 graph.addVertex('B');
@@ -125,25 +125,6 @@ graph.addEdge('F', 'E');
 
 
 //---------------------------------------------
-function shortestPath(graph, a, b){
-  var min = Number.MAX_VALUE,
-      visited = {};
-
-  function walk(vertex, steps){
-    if (steps > min) return;
-    visited[vertex.value] = true;
-    var edgesArr = Object.keys(vertex.edges);
-    for( var i = 0; i < edgesArr.length; i += 1) {
-      if (edgesArr[i] === b.value) {
-        if (steps < min) min = steps;
-      }
-      if(!visited[edgesArr[i]]) walk(graph.getVertex(edgesArr[i]), steps += 1);
-    }
-  }
-  walk(a, 1);
-  return min;
-}
-
 function shortestPathTwo(graph, a, b){
   var min = Number.MAX_VALUE,
       visited = {};
@@ -162,6 +143,36 @@ function shortestPathTwo(graph, a, b){
   return min;
 }
 
-console.log(shortestPath(graph, graph.getVertex('A'), graph.getVertex('F')))
 
+function shortestPath(graph, a, b){
+  var min = Number.MAX_VALUE,
+      visited = {};
+
+  function walk(vertex, steps){
+    visited[vertex.value] = true;
+    var edgesArr = Object.keys(vertex.edges);
+    for( var i = 0; i < edgesArr.length; i += 1) {
+      if (edgesArr[i] === b.value) {
+        if (steps < min) min = steps;
+      }
+      if(!visited[edgesArr[i]] && min > steps + 1) walk(graph.getVertex(edgesArr[i]), steps += 1);
+    }
+  }
+
+  walk(a, 1);
+  return min;
+}
+
+
+// console.log(shortestPath(graph, graph.getVertex('A'), graph.getVertex('F')))
+function benchMark( g, a, b, results){
+  var start = new Date();
+  shortestPathTwo(g, a, b);
+  var end = new Date();
+  return Number(end - start) // number of miliseconds
+}
+
+console.time('bm');
+console.log( benchMark( graph, graph.getVertex('A'), graph.getVertex('F')) );
+console.timeEnd('bm');
 
