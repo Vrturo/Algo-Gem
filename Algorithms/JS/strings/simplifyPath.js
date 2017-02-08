@@ -19,6 +19,19 @@
  * @return {string}
 */
 
+// create a stack to only keep path names we need at the end
+// split path into an array seperated by '/' so it's easier to check out individual elements
+// loop through our new path
+  // cases :
+  // if current element is just one period or empty string we can ignore and continue
+  // if current element is '..' we have to back up a directory so we remove last element in our stack
+  // anything else gets pushed into our stack
+// create an empty string to append items in our stack and return
+// loop through stack and append '/' for each item
+// if our result string is empty all we have to return is '/'
+// if our result string has any item in it, return it
+
+
 const simplifyPath = function sp(path) {
   const stack = [];
   path = path.split('/');
