@@ -125,7 +125,7 @@ graph.addEdge('F', 'E');
 
 
 //---------------------------------------------
-function shortestPathTwo(graph, a, b){
+function shortestPath(graph, a, b){
   var min = Number.MAX_VALUE,
       visited = {};
 
@@ -144,7 +144,7 @@ function shortestPathTwo(graph, a, b){
 }
 
 
-function shortestPath(graph, a, b){
+function shortestPathTwo(graph, a, b){
   var min = Number.MAX_VALUE,
       visited = {};
 
