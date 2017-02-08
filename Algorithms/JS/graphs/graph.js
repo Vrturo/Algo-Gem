@@ -120,9 +120,6 @@ graph.addEdge('F', 'G');
 graph.addEdge('F', 'E');
 
 
-// console.log(graph)
-// console.log(topologicalSort(graph))
-
 
 //---------------------------------------------
 function shortestPath(graph, a, b){

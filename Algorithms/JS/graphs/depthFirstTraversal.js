@@ -64,6 +64,7 @@ var g = new Graph;
 // g.addEdge('D', 'F')
 // g.addEdge('D', 'G')
 // g.addEdge('F', 'G')
+var g = new Graph;
 g.addVertex(0);
 g.addVertex(1);
 g.addVertex(2);
