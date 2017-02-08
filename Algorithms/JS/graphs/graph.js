@@ -101,23 +101,7 @@ Graph.prototype = {
 // graph.addEdge('B', 'E');
 // graph.addEdge('B', 'F');
 // graph.addEdge('E', 'I');
-var graph = new Graph;
-graph.addVertex('A');
-graph.addVertex('B');
-graph.addVertex('C');
-graph.addVertex('D');
-graph.addVertex('E');
-graph.addVertex('F');
-graph.addVertex('G');
 
-graph.addEdge('A', 'C');
-graph.addEdge('A', 'D');
-graph.addEdge('A', 'B');
-graph.addEdge('B', 'E');
-graph.addEdge('C', 'F');
-graph.addEdge('D', 'G');
-graph.addEdge('F', 'G');
-graph.addEdge('F', 'E');
 
 
 
