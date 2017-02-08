@@ -18,7 +18,7 @@ class Graph{
   }
 
   addVertex(val){
-    if ( !this.vertices[val] ){ // no duplicates
+    if (!this.vertices[val]){ // no duplicates
       this.vertices[val] = []; // storage
       this.totalVertices++;
     }
@@ -140,19 +140,20 @@ function topologicalSort(g){
       visited = {},
       stack = [];
 
-  function helper(v, visited, stack){
+  function helper(v) {
     visited[v] = true;
-    var neighbors = g.getNeighbors(v);
-
-    for( var i=0; i<neighbors.length; i++ ){
-      if( !visited[neighbors[i]] ) helper(neighbors[i], visited, stack);
+    var edges = g.vertices[v];
+    for (var i = 0; i < edges.length; i += 1) {
+      if (!visited[edges[i]]) helper(edges[i]);
     }
     stack.push(v);
   }
-  for( var k in g.vertices ){
-    if( !visited[k] ) helper(k, visited, stack);
+
+  for (var k in g.vertices) { // loop through graph vertices
+    if (!visited[k]) helper(k);
   }
-  while( stack.length ){
+
+  while (stack.length) { // return stack in reverse
     result.push(stack.pop());
   }
   return result;
@@ -170,7 +171,6 @@ graph.addEdge(4, 0);
 graph.addEdge(4, 1);
 graph.addEdge(2, 3);
 graph.addEdge(3, 1);
-// console.log(graph)
 
 console.log(topologicalSort(graph))
 

@@ -42,6 +42,7 @@ Graph.prototype = {
     for ( var key in delEdges ){
       removeEdge(key, val)
     }
+
     delete this.vertices[val];
     this.vertices--;
   },
@@ -59,6 +60,7 @@ Graph.prototype = {
   removeEdge: function(valOne, valTwo){
     var vertOne = this.vertices[valOne],
         vertTwo = this.vertices[valTwo];
+    'write error if not edges'
 
     delete vertOne.edges;
     delete vertTwo.edges;
@@ -67,12 +69,12 @@ Graph.prototype = {
   },
 
   findNeighbors: function(val){
-    neighborsArr = [];
-    for(key in val.edges){
+    var neighborsArr = [];
+    for(key in this.vertices[val].edges){
       neighborsArr.push(key)
     }
     return neighborsArr;
-   },
+  },
 
   forEachNode: function(cb){
     var results = [];
