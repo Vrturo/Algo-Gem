@@ -176,30 +176,30 @@ function shortestPathTwo(graph, a, b) {
 // ----------------------------------------------------
 
 // BFS approach
-  // store steps in a tuple
-  // update min when end vertex is reached IF NEEDED
+  // store current vertex and steps in a tuple, in our q
+    // update steps in current stack
+    // update min when end vertex is reached IF NEEDED
 
 function shortestPathThree(graph, a, b) {
   const visited = {};
   const q = [];
   let min = Number.MAX_VALUE;
-  let steps = 0;
-  q.push([a, steps]);
+  q.push([a, 0]);
 
   while (q.length) {
-    let tuple = q.pop();
+    let tuple = q.shift();
     const currentV = tuple[0];
-    steps = tuple[1] += 1;
+    let steps = tuple[1];
     visited[currentV.value] = true;
 
     if (currentV.value === b.value) {
       if (steps < min) min = steps;
     }
     for (const k in currentV.edges) {
-      if (!visited[k]) q.push([currentV.edges[k], steps]);
+      if (!visited[k]) q.push([currentV.edges[k], steps + 1]);
     }
   }
-  return steps;
+  return min;
 }
 
 // #BFS
@@ -215,4 +215,4 @@ function shortestPathThree(graph, a, b) {
 // console.time('bm');
 // console.log( benchMark( graph, graph.getVertex('A'), graph.getVertex('F')) );
 // console.timeEnd('bm');
-console.log( shortestPath( graph, graph.getVertex('A'), graph.getVertex('F')) );
+console.log( shortestPathThree( graph, graph.getVertex('A'), graph.getVertex('F')) );
