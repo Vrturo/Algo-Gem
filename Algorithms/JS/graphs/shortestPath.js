@@ -121,17 +121,17 @@ graph.addEdge('F', 'E');
 // ---------------------------------------------
 
 function shortestPath(graph, a, b){
-  var min = Number.MAX_VALUE,
-      visited = {};
+  let min = Number.MAX_VALUE;
+  const visited = {};
 
   function walk(vertex, steps){
     visited[vertex.value] = true;
-    var edgesArr = Object.keys(vertex.edges);
-    for( var i = 0; i < edgesArr.length; i += 1) {
+    const edgesArr = Object.keys(vertex.edges);
+    for (let i = 0; i < edgesArr.length; i += 1) {
       if (edgesArr[i] === b.value) {
         if (steps < min) min = steps;
       }
-      if(!visited[edgesArr[i]]) walk(graph.getVertex(edgesArr[i]), steps += 1);
+      if (!visited[edgesArr[i]]) walk(graph.getVertex(edgesArr[i]), steps += 1);
     }
   }
   walk(a, 1);
@@ -140,23 +140,22 @@ function shortestPath(graph, a, b){
 
 
 function shortestPathTwo(graph, a, b){
-  var min = Number.MAX_VALUE,
-      visited = {};
+  let min = Number.MAX_VALUE;
+  const visited = {};
 
   function walk(vertex, steps){
     visited[vertex.value] = true;
-    var edgesArr = Object.keys(vertex.edges);
-    for( var i = 0; i < edgesArr.length; i += 1) {
+    const edgesArr = Object.keys(vertex.edges);
+    for (let i = 0; i < edgesArr.length; i += 1) {
       if (edgesArr[i] === b.value) {
         if (steps < min) min = steps;
       }
-      if(!visited[edgesArr[i]] && min > steps + 1) walk(graph.getVertex(edgesArr[i]), steps += 1);
-    }
+      if(!visited[edgesArr[i]] && min > steps + 1) walk(graph.getVertex(edgesArr[i]), steps += 1);    }
   }
-
   walk(a, 1);
   return min;
 }
+
 
 
 
