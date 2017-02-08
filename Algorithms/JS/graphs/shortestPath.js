@@ -139,13 +139,12 @@ function shortestPath(graph, a, b) {
 
   function walk(vertex, steps) {
     visited[vertex.value] = true;
-    const edgesArr = Object.keys(vertex.edges);
-    for (let i = 0; i < edgesArr.length; i += 1) {
-      if (edgesArr[i] === b.value) {
+    for (const key in vertex.edges) {
+      if (key === b.value) {
         if (steps < min) min = steps;
         return;
       }
-      if (!visited[edgesArr[i]]) walk(graph.getVertex(edgesArr[i]), steps += 1);
+      if (!visited[key]) walk(vertex.edges[key], steps + 1);
     }
   }
   walk(a, 1);
@@ -168,13 +167,12 @@ function shortestPathTwo(graph, a, b) {
 
   function walk(vertex, steps) {
     visited[vertex.value] = true;
-    const edgesArr = Object.keys(vertex.edges);
-    for (let i = 0; i < edgesArr.length; i += 1) {
-      if (edgesArr[i] === b.value) {
+    for (const key in vertex.edges) {
+      if (key === b.value) {
         if (steps < min) min = steps;
         return;
       }
-      if (!visited[edgesArr[i]] && min > steps + 1) walk(graph.getVertex(edgesArr[i]), steps += 1);
+      if (!visited[key] && min > steps + 1) walk(vertex.edges[key], steps + 1);
     }
   }
   walk(a, 1);
@@ -223,4 +221,4 @@ function shortestPathThree(graph, a, b) {
 // console.time('bm');
 // console.log( benchMark( graph, graph.getVertex('A'), graph.getVertex('F')) );
 // console.timeEnd('bm');
-console.log( shortestPathThree( graph, graph.getVertex('A'), graph.getVertex('F')) );
+console.log( shortestPath( graph, graph.getVertex('A'), graph.getVertex('F')) );
