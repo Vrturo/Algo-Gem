@@ -28,7 +28,7 @@ Graph.prototype = {
 
   getVertex: function( val ){
     if ( this.vertices[val] ){
-      return vertices[val]
+      return this.vertices[val]
     }
     else {
       return 'val not found';
@@ -101,6 +101,67 @@ graph.addEdge('D', 'H');
 graph.addEdge('B', 'E');
 graph.addEdge('B', 'F');
 graph.addEdge('E', 'I');
-console.log(graph)
+var graph = new Graph;
+graph.addVertex('A');
+graph.addVertex('B');
+graph.addVertex('C');
+graph.addVertex('D');
+graph.addVertex('E');
+graph.addVertex('F');
+graph.addVertex('G');
 
-console.log(graph.vertices['A'].edges);
+graph.addEdge('A', 'C');
+graph.addEdge('A', 'D');
+graph.addEdge('A', 'B');
+graph.addEdge('B', 'E');
+graph.addEdge('C', 'F');
+graph.addEdge('D', 'G');
+graph.addEdge('F', 'G');
+graph.addEdge('F', 'E');
+
+
+// console.log(graph)
+// console.log(topologicalSort(graph))
+
+
+//---------------------------------------------
+function shortestPath(graph, a, b){
+  var min = Number.MAX_VALUE,
+      visited = {};
+
+  function walk(vertex, steps){
+    if (steps > min) return;
+    visited[vertex.value] = true;
+    var edgesArr = Object.keys(vertex.edges);
+    for( var i = 0; i < edgesArr.length; i += 1) {
+      if (edgesArr[i] === b.value) {
+        if (steps < min) min = steps;
+      }
+      if(!visited[edgesArr[i]]) walk(graph.getVertex(edgesArr[i]), steps += 1);
+    }
+  }
+  walk(a, 1);
+  return min;
+}
+
+function shortestPathTwo(graph, a, b){
+  var min = Number.MAX_VALUE,
+      visited = {};
+
+  function walk(vertex, steps){
+    visited[vertex.value] = true;
+    var edgesArr = Object.keys(vertex.edges);
+    for( var i = 0; i < edgesArr.length; i += 1) {
+      if (edgesArr[i] === b.value) {
+        if (steps < min) min = steps;
+      }
+      if(!visited[edgesArr[i]]) walk(graph.getVertex(edgesArr[i]), steps += 1);
+    }
+  }
+  walk(a, 1);
+  return min;
+}
+
+console.log(shortestPath(graph, graph.getVertex('A'), graph.getVertex('F')))
+
+

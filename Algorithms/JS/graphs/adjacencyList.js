@@ -43,6 +43,15 @@ class Graph{
     this.totalEdges--;
   }
 
+  getVertex( val ){
+    if ( this.vertices[val] ){
+      return this.vertices[val]
+    }
+    else {
+      return 'val not found';
+    }
+  }
+
   getNeighbors(val){
     if( this.vertices[val] ){
       return this.vertices[val]
@@ -161,24 +170,48 @@ function topologicalSort(g){
 
 
 var graph = new Graph;
-for( var i=0; i<6; i++ ){
-  graph.addVertex( i );
-}
+graph.addVertex('A');
+graph.addVertex('B');
+graph.addVertex('C');
+graph.addVertex('D');
+graph.addVertex('E');
+graph.addVertex('F');
+graph.addVertex('G');
 
-graph.addEdge(5, 2);
-graph.addEdge(5, 0);
-graph.addEdge(4, 0);
-graph.addEdge(4, 1);
-graph.addEdge(2, 3);
-graph.addEdge(3, 1);
+graph.addEdge('A', 'C');
+graph.addEdge('A', 'D');
+graph.addEdge('A', 'B');
+graph.addEdge('B', 'E');
+graph.addEdge('C', 'F');
+graph.addEdge('D', 'G');
+graph.addEdge('F', 'G');
+graph.addEdge('F', 'E');
 
-console.log(topologicalSort(graph))
+
+// console.log(graph)
+// console.log(topologicalSort(graph))
 
 
 //---------------------------------------------
+function shortestPath(graph, a, b){
 
-function shortestPath(){
+  console.log(a, b)
+    var min = Number.MAX_VALUE;
 
+    function walk(vertex, steps){
+        if(steps > min) return;
+        for (var i = 0; i < vertex.edges.length; i += 1) {
+            if(vertex.edges[i] === b){
+                if(steps < min) min = steps;
+            }
+            walk(a.edges[i], steps += 1);
+        }
+    }
+    walk(a, 0);
+    return min;
 }
+
+console.log(shortestPath(graph, graph.getVertex('A'), graph.getVertex('F')))
+
 
 
