@@ -99,7 +99,7 @@ class Graph {
 
 }
 
-var graph = new Graph;
+const graph = new Graph();
 graph.addVertex('A');
 graph.addVertex('B');
 graph.addVertex('C');
@@ -120,11 +120,11 @@ graph.addEdge('F', 'E');
 
 // ---------------------------------------------
 
-function shortestPath(graph, a, b){
+function shortestPath(graph, a, b) {
   let min = Number.MAX_VALUE;
   const visited = {};
 
-  function walk(vertex, steps){
+  function walk(vertex, steps) {
     visited[vertex.value] = true;
     const edgesArr = Object.keys(vertex.edges);
     for (let i = 0; i < edgesArr.length; i += 1) {
@@ -139,23 +139,21 @@ function shortestPath(graph, a, b){
 }
 
 
-function shortestPathTwo(graph, a, b){
+function shortestPathTwo(graph, a, b) {
   let min = Number.MAX_VALUE;
   const visited = {};
 
-  function walk(vertex, steps){
+  function walk(vertex, steps) {
     visited[vertex.value] = true;
     const edgesArr = Object.keys(vertex.edges);
     for (let i = 0; i < edgesArr.length; i += 1) {
       if (edgesArr[i] === b.value) {
         if (steps < min) min = steps;
       }
-      if(!visited[edgesArr[i]] && min > steps + 1) walk(graph.getVertex(edgesArr[i]), steps += 1);    }
+      if (!visited[edgesArr[i]] && min > steps + 1) walk(graph.getVertex(edgesArr[i]), steps += 1);
+    }
   }
   walk(a, 1);
   return min;
 }
-
-
-
 
