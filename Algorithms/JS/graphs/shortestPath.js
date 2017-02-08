@@ -64,8 +64,8 @@ class Graph {
     const vertOne = this.vertices[valOne];
     const vertTwo = this.vertices[valTwo];
 
-    vertOne.edges[valTwo] = true;
-    vertTwo.edges[valOne] = true;
+    vertOne.edges[valTwo] = vertTwo;
+    vertTwo.edges[valOne] = vertOne;
 
     this.totalEdges += 1;
   }
@@ -167,18 +167,37 @@ function shortestPathTwo(graph, a, b) {
 // ----------------------------------------------------
 
 function shortestPathThree(graph, a, b) {
+  const visited = {};
+  const q = [];
+  let min = Number.MAX_VALUE;
+  let steps = 0;
+  q.push([a, steps]);
 
+  while (q.length) {
+    let tuple = q.pop();
+    const currentV = tuple[0];
+    steps = tuple[1] += 1;
+    visited[currentV.value] = true;
+
+    if (currentV.value === b.value) {
+      if (steps < min) min = steps;
+    }
+    for (const k in currentV.edges) {
+      if (!visited[k]) q.push([currentV.edges[k], steps]);
+    }
+  }
+  return steps;
 }
 
 // --------------------------------------------------------------------------------------------
-function benchMark( g, a, b, results){
-  var start = new Date();
-  shortestPathTwo(g, a, b);
-  var end = new Date();
-  return Number(end - start) // number of miliseconds
-}
+// function benchMark( g, a, b, results){
+//   var start = new Date();
+//   shortestPathThree(g, a, b);
+//   var end = new Date();
+//   return Number(end - start) // number of miliseconds
+// }
 
-console.time('bm');
-console.log( benchMark( graph, graph.getVertex('A'), graph.getVertex('F')) );
-console.timeEnd('bm');
-
+// console.time('bm');
+// console.log( benchMark( graph, graph.getVertex('A'), graph.getVertex('F')) );
+// console.timeEnd('bm');
+console.log( shortestPathThree( graph, graph.getVertex('A'), graph.getVertex('F')) );
