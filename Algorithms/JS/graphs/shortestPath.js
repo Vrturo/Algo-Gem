@@ -166,6 +166,10 @@ function shortestPathTwo(graph, a, b) {
 
 // ----------------------------------------------------
 
+// BFS approach
+  // store steps in a tuple
+  // update min when end vertex is reached IF NEEDED
+
 function shortestPathThree(graph, a, b) {
   const visited = {};
   const q = [];
@@ -189,6 +193,8 @@ function shortestPathThree(graph, a, b) {
   return steps;
 }
 
+// #BFS
+
 // --------------------------------------------------------------------------------------------
 // function benchMark( g, a, b, results){
 //   var start = new Date();
@@ -200,4 +206,4 @@ function shortestPathThree(graph, a, b) {
 // console.time('bm');
 // console.log( benchMark( graph, graph.getVertex('A'), graph.getVertex('F')) );
 // console.timeEnd('bm');
-console.log( shortestPathThree( graph, graph.getVertex('A'), graph.getVertex('F')) );
+console.log( shortestPath( graph, graph.getVertex('A'), graph.getVertex('F')) );
