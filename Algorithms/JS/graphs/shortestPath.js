@@ -125,6 +125,14 @@ graph.addEdge('F', 'E');
 
 // SOLUTIONS
 
+// Recursive Approach
+  // walk through each edge of the starting vertex and its edges as well if needed
+  // for every recursive call update steps by 1 for that stack
+  // if update min when end vertex is reached IF NEEDED
+    // if end vertex is reached no need to loop through its edges - return stack
+  // only walk through edges if edge hasn't been visited
+  // return min at the end
+
 function shortestPath(graph, a, b) {
   let min = Number.MAX_VALUE;
   const visited = {};
@@ -135,6 +143,7 @@ function shortestPath(graph, a, b) {
     for (let i = 0; i < edgesArr.length; i += 1) {
       if (edgesArr[i] === b.value) {
         if (steps < min) min = steps;
+        return;
       }
       if (!visited[edgesArr[i]]) walk(graph.getVertex(edgesArr[i]), steps += 1);
     }
