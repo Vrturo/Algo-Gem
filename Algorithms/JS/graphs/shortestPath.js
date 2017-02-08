@@ -25,7 +25,7 @@ class Vertex {
 }
 
 class Graph {
-  constructor(){
+  constructor() {
     this.vertices = {};
     this.totalVertices = 0;
     this.totalEdges = 0;
@@ -50,7 +50,7 @@ class Graph {
     const delEdges = delVert.edges;
 
     for (const key in delEdges) {
-      removeEdge(key, val)
+      this.removeEdge(key, val);
     }
 
     delete this.vertices[val];
@@ -65,10 +65,10 @@ class Graph {
     vertTwo.edges[valOne] = true;
 
     this.totalEdges += 1;
-   }
+  }
 
   removeEdge(valOne, valTwo) {
-    if(this.vertices[valOne] && this.vertices[valTwo]){
+    if (this.vertices[valOne] && this.vertices[valTwo]) {
       const vertOne = this.vertices[valOne];
       const vertTwo = this.vertices[valTwo];
 
@@ -77,22 +77,22 @@ class Graph {
 
       this.edges -= 1;
     } else {
-      return 'edges dont exist'
+      return 'edges dont exist';
     }
   }
 
   findNeighbors(val) {
     const neighborsArr = [];
-    for (key in this.vertices[val].edges) {
-      neighborsArr.push(key)
+    for (const key in this.vertices[val].edges) {
+      neighborsArr.push(key);
     }
     return neighborsArr;
   }
 
   forEachNode(cb) {
     const results = [];
-    for (val in this.vertices) {
-      results.push(cb());
+    for (let i = 0; i < this.vertices.length; i += 1) {
+      results.push(cb(this.vertices[i]));
     }
     return results;
   }
