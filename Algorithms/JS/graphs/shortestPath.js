@@ -17,6 +17,9 @@
 
 // 2 Stops (From A stop at C, and then stop at F)
 
+
+// Data Structure  -----------------------------------------------
+
 class Vertex {
   constructor(val) {
     this.value = val;
@@ -120,6 +123,8 @@ graph.addEdge('F', 'E');
 
 // ---------------------------------------------
 
+// SOLUTIONS
+
 function shortestPath(graph, a, b) {
   let min = Number.MAX_VALUE;
   const visited = {};
@@ -137,6 +142,8 @@ function shortestPath(graph, a, b) {
   walk(a, 1);
   return min;
 }
+
+// --------------------------------------------------
 
 
 function shortestPathTwo(graph, a, b) {
@@ -157,6 +164,13 @@ function shortestPathTwo(graph, a, b) {
   return min;
 }
 
+// ----------------------------------------------------
+
+function shortestPathThree(graph, a, b) {
+
+}
+
+// --------------------------------------------------------------------------------------------
 function benchMark( g, a, b, results){
   var start = new Date();
   shortestPathTwo(g, a, b);
