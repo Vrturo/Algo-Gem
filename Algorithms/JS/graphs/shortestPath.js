@@ -154,6 +154,13 @@ function shortestPath(graph, a, b) {
 
 // --------------------------------------------------
 
+// Recursive Approach w/ extra conditonal break
+  // walk through each edge of the starting vertex and its edges as well if needed
+  // for every recursive call update steps by 1 for that stack
+  // check to see if steps is less than current min when end vertex is reached, and update IF NEEDED
+    // if end vertex is reached no need to loop through its edges - return stack
+  // only walk through edges if edge hasn't been visited AND steos is still less than current minimum number of steps reached
+  // return min at the end
 
 function shortestPathTwo(graph, a, b) {
   let min = Number.MAX_VALUE;
@@ -165,6 +172,7 @@ function shortestPathTwo(graph, a, b) {
     for (let i = 0; i < edgesArr.length; i += 1) {
       if (edgesArr[i] === b.value) {
         if (steps < min) min = steps;
+        return;
       }
       if (!visited[edgesArr[i]] && min > steps + 1) walk(graph.getVertex(edgesArr[i]), steps += 1);
     }
