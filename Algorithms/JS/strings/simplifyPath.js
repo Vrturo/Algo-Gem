@@ -51,3 +51,5 @@ const simplifyPath = function sp(path) {
 };
 
 simplifyPath('/a/./b/../../c/');
+
+// #stack
