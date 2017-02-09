@@ -211,6 +211,44 @@ function shortestPathThree(graph, a, b) {
 // #BFS
 
 // --------------------------------------------------------------------------------------------
+
+// BFS Approach
+
+// Create a ‘distance’ hashtable.
+  // Store each vertex value as the key, and a distance of INFINITY
+  // Set the ‘start’ vertex value to 0
+// Create a ‘visited’ hashtable
+// Instantiate a queue and place the starting vertex in the queue
+// While there is something in the queue
+  // Dequeue the ‘current’ vertex and mark it as visited.
+  // For each edge, if the associated ‘neighbor’ has not been visited
+    // Update the neighbor’s ‘distance’ as the minimum of:
+      // the distance of ‘neighbor’
+      // the distance of the ‘current’ + 1
+    // Add the neighbor to the queue
+// Return the distance of ‘end’ vertex
+
+
+function shortestPathFour(graph, a, b) {
+  const distance = {};
+  const visited = {};
+  for (const key in graph.vertices) {
+    distance[key] = Number.MAX_VALUE;
+  }
+  distance[a.value] = 0;
+  const q = [a];
+  while (q.length) {
+    const currentV = q.shift();
+    visited[currentV.value] = true;
+    for (const key in currentV.edges) {
+      if (!visited[key]) {
+        distance[key] = Math.min(distance[key], distance[currentV.value] + 1);
+        q.push(currentV.edges[key]);
+      }
+    }
+  }
+  return distance[b.value];
+}
 // function benchMark( g, a, b, results){
 //   var start = new Date();
 //   shortestPathThree(g, a, b);
@@ -221,4 +259,4 @@ function shortestPathThree(graph, a, b) {
 // console.time('bm');
 // console.log( benchMark( graph, graph.getVertex('A'), graph.getVertex('F')) );
 // console.timeEnd('bm');
-console.log( shortestPath( graph, graph.getVertex('A'), graph.getVertex('F')) );
+console.log( shortestPathFour( graph, graph.getVertex('A'), graph.getVertex('F')) );
