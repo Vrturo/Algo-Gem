@@ -53,39 +53,42 @@ class Graph {
 }
 
 var g = new Graph;
-// g.addVertex('A');
-// g.addVertex('B')
-// g.addVertex('C')
-// g.addVertex('D')
-// g.addVertex('E')
-// g.addVertex('F')
-// g.addVertex('G')
-// g.addEdge('A', 'B')
-// g.addEdge('A', 'C')
-// g.addEdge('D', 'B')
-// g.addEdge('D', 'C')
-// g.addEdge('D', 'E')
-// g.addEdge('D', 'F')
-// g.addEdge('D', 'G')
-// g.addEdge('F', 'G')
-var g = new Graph;
-g.addVertex(0);
-g.addVertex(1);
-g.addVertex(2);
-g.addVertex(3);
-g.addVertex(4);
-g.addEdge(0, 1);
-g.addEdge(0, 2);
-g.addEdge(1, 2);
-g.addEdge(2, 0);
-g.addEdge(2, 3);
-g.addEdge(3, 3);
+g.addVertex('A');
+g.addVertex('B')
+g.addVertex('C')
+g.addVertex('D')
+g.addVertex('E')
+g.addVertex('F')
+g.addVertex('G')
+g.addEdge('A', 'B')
+g.addEdge('A', 'C')
+g.addEdge('B', 'D')
+g.addEdge('B', 'E')
+g.addEdge('C', 'E')
+g.addEdge('D', 'E')
+g.addEdge('D', 'F')
+g.addEdge('E', 'F')
+// var g = new Graph;
+// g.addVertex(0);
+// g.addVertex(1);
+// g.addVertex(2);
+// g.addVertex(3);
+// g.addVertex(4);
+// g.addEdge(0, 1);
+// g.addEdge(0, 2);
+// g.addEdge(1, 2);
+// g.addEdge(2, 0);
+// g.addEdge(2, 3);
+// g.addEdge(3, 3);
 // console.log(g);
 
 
 // ------ end Classes -----------------------------
 
 // Solutions
+
+// Recursive Approach
+
 
 function DFT(graph){
   var visited = {},
@@ -104,4 +107,62 @@ function DFT(graph){
   return result;
 }
 
-console.log(DFT(g));
+// console.log(DFT(g));
+// ------------------------------------------------------
+
+// while loop / Stack Approach
+
+
+
+function stackDFT(graph) {
+  const visited = {};
+  const firstVertex = graph.vertices[Object.keys(graph.vertices)[0]];
+  const stack = [firstVertex];
+  visited[firstVertex.value] = true;
+  const result = [];
+
+  while (stack.length) {
+    const currentV = stack.pop();
+    result.push(currentV.value);
+
+    for (const k in currentV.edges) {
+      if (!visited[k]) {
+        visited[k] = true;
+        stack.push(graph.vertices[k]);
+      }
+    }
+  }
+
+  return result;
+}
+
+
+function stackDFT(graph) {
+  const visited = {};
+  const firstVertex = graph.vertices[Object.keys(graph.vertices)[0]];
+  const stack = [firstVertex];
+  visited[firstVertex.value] = true;
+  const result = [];
+
+  function helper(v) {
+
+  }
+
+  while (stack.length) {
+    const currentV = stack.pop();
+    result.push(currentV.value);
+
+    for (const k in currentV.edges) {
+      if (!visited[k]) {
+        visited[k] = true;
+        stack.push(graph.vertices[k]);
+      }
+    }
+  }
+
+  return result;
+}
+
+
+
+console.log(stackDFT(g));
