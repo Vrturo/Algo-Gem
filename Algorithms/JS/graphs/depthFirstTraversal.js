@@ -51,6 +51,7 @@ class Graph {
 
 }
 // ex 1
+
 // var g = new Graph;
 // g.addVertex('A');
 // g.addVertex('B')
@@ -67,43 +68,47 @@ class Graph {
 // g.addEdge('D', 'E')
 // g.addEdge('D', 'F')
 // g.addEdge('E', 'F')
+
 // console.log(g);
 
 // ex 2
-// var g = new Graph;
-// g.addVertex(0);
-// g.addVertex(1);
-// g.addVertex(2);
-// g.addVertex(3);
-// g.addVertex(4);
-// g.addEdge(1, 0);
-// g.addEdge(0, 2);
-// g.addEdge(2, 1);
-// g.addEdge(0, 3);
-// g.addEdge(1, 4);
-// console.log(g);
 
-// ex 3
 var g = new Graph;
 g.addVertex(0);
 g.addVertex(1);
 g.addVertex(2);
 g.addVertex(3);
 g.addVertex(4);
-g.addEdge(0, 3);
-g.addEdge(0, 2);
 g.addEdge(1, 0);
+g.addEdge(0, 2);
 g.addEdge(2, 1);
-g.addEdge(3, 4);
-g.addEdge(4, 0);
+g.addEdge(0, 3);
+g.addEdge(1, 4);
+
+// console.log(g);
+
+// ex 3
+
+// var g = new Graph;
+// g.addVertex(0);
+// g.addVertex(1);
+// g.addVertex(2);
+// g.addVertex(3);
+// g.addVertex(4);
+// g.addEdge(0, 3);
+// g.addEdge(0, 2);
+// g.addEdge(1, 0);
+// g.addEdge(2, 1);
+// g.addEdge(3, 4);
+// g.addEdge(4, 0);
+
 // console.log(g);
 
 // ------ end Classes -----------------------------
 
-// Solutions
+// SOLUTIONS
 
 // Recursive Approach
-
 
 function recursiveDFT(graph){
   const visited = {};
@@ -125,7 +130,7 @@ function recursiveDFT(graph){
 console.log(recursiveDFT(g));
 // ------------------------------------------------------
 
-// while loop / Stack Approach
+// Iterative Approach
 
 function iterativeDFT(graph) {
   const visited = {};
@@ -151,4 +156,4 @@ function iterativeDFT(graph) {
   return result;
 }
 
-console.log(iterativestackDFT(g));
+console.log(iterativeDFT(g));
