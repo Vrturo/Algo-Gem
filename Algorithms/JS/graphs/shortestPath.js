@@ -61,13 +61,17 @@ class Graph {
   }
 
   addEdge(valOne, valTwo) {
-    const vertOne = this.vertices[valOne];
-    const vertTwo = this.vertices[valTwo];
+    if (this.vertices[valOne] && this.vertices[valTwo]) {
+      const vertOne = this.vertices[valOne];
+      const vertTwo = this.vertices[valTwo];
 
-    vertOne.edges[valTwo] = vertTwo;
-    vertTwo.edges[valOne] = vertOne;
+      vertOne.edges[valTwo] = vertTwo;
+      vertTwo.edges[valOne] = vertOne;
 
-    this.totalEdges += 1;
+      this.totalEdges += 1;
+    } else {
+      return 'edges dont exist';
+    }
   }
 
   removeEdge(valOne, valTwo) {

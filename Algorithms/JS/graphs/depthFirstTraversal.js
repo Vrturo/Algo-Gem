@@ -14,7 +14,7 @@
 // ------------ Constructors for Graph and Vertex ----------------------
 
 class Vertex {
-  constructor( val ){
+  constructor(val){
     this.value = val;
     this.edges = {};
   }
@@ -26,26 +26,30 @@ class Graph {
     this.totalEdges = 0;
   }
 
-  addVertex( val ){
-    if ( !this.vertices[val] ){
-      var vertex = new Vertex( val );
+  addVertex(val) {
+    if (!this.vertices[val]) {
+      const vertex = new Vertex(val);
       this.vertices[val] = vertex;
-      this.totalVertices++;
-    }
-    else {
+      this.totalVertices += 1;
+    } else {
       return 'val exists';
     }
   }
 
-  addEdge( valOne, valTwo ){
-      var vertOne = this.vertices[valOne],
-          vertTwo = this.vertices[valTwo];
+  addEdge(valOne, valTwo) {
+    if (this.vertices[valOne] && this.vertices[valTwo]) {
+      const vertOne = this.vertices[valOne];
+      const vertTwo = this.vertices[valTwo];
 
-      vertOne.edges[valTwo] = true;
-      vertTwo.edges[valOne] = true;
+      vertOne.edges[valTwo] = vertTwo;
+      vertTwo.edges[valOne] = vertOne;
 
-      this.totalEdges++;
-   }
+      this.totalEdges += 1;
+    } else {
+      return 'edges dont exist';
+    }
+  }
+
 }
 
 var g = new Graph;
@@ -81,6 +85,7 @@ g.addEdge(3, 3);
 
 // ------ end Classes -----------------------------
 
+// Solutions
 
 function DFT(graph){
   var visited = {},
