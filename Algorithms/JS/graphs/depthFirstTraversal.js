@@ -111,20 +111,32 @@ g.addEdge(1, 4);
 
 // Recursive Approach
 
-function recursiveDFT(graph){
+// create visited hash to store vertices visited
+// grab first vertex from graph to start traversal
+// create results array to return values in the end
+// create helper function that walks through graph with a current vertex as a parameter
+  // store current vertex value in visited hash
+  // push current vertex into result array
+  // loop through vurrent vertex edges
+    // if vertex hasnt been visited
+      // call walk function on next vertex
+// call walk on the first vertex to start our traversal
+// return result array with ordered vertices
+
+function recursiveDFT(graph) {
   const visited = {};
   const firstVertex = graph.vertices[0];
   const result = [];
 
-  function helper(v) {
+  function walk(v) {
     visited[v.value] = true;
     result.push(v.value);
     for (const k in v.edges) {
-      if (!visited[k]) helper(graph.vertices[k], visited);
+      if (!visited[k]) walk(graph.vertices[k]);
     }
   }
 
-  helper(firstVertex);
+  walk(firstVertex);
   return result;
 }
 
@@ -133,11 +145,11 @@ console.log(recursiveDFT(g));
 
 // Iterative Approach
 
-// create visited hash t ostore vertices we've visited
-// grab first vertex from graph to start our traversal
+// create visited hash to store vertices visited
+// grab first vertex from graph to start traversal
 // create a stack to push our vertices' edges
-// create a results array to return our values in the end
-// store first vertex value in visited array
+// create a results array to return values in the end
+// store first vertex value in visited hash
 // once visited, push into stack
 // create a while loop that breaks once stack is empty
   // pop last vertex in our stack and set is as current Vertex
