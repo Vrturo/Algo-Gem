@@ -19,6 +19,7 @@ class Vertex {
     this.edges = {};
   }
 }
+
 class Graph {
   constructor(){
     this.vertices = {};
@@ -132,14 +133,29 @@ console.log(recursiveDFT(g));
 
 // Iterative Approach
 
+// create visited hash t ostore vertices we've visited
+// grab first vertex from graph to start our traversal
+// create a stack to push our vertices' edges
+// create a results array to return our values in the end
+// store first vertex value in visited array
+// once visited, push into stack
+// create a while loop that breaks once stack is empty
+  // pop last vertex in our stack and set is as current Vertex
+  // push current vertex into result array
+  // loop through vurrent vertex edges
+    // if vertex hasnt been visited
+      // set vertex as visited
+      // push into stack
+// return result array with ordered vertices
+
 function iterativeDFT(graph) {
   const visited = {};
   const firstVertex = graph.vertices[0];
   const stack = [];
   const result = [];
 
-  stack.push(firstVertex);
   visited[firstVertex.value] = true;
+  stack.push(firstVertex);
 
   while (stack.length) {
     const currentV = stack.pop();
