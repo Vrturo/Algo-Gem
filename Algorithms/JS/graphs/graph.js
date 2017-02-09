@@ -1,97 +1,98 @@
 // add functions to a Graph class to return various representations of the same graph.
 // Your graph will have two different components: Nodes and Edges.
 
-
-var Vertex = function( val ){
-  this.value = val;
-  this.edges = {};
+class Vertex {
+  constructor(val) {
+    this.value = val;
+    this.edges = {};
+  }
 }
 
-var Graph = function(){
-  this.vertices = {};
-  this.totalVertices = 0;
-  this.totalEdges = 0;
-}
+class Graph {
+  constructor() {
+    this.vertices = {};
+    this.totalVertices = 0;
+    this.totalEdges = 0;
+  }
 
-Graph.prototype = {
-
-  addVertex: function( val ){
-    if ( !this.vertices[val] ){
-      var vertex = new Vertex( val );
-      this.vertices[ val ] = vertex;
-      this.totalVertices++;
-    }
-    else {
+  addVertex(val) {
+    if (!this.vertices[val]) {
+      const vertex = new Vertex(val);
+      this.vertices[val] = vertex;
+      this.totalVertices += 1;
+    } else {
       return 'val exists';
     }
-  },
+  }
 
-  getVertex: function( val ){
-    if ( this.vertices[val] ){
-      return this.vertices[val]
-    }
-    else {
-      return 'val not found';
-    }
-  },
+  getVertex(val) {
+    return this.vertices[val] ? this.vertices[val] : 'val not found';
+  }
 
-  removeVertex: function( val ){
-    var delVert = this.vertices[val],
-        delEdges = delVert.edges;
+  removeVertex(val) {
+    const delVert = this.vertices[val];
+    const delEdges = delVert.edges;
 
-    for ( var key in delEdges ){
-      removeEdge(key, val)
+    for (const key in delEdges) {
+      this.removeEdge(key, val);
     }
 
     delete this.vertices[val];
-    this.vertices--;
-  },
+    this.vertices -= 1;
+  }
 
-  addEdge: function( valOne, valTwo ){
-    var vertOne = this.vertices[valOne],
-        vertTwo = this.vertices[valTwo];
+  addEdge(valOne, valTwo) {
+    if (this.vertices[valOne] && this.vertices[valTwo]) {
+      const vertOne = this.vertices[valOne];
+      const vertTwo = this.vertices[valTwo];
 
-    vertOne.edges[valTwo] = true;
-    vertTwo.edges[valOne] = true;
+      vertOne.edges[valTwo] = vertTwo;
 
-    this.totalEdges++;
-   },
+      this.totalEdges += 1;
+    } else {
+      return 'values dont exist';
+    }
+  }
 
-  removeEdge: function(valOne, valTwo){
-    var vertOne = this.vertices[valOne],
-        vertTwo = this.vertices[valTwo];
-    'write error if not edges'
 
-    delete vertOne.edges;
-    delete vertTwo.edges;
+  removeEdge(valOne, valTwo) {
+    if (this.vertices[valOne] && this.vertices[valTwo]) {
+      const vertOne = this.vertices[valOne];
+      const vertTwo = this.vertices[valTwo];
 
-    this.edges--;
-  },
+      delete vertOne.edges;
+      delete vertTwo.edges;
 
-  findNeighbors: function(val){
-    var neighborsArr = [];
-    for(key in this.vertices[val].edges){
-      neighborsArr.push(key)
+      this.edges -= 1;
+    } else {
+      return 'values dont exist';
+    }
+  }
+
+  findNeighbors(val) {
+    const neighborsArr = [];
+    for (const key in this.vertices[val].edges) {
+      neighborsArr.push(key);
     }
     return neighborsArr;
-  },
+  }
 
-  forEachNode: function(cb){
-    var results = [];
-    for (val in this.vertices){
-      results.push(cb());
+  forEachNode(cb) {
+    const results = [];
+    for (const val in this.vertices) {
+      results.push(cb(this.verties[val]));
     }
     return results;
-   }
+  }
 
 }
 
-var graph = new Graph();
-var myVertices = ['A','B','C','D','E','F','G','H','I']; //{7}
-for( var i=0; i<myVertices.length; i++ ){ //{8}
-  graph.addVertex( myVertices[i] );
+const graph = new Graph();
+const myVertices = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'];
+for (let i = 0; i < myVertices.length; i += 1) {
+  graph.addVertex(myVertices[i]);
 }
-graph.addEdge('A', 'B'); //{9}
+graph.addEdge('A', 'B');
 graph.addEdge('A', 'C');
 graph.addEdge('A', 'D');
 graph.addEdge('C', 'D');
