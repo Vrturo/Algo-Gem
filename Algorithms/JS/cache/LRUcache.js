@@ -5,6 +5,26 @@
 // remove the least recently used item in your memory.
 
 
+class LRUcache {
+  constructor(memory) {
+    this.memory = memory;
+    this.size = 0;
+    this.cache = {};
+  }
+
+  get(key) {
+    if (this.cache[key]) {
+      return this.cache[key]
+    } else {
+      return -1;
+    }
+  }
+
+  put(key, val) {
+
+  }
+
+}
 
 
 
@@ -29,6 +49,8 @@
  *      |______| <= older.|______| <= older.|______| <= older.|______|
  *
  */
+
+
 var LRUCache = function(capacity){
   this.capacity = capacity
   this.length = 0
@@ -122,52 +144,55 @@ LRUCache.prototype.set = function(key,value){
 // O(n)
 
 // constructor
-var LRUCache = function(capacity){
-  // save all key-value pairs in this hashtable
-  this.bucket = {}
-  // save all keys in the stack with the order of last used time
-  this.keys = []
-  this.capacity = capacity
-  this.length = 0
-}
-
-LRUCache.prototype.updateKey = function(key){
-  // update the position of this key in keys
-  var keyIndex = this.keys.indexOf(key)
-  this.keys[keyIndex] = undefined
-  // update the key to the head of the stack
-  this.keys.push(key)
-}
-LRUCache.prototype.get = function(key){
-  if(this.bucket.hasOwnProperty(key)){
-    this.updateKey(key)
-    return this.bucket[key]
-  }else{
-    return -1
-  }
-}
-
-LRUCache.prototype.set = function(key,value){
-  if(this.capacity <= 0){console.log("no memory to save 1 item");return}
-  // update exist item
-  if(this.bucket.hasOwnProperty(key)){
-    this.bucket[key] = value
-    this.updateKey(key)
-    return
+class LRUCache {
+  constructor(capacity) {
+    // save all key-value pairs in this hashtable
+    this.cache = {};
+    // save all keys in the stack with the order of last used time
+    this.keys = [];
+    this.capacity = capacity;
+    this.size = 0;
   }
 
-  // if the bucket is fullfilled, remove the least recently used item
-  if(this.length >= this.capacity){
-    var dKey = this.keys.shift()
-    while(!dKey){
-      // if the dKey is undefined, shift() again
-      dKey = this.keys.shift()
+  updateKey(key) {
+    // update the position of this key in keys
+    const keyIndex = this.keys.indexOf(key);
+    this.keys[keyIndex] = undefined;
+    // update the key to the head of the stack
+    this.keys.push(key);
+  }
+
+  get(key) {
+    if (this.cache[key]) {
+      this.updateKey(key);
+      return this.cache[key];
+    } else {
+      return -1;
     }
-    delete this.bucket[dKey]
   }
 
-  // add new item and update the length
-  this.bucket[key] = value
-  this.keys.push(key)
-  this.length ++
+  set(key, value) {
+    if (this.capacity <= 0) return "no memory to save 1 item";
+    // update exist item
+    if (this.cache[key]) {
+      this.cache[key] = value;
+      this.updateKey(key);
+      return;
+    }
+
+    // if the cache is fullfilled, remove the least recently used item
+    if (this.size >= this.capacity) {
+      let removedKey = this.keys.shift();
+      while (!removedKey) {
+        // if the dKey is undefined, shift() again
+        removedKey = this.keys.shift();
+      }
+      delete this.cache[removedKey];
+    }
+
+    // add new item and update the size
+    this.cache[key] = value;
+    this.keys.push(key);
+    this.size += 1;
+  }
 }
