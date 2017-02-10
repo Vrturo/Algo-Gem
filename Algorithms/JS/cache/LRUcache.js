@@ -4,26 +4,83 @@
 // The basic idea is always put your items in order of used time, and when you insert new item into the fullfilled cache,
 // remove the least recently used item in your memory.
 
+// It should support the following operations: get and put.
 
-class LRUcache {
-  constructor(memory) {
-    this.memory = memory;
-    this.size = 0;
+// get(key) - Get the value (will always be positive) of the key if the key exists in the cache, otherwise return -1.
+// put(key, value) - Set or insert the value if the key is not already present.
+//                   When the cache reached its capacity, it should invalidate the least recently used item before inserting a new item.
+
+// Follow up:
+// Could you do both operations in O(1) time complexity?
+
+// Example:
+
+// LRUCache cache = new LRUCache( 2 /* capacity */ );
+
+// cache.put(1, 1);
+// cache.put(2, 2);
+// cache.get(1);       // returns 1
+// cache.put(3, 3);    // evicts key 2
+// cache.get(2);       // returns -1 (not found)
+// cache.put(4, 4);    // evicts key 1
+// cache.get(1);       // returns -1 (not found)
+// cache.get(3);       // returns 3
+// cache.get(4);       // returns 4
+
+// O(n)
+
+// constructor
+class LRUCache {
+  constructor(capacity) {
+    // save all key-value pairs in this hashtable
     this.cache = {};
+    // save all keys in the stack with the order of last used time
+    this.keys = [];
+    this.capacity = capacity;
+    this.size = 0;
+  }
+
+  updateKey(key) {
+    // update the position of this key in keys
+    const keyIndex = this.keys.indexOf(key);
+    this.keys[keyIndex] = undefined;
+    // update the key to the head of the stack
+    this.keys.push(key);
   }
 
   get(key) {
     if (this.cache[key]) {
-      return this.cache[key]
+      this.updateKey(key);
+      return this.cache[key];
     } else {
       return -1;
     }
   }
 
-  put(key, val) {
+  set(key, value) {
+    if (this.capacity <= 0) return "no memory to save 1 item";
+    // update exist item
+    if (this.cache[key]) {
+      this.cache[key] = value;
+      this.updateKey(key);
+      return;
+    }
 
+    // if the cache is fullfilled, remove the least recently used item
+    if (this.size >= this.capacity) {
+      let removedKey = this.keys.shift();
+      while (!removedKey) {
+        // if the dKey is undefined, shift() again
+        removedKey = this.keys.shift();
+      }
+      delete this.cache[removedKey];
+    }
+
+    // add new item and update the size
+    this.cache[key] = value;
+    this.keys.push(key);
+    this.size += 1;
   }
-
 }
 
 
@@ -138,61 +195,3 @@ LRUCache.prototype.set = function(key,value){
   this.length ++
 }
 
-
-
-
-// O(n)
-
-// constructor
-class LRUCache {
-  constructor(capacity) {
-    // save all key-value pairs in this hashtable
-    this.cache = {};
-    // save all keys in the stack with the order of last used time
-    this.keys = [];
-    this.capacity = capacity;
-    this.size = 0;
-  }
-
-  updateKey(key) {
-    // update the position of this key in keys
-    const keyIndex = this.keys.indexOf(key);
-    this.keys[keyIndex] = undefined;
-    // update the key to the head of the stack
-    this.keys.push(key);
-  }
-
-  get(key) {
-    if (this.cache[key]) {
-      this.updateKey(key);
-      return this.cache[key];
-    } else {
-      return -1;
-    }
-  }
-
-  set(key, value) {
-    if (this.capacity <= 0) return "no memory to save 1 item";
-    // update exist item
-    if (this.cache[key]) {
-      this.cache[key] = value;
-      this.updateKey(key);
-      return;
-    }
-
-    // if the cache is fullfilled, remove the least recently used item
-    if (this.size >= this.capacity) {
-      let removedKey = this.keys.shift();
-      while (!removedKey) {
-        // if the dKey is undefined, shift() again
-        removedKey = this.keys.shift();
-      }
-      delete this.cache[removedKey];
-    }
-
-    // add new item and update the size
-    this.cache[key] = value;
-    this.keys.push(key);
-    this.size += 1;
-  }
-}
