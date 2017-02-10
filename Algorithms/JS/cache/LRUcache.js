@@ -90,8 +90,7 @@ class LRUCache {
 // O(1)
 
 // If we reconstruct the LRUCache with a map and a bunch of nodes, we can implement the LRUCache with O(1).
-// (Since we need to get the value by key, so it has to be a hashtable)
-// Why? Since we can save the key and value in the node, and save all key-node pairs in the hashtable,
+// Since we can save the key and value in the node, and save all key-node pairs in the hashtable,
 // and now we can get the value by key using hashtable,
 // and we also have a list of nodes with order of last used time and the update on a linked list can be O(1).
 
@@ -182,3 +181,6 @@ class LRUCache {
     this.size += 1;
   }
 }
+
+
+// reference: http://taoalpha.github.io/blog/2015/11/02/tech-javascript-lru-cache/
