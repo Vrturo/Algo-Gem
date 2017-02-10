@@ -107,91 +107,78 @@ class LRUCache {
  *
  */
 
-
-var LRUCache = function(capacity){
-  this.capacity = capacity
-  this.length = 0
-  this.map = {}
-  // save the head and tail to can update easily
-  this.head = null
-  this.tail = null
-}
-
-LRUCache.prototype.node = function(key,value){
-  this.key = key
-  this.val = value
-  this.newer = null
-  this.older = null
-}
-
-LRUCache.prototype.get = function(key){
-  if(this.map.hasOwnProperty(key)){
-    this.updateKey(key)
-    return this.map[key].val
-  }else{
-    return -1
-  }
-}
-LRUCache.prototype.updateKey = function(key){
-  var node = this.map[key]
-  // break the chain and reconnect with newer and older
-  if(node.newer){
-    node.newer.older= node.older
-  }else{
-    this.head = node.older
-  }
-
-  if(node.older){
-    node.older.newer = node.newer
-  }else{
-    this.tail = node.newer
-  }
-
-  // replace the node into head - newest
-  node.older = this.head
-  node.newer = null
-  if(this.head){
-    this.head.newer = node
-  }
-  this.head = node
-
-  // if no items in the bucket, set the tail to node too.
-  if(!this.tail){
-    this.tail = node
+class Node {
+  constructor(key, value) {
+    this.k = key;
+    this.val = value;
+    this.newer = null;
+    this.older = null;
   }
 }
 
-LRUCache.prototype.set = function(key,value){
-  var node = new this.node(key,value)
-  // update the value for exist entries
-  if(this.map.hasOwnProperty(key)){
-    this.map[key].val = value
-    this.updateKey(key)
-    return
+class LRUCache {
+  constructor(capacity) {
+    this.capacity = capacity;
+    this.size = 0;
+    this.map = {};
+    // save the head and tail to can update easily
+    this.head = null;
+    this.tail = null;
   }
-  if(this.length >= this.capacity){
-    // remove the least recently used item
-    var dKey = this.tail.key
-    this.tail = this.tail.newer
-    if(this.tail){
-      this.tail.older = null
+
+
+  get(key) {
+    if (this.map[key]) {
+      this.updateKey(key);
+      return this.map[key].val;
+    } else {
+      return -1;
     }
-    delete this.map[dKey]
-    this.length --
   }
 
-  // insert node into the head
-  node.older = this.head
-  // if have head, we need re-connect node with other nodes older than head
-  if(this.head){
-    this.head.newer = node
+  updateKey(key) {
+    const node = this.map[key];
+    // break the chain and reconnect with newer and older
+    node.newer ? node.newer.older = node.older : this.head = node.older;
+
+    node.older ? node.older.newer = node.newer : this.tail = node.newer;
+
+    // replace the node into head - newest
+    node.older = this.head;
+    node.newer = null;
+    if (this.head) this.head.newer = node;
+    this.head = node
+
+    // if no items in the bucket, set the tail to node too.
+    if (!this.tail) this.tail = node;
   }
-  this.head = node
-  // if no tail which means first insert, set the tail to node too
-  if(!this.tail){
-    this.tail = node
+
+  put(key, value) {
+    const node = new Node(key,value);
+    // update the value for exist entries
+    if (this.map[key]) {
+      this.map[key].val = value;
+      this.updateKey(key);
+      return;
+    }
+    if (this.size >= this.capacity) {
+      // remove the least recently used item
+      const deletedKey = this.tail.key;
+      this.tail = this.tail.newer;
+      if (this.tail) this.tail.older = null;
+      delete this.map[deletedKey];
+      this.size -= 1;
+    }
+
+    // insert node into the head
+    node.older = this.head;
+    // if have head, we need re-connect node with other nodes older than head
+    if (this.head) this.head.newer = node;
+    this.head = node;
+
+    // if no tail which means first insert, set the tail to node too
+    if(!this.tail) this.tail = node;
+    this.map[key] = node;
+    this.size += 1;
   }
-  this.map[key] = node
-  this.length ++
 }
-
