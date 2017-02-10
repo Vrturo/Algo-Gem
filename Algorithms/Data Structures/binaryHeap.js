@@ -106,3 +106,7 @@ const arr = [10, 3, 4, 8, 2, 9, 7, 1, 2, 6, 5];
 while (arr.length) bHeap.push(arr.shift());
 bHeap.remove(2);
 while (bHeap.size() > 0) console.log(bHeap.pop());
+
+
+
+// reference: http://eloquentjavascript.net/1st_edition/appendix2.html
