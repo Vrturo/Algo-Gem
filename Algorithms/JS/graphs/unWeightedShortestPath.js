@@ -129,6 +129,77 @@ graph.addEdge('F', 'E');
 
 // SOLUTIONS
 
+// BFS Approach
+
+// Create a ‘distance’ hashtable.
+  // Store each vertex value as the key, and a distance of INFINITY
+  // Set the ‘start’ vertex value to 0
+// Create a ‘visited’ hashtable
+// Instantiate a queue and place the starting vertex in the queue
+// While there is something in the queue
+  // Dequeue the ‘current’ vertex and mark it as visited.
+  // For each edge, if the associated ‘neighbor’ has not been visited
+    // Update the neighbor’s ‘distance’ as the minimum of:
+      // the distance of ‘neighbor’
+      // the distance of the ‘current’ + 1
+    // Add the neighbor to the queue
+// Return the distance of ‘end’ vertex
+
+
+function shortestPath(graph, a, b) {
+  const distance = {};
+  const visited = {};
+  for (const key in graph.vertices) {
+    distance[key] = Number.MAX_VALUE;
+  }
+  distance[a.value] = 0;
+  const q = [a];
+  while (q.length) {
+    const currentV = q.shift();
+    visited[currentV.value] = true;
+    for (const key in currentV.edges) {
+      if (!visited[key]) {
+        distance[key] = Math.min(distance[key], distance[currentV.value] + 1);
+        q.push(currentV.edges[key]);
+      }
+    }
+  }
+  return distance[b.value];
+}
+
+// ------------------------------------------------------------------------------------------------
+
+// BFS approach
+  // store current vertex and steps in a tuple, in our q
+    // update steps in current stack
+    // update min when end vertex is reached IF NEEDED
+
+function shortestPathTwo(graph, a, b) {
+  const visited = {};
+  const q = [];
+  let min = Number.MAX_VALUE;
+  q.push([a, 0]);
+
+  while (q.length) {
+    let tuple = q.shift();
+    const currentV = tuple[0];
+    let steps = tuple[1];
+    visited[currentV.value] = true;
+
+    if (currentV.value === b.value) {
+      if (steps < min) min = steps;
+    }
+    for (const k in currentV.edges) {
+      if (!visited[k]) q.push([currentV.edges[k], steps + 1]);
+    }
+  }
+  return min;
+}
+
+// #BFS
+
+// --------------------------------------------------------------------------------------------------
+
 // Recursive Approach
   // walk through each edge of the starting vertex and its edges as well if needed
   // for every recursive call update steps by 1 for that stack
@@ -137,7 +208,7 @@ graph.addEdge('F', 'E');
   // only walk through edges if edge hasn't been visited
   // return min at the end
 
-function shortestPath(graph, a, b) {
+function shortestPathThree(graph, a, b) {
   let min = Number.MAX_VALUE;
   const visited = {};
 
@@ -165,7 +236,7 @@ function shortestPath(graph, a, b) {
   // only walk through edges if edge hasn't been visited AND steos is still less than current minimum number of steps reached
   // return min at the end
 
-function shortestPathTwo(graph, a, b) {
+function shortestPathFour(graph, a, b) {
   let min = Number.MAX_VALUE;
   const visited = {};
 
@@ -185,122 +256,6 @@ function shortestPathTwo(graph, a, b) {
 
 // ----------------------------------------------------
 
-// BFS approach
-  // store current vertex and steps in a tuple, in our q
-    // update steps in current stack
-    // update min when end vertex is reached IF NEEDED
-
-function shortestPathThree(graph, a, b) {
-  const visited = {};
-  const q = [];
-  let min = Number.MAX_VALUE;
-  q.push([a, 0]);
-
-  while (q.length) {
-    let tuple = q.shift();
-    const currentV = tuple[0];
-    let steps = tuple[1];
-    visited[currentV.value] = true;
-
-    if (currentV.value === b.value) {
-      if (steps < min) min = steps;
-    }
-    for (const k in currentV.edges) {
-      if (!visited[k]) q.push([currentV.edges[k], steps + 1]);
-    }
-  }
-  return min;
-}
-
-// #BFS
-
-// --------------------------------------------------------------------------------------------
-
-// BFS Approach
-
-// Create a ‘distance’ hashtable.
-  // Store each vertex value as the key, and a distance of INFINITY
-  // Set the ‘start’ vertex value to 0
-// Create a ‘visited’ hashtable
-// Instantiate a queue and place the starting vertex in the queue
-// While there is something in the queue
-  // Dequeue the ‘current’ vertex and mark it as visited.
-  // For each edge, if the associated ‘neighbor’ has not been visited
-    // Update the neighbor’s ‘distance’ as the minimum of:
-      // the distance of ‘neighbor’
-      // the distance of the ‘current’ + 1
-    // Add the neighbor to the queue
-// Return the distance of ‘end’ vertex
-
-
-function shortestPathFour(graph, a, b) {
-  const distance = {};
-  const visited = {};
-  for (const key in graph.vertices) {
-    distance[key] = Number.MAX_VALUE;
-  }
-  distance[a.value] = 0;
-  const q = [a];
-  while (q.length) {
-    const currentV = q.shift();
-    visited[currentV.value] = true;
-    for (const key in currentV.edges) {
-      if (!visited[key]) {
-        distance[key] = Math.min(distance[key], distance[currentV.value] + 1);
-        q.push(currentV.edges[key]);
-      }
-    }
-  }
-  return distance[b.value];
-}
-
-// ----------------------------------------------------------------------------------
-
-// Work in progress
-
-
-function shortestPathFive(graph, a, b) {
-  const distance = {};
-  const visited = {};
-  let pointer = 0;
-  distance[a.value] = 0;
-  visited[a.value] = true;
-  let toVisit = [a];
-  let val;
-
-  while (pointer < toVisit.length){
-    val = toVisit[pointer];
-    for (const edge in val.edges) {
-      if (!distance[edge]) distance[edge] = Number.MAX_VALUE;
-      if (!visited[edge]) {
-        visited[edge] = false;
-        toVisit.push(edge);
-      }
-    }
-    pointer += 1
-  }
-
-  pointer = 0
-  toVisit = [a]
-  let minDistance;
-  while (pointer < toVisit.length) {
-    val = toVisit[pointer];
-    for (const edge in val.edges) {
-      if (!visited[edge]) {
-        minDistance = Math.min(distance[edge], distance[val] + 1)
-        distance[edge] = minDistance;
-        visited[edge] = true;
-        toVisit.push(edge);
-      }
-      if (edge !== val){
-        minDistance = Math.min(distance[edge], distance[val] + 1);
-        distance[edge] = minDistance;
-      }
-    }
-    pointer += 1
-  }
-  return distance[b.value]
-}
 
 // function benchMark( g, a, b, results){
 //   var start = new Date();
@@ -312,4 +267,4 @@ function shortestPathFive(graph, a, b) {
 // console.time('bm');
 // console.log( benchMark( graph, graph.getVertex('A'), graph.getVertex('F')) );
 // console.timeEnd('bm');
-console.log( shortestPathFive( graph, graph.getVertex('A'), graph.getVertex('F')) );
+console.log( shortestPathFour( graph, graph.getVertex('A'), graph.getVertex('F')) );
