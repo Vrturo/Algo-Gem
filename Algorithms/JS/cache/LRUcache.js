@@ -27,10 +27,52 @@
 // cache.get(3);       // returns 3
 // cache.get(4);       // returns 4
 
-// O(n)
 
-// constructor
-class LRUCache {
+// SOLUTIONS --------------------------------------------------------
+
+// Hash / Stack of keys approach - Logic - O(n)
+
+// LRUCache constructor
+  // capacity - lets us know how many items we can have in our cache at a time
+  // cache - hash used to keep track of key value pairs
+  // keys - array that keeps track of existing keys in cache and keeps order
+  // size - integer used to keep track of the amount of keys that have gone through our cache
+  //        size property is made to let us know when capacity is met
+
+// updateKey function
+  // Everytime our LRUcache get() and put() functions are called we run updateKey
+  // updateKey takes in a key parameter
+  // with the key parameter we can find at what index our key is located in our keys property
+  // using the index location, the current location of key is set to undefined in keys array
+  // key is then pushed to the end of the keys array
+  // being at the end of keys array means it was the last key used
+
+// get function
+  // get function takes a key paramter and is intended to return the value of our key IF EXISTS
+  // if key exists in cache,
+    // call updateKey function on key to declare it the most recent used
+    // once key is updated, return value of key in cache
+  // if key doesnt not exist
+    // return -1
+
+// put function
+  // put function takes a key and value parameter and
+    // is intended to create a new key and value pair in cache, as well as delete oldest pair
+  // if key that's passed exists in cache
+    // set the parameter value as the value of the key in cache
+    // once value is stored, call updateKey function on key to declare it the most recent used
+    // we can now return out of the function because we dont need to create a new key
+  // if key that's passed DOES NOT exist in cache
+    // check to if capacity has been met
+      // if capacity has been met we can remove our oldest key by calling shift on keys array
+      // (last used key always gets pushed to tend of array so oldest key is in the front)
+        // if item returns undefined we keep shifting until we get a key
+      // once key is returned we use it to delete key and value pair from cache
+      // once key and value pair from cache are deleted we set new pair in cache
+      // push the newest key into key array
+      // increase size since key is new
+
+class LRUCacheOne {
   constructor(capacity) {
     // save all key-value pairs in this hashtable
     this.cache = {};
@@ -57,8 +99,7 @@ class LRUCache {
     }
   }
 
-  set(key, value) {
-    if (this.capacity <= 0) return "no memory to save 1 item";
+  put(key, value) {
     // update exist item
     if (this.cache[key]) {
       this.cache[key] = value;
@@ -71,11 +112,11 @@ class LRUCache {
       let removedKey = this.keys.shift();
       while (!removedKey) {
         // if the dKey is undefined, shift() again
+        // ex. [ undefined, undefined, undefined, 4, 3 ]
         removedKey = this.keys.shift();
       }
       delete this.cache[removedKey];
     }
-
     // add new item and update the size
     this.cache[key] = value;
     this.keys.push(key);
@@ -83,7 +124,25 @@ class LRUCache {
   }
 }
 
+const cache = new LRUCacheOne( 2 /* capacity */ );
 
+cache.put(1, 1);
+cache.put(2, 2);
+// cache.get(1);       // returns 1
+cache.put(3, 3);    // evicts key 2
+// cache.get(2);       // returns -1 (not found)
+cache.put(4, 4);    // evicts key 1
+// cache.put(4, 4);
+// cache.put(4, 4);
+cache.get(4);
+cache.put(4, 4);
+cache.put(4, 4);
+cache.put(4, 4);
+// cache.get(1);       // returns -1 (not found)
+// cache.get(3);       // returns 3
+// cache.get(4);       // returns 4
+
+console.log(cache);
 
 // Logic
 
