@@ -189,3 +189,49 @@
 
 // console.log(removeDuplicates([1,1,1,2]))
 
+
+// Work in progress
+
+
+function shortestPathFive(graph, a, b) {
+  const distance = {};
+  const visited = {};
+  let pointer = 0;
+  distance[a.value] = 0;
+  visited[a.value] = true;
+  let toVisit = [a];
+  let val;
+
+  while (pointer < toVisit.length){
+    val = toVisit[pointer];
+    for (const edge in val.edges) {
+      if (!distance[edge]) distance[edge] = Number.MAX_VALUE;
+      if (!visited[edge]) {
+        visited[edge] = false;
+        toVisit.push(edge);
+      }
+    }
+    pointer += 1
+  }
+
+  pointer = 0
+  toVisit = [a]
+  let minDistance;
+  while (pointer < toVisit.length) {
+    val = toVisit[pointer];
+    for (const edge in val.edges) {
+      if (!visited[edge]) {
+        minDistance = Math.min(distance[edge], distance[val] + 1)
+        distance[edge] = minDistance;
+        visited[edge] = true;
+        toVisit.push(edge);
+      }
+      if (edge !== val){
+        minDistance = Math.min(distance[edge], distance[val] + 1);
+        distance[edge] = minDistance;
+      }
+    }
+    pointer += 1
+  }
+  return distance[b.value]
+}
