@@ -8,3 +8,11 @@
 
 // Note: Do not use class member/global/static variables to store states. Your serialize and deserialize algorithms should be stateless.
 
+
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
+ * }
+ */
