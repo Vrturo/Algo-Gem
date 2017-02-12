@@ -34,7 +34,7 @@
 
 class Node {
   constructor(val) {
-    this.data = val;
+    this.value = val;
     this.next = null;
   }
 }
