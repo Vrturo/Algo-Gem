@@ -16,3 +16,74 @@
  *     this.left = this.right = null;
  * }
  */
+
+/**
+ * Encodes a tree to a single string.
+ *
+ * @param {TreeNode} root
+ * @return {string}
+ */
+var serialize = function(root) {
+    if (!root) return root;
+    let str = '';
+    const q = [];
+    q.push(root);
+
+    while (q.length) {
+        const node = q.shift();
+        if (node === '$') {
+            str += '$';
+        } else if(node === '#') { // leaf node
+            str += '#';
+        } else {
+            if (node.left || node.right) {
+                str += node.val;
+                node.left ? q.push(node.left) : q.push('$');
+                node.right ? q.push(node.right) : q.push('$');
+            } else {
+                str += node.val;
+                q.push('#')
+            }
+        }
+    }
+    return str;
+};
+
+/**
+ * Decodes your encoded data to tree.
+ *
+ * @param {string} data
+ * @return {TreeNode}
+ */
+var deserialize = function(data) {
+    console.log(data)
+    if (!data) return data;
+    data = data.split('');
+    const tree = new TreeNode(Number(data[0]));
+    const nodes = [tree];
+    let i = 1;
+    while (nodes.length) {
+        const node = nodes.shift();
+        if(node !== '#') {
+            let child;
+            child = new TreeNode(Number(data[i]));
+            if (child.val){
+                node.left = child;
+                nodes.push(child);
+            }
+            i += 1;
+            child = new TreeNode(Number(data[i]));
+            if (child.val){
+                node.right = child;
+                nodes.push(child);
+            }
+            i += 1;
+        }
+    }
+    return tree;
+};
+
+/**
+ * Your functions will be called as such:
+ * deserialize(serialize(root));
+ */
