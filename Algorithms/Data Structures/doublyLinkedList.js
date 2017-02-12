@@ -70,7 +70,7 @@ class DoublyLinkedList {
 
       while (current.next) {
         //case-3
-        if (current.value == val) {
+        if (current.value === val) {
           previous.next = current.next;
           break;
         }
