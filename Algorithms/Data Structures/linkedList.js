@@ -32,3 +32,38 @@
 
 //   2) Extra memory space for a pointer is required with each element of the list.
 
+class Node {
+  constructor(val) {
+    this.data = val;
+    this.next = null;
+  }
+}
+
+class LinkedList {
+  constructor() {
+    this.head = null;
+  }
+  push(val) {
+    const node = new Node(val);
+    if (!this.head) {
+      this.head = node;
+    } else {
+      let current = this.head;
+      while (current.next) {
+        current = current.next;
+      }
+      current.next = node;
+    }
+  }
+}
+
+var sll = new LinkedList();
+//push node
+sll.push(2);
+sll.push(3);
+sll.push(4);
+
+//check values by traversing LinkedList
+console.log(sll.head);
+console.log(sll.head.next);
+console.log(sll.head.next.next);
