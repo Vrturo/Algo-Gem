@@ -16,3 +16,19 @@
  * @param {ListNode} head
  * @return {boolean}
  */
+
+// does not work with negative integers
+var isPalindrome = function(head) {
+    if (head === null || head.next === null) return true;
+    var str = '',
+        revStr = '',
+        current = head;
+    while (current) {
+        str += current.val;
+        current = current.next;
+    }
+    for (var i = str.length - 1; i >= 0; i--) {
+        revStr += str[i];
+    }
+    return str === revStr;
+};
