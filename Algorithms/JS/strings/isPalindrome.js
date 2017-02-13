@@ -6,7 +6,6 @@
 // set a dictionary hash that gets checked, only if the index char of the str and the end pointer
 // match as part of the Dictionary
 
-
 function isPalindrome(str) {
   // Step 1. Lowercase the string and use the RegExp to remove unwanted characters from it
   var re = /[\W_]/g; // or var re = /[^A-Za-z0-9]/g;
@@ -29,37 +28,37 @@ function isPalindrome(str) {
 }
 
 
-function isPalindrome(str){
-  var dict = {
-    a: true,
-    b: true,
-    c: true,
-    d: true,
-    e: true,
-    ....
-    z: true.
-    A: true,
-    B: true,
-    C: true,
-    ....
-    Z: true
-  };
-  var len = str.length;
-  // str = str.toLowerCase(); // if uppercases are in the the hash no need to lowercase the string
-  var pointer = len-1
-  for(var i = 0; i < Math.floor(len/2); i++){
-      if (dict[str[i]] === true && dict[str[pointer]] === true){
-        if (str[i] !== str[pointer]){
-          return false;
-        };
-      }
-      else if(dict[str[pointer]] !== false){
-        pointer--;
-      }
-      pointer--;
-  }
-  return true;
-}
+// function isPalindrome(str){
+//   var dict = {
+//     a: true,
+//     b: true,
+//     c: true,
+//     d: true,
+//     e: true,
+//     ....
+//     z: true.
+//     A: true,
+//     B: true,
+//     C: true,
+//     ....
+//     Z: true
+//   };
+//   var len = str.length;
+//   // str = str.toLowerCase(); // if uppercases are in the the hash no need to lowercase the string
+//   var pointer = len-1
+//   for(var i = 0; i < Math.floor(len/2); i++){
+//       if (dict[str[i]] === true && dict[str[pointer]] === true){
+//         if (str[i] !== str[pointer]){
+//           return false;
+//         };
+//       }
+//       else if(dict[str[pointer]] !== false){
+//         pointer--;
+//       }
+//       pointer--;
+//   }
+//   return true;
+// }
 
 var isPalindrome = function(str) {
   var s = str.toUpperCase().replace(/[\W_]+/g,"");

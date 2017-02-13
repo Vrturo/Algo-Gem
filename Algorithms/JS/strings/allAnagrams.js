@@ -38,4 +38,4 @@ var allAnagramsRecursive = function(string){
   recurse([], split);
   return results;
 }
-
+allAnagramsRecursive('dad')
