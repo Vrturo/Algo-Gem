@@ -17,18 +17,34 @@
  * @return {boolean}
  */
 
-// does not work with negative integers
 var isPalindrome = function(head) {
-    if (head === null || head.next === null) return true;
-    var str = '',
-        revStr = '',
-        current = head;
-    while (current) {
-        str += current.val;
-        current = current.next;
+    let fast = head;
+    let slow = head;
+    while (fast !== null && fast.next !== null) {
+        fast = fast.next.next;
+        slow = slow.next;
     }
-    for (var i = str.length - 1; i >= 0; i--) {
-        revStr += str[i];
+    if (fast !== null) { // odd nodes: let right half smaller
+        slow = slow.next;
     }
-    return str === revStr;
+    slow = reverse(slow);
+    fast = head;
+
+    while (slow !== null) {
+        if (fast.val != slow.val) return false;
+        fast = fast.next;
+        slow = slow.next;
+    }
+    return true;
 };
+
+function reverse(head) {
+    let prev = null;
+    while (head !== null) {
+        const next = head.next;
+        head.next = prev;
+        prev = head;
+        head = next;
+    }
+    return prev;
+}
