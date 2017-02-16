@@ -1,53 +1,44 @@
-// Adjancey List constructor
+// Adjacency List constructor
 
 class Graph{
-  constructor(){
+  constructor() {
     this.vertices = {};
     this.totalVertices = 0;
     this.totalEdges = 0;
   }
 
-  addVertex(val){
-    if (!this.vertices[val]){ // no duplicates
+  addVertex(val) {
+    if (!this.vertices[val]) { // no duplicates
       this.vertices[val] = []; // storage
       this.totalVertices++;
     }
   }
 
-  removeVertex(val){
+  removeVertex(val) {
     delete this.vertices[val];
     this.totalVertices--;
   }
 
-  addEdge(valOne, valTwo){
+  addEdge(valOne, valTwo) {
     this.vertices[valOne].push(valTwo);
-    this.vertices[valTwo].push(valOne); //
+    this.vertices[valTwo].push(valOne);
 
     this.totalEdges++;
    }
 
-   removeEdge(valOne, valTwo){
-    this.vertices[valOne].splice( this.vertices[valOne].indexOf(valTwo), 1 );
-    this.vertices[valTwo].splice( this.vertices[valTwo].indexOf(valOne), 1 );
+   removeEdge(valOne, valTwo) {
+    this.vertices[valOne].splice(this.vertices[valOne].indexOf(valTwo), 1);
+    this.vertices[valTwo].splice(this.vertices[valTwo].indexOf(valOne), 1);
 
     this.totalEdges--;
   }
 
-  getVertex( val ){
-    if ( this.vertices[val] ){
-      return this.vertices[val]
-    }
-    else {
-      return 'val not found';
-    }
+  getVertex(val) {
+    return this.vertices[val] ? this.vertices[val] : 'val not found';
   }
 
-  getNeighbors(val){
-    if( this.vertices[val] ){
-      return this.vertices[val]
-    } else {
-      return 'val doesnt exist';
-    }
+  getNeighbors(val) {
+    return this.vertices[val] ? this.vertices[val] : 'val doesnt exist';
   }
 
 }
