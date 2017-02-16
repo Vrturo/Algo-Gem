@@ -36,47 +36,41 @@
  *
  *
  */
- var tasks = [
-    function cbOne(){
+ const tasks = [
+    function cbOne(resolve, reject){
       setTimeout(function(){
-         return 'one';
-        }, 300);
+          console.log('one');
+        }, resolve(), 300);
     },
-    function cbTwo(){
+    function cbTwo(resolve, reject){
       setTimeout(function(){
-         return 'Two';
-        }, 200);
+          console.log('Two');
+        }, resolve(), 200);
     },
-    function cbThree(){
+    function cbThree(resolve, reject){
       setTimeout(function(){
-         return 'Three';
-        }, 100);
+          console.log('Three');
+        }, resolve(), 100);
     }
-  ]
-  var print = function( fn ){
-     fn(); // ['one', 'two']
-  };
+]
 
-// var asyncMap = function( tasks, callback ){
-//   var results = [];
+// NOT DONE
 
-//   for( var i = 0; i < tasks.length; i++ ){
-//     results.push( callback( tasks[i] ) )();
-//   }
+function syncronizerInstance(arrayOfFunctions, startIndex) {
+  var index = startIndex || 0;
 
-// };
-var asyncMap = function(arr, cb){
+  function iterator() {
+    return new Promise(function(resolve, reject) {
+      arrayOfFunctions[index](resolve, reject);
+    })
+    .then(function(stuff) {
+      index += 1;
+      if (arrayOfFunctions[index]) iterator();
+    });
+  }
 
-  var results = [];
-  // if ( array.length === 0 ){
-  //   cb();
-  // }
-  // else{
-  //   array[0]();
-  // }
- for( var i = 0; i < arr.length; i++ ){
-    print(arr[i]);
- }
+  return iterator;
 };
 
-console.log( asyncMap(tasks, print) );
+syncronizerInstance(tasks, 0)
+
