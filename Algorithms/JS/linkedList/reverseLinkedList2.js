@@ -27,9 +27,25 @@
  */
 
 
+
+// create an array to store all values
+// start array with head's val
+// create a temp var to grab the next nodes val as we traverse
+// create a while loop that breaks when the last node in linked list has ben reached
+  // if there's a next node the loop will ocntinue
+  // reset current to the next node
+  // push val into our du array
+// once all nodes are in dup
+// we can now return all items in array with subsets of dup
+// slice from the beginning to the start index to create the first subset
+// slice from the start to end point, then reverse subset to fill the middle
+// slice from end point and on to create last endpoint
+// concat all together adn return the new array
+
+
 const reverseBetween = function rev(head, m, n) {
-  let current = head;
   const dup = [head.val];
+  let current = head;
   while (current.next) {
     current = current.next;
     dup.push(current.val);
