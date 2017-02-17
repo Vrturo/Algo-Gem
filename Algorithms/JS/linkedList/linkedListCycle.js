@@ -30,8 +30,8 @@
 
 const hasCycle = function cycle(head) {
   if (head === null) return false; // list does not exist..so no loop either.
-  let slow = fast;
-  let fast = head; // create two references to the start of the list.
+  let fast;
+  let slow = fast = head; // create two references to the start of the list.
 
   while (true) {
     slow = slow.next;          // 1 hop.
@@ -39,8 +39,8 @@ const hasCycle = function cycle(head) {
       fast = fast.next.next; // 2 hops.
     } else {
       return false;          // next node null => no loop.
-   };
-   if (slow === null || fast === null) return false; // if either hits null..no loop.
-   if (slow === fast) return true; // if the two ever meet...we must have a loop.
+    }
+    if (slow === null || fast === null) return false; // if either hits null..no loop.
+    if (slow === fast) return true; // if the two ever meet...we must have a loop.
   }
 };
