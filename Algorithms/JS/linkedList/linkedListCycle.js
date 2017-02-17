@@ -28,18 +28,19 @@
 // If the linked list has a loop they will definitely meet.
 // Else either of the two references(or their next) will become null.
 
-var hasCycle = function(head) {
-    if( head === null) return false; // list does not exist..so no loop either.
-    var slow = fast = head; // create two references to the start of the list.
+const hasCycle = function cycle(head) {
+  if (head === null) return false; // list does not exist..so no loop either.
+  let slow = fast;
+  let fast = head; // create two references to the start of the list.
 
-     while(true) {
-        slow = slow.next;          // 1 hop.
-        if( fast.next !== null ){
-            fast = fast.next.next; // 2 hops.
-        }else{
-            return false;          // next node null => no loop.
-        };
-        if( slow === null || fast === null ) return false; // if either hits null..no loop.
-        if( slow === fast ) return true; // if the two ever meet...we must have a loop.
-    }
+  while (true) {
+    slow = slow.next;          // 1 hop.
+    if (fast.next !== null) {
+      fast = fast.next.next; // 2 hops.
+    } else {
+      return false;          // next node null => no loop.
+   };
+   if (slow === null || fast === null) return false; // if either hits null..no loop.
+   if (slow === fast) return true; // if the two ever meet...we must have a loop.
+  }
 };
