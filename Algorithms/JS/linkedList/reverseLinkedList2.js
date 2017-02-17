@@ -27,3 +27,12 @@ Given m, n satisfy the following condition:
  */
 
 
+var reverseBetween = function(head, m, n) {
+    let current = head;
+    const dup = [head.val];
+    while (current.next) {
+        current = current.next;
+        dup.push(current.val);
+    }
+    return dup.slice(0, m - 1).concat(dup.slice(m - 1, n).reverse(), dup.slice(n));
+};
