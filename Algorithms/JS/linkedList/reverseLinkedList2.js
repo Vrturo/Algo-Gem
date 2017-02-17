@@ -11,5 +11,12 @@ Note:
 Given m, n satisfy the following condition:
 1 ≤ m ≤ n ≤ length of list.
 
-Show Tags
-Show Similar Problems
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val) {
+ *     this.val = val;
+ *     this.next = null;
+ * }
+ */
+
+
