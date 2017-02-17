@@ -25,10 +25,10 @@
 
 // Operations on Min Heap:
 
-// 1) getMini():
+// 1) getMin():
 //   It returns the root element of Min Heap. Time Complexity of this operation is O(1).
 
-// 2) extractMin():
+// 2) popMin():
 //   Removes the minimum element from Min Heap.
 //   Time Complexity of this Operation is O(Logn) as this operation needs
 //   to maintain the heap property (by calling heapify()) after removing root.
@@ -49,53 +49,62 @@
 
 
 class minHeap {
-  constructor() {
+  constructor(arr) {
     this.heap = [];
+    if (arr) arr.forEach(this.insert.bind(this));
   }
 
-  insertKey(k) {
-    heappush(self.heap, k);
-  }
-
-  decreaseKey(i, newVal) {
-    this.heap[i] = new_val
-    while (i !== 0 && this.heap[this.parent(i)] > this.heap[i]) {
-        // Swap heap[i] with heap[parent(i)]
-        let temp = this.heap[i];
-        // this.heap[this.parent(i)] = this.heap[this.parent(i)]
-        // this.heap[i] =
-
-    }
-  }
-  // fn to remove minium element from min heap
-  extractMin() {
-    return heappop(this.heap);
-  }
-
-  // This functon deletes key at index i.
-  // It first reduces value to minus infinite and then calls extractMin()
-  deleteKey(i) {
-    this.decreaseKey(i, Number.MAX_VALUE * -1);
-    this.extractMin();
+  insert(node) {
+    this.bubbleUp(this.heap.push(node) - 1); // this.heap.push(node) returns arr size
   }
 
   getMin() {
     return this.heap[0];
   }
 
+  popMin() {
+    const topVal = this.heap[1];
+    this.heap[1] = this.heap.pop();
+    this.bubbleDown(1);
+    return topVal;
+  }
 
+  bubbleUp(i) {
+    const parentIndex = Math.floor(i/2);
+    if (this.heap[parentIndex] > this.heap[i]) {
+      this.swap(i, parentIndex);
+      this.bubbleUp(parentIndex);
+    }
+  }
+
+  bubbleDown(i) {
+    const leftLesser = this.heap[i*2] < this.heap[i*2 +1];
+    const childIndex = leftLesser ? i*2 : i*2 +1;
+
+    if (this.heap[childIndex] < this.heap[i]) {
+      this.swap(i, childIndex);
+      this.bubbleDown(i);
+    }
+  }
+
+  swap(i, j) {
+    if (j < 0) j += this.heap.length;
+    this.heap[i] ^= this.heap[j];
+    this.heap[j] ^= this.heap[i];
+    this.heap[i] ^= this.heap[j];
+  }
 }
 
-const heapObj = new minHeap();
-heapObj.insertKey(3);
-heapObj.insertKey(2);
-heapObj.deleteKey(1);
-heapObj.insertKey(15);
-heapObj.insertKey(5);
-heapObj.insertKey(4);
-heapObj.insertKey(45);
+// -----------------------------------------------------------------
 
-console.log(heapObj.extractMin(), heapObj.getMin(), heapObj.decreaseKey(2, 1));
-console.log(heapObj.getMin());
+//var heap = new Heap([9,1,5,8,5,7,0]);
+var heap = new minHeap([2,3,1,5,9,1]);
+console.log(heap.heap);
+
+heap.popMin();
+console.log(heap.heap);
+
+heap.insert(0);
+console.log(heap.heap);
 
 
