@@ -15,6 +15,16 @@
  * @return {number}
  */
 
+
+// Stack Approach
+
+// create two variables that will be used as pointers for order of subtraction and division
+// create empty stack to start out
+// loop through tokens
+  // Add every token as an integer in the stack, unless it's an operation.
+  // if element is an operation, pop two elements from the stack and then save the result back to it.
+// After all operations are done through, the remaining element in the stack will be the result.
+
 const evalRPN = function rpn(tokens) {
   let a;
   let b;
