@@ -37,7 +37,7 @@ const evalRPN = function rpn(tokens) {
       a = stack.pop();
       stack.push(Math.floor(a / b));
     } else if (tokens[i] === '*') {
-      stack.push((stack.pop() * stack.pop()));
+      stack.push(stack.pop() * stack.pop());
     } else if (tokens[i] === '-') {
       b = stack.pop();
       a = stack.pop();
