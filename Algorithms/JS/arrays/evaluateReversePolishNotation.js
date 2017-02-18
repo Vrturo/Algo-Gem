@@ -53,3 +53,59 @@ const evalRPN = function rpn(tokens) {
 
 const test = ['2', '3', '+', '4', '5', '+', '+', '6', '7', '+', '*', '2', '*'];
 console.log(evalRPN(test));
+
+
+// ----------------------------------------------------------------------
+
+ // DOES NOT WORK FOR BACK TO BACK SINGLE OPERATORS
+
+function evalRPN(A){
+  const stack = [];
+  let result = 0;
+  let one;
+  let two;
+  let count = 0;
+  for (var i = 0; i < A.length; i += 1) {
+      if (A[i] === '+') {
+          two = stack.pop();
+          if (count <= 1) {
+              result += two;
+          } else {
+              one = stack.pop();
+              result += one + two;
+          }
+          count = 0;
+      } else if (A[i] === '-') {
+          two = stack.pop();
+          if (count < 2) {
+              result -= two
+          } else {
+              one = stack.pop();
+              result += (one - two);
+          }
+          count = 0;
+      } else if (A[i] === '*') {
+          two = stack.pop();
+          if (count < 2) {
+              result *= two;
+         } else {
+              one = stack.pop();
+              result += (one * two);
+          }
+          count = 0;
+      } else if (A[i] === '/') {
+          two = stack.pop();
+          if (count < 2) {
+              result = Math.floor(result / two);
+          } else {
+              one = stack.pop();
+              result += Math.floor(one / two);
+          }
+          count = 0;
+      } else {
+          stack.push(Number(A[i]))
+          count += 1;
+      }
+  }
+  return result;
+}
