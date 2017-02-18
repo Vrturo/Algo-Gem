@@ -16,3 +16,7 @@ Can you solve it without using extra space?
  */
 
 
+/**
+ * @param {ListNode} head
+ * @return {ListNode}
+ */
