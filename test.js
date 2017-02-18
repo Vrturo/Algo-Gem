@@ -236,6 +236,29 @@
 //   return distance[b.value]
 // }
 
-var a = [2, 9, 9];
-a.indexOf(2); // 0
-a.indexOf(7); // -1
+var test = [ "2", "3", "+", "4", "5", "+", "+", "6", "7", "+", "*", "2", "*" ]
+
+function evalRPN(tokens) {
+    var a, b;
+    var stack = [];
+    for (var i = 0; i < tokens.length; i += 1) {
+        if (tokens[i] === '+') {
+            stack.push(stack.pop() + stack.pop());
+        } else if (tokens[i] === '/') {
+            b = stack.pop();
+            a = stack.pop();
+            stack.push(Math.floor(a / b));
+        } else if(tokens[i] === '*') {
+            stack.push((stack.pop() * stack.pop()));
+        } else if(tokens[i] === '-') {
+            b = stack.pop();
+            a = stack.pop();
+            stack.push(a - b);
+        } else {
+            stack.push(Number(tokens[i]));
+        }
+    }
+    return stack.pop();
+}
+
+console.log(evalRPN(test))
