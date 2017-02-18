@@ -49,5 +49,7 @@ const evalRPN = function rpn(tokens) {
   return stack.pop();
 };
 
+// #stack // #reversePolishNotation
+
 const test = ['2', '3', '+', '4', '5', '+', '+', '6', '7', '+', '*', '2', '*'];
 console.log(evalRPN(test));
