@@ -10,6 +10,11 @@
 //   ["4", "13", "5", "/", "+"] -> (4 + (13 / 5)) -> 6
 // [ "2", "3", "+", "4", "5", "+", "+", "6", "7", "+", "*", "2", "*" ] ->  (((2 + 3) + (4 + 5)) * (6 + 7)) * 2 -> 364
 
+/**
+ * @param {array of strings []} tokens
+ * @return {number}
+ */
+
 const evalRPN = function rpn(tokens) {
   let a;
   let b;
