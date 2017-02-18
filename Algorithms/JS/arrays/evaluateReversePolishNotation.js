@@ -26,9 +26,9 @@ const evalRPN = function rpn(tokens) {
       b = stack.pop();
       a = stack.pop();
       stack.push(Math.floor(a / b));
-    } else if(tokens[i] === '*') {
+    } else if (tokens[i] === '*') {
       stack.push((stack.pop() * stack.pop()));
-    } else if(tokens[i] === '-') {
+    } else if (tokens[i] === '-') {
       b = stack.pop();
       a = stack.pop();
       stack.push(a - b);
@@ -38,3 +38,6 @@ const evalRPN = function rpn(tokens) {
   }
   return stack.pop();
 };
+
+const test = ['2', '3', '+', '4', '5', '+', '+', '6', '7', '+', '*', '2', '*'];
+console.log(evalRPN(test));
