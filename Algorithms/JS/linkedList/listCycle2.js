@@ -1,11 +1,11 @@
- Linked List Cycle II
+//  Linked List Cycle II
 
-Given a linked list, return the node where the cycle begins. If there is no cycle, return null.
+// Given a linked list, return the node where the cycle begins. If there is no cycle, return null.
 
-Note: Do not modify the linked list.
+// Note: Do not modify the linked list.
 
-Follow up:
-Can you solve it without using extra space?
+// Follow up:
+// Can you solve it without using extra space?
 
 /**
  * Definition for singly-linked list.
@@ -21,22 +21,22 @@ Can you solve it without using extra space?
  * @return {ListNode}
  */
 
-var detectCycle = function(head) {
-    let slow = head;
-    let fast = head;
+const detectCycle = function cycle(head) {
+  let slow = head;
+  let fast = head;
 
-    while (fast !== null && fast.next !== null){
-        fast = fast.next.next;
+  while (fast !== null && fast.next !== null) {
+    fast = fast.next.next;
+    slow = slow.next;
+
+    if (fast === slow) {
+      let slow2 = head;
+      while (slow2 !== slow) {
         slow = slow.next;
-
-        if (fast === slow){
-            let slow2 = head;
-            while (slow2 != slow){
-                slow = slow.next;
-                slow2 = slow2.next;
-            }
-            return slow;
-        }
+        slow2 = slow2.next;
+      }
+      return slow;
     }
-    return null;
+  }
+  return null;
 };
