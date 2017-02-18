@@ -16,23 +16,23 @@
 
 
 function braces(A) {
-    var count = 0;
-    var stack = [],
-        last;
-      for (var i = 0; i < A.length; i += 1) {
-          if (A[i] === ')') {
-              last = stack.pop();
-              console.log(stack)
-              while (last !== '(' && stack.length) {
-                  last = stack.pop();
-                  count += 1;
-              }
-              if (count < 2) return 1;
-          } else {
-              stack.push(A[i]);
-          }
+  const stack = [];
+  let count = 0;
+  let last;
+  for (var i = 0; i < A.length; i += 1) {
+    if (A[i] === ')') {
+      last = stack.pop();
+      while (last !== '(' && stack.length) {
+        last = stack.pop();
+        count += 1;
       }
-      return 0;
+      if (count < 2) return false;
+    } else {
+      stack.push(A[i]);
+    }
+  }
+  return true;
 }
+
 var test = "((a+b))";
 console.log(braces(test))
