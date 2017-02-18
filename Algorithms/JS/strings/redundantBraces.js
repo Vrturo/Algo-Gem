@@ -11,3 +11,5 @@
 // ((a + b)) has redundant braces so answer will be true
 // (a + (a + b)) doesn't have have any redundant braces so answer will be false
 
+// param A : string
+// return an integer
