@@ -36,3 +36,17 @@
  */
 
 
+var nextGreaterElement = function(findNums, nums) {
+    const map = {};
+    const stack = [];
+    for (let i = 0; i < nums.length; i += 1) {
+        while (stack.length && stack[stack.length - 1] < nums[i]) {
+            map[stack.pop()] = nums[i];
+        }
+        stack.push(nums[i]);
+    }
+    for (let j = 0; j < findNums.length; j += 1){
+        map[findNums[j]] ? findNums[j] = map[findNums[j]] : findNums[j] = -1;
+    }
+    return findNums;
+};
