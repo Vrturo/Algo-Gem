@@ -48,7 +48,7 @@ console.log(braces(test))
 
 // ----------------------------------------------------
 
-function braces(A) {
+function bracesTwo(A) {
   var a = A.length;
   var x = 0,
       y = 0,
@@ -73,11 +73,11 @@ function braces(A) {
           }
         }
       }
-      if (!present) return 1;
+      if (!present) return false;
     }
   }
-  return 0;
+  return true;
 }
 
-var test = "((a+b))";
-console.log(braces(test))
+test = "(a+b))";
+console.log(bracesTwo(test))
