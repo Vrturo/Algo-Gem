@@ -28,3 +28,11 @@
 // Note:
 // All elements in nums1 and nums2 are unique.
 // The length of both nums1 and nums2 would not exceed 1000.
+
+/**
+ * @param {array[]} findNums
+ * @param {array[]} nums
+ * @return {array[]}
+ */
+
+
