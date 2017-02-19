@@ -45,3 +45,39 @@ function braces(A) {
 
 var test = "((a+b))";
 console.log(braces(test))
+
+// ----------------------------------------------------
+
+function braces(A) {
+  var a = A.length;
+  var x = 0,
+      y = 0,
+      present = false;
+  var hasChar = false,
+      stackArr = [],
+      correct = [],
+      indexArr = [];
+  for (var i = 0; i < a; i += 1) {
+    if (A[i]=='(') {
+      stackArr.push(1);
+      correct.push(i);
+    }
+    if (A[i] === ')') {
+      present = false;
+      y = correct.pop();
+      for (x = y; x < i; x += 1) {
+        if (A[x] === "+" || A[x] === "-" || A[x] === "*" || A[x] === "/") {
+          if (indexArr.indexOf(x) === -1) {
+            present = true;
+            indexArr.push(x);
+          }
+        }
+      }
+      if (!present) return 1;
+    }
+  }
+  return 0;
+}
+
+var test = "((a+b))";
+console.log(braces(test))
