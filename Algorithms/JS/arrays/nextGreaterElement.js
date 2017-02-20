@@ -35,6 +35,14 @@
  * @return {array[]}
  */
 
+// Key observation:
+// Suppose we have a decreasing sequence followed by a greater number
+// For example [5, 4, 3, 2, 1, 6] then the greater number 6 is the next greater element for all previous numbers in the sequence
+
+// We use a stack to keep a decreasing sub-sequence, whenever we see a number x greater than stack.peek() we pop all elements less than x and for all the popped ones,
+// their next greater element is x
+// For example [9, 8, 7, 3, 2, 1, 6]
+// The stack will first contain [9, 8, 7, 3, 2, 1] and then we see 6 which is greater than 1 so we pop 1 2 3 whose next greater element should be 6
 
 var nextGreaterElement = function(findNums, nums) {
     const map = {};
@@ -45,8 +53,13 @@ var nextGreaterElement = function(findNums, nums) {
         }
         stack.push(nums[i]);
     }
+    console.log(stack)
     for (let j = 0; j < findNums.length; j += 1){
         map[findNums[j]] ? findNums[j] = map[findNums[j]] : findNums[j] = -1;
     }
     return findNums;
 };
+var a = [4,1,2]
+var b = [1,3,4,2]
+
+console.log(nextGreaterElement(a, b))

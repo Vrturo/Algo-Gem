@@ -235,6 +235,6 @@
 //   }
 //   return distance[b.value]
 // }
-
-
+var password = 'this';
+console.log(password === 'that')
 
