@@ -22,3 +22,17 @@
  * @param {array[]} nums
  * @return {array[]}
  */
+
+var nextGreaterElements = function(nums) {
+    const len = nums.length;
+    const next = Array(len).fill(-1);
+    const stack = [];
+    for (let i = 0; i < len * 2; i += 1) {
+        let num = nums[i % len];
+        while (stack.length && nums[stack[stack.length - 1]] < num) {
+            next[stack.pop()] = num;
+        }
+        if (i < len) stack.push(i);
+    }
+    return next;
+};
