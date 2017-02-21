@@ -21,4 +21,7 @@
 var wordLadder = function(beginWord, endWord, wordList) {
 
 };
+
+
+
 console.log( wordLadder( "hit", "cog", ["hot","dot","dog","lot","log"] ) );

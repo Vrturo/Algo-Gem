@@ -58,7 +58,7 @@ var nextGreaterElement = function(findNums, nums) {
         map[findNums[j]] ? findNums[j] = map[findNums[j]] : findNums[j] = -1;
     }
     return findNums;
-};
+};I
 var a = [4,1,2]
 var b = [1,3,4,2]
 
