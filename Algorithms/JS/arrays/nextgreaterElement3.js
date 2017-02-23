@@ -19,3 +19,20 @@
 
 // Input : A : [3, 2, 1]
 // Output : [-1, -1, -1]
+
+
+var nextGreater = function nG(nums){
+  var next = [];
+  for (var i = 0; i < nums.length; i += 1) {
+    next[i] = -1;
+  }
+  for (var i = 0; i < nums.length; i += 1) {
+    for(var j = i+1; j < nums.length; j += 1) {
+      if(nums[j] > nums[i]){
+        next[i] = nums[j];
+        break;
+      }
+    }
+  }
+  return next;
+}
