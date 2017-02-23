@@ -235,6 +235,18 @@
 //   }
 //   return distance[b.value]
 // }
-var password = 'this';
-console.log(password === 'that')
+function nextGreater(nums){
+      var map = {};
+      for (var i = 0; i < nums.length; i += 1) {
+        map[i] = -1;
+        for(var j = i+1; j < nums.length; j += 1) {
+            if(nums[j] > nums[i]){
+                nums[i] = nums[j];
+                break;
+            }
+        }
+      }
+      return nums.length > 2 ? nums : -1;
+    }
+console.log(nextGreater([1]))
 
