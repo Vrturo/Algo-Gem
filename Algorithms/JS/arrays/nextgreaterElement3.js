@@ -21,8 +21,14 @@
 // Output : [-1, -1, -1]
 
 
+// create an empty array that sets the default value as -1 incase no element is larger
+// loop through the arr and only check the elements to the right
+  // keep checking elements if they are greater
+    // if an element is greater set is as the next element in next array
+    // make sure to break array because next greater element is found
+// return final next array at the end
 
-const nextGreater = function nG(nums){
+const nextGreater = function nG(nums) {
   const next = [];
   for (let i = 0; i < nums.length; i += 1) {
     next[i] = -1;
