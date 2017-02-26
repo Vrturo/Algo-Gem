@@ -44,7 +44,7 @@ var permute = function(nums) { // 144ms runtime
 
 
 // ------------------------------------
-// Backtracking
+// Backtracking w/ side effects
 
 var permute = function( nums, l=0, result=[] ){ // 122ms runtime
     if( l >= nums.length ){
@@ -64,6 +64,32 @@ var permute = function( nums, l=0, result=[] ){ // 122ms runtime
     return result;
 };
 console.log(perme)
+
+//-----------------------------------------------------------
+// Backtracking w/ helper function
+
+function permute(nums) {
+
+      function helper(l, result) {
+          if (l >= nums.length) {
+                var arr = nums.slice();
+                result.push( arr );
+            } else {
+                for (var i = l; i < nums.length; i += 1) {
+                    var temp = nums[l];
+                    nums[l] = nums[i];
+                    nums[i] = temp;
+                    permute(l+1, result);
+                    temp = nums[l];
+                    nums[l] = nums[i];
+                    nums[i] = temp;
+                }
+            }
+      }
+      var arr = [];
+      helper(0, arr)
+        return arr;
+  }
 
 // ----------------------------------------------------------
 

@@ -235,18 +235,43 @@
 //   }
 //   return distance[b.value]
 // }
-function nextGreater(nums){
-      var map = {};
-      for (var i = 0; i < nums.length; i += 1) {
-        map[i] = -1;
-        for(var j = i+1; j < nums.length; j += 1) {
-            if(nums[j] > nums[i]){
-                nums[i] = nums[j];
-                break;
+subsets : function(nums){
+        var solution = [],
+            result = [],
+            used = [];
+
+        var backTracking = function(k, n) {
+            if (k === n) {
+                return result.push(solution.slice(0));
+            } else {
+              for (var i = 0; i < nums.length; i += 1) {
+                if (used[i]) continue;
+                if (k > 0 && solution[k - 1] > nums[i]) continue;
+                used[i] = true;
+                solution[k] = nums[i];
+                backTracking(k + 1, n);
+                used[i] = false;
+              }
             }
+        };
+
+        for (var i = 0; i <= nums.length; i += 1) {
+            backTracking(0, i);
         }
-      }
-      return nums.length > 2 ? nums : -1;
+
+        function lexSort(a, b, i) {
+            if(a[i] && b[i]) {
+                if(a[i] === b[i]) {
+                    lexSort(a, b, i + 1)
+                } else {
+                    return a[i] - b[i];
+                }
+            } else {
+                return a[i] - b[i];
+            }
+        };
+        return result.sort(function(a, b){
+            lexSort(a, b, 0);
+        });
     }
-console.log(nextGreater([1]))
 
