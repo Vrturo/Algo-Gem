@@ -70,26 +70,26 @@ console.log(perme)
 
 function permute(nums) {
 
-      function helper(l, result) {
-          if (l >= nums.length) {
-                var arr = nums.slice();
-                result.push( arr );
-            } else {
-                for (var i = l; i < nums.length; i += 1) {
-                    var temp = nums[l];
-                    nums[l] = nums[i];
-                    nums[i] = temp;
-                    permute(l+1, result);
-                    temp = nums[l];
-                    nums[l] = nums[i];
-                    nums[i] = temp;
-                }
-            }
+  function helper(l, result) {
+    if (l >= nums.length) {
+      var arr = nums.slice();
+      result.push( arr );
+    } else {
+      for (var i = l; i < nums.length; i += 1) {
+        var temp = nums[l];
+        nums[l] = nums[i];
+        nums[i] = temp;
+        permute(l+1, result);
+        temp = nums[l];
+        nums[l] = nums[i];
+        nums[i] = temp;
       }
-      var arr = [];
-      helper(0, arr)
-        return arr;
+    }
   }
+  var arr = [];
+  helper(0, arr)
+  return arr;
+}
 
 // ----------------------------------------------------------
 
