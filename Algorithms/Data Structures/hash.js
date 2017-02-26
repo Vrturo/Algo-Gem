@@ -12,3 +12,12 @@
 // This so-called hash code (or simply hash) can then be used as a way to narrow down our search when looking
 // for the item in the map.
 
+class Hash {
+  constructor() {
+    this.keys = [];
+    this.values = [];
+    this.length = 0;
+  }
+
+
+}
