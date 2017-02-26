@@ -235,43 +235,71 @@
 //   }
 //   return distance[b.value]
 // }
-subsets : function(nums){
-        var solution = [],
-            result = [],
-            used = [];
+// subsets : function(nums){
+//         var solution = [],
+//             result = [],
+//             used = [];
 
-        var backTracking = function(k, n) {
-            if (k === n) {
-                return result.push(solution.slice(0));
-            } else {
-              for (var i = 0; i < nums.length; i += 1) {
-                if (used[i]) continue;
-                if (k > 0 && solution[k - 1] > nums[i]) continue;
-                used[i] = true;
-                solution[k] = nums[i];
-                backTracking(k + 1, n);
-                used[i] = false;
-              }
-            }
-        };
+//         var backTracking = function(k, n) {
+//             if (k === n) {
+//                 return result.push(solution.slice(0));
+//             } else {
+//               for (var i = 0; i < nums.length; i += 1) {
+//                 if (used[i]) continue;
+//                 if (k > 0 && solution[k - 1] > nums[i]) continue;
+//                 used[i] = true;
+//                 solution[k] = nums[i];
+//                 backTracking(k + 1, n);
+//                 used[i] = false;
+//               }
+//             }
+//         };
 
-        for (var i = 0; i <= nums.length; i += 1) {
-            backTracking(0, i);
-        }
+//         for (var i = 0; i <= nums.length; i += 1) {
+//             backTracking(0, i);
+//         }
 
-        function lexSort(a, b, i) {
-            if(a[i] && b[i]) {
-                if(a[i] === b[i]) {
-                    lexSort(a, b, i + 1)
-                } else {
-                    return a[i] - b[i];
-                }
-            } else {
-                return a[i] - b[i];
-            }
-        };
-        return result.sort(function(a, b){
-            lexSort(a, b, 0);
-        });
+//         function lexSort(a, b, i) {
+//             if(a[i] && b[i]) {
+//                 if(a[i] === b[i]) {
+//                     lexSort(a, b, i + 1)
+//                 } else {
+//                     return a[i] - b[i];
+//                 }
+//             } else {
+//                 return a[i] - b[i];
+//             }
+//         };
+//         return result.sort(function(a, b){
+//             lexSort(a, b, 0);
+//         });
+//     }
+
+
+var permute = function(nums) {
+  const result = [];
+  helper(nums, 0, result);
+  return result;
+};
+
+function helper(nums, l, final) {
+    console.log(l)
+    if (l >= nums.length) {
+      let arr = nums.slice();
+      final.push(arr);
+    } else {
+      for (let i = l; i < nums.length; i += 1) {
+        // begin swap
+        let temp = nums[l];
+        nums[l] = nums[i];
+        nums[i] = temp;
+        helper(nums, l += 1, final);
+        // swap back - backtrack
+        temp = nums[l];
+        nums[l] = nums[i];
+        nums[i] = temp;
+      }
     }
+}
 
+console.log(permute([1,2,3]))

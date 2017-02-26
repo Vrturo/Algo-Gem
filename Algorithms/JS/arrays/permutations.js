@@ -20,6 +20,8 @@
   // run get permutations function on an empty arr and nums or our input
   // return result
 
+// Backtracking
+
 var permute = function(nums) { // 144ms runtime
     var result = [];
     //nums are distinct numbers.
@@ -44,7 +46,7 @@ var permute = function(nums) { // 144ms runtime
 
 
 // ------------------------------------
-// Backtracking w/ side effects
+// Backtracking Swap w/ side effects
 
 var permute = function( nums, l=0, result=[] ){ // 122ms runtime
     if( l >= nums.length ){
@@ -66,7 +68,7 @@ var permute = function( nums, l=0, result=[] ){ // 122ms runtime
 console.log(perme)
 
 //-----------------------------------------------------------
-// Backtracking w/ helper function
+// Backtracking Swap w/ helper function
 
 function permute(nums) {
 
@@ -79,7 +81,7 @@ function permute(nums) {
         var temp = nums[l];
         nums[l] = nums[i];
         nums[i] = temp;
-        permute(l+1, result);
+        helper(l+1, result);
         temp = nums[l];
         nums[l] = nums[i];
         nums[i] = temp;
