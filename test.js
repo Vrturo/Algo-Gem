@@ -276,30 +276,53 @@
 //     }
 
 
-var permute = function(nums) {
-  const result = [];
-  helper(nums, 0, result);
-  return result;
-};
+// var permute = function(nums) {
+//   const result = [];
+//   helper(nums, 0, result);
+//   return result;
+// };
 
-function helper(nums, l, final) {
-    console.log(l)
-    if (l >= nums.length) {
-      let arr = nums.slice();
-      final.push(arr);
-    } else {
-      for (let i = l; i < nums.length; i += 1) {
-        // begin swap
-        let temp = nums[l];
-        nums[l] = nums[i];
-        nums[i] = temp;
-        helper(nums, l += 1, final);
-        // swap back - backtrack
-        temp = nums[l];
-        nums[l] = nums[i];
-        nums[i] = temp;
-      }
+// function helper(nums, l, final) {
+//     console.log(l)
+//     if (l >= nums.length) {
+//       let arr = nums.slice();
+//       final.push(arr);
+//     } else {
+//       for (let i = l; i < nums.length; i += 1) {
+//         // begin swap
+//         let temp = nums[l];
+//         nums[l] = nums[i];
+//         nums[i] = temp;
+//         helper(nums, l += 1, final);
+//         // swap back - backtrack
+//         temp = nums[l];
+//         nums[l] = nums[i];
+//         nums[i] = temp;
+//       }
+//     }
+// }
+
+// console.log(permute([1,2,3]))
+
+function topologicalSort(g){
+  var result = [],
+      visited = {},
+      stack = [];
+
+  function helper(v) {
+    visited[v] = true;
+    var edges = g.vertices[v];
+    for (var i = 0; i < edges.length; i += 1) {
+      if (!visited[edges[i]]) helper(edges[i]);
     }
+    result.push(v);
+  }
+
+  for (var k in g.vertices) { // loop through graph vertices
+    if (!visited[k]) helper(k);
+  }
+
+  return result;
 }
 
-console.log(permute([1,2,3]))
+console.log(topologicalSort())

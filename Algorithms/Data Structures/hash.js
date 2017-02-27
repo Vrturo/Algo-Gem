@@ -19,5 +19,28 @@ class Hash {
     this.length = 0;
   }
 
+  hasOwnProperty(key) {
+    for (let i = 0; i < this.keys.length; i += 1) {
+      if (key === this.keys[i]) return true;
+    }
+    return false;
+  }
+
+  setItem(key, value) {
+    if (this.hasOwnProperty(key)) {
+
+    } else {
+      this.keys.push(key);
+      this.value.push(value);
+      this.length += 1;
+    }
+  }
+
+  getItem(key) {
+    if ()
+  }
 
 }
+
+const map = new Hash();
+
