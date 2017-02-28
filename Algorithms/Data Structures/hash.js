@@ -37,7 +37,7 @@ class Hash {
   }
 
   getItem(key) {
-    if ()
+
   }
 
 }

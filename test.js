@@ -304,25 +304,53 @@
 
 // console.log(permute([1,2,3]))
 
-function topologicalSort(g){
-  var result = [],
-      visited = {},
-      stack = [];
+// function topologicalSort(g){
+//   var result = [],
+//       visited = {},
+//       stack = [];
 
-  function helper(v) {
-    visited[v] = true;
-    var edges = g.vertices[v];
-    for (var i = 0; i < edges.length; i += 1) {
-      if (!visited[edges[i]]) helper(edges[i]);
+//   function helper(v) {
+//     visited[v] = true;
+//     var edges = g.vertices[v];
+//     for (var i = 0; i < edges.length; i += 1) {
+//       if (!visited[edges[i]]) helper(edges[i]);
+//     }
+//     result.push(v);
+//   }
+
+//   for (var k in g.vertices) { // loop through graph vertices
+//     if (!visited[k]) helper(k);
+//   }
+
+//   return result;
+// }
+
+// console.log(topologicalSort())
+
+
+function combinationSum(nums, target){
+    var result = [],
+        map = {};
+    function backtrack(start, buildUp, sum) {
+        if (buildUp.length) sum = buildUp.reduce( (p, c) => p + c );
+        if (sum === target) {
+            temp = buildUp.slice();
+            buildUp.sort();
+            if (!map[buildUp]){
+                result.push(temp);
+                map[buildUp] = true;
+            }
+        } else if(sum < target) {
+            for (var i = start; i < nums.length; i += 1) {
+                buildUp.push(nums[i]);
+                // sum += nums[i];
+                backtrack(start, buildUp, sum);
+                // sum -= nums[i];
+                buildUp.pop();
+            }
+        }
     }
-    result.push(v);
-  }
-
-  for (var k in g.vertices) { // loop through graph vertices
-    if (!visited[k]) helper(k);
-  }
-
-  return result;
+    backtrack(0, [], 0);
+    return result;
 }
-
-console.log(topologicalSort())
+console.log(combinationSum([2, 2, 3, 7], 7))
