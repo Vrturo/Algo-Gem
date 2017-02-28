@@ -16,7 +16,9 @@
 // How hashing works
 
 // Purely as an example to help us grasp the concept,
-// let us suppose that we want to map a list of string keys to string values (for example, map a list of countries to their capital cities). So let’s say we want to store the data in Table 1 in the map.
+// let us suppose that we want to map a list of string keys to string values
+// (for example, map a list of countries to their capital cities).
+// So let’s say we want to store the data in Table 1 in the map.
 
 // Key             |    Value
 // ----------------|-------------
@@ -50,7 +52,8 @@
 
 // Now, in this specific example things work quite well.
 // Our array needs to be big enough to accommodate the longest string, but in this case that’s only 11 slots.
-// And we do waste a bit of space because, for example, there’s no 1-letter keys in our data, nor keys between 8 and 10 letters.
+// And we do waste a bit of space because, for example,
+// there’s no 1-letter keys in our data, nor keys between 8 and 10 letters.
 // But in this case, the waste isn’t so bad either.
 // And taking the length of a string is nice and fast, so so is the process of finding the value associated with a given key
 // (certainly faster than doing up to five string comparisons)1.
