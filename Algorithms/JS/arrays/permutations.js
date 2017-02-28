@@ -70,6 +70,8 @@ console.log(perme)
 //-----------------------------------------------------------
 // Backtracking Swap w/ helper function
 
+// LOOP IS STUCK
+
 function permute(nums) {
 
   function helper(l, result) {
