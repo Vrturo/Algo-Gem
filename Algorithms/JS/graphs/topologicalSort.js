@@ -155,6 +155,8 @@ graph.addEdge(2, 3);
 graph.addEdge(2, 4);
 graph.addEdge(2, 5);
 
+// without using a stack
+
 function topologicalSort(g){
   var result = [],
       visited = {};
