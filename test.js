@@ -251,29 +251,54 @@
 // console.log(topologicalSort())
 
 
-function combinationSum(nums, target){
-    var result = [],
-        map = {};
-    function backtrack(start, buildUp, sum) {
-        if (buildUp.length) sum = buildUp.reduce( (p, c) => p + c );
-        if (sum === target) {
-            temp = buildUp.slice();
-            buildUp.sort();
-            if (!map[buildUp]){
-                result.push(temp);
-                map[buildUp] = true;
-            }
-        } else if(sum < target) {
-            for (var i = start; i < nums.length; i += 1) {
-                buildUp.push(nums[i]);
-                // sum += nums[i];
-                backtrack(start, buildUp, sum);
-                // sum -= nums[i];
-                buildUp.pop();
-            }
+// function combinationSum(nums, target){
+//     var result = [],
+//         map = {};
+//     function backtrack(start, buildUp, sum) {
+//         if (buildUp.length) sum = buildUp.reduce( (p, c) => p + c );
+//         if (sum === target) {
+//             temp = buildUp.slice();
+//             buildUp.sort();
+//             if (!map[buildUp]){
+//                 result.push(temp);
+//                 map[buildUp] = true;
+//             }
+//         } else if(sum < target) {
+//             for (var i = start; i < nums.length; i += 1) {
+//                 buildUp.push(nums[i]);
+//                 // sum += nums[i];
+//                 backtrack(start, buildUp, sum);
+//                 // sum -= nums[i];
+//                 buildUp.pop();
+//             }
+//         }
+//     }
+//     backtrack(0, [], 0);
+//     return result;
+// }
+// console.log(combinationSum([2, 2, 3, 7], 7))
+
+
+
+function reverseString(string){
+    function helper(first, last, str){
+        console.log(str)
+        if(first === last){
+            return str.join('');
+        } else {
+            swap(first, last, str);
+            return helper(first + 1, last - 1, str);
         }
     }
-    backtrack(0, [], 0);
-    return result;
+
+    function swap(a, b, string){ // letters h, o
+        var temp = string[a]; // a = 'h', b = 'o'
+        string[a] = string[b]; // a = 'o', b = 'o'
+        string[b] = temp; // b = 'h'
+    }
+
+    return helper(0, string.length - 1, string.split(''));
 }
-console.log(combinationSum([2, 2, 3, 7], 7))
+
+console.log(reverseString('hello'));
+
