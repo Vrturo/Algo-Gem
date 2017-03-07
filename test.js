@@ -280,25 +280,55 @@
 
 
 
-function reverseString(string){
-    function helper(first, last, str){
-        console.log(str)
-        if(first === last){
-            return str.join('');
+// function reverseString(string){
+//     function helper(first, last, str){
+//         console.log(str)
+//         if(first === last){
+//             return str.join('');
+//         } else {
+//             swap(first, last, str);
+//             return helper(first + 1, last - 1, str);
+//         }
+//     }
+
+//     function swap(a, b, string){ // letters h, o
+//         var temp = string[a]; // a = 'h', b = 'o'
+//         string[a] = string[b]; // a = 'o', b = 'o'
+//         string[b] = temp; // b = 'h'
+//     }
+
+//     return helper(0, string.length - 1, string.split(''));
+// }
+
+// console.log(reverseString('hello'));
+
+
+function merge(array1, array2){
+    var result = [];
+    function helper(firstIndex, secondIndex){
+        if(firstIndex >= array1.length && secondIndex >= array2.length){
+            return;
         } else {
-            swap(first, last, str);
-            return helper(first + 1, last - 1, str);
+            if(array1[firstIndex] && array2[secondIndex]){
+                if(array1[firstIndex] < array2[secondIndex]){
+                    result.push(array1[firstIndex]);
+                    firstIndex++;
+                    return helper(firstIndex, secondIndex);
+                } else {
+                    result.push(array2[secondIndex]);
+                    secondIndex++;
+                    return helper(firstIndex, secondIndex);
+                }
+            }
+            if(array1[firstIndex]) {
+                return result.concat(array1.splice(firstIndex))
+            };
+            if(array2[secondIndex]) {
+                return result.concat(array2.splice(secondIndex));
+            };
         }
     }
-
-    function swap(a, b, string){ // letters h, o
-        var temp = string[a]; // a = 'h', b = 'o'
-        string[a] = string[b]; // a = 'o', b = 'o'
-        string[b] = temp; // b = 'h'
-    }
-
-    return helper(0, string.length - 1, string.split(''));
+    return helper(0, 0);
 }
-
-console.log(reverseString('hello'));
+console.log(merge([1, 5, 7], [2, 3, 6]));
 

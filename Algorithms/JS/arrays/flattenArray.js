@@ -20,15 +20,15 @@
 // call our function on our outermost array
 
 
-function flatten(arr){
-  var result = [];
+function flatten(arr) {
+  const result = [];
 
-  function helper(currObj){
-    for( var i = 0; i<currObj.length; i++ ){
-      if( typeof currObj[i] === 'number'){
-        result.push( currObj[i] );
+  function helper(currObj) {
+    for (let i = 0; i < currObj.length; i += 1) {
+      if (typeof currObj[i] === 'number') {
+        result.push(currObj[i]);
       } else {
-        helper( currObj[i] )
+        helper(currObj[i])
       }
     }
     return result;
@@ -36,32 +36,19 @@ function flatten(arr){
   return helper(arr);
 }
 
-
-
-
-
 // -----------------------------
 
-function flatten(element){
-  if( Number.isInteger(element) ){
-    return element;
-  }
-  var work = [];
+function flatten(element) {
+  if (Number.isInteger(element)) return element;
+  const work = [];
 
-  for(var i =0; i<element.length; i++){
+  for(let i = 0; i < element.length; i += 1) {
     work = work.concat(flatten(element[i]));
   }
-
   return work;
 }
 
-
-
-
 var ex = [1, [2, 3, [4]], 5, [[6]]];
-console.log( flatten(ex) );
-
-
-
+console.log(flatten(ex));
 
 
