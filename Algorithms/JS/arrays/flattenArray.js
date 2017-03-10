@@ -42,7 +42,7 @@ function flatten(element) {
   if (Number.isInteger(element)) return element;
   const work = [];
 
-  for(let i = 0; i < element.length; i += 1) {
+  for (let i = 0; i < element.length; i += 1) {
     work = work.concat(flatten(element[i]));
   }
   return work;
