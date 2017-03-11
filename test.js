@@ -303,17 +303,14 @@
 // console.log(reverseString('hello'));
 
 
-function reverseString(str) {
-  var result = str.split(''),
-      j = 0;
-      console.log(Math.floor(result.length/2))
-  for (var i = result.length; i >= Math.floor(result.length/2); i--) {
-    var temp = result[i];
-    result[i] = result[j];
-    result[j] = temp;
-    j += 1;
+function titleCase(str) {
+  var words = str.split(' '),
+      result = [];
+  for (var i = 0; i < words.length; i += 1) {
+    words[i] = words[i].charAt(0).toUpperCase() + words[i].slice(1);
   }
-  return result.join('');
+  return words.join(' ');
 }
 
-console.log(reverseString("Howdy"));
+console.log(titleCase("I'm a little tea pot"));
+
