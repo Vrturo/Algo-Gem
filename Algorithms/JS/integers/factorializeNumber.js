@@ -25,8 +25,8 @@
 // return buildUp
 
 function factorialize(num) {
-  var buildUp = 1;
-  for(var i = 2; i <= num; i += 1) {
+  let buildUp = 1;
+  for (let i = 2; i <= num; i += 1) {
     buildUp *= i;
   }
   return buildUp;
