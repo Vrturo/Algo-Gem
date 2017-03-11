@@ -18,4 +18,13 @@
 // ex. 120
 // 3628800
 
+function factorialize(num) {
+  var buildUp = 1;
+  for(var i = 2; i <= num; i += 1) {
+    buildUp *= i;
+  }
+  return buildUp;
+}
+
+console.log(factorialize(5));
 
