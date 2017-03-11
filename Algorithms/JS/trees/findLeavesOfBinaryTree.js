@@ -40,6 +40,25 @@
 var findLeaves = function(root) {
     var collection = [];
 
+    function height(node, arr) {
+        if (node === null) return -1;
+        var level = 1 + Math.max(height(node.left, arr), height(node.right, arr));
+        if (arr.length < level + 1) arr.push([]);
+        arr[level].push(node.val);
+        return level;
+    }
+
+    height(root, collection);
+    return collection;
+};
+
+// ----------------------------------------------------------
+
+// Only gets bottom level leaves
+
+var findLeaves = function(root) {
+    var collection = [];
+
     function helper( node, arr ){
         console.log(node);
         if( node === null ) return node;
