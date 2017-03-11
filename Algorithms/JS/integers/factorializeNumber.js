@@ -18,6 +18,12 @@
 // ex. 120
 // 3628800
 
+
+// create a build up var starting at 1, that increases as it gets multiplied to meet the factorial output
+// loop from bottom up till factorial number is reach
+  // buildUp is multiplied each time by the current number
+// return buildUp
+
 function factorialize(num) {
   var buildUp = 1;
   for(var i = 2; i <= num; i += 1) {
