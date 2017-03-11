@@ -303,32 +303,17 @@
 // console.log(reverseString('hello'));
 
 
-function merge(array1, array2){
-    var result = [];
-    function helper(firstIndex, secondIndex){
-        if(firstIndex >= array1.length && secondIndex >= array2.length){
-            return;
-        } else {
-            if(array1[firstIndex] && array2[secondIndex]){
-                if(array1[firstIndex] < array2[secondIndex]){
-                    result.push(array1[firstIndex]);
-                    firstIndex++;
-                    return helper(firstIndex, secondIndex);
-                } else {
-                    result.push(array2[secondIndex]);
-                    secondIndex++;
-                    return helper(firstIndex, secondIndex);
-                }
-            }
-            if(array1[firstIndex]) {
-                return result.concat(array1.splice(firstIndex))
-            };
-            if(array2[secondIndex]) {
-                return result.concat(array2.splice(secondIndex));
-            };
-        }
-    }
-    return helper(0, 0);
+function reverseString(str) {
+  var result = str.split(''),
+      j = 0;
+      console.log(Math.floor(result.length/2))
+  for (var i = result.length; i >= Math.floor(result.length/2); i--) {
+    var temp = result[i];
+    result[i] = result[j];
+    result[j] = temp;
+    j += 1;
+  }
+  return result.join('');
 }
-console.log(merge([1, 5, 7], [2, 3, 6]));
 
+console.log(reverseString("Howdy"));
