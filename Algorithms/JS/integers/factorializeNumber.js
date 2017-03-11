@@ -10,3 +10,12 @@
 // For example: 5! = 1 * 2 * 3 * 4 * 5 = 120
 
 
+// Input: Integer
+// 5
+//10
+
+// Output: Integer
+// ex. 120
+// 3628800
+
+
