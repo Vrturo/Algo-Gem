@@ -10,9 +10,17 @@
  * @return {str}
  */
 
+// Logic
+
+// create a words array that stores each element seperately
+// loop through words array
+  // set each element to a copy of the current element uppercasing the first char &&
+  // lower casing the rest
+// return the words array joined into a string
+
 function titleCase(str) {
-  var words = str.split(' ');
-  for (var i = 0; i < words.length; i += 1) {
+  const words = str.split(' ');
+  for (let i = 0; i < words.length; i += 1) {
     words[i] = words[i].charAt(0).toUpperCase() + words[i].slice(1).toLowerCase();
   }
   return words.join(' ');
