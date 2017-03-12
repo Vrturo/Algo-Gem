@@ -302,15 +302,12 @@
 
 // console.log(reverseString('hello'));
 
-
-function titleCase(str) {
-  var words = str.split(' '),
-      result = [];
-  for (var i = 0; i < words.length; i += 1) {
-    words[i] = words[i].charAt(0).toUpperCase() + words[i].slice(1);
-  }
-  return words.join(' ');
+function confirmEnding(str, target) {
+  // "Never give up and good luck will find you."
+  // -- Falcor
+  const strArr = str.split(' ');
+  if (str.split(' ').length === 1) return target === str[str.length - 1];
+  return strArr[strArr.length - 1].includes(target);
 }
 
-console.log(titleCase("I'm a little tea pot"));
-
+console.log(confirmEnding("Open sesame", "same"));
