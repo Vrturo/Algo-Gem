@@ -17,3 +17,12 @@
 // false
 // true
 
+function confirmEnding(str, target) {
+  // "Never give up and good luck will find you."
+  // -- Falcor
+  var strArr = str.split(" ");
+  if (strArr.length === 1) return target === str[str.length - 1];
+  return strArr[strArr.length - 1].includes(target);
+}
+
+console.log(confirmEnding("Bastian", "n"));
