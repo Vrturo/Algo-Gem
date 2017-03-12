@@ -17,6 +17,12 @@
 // false
 // true
 
+// Split str into an array
+// if the split array is just one element long we know its one word
+	// check the word and see if last elements matches target
+// if array has words
+	// check to see if last word contains target
+
 function confirmEnding(str, target) {
   // "Never give up and good luck will find you."
   // -- Falcor
