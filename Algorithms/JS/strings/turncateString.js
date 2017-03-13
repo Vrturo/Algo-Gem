@@ -13,12 +13,17 @@
  * @return {string}
  */
 
+// if the string length is over the limit given
+	// check to see if the string has enough characters to cut and add dots at the end
+		// if it doesnt just slice at the length of the limit add the dots
+		// else slice at the limit - 3 to add the 3 dots
+// if the string isnt over the limit just return str
 
 function truncateString(str, num) {
   if (str.length > num) {
-  	return num < 3 ? str.slice(0, num) + '...' : str.slice(0, num - 3) + '...';
+	 	return num < 3 ? str.slice(0, num) + '...' : str.slice(0, num - 3) + '...';
   }
   return str;
 }
 
-console.log9truncateString("A-tisket a-tasket A green and yellow basket", 11));
+console.log(truncateString("A-tisket a-tasket A green and yellow basket", 11));
