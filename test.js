@@ -301,13 +301,13 @@
 // }
 
 // console.log(reverseString('hello'));
-
-function confirmEnding(str, target) {
-  // "Never give up and good luck will find you."
-  // -- Falcor
-  const strArr = str.split(' ');
-  if (str.split(' ').length === 1) return target === str[str.length - 1];
-  return strArr[strArr.length - 1].includes(target);
+function truncateString(str, num) {
+  // Clear out that junk in your trunk
+  if (str.length > num) {
+  	return num < 3 ? str.slice(0, num) + '...' : str.slice(0, num - 3) + '...';
+  }
+  return str;
 }
 
-console.log(confirmEnding("Open sesame", "same"));
+console.log(truncateString("Absolutely Longer", 2));
+
