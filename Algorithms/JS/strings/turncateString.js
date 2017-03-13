@@ -12,3 +12,13 @@
  * @param {string} str
  * @return {string}
  */
+
+
+function truncateString(str, num) {
+  if (str.length > num) {
+  	return num < 3 ? str.slice(0, num) + '...' : str.slice(0, num - 3) + '...';
+  }
+  return str;
+}
+
+console.log9truncateString("A-tisket a-tasket A green and yellow basket", 11));
