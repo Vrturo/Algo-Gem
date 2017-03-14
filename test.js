@@ -300,14 +300,24 @@
 //     return helper(0, string.length - 1, string.split(''));
 // }
 
-// console.log(reverseString('hello'));
-function truncateString(str, num) {
-  // Clear out that junk in your trunk
-  if (str.length > num) {
-  	return num < 3 ? str.slice(0, num) + '...' : str.slice(0, num - 3) + '...';
+
+function diffArray(arr1, arr2) {
+  var newArr = [],
+      map = {};
+  for(var i = 0; i < arr1.length; i++) {
+    map[arr1[i]] = true;
   }
-  return str;
+  for (var j = 0; j < arr2.length; j += 1) {
+    map[arr2[j]] ? map[arr2[j]] = false : map[arr2[j]] = true;
+  }
+  for (var k in map) {
+    if (map[k]) {
+      Number(k) ? newArr.push(Number(k)) : newArr.push(k);
+    }
+  }
+  // Same, same; but different.
+  return newArr;
 }
 
-console.log(truncateString("Absolutely Longer", 2));
+console.log(diffArray([1, "calf", 3, "piglet"], [1, "calf", 3, 4]));
 
