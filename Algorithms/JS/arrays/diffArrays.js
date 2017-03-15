@@ -21,6 +21,18 @@
  * @return {array}
  */
 
+// create array to return unique objects, if any
+// create object to keep track of unique elements
+// loop through first arr
+	// save every element to map and set as true, as in it is true it is unique
+// loop through second array
+	// if the item exists, set it to false because it is no longer unique
+	// if the item doesnt exists, create it and set it to true
+// loop through the map's keys
+	// push every item into our final array
+		// if the key can be a Number push it in as one, else its a string
+// return array at the end
+
 function diffArray(arr1, arr2) {
   const newArr = [];
   const map = {};
