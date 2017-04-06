@@ -51,20 +51,22 @@ function parse(string) {
 }
 console.log(parse('101'))
 
-// ----------------------------------------
 
-function BinaryToDecimal(BinaryValue){
-    var DecimalValue = 0;
-    // Flip the character array (aka string) in order to make itterating over it easier
-    BinaryValue = BinaryValue.split("").reverse().join("");
-    // Loop over BinaryValue (from left to right)
-    for (var i=BinaryValue.length-1;i>=0;i--){
-        // Is there a 1 in the place?
-        if(BinaryValue[i] == '1'){
-            // If so, add 2^i/2 to DecimalValue
-            DecimalValue = DecimalValue + (Math.pow(2,i+1)/2);
-        }
+// --------------------------------------------------------------
+
+function BinaryToDecimal(BinaryValue) {
+  let DecimalValue = 0;
+  // Flip the character array (aka string) in order to make iterating over it easier
+  const binaryValueArr = BinaryValue.split('').reverse().join('');
+
+  // Loop over BinaryValueArr (from left to right)
+  for (let i = binaryValueArr.length - 1; i >= 0; i -= 1) {
+    // Is there a 1 in the place?
+    if (binaryValueArr[i] === '1') {
+        // If so, add 2^i/2 to DecimalValue
+      DecimalValue += (2 ** (i + 1)) / 2;
     }
-    return DecimalValue;
+  }
+  return DecimalValue;
 }
 
