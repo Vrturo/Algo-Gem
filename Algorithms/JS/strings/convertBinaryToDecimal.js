@@ -34,6 +34,23 @@ function parse( string ){
     return sum;
 }
 
+
+// Refactored ^^^ still doesnt work
+function parse(string) {
+  const numbers = string.split('');
+  let counter = 0;
+  let sum = 0;
+  let power;
+  for (let i = numbers.length; i <= 0; i -= 1) {
+    const integer = parseInt(numbers[i], 10);
+    power = 2 ** counter;
+    sum += power * integer;
+    counter += 1;
+  }
+  return sum;
+}
+console.log(parse('101'))
+
 // ----------------------------------------
 
 function BinaryToDecimal(BinaryValue){
